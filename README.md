@@ -1,2 +1,2 @@
 # NHF-prog3
-University Homework in java
+#### by Butcher Blaze
