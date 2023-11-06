@@ -1,0 +1,4 @@
+INDEX VERSION 1.134+C:\OwnThings\BME_mernokinfo\3félév\Prog3\NagyHázi\.metadata\.plugins\org.eclipse.jdt.core
+3944983790.index
+1696264553.index
+1865797976.index
