@@ -1,0 +1,86 @@
+package menu;
+
+import java.awt.BorderLayout;
+import java.awt.ComponentOrientation;
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+import bestrounds.BRwin;
+import gameplay.GamePanel;
+import gameplay.GameWind;
+
+public class MainMenu extends JFrame{
+	private JPanel actual_pan;
+	//TODO make a back button, and a listener
+	
+	private class NewGameButtonListener implements ActionListener{
+		public void actionPerformed(ActionEvent newgame) {
+			getContentPane().removeAll();
+			actual_pan = new GamePanel();
+			add(actual_pan);
+		}
+		
+	}
+	private class LoadButtonListener implements ActionListener{
+		public void actionPerformed(ActionEvent newgame) {
+			System.out.println("Load Game");
+		}
+	}
+	private class BestRoundsButtonListener implements ActionListener{
+		public void actionPerformed(ActionEvent newgame) {
+			BRwin brwin = new BRwin();
+		}
+		
+	}
+	private class ExitButtonListener implements ActionListener{
+		public void actionPerformed(ActionEvent newgame) {
+			System.exit(0);
+		}
+	}
+	public MainMenu() {
+		setTitle("Main Menu");
+		setSize(new Dimension(600, 600));
+		
+		actual_pan = new JPanel(new GridBagLayout());
+		GridBagConstraints gbc_cent = new GridBagConstraints();
+		gbc_cent.gridx = 0;
+		gbc_cent.gridy = 0;
+		gbc_cent.weightx = 1.0;
+		gbc_cent.anchor = GridBagConstraints.CENTER;
+		
+		JButton ngb = new JButton("New Game");
+		ngb.addActionListener(new NewGameButtonListener());
+		
+		JButton lgb = new JButton("Load Game");
+		lgb.addActionListener(new LoadButtonListener());
+		
+		JButton brb = new JButton("Best Rounds");
+		brb.addActionListener(new BestRoundsButtonListener());
+		
+		JButton xtb = new JButton("EXIT");
+		xtb.addActionListener(new ExitButtonListener());
+		
+		actual_pan.add(ngb, gbc_cent);
+		gbc_cent.gridy++;
+		actual_pan.add(lgb, gbc_cent);
+		gbc_cent.gridy++;
+		actual_pan.add(brb, gbc_cent);
+		gbc_cent.gridy++;
+		actual_pan.add(xtb, gbc_cent);
+		gbc_cent.gridy++;
+		
+		add(actual_pan);
+		
+		setLocationRelativeTo(null);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setResizable(false);
+	}
+}

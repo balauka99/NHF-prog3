@@ -1,0 +1,13 @@
+package menu;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
+public class MenuPanel extends JPanel{
+	private JButton ngb = new JButton("New Game") {
+		
+	};
+	private JButton lgb = new JButton("Load Game");
+	private JButton brb = new JButton("Best Rounds");
+	private JButton xtb = new JButton("EXIT");
+}

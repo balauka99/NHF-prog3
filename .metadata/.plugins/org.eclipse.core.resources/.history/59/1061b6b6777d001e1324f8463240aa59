@@ -1,0 +1,21 @@
+package menu;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
+public class MenuPanel extends JPanel{
+	private JButton ngb = new JButton("New Game") {
+		private class NewGameButtonListener implements ActionListener{
+			public void actionPerformed(ActionEvent newgame) {
+				System.out.println("New Game");
+			}
+			
+		}
+	};
+	private JButton lgb = new JButton("Load Game");
+	private JButton brb = new JButton("Best Rounds");
+	private JButton xtb = new JButton("EXIT");
+}

@@ -1,0 +1,10 @@
+package gameplay;
+
+import javax.swing.JFrame;
+
+public class GameWind extends JFrame{
+	public GameWind() {
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+	}
+}

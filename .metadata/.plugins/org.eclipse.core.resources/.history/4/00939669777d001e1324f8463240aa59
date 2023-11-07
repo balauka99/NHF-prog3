@@ -1,0 +1,8 @@
+package menu;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
+public class MenuPanel extends JPanel{
+	JButton ngb = new JButton("New Game");
+}

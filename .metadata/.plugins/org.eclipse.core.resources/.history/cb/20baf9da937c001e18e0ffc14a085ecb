@@ -1,0 +1,9 @@
+package main;
+
+import menu.MainMenu;
+
+public class Main{
+	public static void Main(String[] arg) {
+		MainMenu mmenu = new MainMenu();
+	}
+}
