@@ -1,0 +1,23 @@
+package gameplay;
+
+import java.awt.GridBagLayout;
+
+import ospanel.OsPanel;
+
+public class GamePanel extends OsPanel implements Runnable{
+	private Thread mainT;	// A main szálla a játéknak
+	public void startMainT() {
+		mainT = new Thread(this);
+		mainT.start();
+	}
+	@Override
+	public void run() {
+		// A game loop addig megy ameddig tart a main szállunk
+		while(mainT != null) {
+			System.out.println("Game Play");
+		}
+	}
+	public void updatePanel() {
+		
+	}
+}

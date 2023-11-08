@@ -1,21 +1,19 @@
 package menu;
 
 import java.awt.BorderLayout;
-import java.awt.ComponentOrientation;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import bestrounds.BRwin;
-import gameplay.GamePanel;
-import gameplay.GameWind;
+import bestrounds.BRPanel;
+import gameplay.*;
+import load.LoadPanel;
 
 public class MainMenu extends JFrame{
 	private JPanel actual_pan;
@@ -55,34 +53,34 @@ public class MainMenu extends JFrame{
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);
 	}
-	
+	private void setActualPan(JPanel tmp) {
+		getContentPane().removeAll();
+		actual_pan = tmp;
+		add(tmp);
+		pack();
+	}
 	private class BackButtonListener implements ActionListener{
 		public void actionPerformed(ActionEvent back) {
 			ResetMenuPanel();
 			add(actual_pan);
-			//pack();	Ha bent van az a sor, akkor összeugrik minden
 		}
 	}
 	private class NewGameButtonListener implements ActionListener{
 		public void actionPerformed(ActionEvent newgame) {
-			getContentPane().removeAll();
-			actual_pan = new GamePanel();
-			JButton back = new JButton("Back");
-			back.addActionListener(new BackButtonListener());
-			actual_pan.add(back);
-			add(actual_pan);
-			pack();
+			GameWin gameW = new GameWin();
+			setVisible(false);
+			gameW.setVisible(true);
 		}
 		
 	}
 	private class LoadButtonListener implements ActionListener{
 		public void actionPerformed(ActionEvent loadgame) {
-			System.out.println("Load Game");
+			setActualPan(new LoadPanel());
 		}
 	}
 	private class BestRoundsButtonListener implements ActionListener{
 		public void actionPerformed(ActionEvent bestrounds) {
-			BRwin brwin = new BRwin();
+			setActualPan(new BRPanel());
 		}
 		
 	}

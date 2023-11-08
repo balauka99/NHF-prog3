@@ -1,0 +1,7 @@
+package gameplay;
+
+import javax.swing.JFrame;
+
+public class GameWin extends JFrame{
+
+}

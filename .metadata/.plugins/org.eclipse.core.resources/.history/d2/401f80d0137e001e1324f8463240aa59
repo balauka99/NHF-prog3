@@ -1,0 +1,37 @@
+package gameplay;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+
+import ospanel.OsPanel;
+
+public class GamePanel extends OsPanel implements Runnable{
+	private Thread mainT;	// A main szálla a játéknak
+	public void startMainT() {
+		mainT = new Thread(this);
+		mainT.start();
+	}
+	@Override
+	public void run() {
+		// A game loop addig megy ameddig tart a main szállunk
+		while(mainT != null) {
+			updatePanel();
+			repaint();
+		}
+	}
+	public void updatePanel() {
+		
+	}
+	public void paintComponent(Graphics grap) {
+		super.paintComponent(grap);
+		
+		Graphics2D grap2 = (Graphics2D) grap;
+		
+		grap2.setColor(Color.white);
+		
+		grap2.fillRect(100, 100, tileSize, tileSize);
+		
+		grap2.dispose();	// Megsporolunk egy kis memóriát
+	}
+}

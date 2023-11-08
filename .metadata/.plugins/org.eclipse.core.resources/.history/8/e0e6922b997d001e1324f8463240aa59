@@ -1,0 +1,7 @@
+package ospanel;
+
+import javax.swing.JPanel;
+
+public class OsPanel extends JPanel{
+	public 
+}

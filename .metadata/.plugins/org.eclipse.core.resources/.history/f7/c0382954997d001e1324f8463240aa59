@@ -1,0 +1,11 @@
+package gameplay;
+
+import java.awt.Color;
+import java.awt.Dimension;
+
+import javax.swing.JPanel;
+
+import ospanel.OsPanel;
+
+public class GamePanel extends OsPanel{
+}
