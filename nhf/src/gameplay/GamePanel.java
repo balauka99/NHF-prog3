@@ -4,24 +4,32 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
+import entity.Player;
+import object.OsObject;
 import ospanel.OsPanel;
+import tile.TileManager;
 
 public class GamePanel extends OsPanel implements Runnable{
 	
 	KeyHandler keyH = new KeyHandler();	// Gomb nyomásokat lekezeli
 	Thread mainT;	// A main szálla a játéknak
-	
-	// Játékos alap beállása
-	private int playerX = 100;
-	private int playerY = 100;
-	private int playerSp = 4;
+	Player gamer = new Player(this, keyH);
 	
 	private int fps = 60;
+	public TileManager tileMg = new TileManager(this);
+	public CollisionChecker cChecker = new CollisionChecker(this);
+	
+	public OsObject objects[] = new OsObject[10];	//TODO átalakítani
+	public AssetSetter assSetter = new AssetSetter(this);
 	
 	public GamePanel() {
 		super();
 		this.addKeyListener(keyH);
 		this.setFocusable(true);	// Fokuszál a key inputra
+	}
+	
+	public void setupGame() {
+		assSetter.setObject();
 	}
 	
 	public void startMainT() {
@@ -57,31 +65,25 @@ public class GamePanel extends OsPanel implements Runnable{
 	}
 	
 	public void updatePanel() {
-		//System.out.println("Olvasok");
-		if(keyH.wP == true) {
-			playerY -= playerSp;
-		}
-		else if(keyH.sP == true) {
-			playerY += playerSp;
-		}
-		else if(keyH.aP == true) {
-			playerX -= playerSp;
-		}
-		else if(keyH.dP == true) {
-			playerX += playerSp;
-		}
+		gamer.update();
 	}
 	
 	public void paintComponent(Graphics grap) {
-		//System.out.println("Game loop running");
-		
 		super.paintComponent(grap);
-		
 		Graphics2D grap2 = (Graphics2D) grap;
 		
-		grap2.setColor(Color.white);
+		//Tileok, legalsó elemek
+		tileMg.draw(grap2);	// Előbb ezt kell meghívni, hogy a tilok legyenek hátrébb a layerekben
 		
-		grap2.fillRect(playerX, playerY, tileSize, tileSize);
+		//Objectek
+		for(int i = 0; i < objects.length; i++) {
+			if(objects[i] != null) {
+				objects[i].draw(grap2, this);
+			}
+		}
+		
+		//Játékos, neki kell lennie legfent
+		gamer.draw(grap2);
 		
 		grap2.dispose();	// Megsporolunk egy kis memóriát
 	}

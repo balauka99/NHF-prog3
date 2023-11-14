@@ -1,0 +1,14 @@
+package tile;
+
+import java.awt.image.BufferedImage;
+
+public class Tile {
+	private BufferedImage skin;
+	
+	public void setSkin(BufferedImage img) {
+		skin = img;
+	}
+	public BufferedImage getSkin() {
+		return skin;
+	}
+}

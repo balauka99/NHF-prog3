@@ -1,0 +1,13 @@
+package entity;
+
+public class Entity {
+	private int x, y, speed;
+	
+	//Geterek és seterek
+	public int getX() { return x; }
+	public void setX(int newx) { x = newx; }
+	public int getY() { return y; }
+	public void setY(int newy) { y = newy; }
+	public int getSpeed() { return speed; }
+	public void setSpeed(int newspeed) { speed = newspeed; }
+}

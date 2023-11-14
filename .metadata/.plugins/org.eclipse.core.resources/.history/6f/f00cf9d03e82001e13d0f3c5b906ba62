@@ -1,0 +1,7 @@
+package object;
+
+public class OBJ_Key extends OsObject{
+	public OBJ_Key() {
+		name = "Key";
+	}
+}

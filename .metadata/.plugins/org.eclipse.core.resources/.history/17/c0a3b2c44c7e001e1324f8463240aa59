@@ -1,0 +1,12 @@
+package entity;
+
+public class Entity {
+	private int x, y;
+	public int getX() { return x; }
+	public void setX(int newx) { x = newx; }
+	public int getY() { return y; }
+	public void setY(int newy) { x = newy; }
+	
+	public Entity() {
+	}
+}

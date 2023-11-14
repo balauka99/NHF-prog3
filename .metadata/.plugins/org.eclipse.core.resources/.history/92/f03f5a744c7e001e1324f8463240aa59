@@ -1,0 +1,10 @@
+package entity;
+
+import javax.swing.text.Position;
+
+public class Entity {
+	public Position pos;
+	public Entity() {
+		
+	}
+}

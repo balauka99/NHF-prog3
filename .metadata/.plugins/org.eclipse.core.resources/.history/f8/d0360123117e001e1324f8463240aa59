@@ -1,9 +1,0 @@
-package gameplay;
-
-import java.awt.GridBagLayout;
-
-import ospanel.OsPanel;
-
-public class GamePanel extends OsPanel implements Runnable{
-	private Thread gameTime;
-}

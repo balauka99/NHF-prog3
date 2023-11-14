@@ -47,5 +47,15 @@ public class KeyHandler implements KeyListener{
 			dP = false;
 		}
 	}
-
+	public boolean buttonPressed() {
+		return wP || aP || sP || dP;
+	}
+	public int pressedButtonNum() {
+		int count = 0;
+		if(wP) count++;
+		if(aP) count++;
+		if(sP) count++;
+		if(dP) count++;
+		return count;
+	}
 }

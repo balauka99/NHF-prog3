@@ -1,0 +1,40 @@
+package entity;
+
+import java.awt.Color;
+import java.awt.Graphics2D;
+
+import gameplay.GamePanel;
+import gameplay.KeyHandler;
+
+public class Player extends Entity{
+	GamePanel gameP;
+	KeyHandler keyH;
+	
+	public Player(GamePanel gP, KeyHandler kH) {
+		gameP = gP;
+		keyH = kH;
+	}
+	public void defaultPos() {
+		setX(100);
+		setY(100);
+		setSpeed(4);
+	}
+	public void update() {
+		if(keyH.wP == true) {
+			setY(getY() - getSpeed());
+		}
+		else if(keyH.sP == true) {
+			setY(getY() + getSpeed());
+		}
+		else if(keyH.aP == true) {
+			setX(getX() - getSpeed());
+		}
+		else if(keyH.dP == true) {
+			setX(getX() + getSpeed());
+		}
+	}
+	public void draw(Graphics2D grap2) {
+		grap2.setColor(Color.white);
+		grap2.fillRect(getX(), getY(), tileSize, tileSize);
+	}
+}

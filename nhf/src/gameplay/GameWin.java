@@ -7,6 +7,7 @@ public class GameWin extends JFrame{
 		setTitle("Dungeon Run");
 		GamePanel gameP = new GamePanel();
 		add(gameP);
+		gameP.setupGame();
 		gameP.startMainT();
 		pack();
 		

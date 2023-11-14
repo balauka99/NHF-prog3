@@ -1,0 +1,15 @@
+package tile;
+
+import java.awt.image.BufferedImage;
+
+public class Tile {
+	private BufferedImage skin;
+	public boolean collision = false m
+	
+	public void setSkin(BufferedImage img) {
+		skin = img;
+	}
+	public BufferedImage getSkin() {
+		return skin;
+	}
+}

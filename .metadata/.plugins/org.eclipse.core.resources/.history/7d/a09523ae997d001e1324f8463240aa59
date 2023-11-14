@@ -1,6 +1,0 @@
-package gameplay;
-
-import ospanel.OsPanel;
-
-public class GamePanel extends OsPanel{
-}
