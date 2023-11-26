@@ -3,3 +3,36 @@
 1699891721656	Move file
 1699891723013	Move file
 1699892946697	Copy compilation unit
+1699976281108	Copy compilation unit
+1699981028792	Move file
+1700034491467	Rename resource 'shadow-80x70.png'
+1700048148736	Copy compilation unit
+1700054799136	Delete elements
+1700059312780	Copy file
+1700074556299	Move file
+1700075025404	Move file
+1700075564176	Copy file
+1700075566429	Copy file
+1700075567693	Copy file
+1700075569105	Copy file
+1700075570345	Copy file
+1700075571448	Copy file
+1700075572562	Copy file
+1700075573583	Copy file
+1700076171948	Move file
+1700076182286	Copy package
+1700076186726	Delete element
+1700076189617	Move file
+1700076193034	Delete element
+1700076290860	Move package
+1700076304929	Move package
+1700076308873	Delete element
+1700076444833	Copy file
+1700077136520	Rename resource 'map1.txt'
+1700083955337	Copy file
+1700127254146	Encapsulate field 'tileMg'
+1700127258359	Encapsulate field 'objects'
+1700127448991	Encapsulate field 'playerX'
+1700127452334	Encapsulate field 'playerY'
+1700390213962	Encapsulate field 'assSetter'
+1700410991787	Delete element

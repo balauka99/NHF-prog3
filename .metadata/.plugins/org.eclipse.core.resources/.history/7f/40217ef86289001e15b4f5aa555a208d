@@ -1,0 +1,23 @@
+package object;
+
+import java.io.IOException;
+import java.util.Random;
+
+import javax.imageio.ImageIO;
+
+public class OBJ_Box extends OsObject{
+	private Random rndNum = new Random();
+	
+	private boolean opened;
+	public OBJ_Box() {
+		name = "Box";
+		opened = false;
+		this.setupSkin("box");
+		collision = true;
+	}
+	@Override
+	public void destroy() {
+		super.destroy();
+		this.setupSkin("barrelBoom/barrel_boomed");
+	}
+}

@@ -1,7 +1,0 @@
-package bestrounds;
-
-public class BRwin {
-	public BRwin() {
-		
-	}
-}

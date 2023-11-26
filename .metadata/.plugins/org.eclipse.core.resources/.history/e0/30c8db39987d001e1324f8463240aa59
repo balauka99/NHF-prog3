@@ -1,7 +1,0 @@
-package load;
-
-import javax.swing.JPanel;
-
-public class LoadPanel extends JPanel{
-
-}

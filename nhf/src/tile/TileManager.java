@@ -1,27 +1,30 @@
 package tile;
 
 import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.Serializable;
 
 import javax.imageio.ImageIO;
 
 import gameplay.GamePanel;
+import gameplay.UtilityTools;
 
-public class TileManager {
-	private GamePanel gameP;
+public class TileManager implements Serializable{
+	private transient GamePanel gameP;
 	public Tile[] tiles;
 	public int map[][];	// 2 Dimenziós tömbben tároljuk el a fájlból betöltött mapot
 	
-	public TileManager(GamePanel gp) {
+	public TileManager(GamePanel gp, String filename) {
 		gameP = gp;
 		//TODO átalakítani
 		tiles = new Tile[10];	//Ennyi tileunk lehet max, flore, lava, wall stb...
 		map = new int[gameP.maxOszlop][gameP.maxSor];	// Létrehozzuk a mátrixot, és akkorára álítjuk amekkora a game panel tile felosztás
 		setTilesImage();
-		loadMap("/maps/map1.txt");
+		loadMap(filename);
 	}
 	public void loadMap(String fileP) {
 		try {
@@ -48,34 +51,19 @@ public class TileManager {
 			
 		}
 	}
-	public void setTilesImage() {
+	private void setTilesImage() {
+			this.setupTile(0, "flore", false);
+			this.setupTile(1, "wall", true);
+			this.setupTile(2, "lava", false);
+	}
+	private void setupTile(int ind, String imageName, boolean collision) {
+		UtilityTools uT = new UtilityTools();
 		try {
-			tiles[0] = new Tile();
-			tiles[0].setSkin(ImageIO.read(getClass().getResourceAsStream("/tiles/flore.png")));
-			
-			tiles[1] = new Tile();
-			tiles[1].setSkin(ImageIO.read(getClass().getResourceAsStream("/tiles/wall.png")));
-			tiles[1].enableCollision();
-			
-			tiles[2] = new Tile();
-			tiles[2].setSkin(ImageIO.read(getClass().getResourceAsStream("/tiles/lava.png")));
-			
-			tiles[3] = new Tile();
-			tiles[3].setSkin(ImageIO.read(getClass().getResourceAsStream("/objects/door.png")));
-			tiles[3].enableCollision();
-			
-			tiles[4] = new Tile();
-			tiles[4].setSkin(ImageIO.read(getClass().getResourceAsStream("/objects/doorLeft.png")));
-			tiles[4].enableCollision();
-			
-			tiles[5] = new Tile();
-			tiles[5].setSkin(ImageIO.read(getClass().getResourceAsStream("/objects/doorRight.png")));
-			tiles[5].enableCollision();
-			
-			tiles[6] = new Tile();
-			tiles[6].setSkin(ImageIO.read(getClass().getResourceAsStream("/objects/chest.png")));
-			tiles[6].enableCollision();
-		}catch(IOException e) {
+			tiles[ind] = new Tile();
+			tiles[ind].setSkin(ImageIO.read(getClass().getResourceAsStream("/tiles/" + imageName + ".png")), imageName);
+			tiles[ind].setSkin(uT.scaleImage(tiles[ind].getSkin(), gameP.tileSize, gameP.tileSize), imageName);
+			if(collision) tiles[ind].enableCollision();
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
@@ -87,7 +75,7 @@ public class TileManager {
 		
 		while(col <gameP.maxOszlop && row < gameP.maxSor) {
 			int tileInd = map[col][row];
-			grap2.drawImage(tiles[tileInd].getSkin(), x, y, gameP.tileSize, gameP.tileSize, null);
+			grap2.drawImage(tiles[tileInd].getSkin(), x, y, null);
 			col++;
 			x += gameP.tileSize;
 			
@@ -98,5 +86,9 @@ public class TileManager {
 				y += gameP.tileSize;
 			}
 		}
+	}
+	public void reLoadTileSkins(GamePanel gameP) {
+		this.gameP = gameP;
+		this.setTilesImage();
 	}
 }

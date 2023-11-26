@@ -1,7 +1,0 @@
-package bestrounds;
-
-import javax.swing.JPanel;
-
-public class BRPanel extends JPanel{
-	
-}

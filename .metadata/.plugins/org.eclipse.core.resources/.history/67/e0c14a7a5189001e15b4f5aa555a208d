@@ -1,0 +1,10 @@
+package object;
+
+import loaders.SheetLoader;
+
+public class Heart extends OsObject{
+	public Heart() {
+		name = "heart";
+		sheet = new SheetLoader("/objects/heart_sheet.png", x, hitboxDefaultY, hitboxDefaultX, defaultTileSize)
+	}
+}

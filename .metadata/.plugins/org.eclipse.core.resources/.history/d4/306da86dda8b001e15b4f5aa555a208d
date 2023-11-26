@@ -1,0 +1,132 @@
+package menu;
+
+import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import bestrounds.BRPanel;
+import gameplay.*;
+import ospanel.MenuPanel;
+
+public class MainMenu extends JFrame{
+	private CardLayout cards = new CardLayout();
+	private JPanel cardsPanel = new JPanel(cards);
+	private JPanel actual_pan;
+	private void setupMainMenu() {
+		//setTitle("Main Menu");
+		setSize(new Dimension(960, 720));
+		getContentPane().removeAll();
+		actual_pan = new MenuPanel();
+		actual_pan.setLayout(null);
+		
+		Font buttonsFont = new Font("Century Gothic", Font.BOLD, 24);
+		JButton ngb = new JButton("New Game");
+		ngb.addActionListener(new NewGameButtonListener());
+		ngb.setBounds(380, 360, 200, 50);
+		ngb.setBackground(Color.GRAY);
+		ngb.setForeground(Color.CYAN);
+		ngb.setFont(buttonsFont);
+		ngb.addMouseListener(new MyButtonMouseAdapter(ngb));
+		
+		JButton lgb = new JButton("Load Game");
+		lgb.addActionListener(new LoadButtonListener());
+		lgb.setBounds(380, 360+60, 200, 50);
+		lgb.setBackground(Color.GRAY);
+		lgb.setForeground(Color.CYAN);
+		lgb.setFont(buttonsFont);
+		lgb.addMouseListener(new MyButtonMouseAdapter(lgb));
+		
+		JButton brb = new JButton("Best Rounds");
+		brb.addActionListener(new BestRoundsButtonListener());
+		brb.setBounds(380, 360+120, 200, 50);
+		brb.setBackground(Color.GRAY);
+		brb.setForeground(Color.CYAN);
+		brb.setFont(buttonsFont);
+		brb.addMouseListener(new MyButtonMouseAdapter(brb));
+		
+		JButton xtb = new JButton("EXIT");
+		xtb.addActionListener(new ExitButtonListener());
+		xtb.setBounds(380, 360+180, 200, 50);
+		xtb.setBackground(Color.GRAY);
+		xtb.setForeground(Color.CYAN);
+		xtb.setFont(buttonsFont);
+		xtb.addMouseListener(new MyButtonMouseAdapter(xtb));
+		
+		actual_pan.add(ngb);
+		actual_pan.add(lgb);
+		actual_pan.add(brb);
+		actual_pan.add(xtb);
+		
+		setLocationRelativeTo(null);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setResizable(false);
+	}
+	public void ResetMenuPanel() {
+		getContentPane().removeAll();
+		this.setupMainMenu();
+		add(actual_pan);
+	}
+	private void setActualPan(JPanel tmp) {
+		getContentPane().removeAll();
+		actual_pan = tmp;
+		add(tmp);
+		pack();
+	}
+	private class BackButtonListener implements ActionListener{
+		public void actionPerformed(ActionEvent back) {
+			ResetMenuPanel();
+			add(actual_pan);
+		}
+	}
+	private class NewGameButtonListener implements ActionListener{
+		public void actionPerformed(ActionEvent newgame) {
+			setActualPan(new CharacterChoose(MainMenu.this));
+		}
+	}
+	private class LoadButtonListener implements ActionListener{
+		public void actionPerformed(ActionEvent loadgame) {
+			GameWin gameW = new GameWin("load_game");
+			gameW.setVisible(true);
+		}
+	}
+	private class BestRoundsButtonListener implements ActionListener{
+		public void actionPerformed(ActionEvent bestrounds) {
+			setActualPan(new BestRoundsPanel(MainMenu.this));
+		}
+		
+	}
+	private class ExitButtonListener implements ActionListener{
+		public void actionPerformed(ActionEvent exit) {
+			System.exit(0);
+		}
+	}
+	private class MyButtonMouseAdapter extends MouseAdapter{
+		private JButton butt;
+		public MyButtonMouseAdapter(JButton butt) {
+			this.butt = butt;
+		}
+		@Override
+	    public void mouseEntered(MouseEvent e) {
+	        butt.setForeground(Color.RED);
+	    }
+
+	    @Override
+	    public void mouseExited(MouseEvent e) {
+	        butt.setForeground(Color.cyan);
+	    }
+	}
+	public MainMenu() {
+		ResetMenuPanel();
+		//cardsPanel.add(new CharacterChoose(MainMenu.this), "Character Choose");
+		cardsPanel.add(actual_pan, "Menu");
+		cards.show(cardsPanel, "Menu");
+	}
+}

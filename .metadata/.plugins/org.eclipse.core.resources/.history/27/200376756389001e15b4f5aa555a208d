@@ -1,0 +1,31 @@
+package object;
+
+import java.util.Random;
+
+public class OBJ_Box extends OsObject{
+	private Random rndNum = new Random();
+	
+	private boolean opened;
+	public OBJ_Box() {
+		name = "Box";
+		opened = false;
+		this.setupSkin("box");
+		collision = true;
+	}
+	@Override
+	public void useObject() {
+		
+	}
+	
+	@Override
+	public void destroy() {
+		super.destroy();
+		int whatInTheBox = rndNum.nextInt(10);
+		switch(whatInTheBox) {
+		case 5:
+			name = "Heal";
+			
+		}
+		this.setupSkin("barrelBoom/barrel_boomed");
+	}
+}

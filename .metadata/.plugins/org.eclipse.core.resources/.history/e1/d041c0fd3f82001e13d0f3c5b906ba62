@@ -1,8 +1,0 @@
-package gameplay;
-
-public class AssetSetter {
-	GamePanel gameP;
-	public AssetSetter(GamePanel gp) {
-		gameP = gp;	
-	}
-}

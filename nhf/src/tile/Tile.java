@@ -1,13 +1,16 @@
 package tile;
 
 import java.awt.image.BufferedImage;
+import java.io.Serializable;
 
-public class Tile {
-	private BufferedImage skin;
+public class Tile implements Serializable{
+	private String name;
+	private transient BufferedImage skin;
 	private boolean collision = false;	//Ha hamis áttudnak rajta menni az entity osztály tagjai, de ha true akkor nem
 	
-	public void setSkin(BufferedImage img) {
+	public void setSkin(BufferedImage img, String name) {
 		skin = img;
+		this.name = name;
 	}
 	public BufferedImage getSkin() {
 		return skin;
@@ -20,5 +23,11 @@ public class Tile {
 	}
 	public boolean isSolid() {
 		return collision;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 }

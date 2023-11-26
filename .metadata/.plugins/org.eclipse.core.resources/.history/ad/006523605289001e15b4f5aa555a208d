@@ -1,0 +1,22 @@
+package object;
+
+import loaders.SheetLoader;
+
+public class Heart extends OsObject{
+	private int index = 0;
+	public Heart() {
+		name = "heart";
+		sheet = new SheetLoader("/objects/healt_sheet.png", 3, 1, 16, 16);
+		skin = sheet.get(index);
+	}
+	public void damaged() {
+		index++;
+		if(index == sheet.size()) index--;
+		skin = sheet.get(index);
+	}
+	public void heal() {
+		index--;
+		if(index == sheet.size()) index++;
+		skin = sheet.get(index);
+	}
+}

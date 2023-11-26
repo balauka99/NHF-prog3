@@ -1,8 +1,11 @@
 package gameplay;
 
-import entity.Entity;
+import java.io.Serializable;
 
-public class CollisionChecker {
+import entity.Entity;
+import entity.Weapon;
+
+public class CollisionChecker implements Serializable{
 	GamePanel gameP;
 	public CollisionChecker(GamePanel gp) {
 		gameP = gp;
@@ -32,6 +35,10 @@ public class CollisionChecker {
 			break;
 		case "down":
 			entBottomRow = (entBottomY + ent.getSpeed())/gameP.tileSize;	//Megnézzük, merre lesz a player
+			if(entBottomRow >= gameP.maxSor) {	// Mivel ha az ajján vagyunk, akkor a kisebbített hitbox következő poziciója már a képen kivül lenne, ami pedig túlidexelést jelentene, egyből azt állítjuk nem tud menni tovább
+				ent.collisionOn = true;
+				break;
+			}
 			tileNum1 = gameP.tileMg.map[entLeftCol][entBottomRow];
 			tileNum2 = gameP.tileMg.map[entRightCol][entBottomRow];
 			if(gameP.tileMg.tiles[tileNum1].isSolid() || gameP.tileMg.tiles[tileNum2].isSolid()) {
@@ -59,20 +66,20 @@ public class CollisionChecker {
 	public int checkObject(Entity ent, boolean player) {
 		int index = 999;
 		
-		for(int i = 0; i < gameP.objects.length; i++) {
-			if(gameP.objects[i] != null) {
+		for(int i = 0; i < gameP.objects.size(); i++) {
+			if(gameP.objects.get(i) != null) {
 				// Entity hitbox poziciója kiszámítása
 				ent.hitbox.x = ent.getX() + ent.hitbox.x;
 				ent.hitbox.y = ent.getY() + ent.hitbox.y;
 				// Object hitbox poziciója kiszámítása
-				gameP.objects[i].hitbox.x += gameP.objects[i].x;
-				gameP.objects[i].hitbox.y += gameP.objects[i].y;
+				gameP.objects.get(i).hitbox.x += gameP.objects.get(i).x;
+				gameP.objects.get(i).hitbox.y += gameP.objects.get(i).y;
 				
 				switch(ent.move_dir) {
 				case "up":
 					ent.hitbox.y -= ent.getSpeed();
-					if(ent.hitbox.intersects(gameP.objects[i].hitbox)) {	//Ha összeérnek akkor igazat ad vissza
-						if(gameP.objects[i].collision == true) {
+					if(ent.hitbox.intersects(gameP.objects.get(i).hitbox)) {	//Ha összeérnek akkor igazat ad vissza
+						if(gameP.objects.get(i).collision == true) {
 							ent.collisionOn = true;
 						}
 						if(player == true) {
@@ -82,8 +89,8 @@ public class CollisionChecker {
 					break;
 				case "down":
 					ent.hitbox.y += ent.getSpeed();
-					if(ent.hitbox.intersects(gameP.objects[i].hitbox)) {	//Ha összeérnek akkor igazat ad vissza
-						if(gameP.objects[i].collision == true) {
+					if(ent.hitbox.intersects(gameP.objects.get(i).hitbox)) {	//Ha összeérnek akkor igazat ad vissza
+						if(gameP.objects.get(i).collision == true) {
 							ent.collisionOn = true;
 						}
 						if(player == true) {
@@ -93,8 +100,8 @@ public class CollisionChecker {
 					break;
 				case "left":
 					ent.hitbox.x -= ent.getSpeed();
-					if(ent.hitbox.intersects(gameP.objects[i].hitbox)) {	//Ha összeérnek akkor igazat ad vissza
-						if(gameP.objects[i].collision == true) {
+					if(ent.hitbox.intersects(gameP.objects.get(i).hitbox)) {	//Ha összeérnek akkor igazat ad vissza
+						if(gameP.objects.get(i).collision == true) {
 							ent.collisionOn = true;
 						}
 						if(player == true) {
@@ -104,8 +111,8 @@ public class CollisionChecker {
 					break;
 				case "right":
 					ent.hitbox.x += ent.getSpeed();
-					if(ent.hitbox.intersects(gameP.objects[i].hitbox)) {	//Ha összeérnek akkor igazat ad vissza
-						if(gameP.objects[i].collision == true) {
+					if(ent.hitbox.intersects(gameP.objects.get(i).hitbox)) {	//Ha összeérnek akkor igazat ad vissza
+						if(gameP.objects.get(i).collision == true) {
 							ent.collisionOn = true;
 						}
 						if(player == true) {
@@ -115,10 +122,71 @@ public class CollisionChecker {
 					break;
 				}
 				ent.resetHitboxToDefault();
-				gameP.objects[i].resetHitboxToDefault();
+				gameP.objects.get(i).resetHitboxToDefault();
 			}
 		}
-		
 		return index;
+	}
+	
+	public void checkWeaponDestroysOBJ(Weapon wep) {
+		if(wep.isAttacking()) {
+			//Weapon hitbox position kiszámítása
+			wep.getAttackHitbox().hitbox.x += wep.getAttackHitbox().getX();
+			wep.getAttackHitbox().hitbox.y += wep.getAttackHitbox().getY();
+			for(int i = 0; i < gameP.objects.size(); i++) {
+				if(gameP.objects.get(i) != null && wep.isAttacking()) {
+					//Object hitbox position kiszámítása
+					gameP.objects.get(i).hitbox.x += gameP.objects.get(i).x;
+					gameP.objects.get(i).hitbox.y += gameP.objects.get(i).y;
+					
+					if(wep.getAttackHitbox().hitbox.intersects(gameP.objects.get(i).hitbox)) {
+						gameP.objects.get(i).destroy();
+					}
+					gameP.objects.get(i).resetHitboxToDefault();
+				}
+			}
+			wep.getAttackHitbox().resetHitboxToDefault();
+		}
+	}
+	
+	public void checkWeaponDamageEnemys(Entity player, Weapon wep) {
+		if(wep.isAttacking()) {
+			wep.getAttackHitbox().hitbox.x += wep.getAttackHitbox().getX();
+			wep.getAttackHitbox().hitbox.y += wep.getAttackHitbox().getY();
+			for(int i = 0; i < gameP.enemys.size(); i++) {
+				//Enemy hitbox position kiszámítása
+				gameP.enemys.get(i).hitbox.x += gameP.enemys.get(i).getX();
+				gameP.enemys.get(i).hitbox.y += gameP.enemys.get(i).getY();
+				
+				//Ha a player weaponje hozzáér egy enemyhez akkor sebbezze meg azt
+				if(wep.getAttackHitbox().hitbox.intersects(gameP.enemys.get(i).hitbox)) {
+					gameP.enemys.get(i).damaged(player.getWeaponDamage());
+				}
+				gameP.enemys.get(i).resetHitboxToDefault();
+			}
+			wep.getAttackHitbox().resetHitboxToDefault();
+		}
+	}
+	
+	public void checkEnemysSeePlayer(Entity player) {
+		player.hitbox.x += player.getX();
+		player.hitbox.y += player.getY();
+		for(int i = 0; i < gameP.enemys.size(); i++) {
+			gameP.enemys.get(i).view_distance.x += gameP.enemys.get(i).getX();
+			gameP.enemys.get(i).view_distance.y += gameP.enemys.get(i).getY();
+			gameP.enemys.get(i).hitbox.x += gameP.enemys.get(i).getX();
+			gameP.enemys.get(i).hitbox.y += gameP.enemys.get(i).getY();
+			
+			if(player.hitbox.intersects(gameP.enemys.get(i).view_distance) && !gameP.enemys.get(i).isDead()) {
+				gameP.enemys.get(i).moveToPoint(player.getX(), player.getY());
+				if(player.hitbox.intersects(gameP.enemys.get(i).hitbox)) {
+					player.damaged(gameP.enemys.get(i).getWeaponDamage());
+					gameP.enemys.get(i).attackWithWeapon();
+				}
+			}
+			gameP.enemys.get(i).resetViewDistanceDefault();
+			gameP.enemys.get(i).resetHitboxToDefault();
+		}
+		player.resetHitboxToDefault();
 	}
 }

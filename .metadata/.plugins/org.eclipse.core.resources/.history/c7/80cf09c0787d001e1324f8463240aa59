@@ -1,9 +1,0 @@
-package gameplay;
-
-import javax.swing.JFrame;
-
-public class GameWind extends JFrame{
-	// Megjenelítés segítő argumentek
-	final int orgTileSize = 16;	//16x16
-	
-}

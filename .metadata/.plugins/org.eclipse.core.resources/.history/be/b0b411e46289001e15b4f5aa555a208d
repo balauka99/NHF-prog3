@@ -1,0 +1,25 @@
+package object;
+
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+
+public class OBJ_Box extends OsObject{
+	private boolean opened;
+	public OBJ_Box() {
+		name = "Box";
+		opened = false;
+		this.setupSkin("box");
+		collision = true;
+	}
+	@Override
+	public void useObject() {
+		super.useObject();
+		//TODO Make something
+	}
+	@Override
+	public void destroy() {
+		super.destroy();
+		this.setupSkin("barrelBoom/barrel_boomed");
+	}
+}

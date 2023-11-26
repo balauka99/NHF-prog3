@@ -1,7 +1,0 @@
-package entity;
-
-public class Entity {
-	private int x, y;
-	public Entity() {
-	}
-}

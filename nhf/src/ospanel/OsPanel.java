@@ -1,11 +1,15 @@
 package ospanel;
 
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
 import javax.swing.JPanel;
+
+import menu.MainMenu;
 
 public class OsPanel extends JPanel{
 	// Megjenelítés segítő argumentek
@@ -17,11 +21,17 @@ public class OsPanel extends JPanel{
 	public final int maxSor = 15;
 	public final int screenWidth = tileSize * maxOszlop;	//960
 	public final int screenHeight = tileSize * maxSor;		//720
+	protected MainMenu menuWin;
+	protected Font defFont = new Font("Century Gothic", Font.BOLD, 24);
 	
 	public OsPanel() {
+		super();
 		//super(new GridBagLayout());	//Ha kéne így meglehet oldani
 		setPreferredSize(new Dimension(960, 720));
 		setBackground(Color.black);
 		setDoubleBuffered(true);
+	}
+	public void setMenuWin(MainMenu menuWin) {
+		this.menuWin = menuWin;
 	}
 }

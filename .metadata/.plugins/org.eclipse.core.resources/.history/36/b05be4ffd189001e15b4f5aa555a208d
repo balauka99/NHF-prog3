@@ -1,0 +1,9 @@
+package gameplay;
+
+public class UserInterface {
+	GamePanel gameP;
+	
+	public UserInterface(GamePanel gameP) {
+		this.gameP = gameP;
+	}
+}

@@ -1,0 +1,22 @@
+package ospanel;
+
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+
+import gameplay.UtilityTools;
+
+public class DeadScreen extends OsPanel{
+	private BufferedImage backGround;
+	public DeadScreen() {
+		super();
+		UtilityTools uT = new UtilityTools();
+		try {
+			backGround = uT.scaleImage(ImageIO.read(getClass().getResourceAsStream("/menu/deadScreen.png")), 960, 720);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}

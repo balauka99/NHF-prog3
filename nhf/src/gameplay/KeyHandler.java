@@ -2,14 +2,16 @@ package gameplay;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.Serializable;
+import java.util.Scanner;
 
-public class KeyHandler implements KeyListener{
+@SuppressWarnings("serial")
+public class KeyHandler implements KeyListener, Serializable{
 
-	public boolean wP, sP, aP, dP;	// wasd valamelyik gombja meg lett nyomva
+	public boolean wP, sP, aP, dP, spaceP;	// wasd valamelyik gombja meg lett nyomva
 	
 	@Override
 	public void keyTyped(KeyEvent e) {
-		// TODO Még nem kell ide semmi
 	}
 
 	@Override
@@ -27,6 +29,9 @@ public class KeyHandler implements KeyListener{
 		}
 		if(kcode == KeyEvent.VK_D) {
 			dP = true;
+		}
+		if(kcode == KeyEvent.VK_SPACE) {
+			spaceP = true;
 		}
 	}
 
@@ -46,9 +51,15 @@ public class KeyHandler implements KeyListener{
 		if(kcode == KeyEvent.VK_D) {
 			dP = false;
 		}
+		if(kcode == KeyEvent.VK_SPACE) {
+			spaceP = false;
+		}
 	}
-	public boolean buttonPressed() {
+	public boolean moveButtonPressed() {
 		return wP || aP || sP || dP;
+	}
+	public boolean attackButtonPressed() {
+		return spaceP;
 	}
 	public int pressedButtonNum() {
 		int count = 0;

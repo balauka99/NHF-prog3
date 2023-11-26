@@ -1,0 +1,16 @@
+package ospanel;
+
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+
+public class MenuPanel extends OsPanel{
+	BufferedImage backGround;
+	public MenuPanel() {
+		super();
+	}
+	
+	protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.drawImage(backgroundImage, 0, 0, this);
+    }
+}

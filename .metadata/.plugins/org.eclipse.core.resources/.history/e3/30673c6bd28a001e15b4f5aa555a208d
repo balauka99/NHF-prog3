@@ -1,0 +1,9 @@
+package ospanel;
+
+import java.awt.Menu;
+
+public class MenuPanel extends OsPanel{
+	public MenuPanel() {
+		
+	}
+}
