@@ -1,0 +1,1315 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1.0">
+  <zoom_level>4</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>888</x>
+      <y>792</y>
+      <w>96</w>
+      <h>248</h>
+    </coordinates>
+    <panel_attributes>entity::Entity
+--
+#x, y, speed: int
+#maxHealt = 101: int
+#healt = 101: int
+#dead = false: boolean
++move_dir = "down": String
++sheetCnt = 0: int
++sheetNum = 1: int
++hitbox: Rectangle
++hitboxDefaultX, hitboxDefaultY: int
++view_distance: Rectangle
++viewDDefaultX, viewDDefaultY: int
++collisionOn = false: boolean
+#sheet: SheetLoader
+#skin: BufferedImage
+#weapon: Weapon
+--
++getX(): int
++setX(int newx): void
++getY(): int
++setY(int newy): void
++getSpeed(): int
++getHealt(): int
++getMaxHealt(): int
++setSpeed(int newspeed): void
++resetHitboxToDefault(): void
++resetViewDistanceDefault(): void
++damaged(int damage): void
+#die(): void
++isDead(): boolean
++draw(Graphics2D grap2): void
++attackWithWeapon(): void
++getWeaponDamage(): int
++moveToPoint(int x, int y): void
++reLoad(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1024</x>
+      <y>792</y>
+      <w>164</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>entity::Player
+--
+-gameP: GamePanel
+-keyH: KeyHandler
+-point = 0: int
+-character_name: String
+--
++Player(GamePanel gP, KeyHandler kH, String character): ctor
++defaultPos(): void
++setGamerSkin(): void
++damaged(int damage): void
++heal(int plus): void
++update(): void
++interactObj(int ind): void
++draw(Graphics2D grap2): void
++getPoint(): int
++getHealt(): int
++getCharType(): String
++getWeaponType(): String
++reLoad(GamePanel gameP, KeyHandler keyH): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1212</x>
+      <y>956</y>
+      <w>140</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>entity::Weapon
+--
+-attack: AttackHitbox
+-attacking = false: boolean
+-attackTime: Thread
+-damage: int
+-move_dir: String
+--
++Weapon(String weapon_type, String move_dir): ctor
++attack(int x, int y, String move_dir): void
++draw(Graphics2D grap2): void
++isAttacking(): boolean
++run(): void
++getAttackHitbox(): AttackHitbox
++getDamage(): int
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>888</x>
+      <y>1064</y>
+      <w>136</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>entity::EyeBall
+--
+-animation: Thread
+-aniState = Animation_States.Still: Animation_States
+-lastX, lastY: int
+--
++EyeBall(): ctor
++draw(Graphics2D grap2): void
+#die(): void
++animationStart(): void
++attackWithWeapon(): void
++moveToPoint(int x, int y): void
++run(): void
++reLoad(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1028</x>
+      <y>964</y>
+      <w>152</w>
+      <h>92</h>
+    </coordinates>
+    <panel_attributes>entity::AttackHitbox
+--
+-weapon_type: String
+-uT = new UtilityTools(): UtilityTools
+-range: int
+--
++AttackHitbox(String weapon_type, String move_dir): ctor
++setupAttackType(String move_dir): void
++getRange(): int
++getSkin(): BufferedImage
++setSkin(BufferedImage skin): void
++getWeaponType(): String
++reLoad(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>980</x>
+      <y>792</y>
+      <w>52</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;110.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>980</x>
+      <y>984</y>
+      <w>56</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;120.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>924</x>
+      <y>1036</y>
+      <w>12</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1176</x>
+      <y>964</y>
+      <w>44</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>90.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>980</x>
+      <y>892</y>
+      <w>304</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0;60.0;130.0;740.0;130.0;740.0;160.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1428</x>
+      <y>808</y>
+      <w>196</w>
+      <h>172</h>
+    </coordinates>
+    <panel_attributes>object::OsObject
+--
+#defaultTileSize = 48: int
+#skin: BufferedImage
+#sheet: SheetLoader
+-name: String
++collision = false: boolean
++x, y: int
++hitbox = new Rectangle(0, 0, defaultTileSize, defaultTileSize): Rectangle
+#hitboxDefaultX = 0: int
+#hitboxDefaultY = 0: int
+-objectUsed = false: boolean
+#unBreakAble = false: boolean
+-destroyed = false: boolean
+--
+#setupSkin(String skinName): void
++draw(Graphics2D grap2, GamePanel gameP): void
++resetHitboxToDefault(): void
++useObject(): void
++isObjectUsed(): boolean
++reUseObject(): void
++destroy(): void
++isDestroyed(): boolean
++reLoad(): void
++getName(): String
++setName(String name): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1696</x>
+      <y>1032</y>
+      <w>56</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>object::Heart
+--
+-index = 0: int
+--
++Heart(): ctor
++damaged(): void
++heal(): void
++getHeartState(): int
++reLoad(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1404</x>
+      <y>1032</y>
+      <w>60</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>object::OBJ_Barrel
+--
+-boom: Thread
+--
++OBJ_Barrel(): ctor
++boom(): void
++destroy(): void
++run(): void
++reLoad(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1468</x>
+      <y>1032</y>
+      <w>100</w>
+      <h>52</h>
+    </coordinates>
+    <panel_attributes>object::OBJ_Box
+--
+-rndNum = new Random(): Random
+--
++OBJ_Box(): ctor
++useObject(): void
++destroy(): void
++reLoad(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1572</x>
+      <y>1032</y>
+      <w>56</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>object::OBJ_Door
+--
+--
++OBJ_Door(): ctor
++useObject(): void
++reUseObject(): void
++reLoad(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1632</x>
+      <y>1032</y>
+      <w>60</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>object::OBJ_Chest
+--
+--
++OBJ_Chest(): ctor
++useObject(): void
++reLoad(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1428</x>
+      <y>976</y>
+      <w>12</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1516</x>
+      <y>976</y>
+      <w>12</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1596</x>
+      <y>976</y>
+      <w>12</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1608</x>
+      <y>976</y>
+      <w>60</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0;130.0;100.0;130.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1616</x>
+      <y>976</y>
+      <w>120</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0;280.0;70.0;280.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>508</x>
+      <y>264</y>
+      <w>160</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>ospanel::OsPanel
+--
+~orgTileSize = 16: int
+~scale = 3: int
++tileSize = orgTileSize * scale: int
++maxOszlop = 20: int
++maxSor = 15: int
++screenWidth = tileSize * maxOszlop: int
++screenHeight = tileSize * maxSor: int
+#menuWin: MainMenu
+#defFont = new Font("Century Gothic", Font.BOLD, 24): Font
+--
++OsPanel(): ctor
++setMenuWin(MainMenu menuWin): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>164</x>
+      <y>456</y>
+      <w>208</w>
+      <h>76</h>
+    </coordinates>
+    <panel_attributes>ospanel::BestRoundsPanel
+--
+-bests = BestRounds.loadBests("source/save_file/bestRounds.txt"): BestRounds
+-field1 = new JLabel(): JLabel
+-field2 = new JLabel(): JLabel
+-field3 = new JLabel(): JLabel
+-backGround: BufferedImage
+--
++BestRoundsPanel(MainMenu win): ctor
+-writeScore(): void
+#paintComponent(Graphics g): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>548</x>
+      <y>456</y>
+      <w>284</w>
+      <h>76</h>
+    </coordinates>
+    <panel_attributes>ospanel::CharacterChoose
+--
+-character: String
+-player_name: String
+-vikingB = new JButton("Choose VIKING - great arom, but low damage"): JButton
+-robotB = new JButton("Choose ROBOT - low armor, but great damage"): JButton
+-selectB = new JButton("Select choosen character - START GAME"): JButton
+-textL = new JLabel("PLEAS CHOOSE A CHARACTER - click on the choosen one!", JLabel.CENTER): JLabel
+-playerName = new JTextField(10): JTextField
+--
++CharacterChoose(MainMenu win): ctor
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>376</x>
+      <y>456</y>
+      <w>164</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>ospanel::DeadScreen
+--
+-backGround: BufferedImage
+-info = new JLabel(): JLabel
+-backMainMenu = new JButton("Back To Main Menu"): JButton
+--
++DeadScreen(String name, int point): ctor
+#paintComponent(Graphics g): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>836</x>
+      <y>456</y>
+      <w>96</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>ospanel::MenuPanel
+--
+-backGround: BufferedImage
+--
++MenuPanel(): ctor
+#paintComponent(Graphics g): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>264</x>
+      <y>360</y>
+      <w>260</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>630.0;10.0;630.0;150.0;10.0;150.0;10.0;240.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>448</x>
+      <y>360</y>
+      <w>100</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>230.0;10.0;230.0;170.0;10.0;170.0;10.0;240.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>592</x>
+      <y>360</y>
+      <w>104</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;200.0;240.0;200.0;240.0;240.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>636</x>
+      <y>360</y>
+      <w>260</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;180.0;630.0;180.0;630.0;240.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>516</x>
+      <y>608</y>
+      <w>176</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>menu::MainMenu
+--
+-cards = new CardLayout(): CardLayout
+-cardsPanel = new JPanel(cards): JPanel
+-actual_pan: MenuPanel
+-character_pan = new CharacterChoose(this): CharacterChoose
+-best = new BestRoundsPanel(this): BestRoundsPanel
+--
++MainMenu(): ctor
+-setupMainMenu(): void
++ResetMenuPanel(): void
++changeCard(String cardName): void
++addNewCard(JPanel pan, String name): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>288</x>
+      <y>524</y>
+      <w>236</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>570.0;250.0;10.0;250.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>448</x>
+      <y>512</y>
+      <w>100</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>230.0;240.0;230.0;170.0;10.0;170.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>640</x>
+      <y>528</y>
+      <w>12</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;200.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>688</x>
+      <y>496</y>
+      <w>196</w>
+      <h>132</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;310.0;470.0;310.0;470.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>16</x>
+      <y>532</y>
+      <w>104</w>
+      <h>68</h>
+    </coordinates>
+    <panel_attributes>loaders::Score
+--
+-name: String
+-point: int
+--
++Score(String name, int point): ctor
++getName(): String
++setName(String name): void
++getPoint(): int
++setPoint(int point): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>464</y>
+      <w>144</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>loaders::BestRounds
+--
+--
++reset(): void
++getCurrent(): Score
++saveBests(BestRounds bests, String fName): void
++loadBests(String fName): BestRounds
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>644</x>
+      <y>876</y>
+      <w>208</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>loaders::SheetLoader
+--
+-sheet: BufferedImage
+-maxcol, maxrow, frameWidth, frameHeight: int
+--
++SheetLoader(String filename, int mcol, int mrow, int fHeight, int fWidth): ctor
+-makeArray(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>848</x>
+      <y>876</y>
+      <w>48</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>100.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>140</x>
+      <y>468</y>
+      <w>32</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>72</x>
+      <y>508</y>
+      <w>12</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>944</x>
+      <y>376</y>
+      <w>168</w>
+      <h>292</h>
+    </coordinates>
+    <panel_attributes>gameplay::GamePanel
+--
++map_state = Map_Status.IN_NEW: Map_Status
+-keyH = new KeyHandler(): KeyHandler
+-mainT: Thread
+-gamer: Player
++player_healt = new ArrayList&lt;Heart&gt;(): ArrayList&lt;Heart&gt;
+-playerName: String
+-playersScoures: BestRounds
++prevMaps = new PreviousMaps(): PreviousMaps
++isMapInPrevMaps = false: boolean
+-fps = 60: int
++tileMg: TileManager
++cChecker = new CollisionChecker(this): CollisionChecker
++objects = new ArrayList&lt;OsObject&gt;(): ArrayList&lt;OsObject&gt;
++enemys = new ArrayList&lt;Entity&gt;(): ArrayList&lt;Entity&gt;
++assSetter: AssetSetter
++ui = new UserInterface(this): UserInterface
+-rndNum = new Random(): Random
+--
++GamePanel(String character, String playerName): ctor
+-genNewMap(): void
++setupGame(): void
++setupHealtPos(): void
++startMainT(): void
++resetObjects(): void
++resetEnemys(): void
++saveMap(): void
++enterNewMap(): void
+-getInformationFromMAP(Map tmp): void
++loadPreviousMap(): void
++enterPreviousMapFromPreviousMap(): void
+-errorIsHappened(String error): void
++run(): void
++updatePanel(): void
++isLevelCleared(): boolean
++getKeyListener(): KeyHandler
++getPlayerPoint(): int
++getPlayer(): Player
++getPlayerName(): String
++getPLayersScore(): BestRounds
++paintComponent(Graphics grap): void
+-saveGameData(): void
+-reLoadALL(): void
++loadGameData(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1340</x>
+      <y>376</y>
+      <w>424</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>gameplay::PreviousMaps
+--
+-tileMg: TileManager
+-objects: ArrayList&lt;OsObject&gt;
+-enemys: ArrayList&lt;Entity&gt;
+-assSetter: AssetSetter
+-playerX, playerY: int
++isMapInPrevMaps = true: boolean
++map_state = Map_Status.IN_PREVIOUS: Map_Status
+-savedPlayer: Player
+-player_healt: ArrayList&lt;Heart&gt;
+-currentPrev = 0: int
+--
++Map(TileManager tileMg, ArrayList&lt;OsObject&gt; objects, ArrayList&lt;Entity&gt; enemys, AssetSetter assS, int playerX, int playerY, String move_dir, int tileSize): ctor
++getTileMg(): TileManager
++setTileMg(TileManager tileMg): void
++getObjects(): ArrayList&lt;OsObject&gt;
++setObjects(ArrayList&lt;OsObject&gt; objects): void
++getPlayerLastX(): int
++setPlayerLastX(int playerX): void
++getPlayerLastY(): int
++setPlayerLastY(int playerY): void
++getAssSetter(): AssetSetter
++setAssSetter(AssetSetter assSetter): void
++getEnemys(): ArrayList&lt;Entity&gt;
++setEnemys(ArrayList&lt;Entity&gt; enemys): void
++addPrevMap(TileManager tileMg, ArrayList&lt;OsObject&gt; objects, ArrayList&lt;Entity&gt; enemys, AssetSetter assS, int playerX, int playerY, String move_dir, int tileSize): void
++setupCurrentPrev(): void
++getPrevious(): Map
++getNextPrevMap(): Map
++getCurrentPrev(): int
++saveAllPreviousMaps(PreviousMaps prevMaps, String fName): void
++loadALlPreviousMaps(String fName): PreviousMaps
++getSavedPlayer(): Player
++setSavedPlayer(Player savedPlayer): void
++getPlayer_healt(): ArrayList&lt;Heart&gt;
++setPlayer_healt(ArrayList&lt;Heart&gt; player_healt): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1140</x>
+      <y>464</y>
+      <w>120</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>gameplay::AssetSetter
+--
+-gameP: GamePanel
+-rndNum: Random
+-obj_file: String
+-obj_map[][]: boolean
+-enemys_canbePlaced[][]: boolean
+-canPlace = 0: int
+--
++AssetSetter(GamePanel gp, String file): ctor
+-setDoorsInMap(int ind): int
++closeAllDoor(): void
++setObject(): void
++setEnemys(): void
++resetMap(): void
++getCanPlaced(): int
+-loadObjMap(): void
++reLoad(GamePanel gameP): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1140</x>
+      <y>580</y>
+      <w>172</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>gameplay::CollisionChecker
+--
+~gameP: GamePanel
+--
++CollisionChecker(GamePanel gp): ctor
++checkTile(Entity ent): void
++checkObject(Entity ent, boolean player): int
++checkWeaponDestroysOBJ(Weapon wep): void
++checkWeaponDamageEnemys(Entity player, Weapon wep): void
++checkEnemysSeePlayer(Entity player): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1228</x>
+      <y>808</y>
+      <w>108</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>gameplay::KeyHandler
+--
++wP, sP, aP, dP, spaceP: boolean
+--
++keyTyped(KeyEvent e): void
++keyPressed(KeyEvent e): void
++keyReleased(KeyEvent e): void
++moveButtonPressed(): boolean
++attackButtonPressed(): boolean
++pressedButtonNum(): int
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1140</x>
+      <y>408</y>
+      <w>108</w>
+      <h>52</h>
+    </coordinates>
+    <panel_attributes>gameplay::UserInterface
+--
+-gameP: GamePanel
+-font: Font
+-ui_point: BufferedImage
+--
++UserInterface(GamePanel gameP): ctor
++draw(Graphics2D grap2): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>652</x>
+      <y>792</y>
+      <w>204</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>gameplay::UtilityTools
+--
+--
++scaleImage(BufferedImage original, int width, int height): BufferedImage
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1184</x>
+      <y>808</y>
+      <w>52</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>110.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1052</x>
+      <y>664</y>
+      <w>12</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;320.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1052</x>
+      <y>664</y>
+      <w>12</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;320.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>656</x>
+      <y>360</y>
+      <w>296</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0;720.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>964</x>
+      <y>664</y>
+      <w>12</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;320.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1068</x>
+      <y>664</y>
+      <w>460</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+OsObject</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;270.0;1130.0;270.0;1130.0;360.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1092</x>
+      <y>664</y>
+      <w>204</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+KeyHandler
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;230.0;490.0;230.0;490.0;360.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1108</x>
+      <y>416</y>
+      <w>40</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;80.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1108</x>
+      <y>416</y>
+      <w>40</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>80.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1108</x>
+      <y>464</y>
+      <w>40</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;80.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1108</x>
+      <y>464</y>
+      <w>40</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>80.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1108</x>
+      <y>580</y>
+      <w>40</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;80.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1108</x>
+      <y>580</y>
+      <w>40</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>80.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>852</x>
+      <y>792</y>
+      <w>44</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>90.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1108</x>
+      <y>392</y>
+      <w>240</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;580.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1244</x>
+      <y>412</y>
+      <w>104</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>240.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1256</x>
+      <y>464</y>
+      <w>92</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>210.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1308</x>
+      <y>580</y>
+      <w>40</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>80.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1164</x>
+      <y>612</y>
+      <w>204</w>
+      <h>188</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+Entity</panel_attributes>
+    <additional_attributes>490.0;10.0;490.0;430.0;10.0;430.0;10.0;450.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1552</x>
+      <y>612</y>
+      <w>12</w>
+      <h>204</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;490.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>772</x>
+      <y>632</y>
+      <w>104</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>error::OwnError
+--
+--
++OwnError(String message): ctor
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>872</x>
+      <y>632</y>
+      <w>80</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>180.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1368</x>
+      <y>648</y>
+      <w>160</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>tile::Tile
+--
+-name: String
+-skin: BufferedImage
+-collision = false: boolean
+--
++setSkin(BufferedImage img, String name): void
++getSkin(): BufferedImage
++noCollision(): void
++enableCollision(): void
++isSolid(): boolean
++getName(): String
++setName(String name): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1140</x>
+      <y>652</y>
+      <w>172</w>
+      <h>52</h>
+    </coordinates>
+    <panel_attributes>tile::TileManager
+--
+-gameP: GamePanel
++tiles: Tile[]
++map[][]: int
+--
++TileManager(GamePanel gp, String filename): ctor
++loadMap(String fileP): void
+-setTilesImage(): void
+-setupTile(int ind, String imageName, boolean collision): void
++draw(Graphics2D grap2): void
++reLoadTileSkins(GamePanel gameP): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1308</x>
+      <y>660</y>
+      <w>68</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+Tile
+</panel_attributes>
+    <additional_attributes>10.0;20.0;150.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1108</x>
+      <y>652</y>
+      <w>40</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;80.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1108</x>
+      <y>652</y>
+      <w>40</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>80.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1308</x>
+      <y>612</y>
+      <w>48</w>
+      <h>52</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>100.0;10.0;100.0;110.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>568</x>
+      <y>544</y>
+      <w>68</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>main::Main
+--
+-mmenu: MainMenu
+--
++main(String[] arg): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>600</x>
+      <y>576</y>
+      <w>12</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+</diagram>
