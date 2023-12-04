@@ -1,5 +1,6 @@
 package object;
 
+@SuppressWarnings("serial")
 public class OBJ_Chest extends OsObject{
 	public OBJ_Chest() {
 		setName("Chest");

@@ -1,0 +1,142 @@
+\doxysection{Main\+Menu.\+java}
+\label{_main_menu_8java_source}\index{menu/MainMenu.java@{menu/MainMenu.java}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{package\ }menu;}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{import}\ java.awt.CardLayout;}
+\DoxyCodeLine{00004\ \textcolor{keyword}{import}\ java.awt.Color;}
+\DoxyCodeLine{00005\ \textcolor{keyword}{import}\ java.awt.Dimension;}
+\DoxyCodeLine{00006\ \textcolor{keyword}{import}\ java.awt.Font;}
+\DoxyCodeLine{00007\ \textcolor{keyword}{import}\ java.awt.event.ActionEvent;}
+\DoxyCodeLine{00008\ \textcolor{keyword}{import}\ java.awt.event.ActionListener;}
+\DoxyCodeLine{00009\ \textcolor{keyword}{import}\ java.awt.event.MouseAdapter;}
+\DoxyCodeLine{00010\ \textcolor{keyword}{import}\ java.awt.event.MouseEvent;}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{import}\ javax.swing.JButton;}
+\DoxyCodeLine{00013\ \textcolor{keyword}{import}\ javax.swing.JFrame;}
+\DoxyCodeLine{00014\ \textcolor{keyword}{import}\ javax.swing.JPanel;}
+\DoxyCodeLine{00015\ \textcolor{keyword}{import}\ gameplay.*;}
+\DoxyCodeLine{00016\ \textcolor{keyword}{import}\ ospanel.MenuPanel;}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ @SuppressWarnings(\textcolor{stringliteral}{"{}serial"{}})}
+\DoxyCodeLine{00022\ public\ class\ MainMenu\ extends\ JFrame\{}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{private}\ CardLayout\ cards\ =\ \textcolor{keyword}{new}\ CardLayout();}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{private}\ JPanel\ cardsPanel\ =\ \textcolor{keyword}{new}\ JPanel(cards);}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{private}\ MenuPanel\ actual\_pan;}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{private}\ CharacterChoose\ character\_pan\ =\ \textcolor{keyword}{new}\ CharacterChoose(\textcolor{keyword}{this});}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{private}\ BestRoundsPanel\ best\ =\ \textcolor{keyword}{new}\ BestRoundsPanel(\textcolor{keyword}{this});}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ setupMainMenu()\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ setTitle(\textcolor{stringliteral}{"{}Main\ Menu"{}});}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ setSize(\textcolor{keyword}{new}\ Dimension(960,\ 720));}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ getContentPane().removeAll();}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ actual\_pan\ =\ \textcolor{keyword}{new}\ MenuPanel();}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ actual\_pan.setLayout(\textcolor{keyword}{null});}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ Font\ buttonsFont\ =\ \textcolor{keyword}{new}\ Font(\textcolor{stringliteral}{"{}Century\ Gothic"{}},\ Font.BOLD,\ 24);}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ JButton\ ngb\ =\ \textcolor{keyword}{new}\ JButton(\textcolor{stringliteral}{"{}New\ Game"{}});}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ ngb.addActionListener(\textcolor{keyword}{new}\ NewGameButtonListener());}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ ngb.setBounds(380,\ 360,\ 200,\ 50);}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ ngb.setBackground(Color.GRAY);}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ ngb.setForeground(Color.CYAN);}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ ngb.setFont(buttonsFont);}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ ngb.addMouseListener(\textcolor{keyword}{new}\ MyButtonMouseAdapter(ngb));}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ JButton\ lgb\ =\ \textcolor{keyword}{new}\ JButton(\textcolor{stringliteral}{"{}Load\ Game"{}});}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ lgb.addActionListener(\textcolor{keyword}{new}\ LoadButtonListener());}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ lgb.setBounds(380,\ 360+60,\ 200,\ 50);}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ lgb.setBackground(Color.GRAY);}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ lgb.setForeground(Color.CYAN);}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ lgb.setFont(buttonsFont);}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ lgb.addMouseListener(\textcolor{keyword}{new}\ MyButtonMouseAdapter(lgb));}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ JButton\ brb\ =\ \textcolor{keyword}{new}\ JButton(\textcolor{stringliteral}{"{}Best\ Rounds"{}});}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ brb.addActionListener(\textcolor{keyword}{new}\ BestRoundsButtonListener());}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ brb.setBounds(380,\ 360+120,\ 200,\ 50);}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ brb.setBackground(Color.GRAY);}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ brb.setForeground(Color.CYAN);}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ brb.setFont(buttonsFont);}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ brb.addMouseListener(\textcolor{keyword}{new}\ MyButtonMouseAdapter(brb));}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ JButton\ xtb\ =\ \textcolor{keyword}{new}\ JButton(\textcolor{stringliteral}{"{}EXIT"{}});}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ xtb.addActionListener(\textcolor{keyword}{new}\ ExitButtonListener());}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ xtb.setBounds(380,\ 360+180,\ 200,\ 50);}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ xtb.setBackground(Color.GRAY);}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ xtb.setForeground(Color.CYAN);}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ xtb.setFont(buttonsFont);}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ xtb.addMouseListener(\textcolor{keyword}{new}\ MyButtonMouseAdapter(xtb));}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ actual\_pan.add(ngb);}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ actual\_pan.add(lgb);}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ actual\_pan.add(brb);}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ actual\_pan.add(xtb);}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ setLocationRelativeTo(\textcolor{keyword}{null});}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ setDefaultCloseOperation(EXIT\_ON\_CLOSE);}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ setResizable(\textcolor{keyword}{false});}
+\DoxyCodeLine{00079\ \ \ \ \ \}}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ ResetMenuPanel()\ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ getContentPane().removeAll();}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ this.setupMainMenu();}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ add(actual\_pan);}
+\DoxyCodeLine{00084\ \ \ \ \ \}}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{class\ }NewGameButtonListener\ \textcolor{keyword}{implements}\ ActionListener\{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ newgame)\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ cards.show(cardsPanel,\ \textcolor{stringliteral}{"{}Choose"{}});}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00089\ \ \ \ \ \}}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{class\ }LoadButtonListener\ \textcolor{keyword}{implements}\ ActionListener\{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ loadgame)\ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ GamePanel\ gameP\ =\ \textcolor{keyword}{new}\ GamePanel(\textcolor{stringliteral}{"{}load\_game"{}},\ \textcolor{stringliteral}{"{}load\_game"{}});}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ setTitle(\textcolor{stringliteral}{"{}Dungeon\ Run"{}});}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ addNewCard(gameP,\ \textcolor{stringliteral}{"{}Game"{}});}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ gameP.setMenuWin(MainMenu.this);}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ gameP.loadGameData();}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ gameP.startMainT();}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ pack();}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ changeCard(\textcolor{stringliteral}{"{}Game"{}});}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00104\ \ \ \ \ \}}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{class\ }BestRoundsButtonListener\ \textcolor{keyword}{implements}\ ActionListener\{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ bestrounds)\ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ cards.show(cardsPanel,\ \textcolor{stringliteral}{"{}BestRounds"{}});}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00110\ \ \ \ \ \}}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{class\ }ExitButtonListener\ \textcolor{keyword}{implements}\ ActionListener\{}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ exit)\ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ System.exit(0);}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00115\ \ \ \ \ \}}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{class\ }MyButtonMouseAdapter\ \textcolor{keyword}{extends}\ MouseAdapter\{}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ JButton\ butt;}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ MyButtonMouseAdapter(JButton\ butt)\ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ this.butt\ =\ butt;}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ mouseEntered(MouseEvent\ e)\ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ butt.setForeground(Color.RED);}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ mouseExited(MouseEvent\ e)\ \{}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ butt.setForeground(Color.cyan);}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00130\ \ \ \ \ \}}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ changeCard(String\ cardName)\ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ cards.show(cardsPanel,\ cardName);}
+\DoxyCodeLine{00133\ \ \ \ \ \}}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ addNewCard(JPanel\ pan,\ String\ name)\ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ cardsPanel.add(pan,\ name);}
+\DoxyCodeLine{00136\ \ \ \ \ \}}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keyword}{public}\ MainMenu()\ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ ResetMenuPanel();}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ cardsPanel.add(actual\_pan,\ \textcolor{stringliteral}{"{}Menu"{}});}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ cardsPanel.add(character\_pan,\ \textcolor{stringliteral}{"{}Choose"{}});}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ cardsPanel.add(best,\ \textcolor{stringliteral}{"{}BestRounds"{}});}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ add(cardsPanel);}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ cards.show(cardsPanel,\ \textcolor{stringliteral}{"{}Menu"{}});}
+\DoxyCodeLine{00147\ \ \ \ \ \}}
+\DoxyCodeLine{00148\ \}}
+
+\end{DoxyCode}

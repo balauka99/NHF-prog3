@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="module-info_8java" kind="file" language="Java">
+    <compoundname>module-info.java</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="module-info_8java_1af0eddadb45de6edce3e7e6e0c79919f7" prot="package" static="no" mutable="no">
+        <type>module</type>
+        <definition>module nhf</definition>
+        <argsstring></argsstring>
+        <name>nhf</name>
+        <initializer>{
+	requires java.desktop</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="module-info.java" line="7" column="8" bodyfile="module-info.java" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="module-info_8java_1a59ab9e90db1dca57f2b5145d9e4e1544" prot="package" static="no" mutable="no">
+        <type>requires</type>
+        <definition>requires junit</definition>
+        <argsstring></argsstring>
+        <name>junit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="module-info.java" line="9" column="10" bodyfile="module-info.java" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal">module<sp/>nhf<sp/>{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/>requires<sp/>java.desktop;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>requires<sp/>junit;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="module-info.java"/>
+  </compounddef>
+</doxygen>

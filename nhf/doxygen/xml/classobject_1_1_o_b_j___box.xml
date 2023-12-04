@@ -1,0 +1,176 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classobject_1_1_o_b_j___box" kind="class" language="Java" prot="public">
+    <compoundname>object::OBJ_Box</compoundname>
+    <basecompoundref refid="classobject_1_1_os_object" prot="public" virt="non-virtual">object.OsObject</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classobject_1_1_o_b_j___box_1a1ebe1170da1ec1d2e6f99215e144cfd2" prot="private" static="no" mutable="no">
+        <type>Random</type>
+        <definition>Random object.OBJ_Box.rndNum</definition>
+        <argsstring></argsstring>
+        <name>rndNum</name>
+        <qualifiedname>object.OBJ_Box.rndNum</qualifiedname>
+        <initializer>= new Random()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="object/OBJ_Box.java" line="7" column="16" bodyfile="object/OBJ_Box.java" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classobject_1_1_o_b_j___box_1a84482edfd824f40bd9103c04134470ce" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>object.OBJ_Box.OBJ_Box</definition>
+        <argsstring>()</argsstring>
+        <name>OBJ_Box</name>
+        <qualifiedname>object.OBJ_Box.OBJ_Box</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="object/OBJ_Box.java" line="9" column="8" bodyfile="object/OBJ_Box.java" bodystart="9" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classobject_1_1_o_b_j___box_1af996465b2c391799ca0ce85f094cfbb1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void object.OBJ_Box.useObject</definition>
+        <argsstring>()</argsstring>
+        <name>useObject</name>
+        <qualifiedname>object.OBJ_Box.useObject</qualifiedname>
+        <reimplements refid="classobject_1_1_os_object_1abf43b8090e550222903b10a09d4bcc89">useObject</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Mindig meg kell hívni a super.useObject() metódust, hogy true legyen a használata </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="object/OBJ_Box.java" line="15" column="13" bodyfile="object/OBJ_Box.java" bodystart="15" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="classobject_1_1_o_b_j___box_1adc619b82df87f2f03cf1212c5536e613" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void object.OBJ_Box.destroy</definition>
+        <argsstring>()</argsstring>
+        <name>destroy</name>
+        <qualifiedname>object.OBJ_Box.destroy</qualifiedname>
+        <reimplements refid="classobject_1_1_os_object_1ac8faa795bba7f6168d27fbf88ef36bfa">destroy</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="object/OBJ_Box.java" line="23" column="13" bodyfile="object/OBJ_Box.java" bodystart="23" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="classobject_1_1_o_b_j___box_1a9463c0ff574ee6460624fa816a8e12f4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void object.OBJ_Box.reLoad</definition>
+        <argsstring>()</argsstring>
+        <name>reLoad</name>
+        <qualifiedname>object.OBJ_Box.reLoad</qualifiedname>
+        <reimplements refid="classobject_1_1_os_object_1a447b2ecb2fca45bd741fc5593ce41343">reLoad</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="object/OBJ_Box.java" line="39" column="13" bodyfile="object/OBJ_Box.java" bodystart="39" bodyend="47"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>Serializable</label>
+      </node>
+      <node id="1">
+        <label>object.OBJ_Box</label>
+        <link refid="classobject_1_1_o_b_j___box"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>object.OsObject</label>
+        <link refid="classobject_1_1_os_object"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="7">
+        <label>Rectangle</label>
+      </node>
+      <node id="4">
+        <label>BufferedImage</label>
+      </node>
+      <node id="3">
+        <label>Serializable</label>
+      </node>
+      <node id="6">
+        <label>ArrayList&lt; BufferedImage &gt;</label>
+      </node>
+      <node id="5">
+        <label>loaders.SheetLoader</label>
+        <link refid="classloaders_1_1_sheet_loader"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>object.OBJ_Box</label>
+        <link refid="classobject_1_1_o_b_j___box"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>object.OsObject</label>
+        <link refid="classobject_1_1_os_object"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>skin</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>sheet</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>hitbox</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="object/OBJ_Box.java" line="6" column="7" bodyfile="object/OBJ_Box.java" bodystart="6" bodyend="48"/>
+    <listofallmembers>
+      <member refid="classobject_1_1_os_object_1aa05d7f8f9f1d5669292046eceffd2c0e" prot="public" virt="non-virtual"><scope>object::OBJ_Box</scope><name>collision</name></member>
+      <member refid="classobject_1_1_os_object_1a8483428dc1e84b9205c3649b57ae3ae7" prot="protected" virt="non-virtual"><scope>object::OBJ_Box</scope><name>defaultTileSize</name></member>
+      <member refid="classobject_1_1_o_b_j___box_1adc619b82df87f2f03cf1212c5536e613" prot="public" virt="non-virtual"><scope>object::OBJ_Box</scope><name>destroy</name></member>
+      <member refid="classobject_1_1_os_object_1aeaf7cad2789e3d57733e126e9fa73cdc" prot="public" virt="non-virtual"><scope>object::OBJ_Box</scope><name>draw</name></member>
+      <member refid="classobject_1_1_os_object_1aec101e19d148a0965d41bd1bf3490f03" prot="public" virt="non-virtual"><scope>object::OBJ_Box</scope><name>getName</name></member>
+      <member refid="classobject_1_1_os_object_1ac3ffd8ac7650723736beea1d19c5b980" prot="public" virt="non-virtual"><scope>object::OBJ_Box</scope><name>hitbox</name></member>
+      <member refid="classobject_1_1_os_object_1a47be4d3e929f6d3720f004a80175ba39" prot="protected" virt="non-virtual"><scope>object::OBJ_Box</scope><name>hitboxDefaultX</name></member>
+      <member refid="classobject_1_1_os_object_1adb470b8307675bb4db574edd7beb38c3" prot="protected" virt="non-virtual"><scope>object::OBJ_Box</scope><name>hitboxDefaultY</name></member>
+      <member refid="classobject_1_1_os_object_1a4b0307e664d6e6360195f05e9cfca6a2" prot="public" virt="non-virtual"><scope>object::OBJ_Box</scope><name>isDestroyed</name></member>
+      <member refid="classobject_1_1_os_object_1a2adb45a0cb5b721cbab1f8e9bd9770ec" prot="public" virt="non-virtual"><scope>object::OBJ_Box</scope><name>isObjectUsed</name></member>
+      <member refid="classobject_1_1_o_b_j___box_1a84482edfd824f40bd9103c04134470ce" prot="public" virt="non-virtual"><scope>object::OBJ_Box</scope><name>OBJ_Box</name></member>
+      <member refid="classobject_1_1_o_b_j___box_1a9463c0ff574ee6460624fa816a8e12f4" prot="public" virt="non-virtual"><scope>object::OBJ_Box</scope><name>reLoad</name></member>
+      <member refid="classobject_1_1_os_object_1ad4774e2362d8def20c29035ce87b6296" prot="public" virt="non-virtual"><scope>object::OBJ_Box</scope><name>resetHitboxToDefault</name></member>
+      <member refid="classobject_1_1_os_object_1a0f45a46b97d61fda33b821e75b3f56cd" prot="public" virt="non-virtual"><scope>object::OBJ_Box</scope><name>reUseObject</name></member>
+      <member refid="classobject_1_1_o_b_j___box_1a1ebe1170da1ec1d2e6f99215e144cfd2" prot="private" virt="non-virtual"><scope>object::OBJ_Box</scope><name>rndNum</name></member>
+      <member refid="classobject_1_1_os_object_1a126a1b249be41df28d929a5e7c7f68b3" prot="public" virt="non-virtual"><scope>object::OBJ_Box</scope><name>setName</name></member>
+      <member refid="classobject_1_1_os_object_1a5fec5dc47715450c3a9c958888b1299b" prot="protected" virt="non-virtual"><scope>object::OBJ_Box</scope><name>setupSkin</name></member>
+      <member refid="classobject_1_1_os_object_1ab5f130e9c4071d8e8d3be7807c049a69" prot="protected" virt="non-virtual"><scope>object::OBJ_Box</scope><name>sheet</name></member>
+      <member refid="classobject_1_1_os_object_1aa12adf4058ca516a2bbb78cd845fab6d" prot="protected" virt="non-virtual"><scope>object::OBJ_Box</scope><name>skin</name></member>
+      <member refid="classobject_1_1_os_object_1af11f5428937bc2a3feca5c43c69ecc55" prot="protected" virt="non-virtual"><scope>object::OBJ_Box</scope><name>unBreakAble</name></member>
+      <member refid="classobject_1_1_o_b_j___box_1af996465b2c391799ca0ce85f094cfbb1" prot="public" virt="non-virtual"><scope>object::OBJ_Box</scope><name>useObject</name></member>
+      <member refid="classobject_1_1_os_object_1a91159d1f8716489e8da0de1a9cd1380b" prot="public" virt="non-virtual"><scope>object::OBJ_Box</scope><name>x</name></member>
+      <member refid="classobject_1_1_os_object_1a77f3a709e58bfed6f0a0db68f022d0e1" prot="public" virt="non-virtual"><scope>object::OBJ_Box</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

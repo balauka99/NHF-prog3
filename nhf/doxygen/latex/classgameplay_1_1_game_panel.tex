@@ -1,0 +1,438 @@
+\doxysection{gameplay.\+Game\+Panel Class Reference}
+\label{classgameplay_1_1_game_panel}\index{gameplay.GamePanel@{gameplay.GamePanel}}
+Inheritance diagram for gameplay.\+Game\+Panel\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classgameplay_1_1_game_panel}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Game\+Panel} (String character, String player\+Name)
+\item 
+void \textbf{ setup\+Game} ()
+\item 
+void \textbf{ setup\+Healt\+Pos} ()
+\item 
+void \textbf{ start\+MainT} ()
+\item 
+void \textbf{ reset\+Objects} ()
+\item 
+void \textbf{ reset\+Enemys} ()
+\item 
+void \textbf{ save\+Map} ()
+\item 
+void \textbf{ enter\+New\+Map} ()
+\item 
+void \textbf{ load\+Previous\+Map} ()
+\item 
+void \textbf{ enter\+Previous\+Map\+From\+Previous\+Map} ()
+\item 
+void \textbf{ run} ()
+\item 
+void \textbf{ update\+Panel} ()  throws IOException 
+\item 
+boolean \textbf{ is\+Level\+Cleared} ()
+\item 
+\textbf{ Key\+Handler} \textbf{ get\+Key\+Listener} ()
+\item 
+int \textbf{ get\+Player\+Point} ()
+\item 
+\textbf{ Player} \textbf{ get\+Player} ()
+\item 
+String \textbf{ get\+Player\+Name} ()
+\item 
+\textbf{ Best\+Rounds} \textbf{ get\+PLayers\+Score} ()
+\item 
+void \textbf{ paint\+Component} (Graphics grap)
+\item 
+void \textbf{ load\+Game\+Data} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \textbf{ ospanel.\+Os\+Panel}}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Os\+Panel} ()
+\item 
+void \textbf{ set\+Menu\+Win} (\textbf{ Main\+Menu} \textbf{ menu\+Win})
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Map\+\_\+\+Status} \textbf{ map\+\_\+state} = \textbf{ Map\+\_\+\+Status.\+IN\+\_\+\+NEW}
+\item 
+Array\+List$<$ \textbf{ Heart} $>$ \textbf{ player\+\_\+healt} = new Array\+List$<$\textbf{ Heart}$>$()
+\item 
+\textbf{ Previous\+Maps} \textbf{ prev\+Maps} = new \textbf{ Previous\+Maps}()
+\item 
+boolean \textbf{ is\+Map\+In\+Prev\+Maps} = false
+\item 
+\textbf{ Tile\+Manager} \textbf{ tile\+Mg}
+\item 
+\textbf{ Collision\+Checker} \textbf{ c\+Checker} = new \textbf{ Collision\+Checker}(this)
+\item 
+Array\+List$<$ \textbf{ Os\+Object} $>$ \textbf{ objects} = new Array\+List$<$\textbf{ Os\+Object}$>$()
+\item 
+Array\+List$<$ \textbf{ Entity} $>$ \textbf{ enemys} = new Array\+List$<$\textbf{ Entity}$>$()
+\item 
+\textbf{ Asset\+Setter} \textbf{ ass\+Setter}
+\item 
+\textbf{ User\+Interface} \textbf{ ui} = new \textbf{ User\+Interface}(this)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes inherited from \textbf{ ospanel.\+Os\+Panel}}
+\begin{DoxyCompactItemize}
+\item 
+final int \textbf{ tile\+Size} = org\+Tile\+Size $\ast$ scale
+\item 
+final int \textbf{ max\+Oszlop} = 20
+\item 
+final int \textbf{ max\+Sor} = 15
+\item 
+final int \textbf{ screen\+Width} = \textbf{ tile\+Size} $\ast$ \textbf{ max\+Oszlop}
+\item 
+final int \textbf{ screen\+Height} = \textbf{ tile\+Size} $\ast$ \textbf{ max\+Sor}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Protected Attributes inherited from \textbf{ ospanel.\+Os\+Panel}}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Main\+Menu} \textbf{ menu\+Win}
+\item 
+Font \textbf{ def\+Font} = new Font(\char`\"{}Century Gothic\char`\"{}, Font.\+BOLD, 24)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Ez az osztály tartalmazza magát a játék loop-\/ot (ezt a megoldást neten találtam, és megtetszett logikusnak tűnt) itt van eltárolva minden adat, ami a játék játszása közben szükséges lehet, mivel itt is van minden megjelenítve, ezért egyszerűbb ide tenni mindent is 
+
+Definition at line \textbf{ 28} of file \textbf{ Game\+Panel.\+java}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classgameplay_1_1_game_panel_a5a6b3d36bcdf51af9008da8082972b01}} 
+\index{gameplay.GamePanel@{gameplay.GamePanel}!GamePanel@{GamePanel}}
+\index{GamePanel@{GamePanel}!gameplay.GamePanel@{gameplay.GamePanel}}
+\doxysubsubsection{GamePanel()}
+{\footnotesize\ttfamily gameplay.\+Game\+Panel.\+Game\+Panel (\begin{DoxyParamCaption}\item[{String}]{character,  }\item[{String}]{player\+Name }\end{DoxyParamCaption})}
+
+Konsturktor, megkapja milyen karaktert választott a játékos és mi a játékneve, ha load\+\_\+game String-\/eket kapunk, akkor betölti a mentett állást a legújabb adatokat vesszi alapul, tehát azt tölti vissza aki utoljára játszott 
+\begin{DoxyParams}{Parameters}
+{\em character} & Karatker neve \\
+\hline
+{\em player\+Name} & Játékos név \\
+\hline
+\end{DoxyParams}
+Fokuszál a key inputra
+
+Definition at line \textbf{ 94} of file \textbf{ Game\+Panel.\+java}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classgameplay_1_1_game_panel_add4a3c3a794666e016768733bc399b15}} 
+\index{gameplay.GamePanel@{gameplay.GamePanel}!enterNewMap@{enterNewMap}}
+\index{enterNewMap@{enterNewMap}!gameplay.GamePanel@{gameplay.GamePanel}}
+\doxysubsubsection{enterNewMap()}
+{\footnotesize\ttfamily void gameplay.\+Game\+Panel.\+enter\+New\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Elmenti, aztán beállítja a pályát egy új helyzetbe, vagyis egy új pályára lép a játékos 
+
+Definition at line \textbf{ 173} of file \textbf{ Game\+Panel.\+java}.
+
+\mbox{\label{classgameplay_1_1_game_panel_aefb55b905714d570e30e26b872bb7f3d}} 
+\index{gameplay.GamePanel@{gameplay.GamePanel}!enterPreviousMapFromPreviousMap@{enterPreviousMapFromPreviousMap}}
+\index{enterPreviousMapFromPreviousMap@{enterPreviousMapFromPreviousMap}!gameplay.GamePanel@{gameplay.GamePanel}}
+\doxysubsubsection{enterPreviousMapFromPreviousMap()}
+{\footnotesize\ttfamily void gameplay.\+Game\+Panel.\+enter\+Previous\+Map\+From\+Previous\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Visszafele megyünk egy már volt pályáról egy olyan pályára ami már szintén volt, vagyis az is egy régi pálya, de később volt mint ahol voltunk 
+
+Definition at line \textbf{ 212} of file \textbf{ Game\+Panel.\+java}.
+
+\mbox{\label{classgameplay_1_1_game_panel_aa954ef7049e2dc9dfc7d69189e908dc5}} 
+\index{gameplay.GamePanel@{gameplay.GamePanel}!getKeyListener@{getKeyListener}}
+\index{getKeyListener@{getKeyListener}!gameplay.GamePanel@{gameplay.GamePanel}}
+\doxysubsubsection{getKeyListener()}
+{\footnotesize\ttfamily \textbf{ Key\+Handler} gameplay.\+Game\+Panel.\+get\+Key\+Listener (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 306} of file \textbf{ Game\+Panel.\+java}.
+
+\mbox{\label{classgameplay_1_1_game_panel_a31fddfe3a40d2de0714058c1857b0b75}} 
+\index{gameplay.GamePanel@{gameplay.GamePanel}!getPlayer@{getPlayer}}
+\index{getPlayer@{getPlayer}!gameplay.GamePanel@{gameplay.GamePanel}}
+\doxysubsubsection{getPlayer()}
+{\footnotesize\ttfamily \textbf{ Player} gameplay.\+Game\+Panel.\+get\+Player (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 312} of file \textbf{ Game\+Panel.\+java}.
+
+\mbox{\label{classgameplay_1_1_game_panel_a6c2a42da7ec2f414d67bf0216637298d}} 
+\index{gameplay.GamePanel@{gameplay.GamePanel}!getPlayerName@{getPlayerName}}
+\index{getPlayerName@{getPlayerName}!gameplay.GamePanel@{gameplay.GamePanel}}
+\doxysubsubsection{getPlayerName()}
+{\footnotesize\ttfamily String gameplay.\+Game\+Panel.\+get\+Player\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 315} of file \textbf{ Game\+Panel.\+java}.
+
+\mbox{\label{classgameplay_1_1_game_panel_ab83b252636d7de7fd3e7d09ea2c50d30}} 
+\index{gameplay.GamePanel@{gameplay.GamePanel}!getPlayerPoint@{getPlayerPoint}}
+\index{getPlayerPoint@{getPlayerPoint}!gameplay.GamePanel@{gameplay.GamePanel}}
+\doxysubsubsection{getPlayerPoint()}
+{\footnotesize\ttfamily int gameplay.\+Game\+Panel.\+get\+Player\+Point (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 309} of file \textbf{ Game\+Panel.\+java}.
+
+\mbox{\label{classgameplay_1_1_game_panel_a5cc5d57f314335c1c2642b06b3d731e1}} 
+\index{gameplay.GamePanel@{gameplay.GamePanel}!getPLayersScore@{getPLayersScore}}
+\index{getPLayersScore@{getPLayersScore}!gameplay.GamePanel@{gameplay.GamePanel}}
+\doxysubsubsection{getPLayersScore()}
+{\footnotesize\ttfamily \textbf{ Best\+Rounds} gameplay.\+Game\+Panel.\+get\+PLayers\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 318} of file \textbf{ Game\+Panel.\+java}.
+
+\mbox{\label{classgameplay_1_1_game_panel_a0fb45f12ee95e5c824dd2db0b97300d2}} 
+\index{gameplay.GamePanel@{gameplay.GamePanel}!isLevelCleared@{isLevelCleared}}
+\index{isLevelCleared@{isLevelCleared}!gameplay.GamePanel@{gameplay.GamePanel}}
+\doxysubsubsection{isLevelCleared()}
+{\footnotesize\ttfamily boolean gameplay.\+Game\+Panel.\+is\+Level\+Cleared (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Visszaadja a pályán meghalt-\/e minden ellenfél \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 298} of file \textbf{ Game\+Panel.\+java}.
+
+\mbox{\label{classgameplay_1_1_game_panel_a44715bd2d5380b90f0b244ec3725aaf8}} 
+\index{gameplay.GamePanel@{gameplay.GamePanel}!loadGameData@{loadGameData}}
+\index{loadGameData@{loadGameData}!gameplay.GamePanel@{gameplay.GamePanel}}
+\doxysubsubsection{loadGameData()}
+{\footnotesize\ttfamily void gameplay.\+Game\+Panel.\+load\+Game\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+A Serializált adatokat visszatöltjük a prev\+Maps-\/be és azokból a legujjabban bekerültet töltjük vissza a jelenlegi állásba 
+
+Definition at line \textbf{ 387} of file \textbf{ Game\+Panel.\+java}.
+
+\mbox{\label{classgameplay_1_1_game_panel_a7920643f786ba6295aa631e3b9075ebc}} 
+\index{gameplay.GamePanel@{gameplay.GamePanel}!loadPreviousMap@{loadPreviousMap}}
+\index{loadPreviousMap@{loadPreviousMap}!gameplay.GamePanel@{gameplay.GamePanel}}
+\doxysubsubsection{loadPreviousMap()}
+{\footnotesize\ttfamily void gameplay.\+Game\+Panel.\+load\+Previous\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Elkéri a prev\+Maps-\/ból ez éppen előzö pályát, attól függöen hol vagyunk, és azt beállítja 
+
+Definition at line \textbf{ 201} of file \textbf{ Game\+Panel.\+java}.
+
+\mbox{\label{classgameplay_1_1_game_panel_a50d429bafee856e538faa2652da2b210}} 
+\index{gameplay.GamePanel@{gameplay.GamePanel}!paintComponent@{paintComponent}}
+\index{paintComponent@{paintComponent}!gameplay.GamePanel@{gameplay.GamePanel}}
+\doxysubsubsection{paintComponent()}
+{\footnotesize\ttfamily void gameplay.\+Game\+Panel.\+paint\+Component (\begin{DoxyParamCaption}\item[{Graphics}]{grap }\end{DoxyParamCaption})}
+
+Maga a rajzolás, a repaint a run()-\/ban ezt hívja meg mindig 
+
+Definition at line \textbf{ 325} of file \textbf{ Game\+Panel.\+java}.
+
+\mbox{\label{classgameplay_1_1_game_panel_a491eebb1312017a46d57c32b11f01f02}} 
+\index{gameplay.GamePanel@{gameplay.GamePanel}!resetEnemys@{resetEnemys}}
+\index{resetEnemys@{resetEnemys}!gameplay.GamePanel@{gameplay.GamePanel}}
+\doxysubsubsection{resetEnemys()}
+{\footnotesize\ttfamily void gameplay.\+Game\+Panel.\+reset\+Enemys (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 157} of file \textbf{ Game\+Panel.\+java}.
+
+\mbox{\label{classgameplay_1_1_game_panel_a099ba3f97e5c8f0ec80c0f2ec1b0726f}} 
+\index{gameplay.GamePanel@{gameplay.GamePanel}!resetObjects@{resetObjects}}
+\index{resetObjects@{resetObjects}!gameplay.GamePanel@{gameplay.GamePanel}}
+\doxysubsubsection{resetObjects()}
+{\footnotesize\ttfamily void gameplay.\+Game\+Panel.\+reset\+Objects (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 154} of file \textbf{ Game\+Panel.\+java}.
+
+\mbox{\label{classgameplay_1_1_game_panel_a1e9590cb37668ae34f454b9a20dc57a0}} 
+\index{gameplay.GamePanel@{gameplay.GamePanel}!run@{run}}
+\index{run@{run}!gameplay.GamePanel@{gameplay.GamePanel}}
+\doxysubsubsection{run()}
+{\footnotesize\ttfamily void gameplay.\+Game\+Panel.\+run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+A játék loopja, a netről néztem. Lényegében frissiti az állást aztán újrarajzolja azt, az fps adattagal van lekorlátozva másodpercenként max 60szor frissítsen 
+
+Definition at line \textbf{ 241} of file \textbf{ Game\+Panel.\+java}.
+
+\mbox{\label{classgameplay_1_1_game_panel_ad60af0224bea69d6f771d11ff933951c}} 
+\index{gameplay.GamePanel@{gameplay.GamePanel}!saveMap@{saveMap}}
+\index{saveMap@{saveMap}!gameplay.GamePanel@{gameplay.GamePanel}}
+\doxysubsubsection{saveMap()}
+{\footnotesize\ttfamily void gameplay.\+Game\+Panel.\+save\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Elmenti, azaz beteszi a prev\+Maps-\/ba azt a pályát ahol éppen vagyunk 
+
+Definition at line \textbf{ 163} of file \textbf{ Game\+Panel.\+java}.
+
+\mbox{\label{classgameplay_1_1_game_panel_a9358fa5ce880a1308870e6d0315c20b1}} 
+\index{gameplay.GamePanel@{gameplay.GamePanel}!setupGame@{setupGame}}
+\index{setupGame@{setupGame}!gameplay.GamePanel@{gameplay.GamePanel}}
+\doxysubsubsection{setupGame()}
+{\footnotesize\ttfamily void gameplay.\+Game\+Panel.\+setup\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Az éppeni adatokkal beállít egy játékállás, először az objecteket kell bállítani, mert az set\+Enemys oda teszi le az ellenfeleket ahol nincs object 
+
+Definition at line \textbf{ 121} of file \textbf{ Game\+Panel.\+java}.
+
+\mbox{\label{classgameplay_1_1_game_panel_afcd20a2301871cb5d90393ae379b9ce6}} 
+\index{gameplay.GamePanel@{gameplay.GamePanel}!setupHealtPos@{setupHealtPos}}
+\index{setupHealtPos@{setupHealtPos}!gameplay.GamePanel@{gameplay.GamePanel}}
+\doxysubsubsection{setupHealtPos()}
+{\footnotesize\ttfamily void gameplay.\+Game\+Panel.\+setup\+Healt\+Pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Beállítja a kis szívek pozicióját a képrenyőn, ami a bal alsó sarok 
+
+Definition at line \textbf{ 135} of file \textbf{ Game\+Panel.\+java}.
+
+\mbox{\label{classgameplay_1_1_game_panel_af9f8b2659dea2faf05c11e17c7bc3d4f}} 
+\index{gameplay.GamePanel@{gameplay.GamePanel}!startMainT@{startMainT}}
+\index{startMainT@{startMainT}!gameplay.GamePanel@{gameplay.GamePanel}}
+\doxysubsubsection{startMainT()}
+{\footnotesize\ttfamily void gameplay.\+Game\+Panel.\+start\+MainT (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Elindítja a Main szállat 
+
+Definition at line \textbf{ 150} of file \textbf{ Game\+Panel.\+java}.
+
+\mbox{\label{classgameplay_1_1_game_panel_aff907d1e955ce4215278e8d7ae92fa01}} 
+\index{gameplay.GamePanel@{gameplay.GamePanel}!updatePanel@{updatePanel}}
+\index{updatePanel@{updatePanel}!gameplay.GamePanel@{gameplay.GamePanel}}
+\doxysubsubsection{updatePanel()}
+{\footnotesize\ttfamily void gameplay.\+Game\+Panel.\+update\+Panel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws IOException}
+
+Frissíti a játék állását, amit addig csinál ameddig a játékos meg nem hal, ha meghalt átvált a dead screenre 
+\begin{DoxyExceptions}{Exceptions}
+{\em IOException} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \textbf{ 284} of file \textbf{ Game\+Panel.\+java}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\label{classgameplay_1_1_game_panel_a169c20f261447f33a3c0ee45e8811ae4}} 
+\index{gameplay.GamePanel@{gameplay.GamePanel}!assSetter@{assSetter}}
+\index{assSetter@{assSetter}!gameplay.GamePanel@{gameplay.GamePanel}}
+\doxysubsubsection{assSetter}
+{\footnotesize\ttfamily \textbf{ Asset\+Setter} gameplay.\+Game\+Panel.\+ass\+Setter}
+
+
+
+Definition at line \textbf{ 77} of file \textbf{ Game\+Panel.\+java}.
+
+\mbox{\label{classgameplay_1_1_game_panel_ae748f4e9b5ab06ad03f6cb5ad6776bc1}} 
+\index{gameplay.GamePanel@{gameplay.GamePanel}!cChecker@{cChecker}}
+\index{cChecker@{cChecker}!gameplay.GamePanel@{gameplay.GamePanel}}
+\doxysubsubsection{cChecker}
+{\footnotesize\ttfamily \textbf{ Collision\+Checker} gameplay.\+Game\+Panel.\+c\+Checker = new \textbf{ Collision\+Checker}(this)}
+
+
+
+Definition at line \textbf{ 74} of file \textbf{ Game\+Panel.\+java}.
+
+\mbox{\label{classgameplay_1_1_game_panel_afc13494d04c7f25933a6f31597bddad9}} 
+\index{gameplay.GamePanel@{gameplay.GamePanel}!enemys@{enemys}}
+\index{enemys@{enemys}!gameplay.GamePanel@{gameplay.GamePanel}}
+\doxysubsubsection{enemys}
+{\footnotesize\ttfamily Array\+List$<$\textbf{ Entity}$>$ gameplay.\+Game\+Panel.\+enemys = new Array\+List$<$\textbf{ Entity}$>$()}
+
+
+
+Definition at line \textbf{ 76} of file \textbf{ Game\+Panel.\+java}.
+
+\mbox{\label{classgameplay_1_1_game_panel_a881ecc2c0d25fd7e594f7d834cb49ecb}} 
+\index{gameplay.GamePanel@{gameplay.GamePanel}!isMapInPrevMaps@{isMapInPrevMaps}}
+\index{isMapInPrevMaps@{isMapInPrevMaps}!gameplay.GamePanel@{gameplay.GamePanel}}
+\doxysubsubsection{isMapInPrevMaps}
+{\footnotesize\ttfamily boolean gameplay.\+Game\+Panel.\+is\+Map\+In\+Prev\+Maps = false}
+
+Azt jelzi, hogy az a pálya hol éppen vagyunk, benne van-\/e a prev\+Maps-\/ban, alapból false és csak akkor lesz true amikor beletesszük a prev\+Maps-\/ba 
+
+Definition at line \textbf{ 65} of file \textbf{ Game\+Panel.\+java}.
+
+\mbox{\label{classgameplay_1_1_game_panel_a3fc4e5df6e7cc5d6c7c2835471815f2f}} 
+\index{gameplay.GamePanel@{gameplay.GamePanel}!map\_state@{map\_state}}
+\index{map\_state@{map\_state}!gameplay.GamePanel@{gameplay.GamePanel}}
+\doxysubsubsection{map\_state}
+{\footnotesize\ttfamily \textbf{ Map\+\_\+\+Status} gameplay.\+Game\+Panel.\+map\+\_\+state = \textbf{ Map\+\_\+\+Status.\+IN\+\_\+\+NEW}}
+
+A map-\/nak páylának a státusza, vagy IN\+\_\+\+NEW(egy új pálya) vagy IN\+\_\+\+PREVIOUS(egy már végzett pálya), ha újban vagyunk csak akkor mehetünk egy másik újba régiből csak egy régebbi, de későbbibe, mint ahol vagyunk pályára 
+
+Definition at line \textbf{ 33} of file \textbf{ Game\+Panel.\+java}.
+
+\mbox{\label{classgameplay_1_1_game_panel_a57be0dc26760f451632ad5de0c5bdd68}} 
+\index{gameplay.GamePanel@{gameplay.GamePanel}!objects@{objects}}
+\index{objects@{objects}!gameplay.GamePanel@{gameplay.GamePanel}}
+\doxysubsubsection{objects}
+{\footnotesize\ttfamily Array\+List$<$\textbf{ Os\+Object}$>$ gameplay.\+Game\+Panel.\+objects = new Array\+List$<$\textbf{ Os\+Object}$>$()}
+
+
+
+Definition at line \textbf{ 75} of file \textbf{ Game\+Panel.\+java}.
+
+\mbox{\label{classgameplay_1_1_game_panel_ae64e36267f194aede8555452c46444a2}} 
+\index{gameplay.GamePanel@{gameplay.GamePanel}!player\_healt@{player\_healt}}
+\index{player\_healt@{player\_healt}!gameplay.GamePanel@{gameplay.GamePanel}}
+\doxysubsubsection{player\_healt}
+{\footnotesize\ttfamily Array\+List$<$\textbf{ Heart}$>$ gameplay.\+Game\+Panel.\+player\+\_\+healt = new Array\+List$<$\textbf{ Heart}$>$()}
+
+Játékos életerejét megjelenítő kis szivek 
+
+Definition at line \textbf{ 49} of file \textbf{ Game\+Panel.\+java}.
+
+\mbox{\label{classgameplay_1_1_game_panel_ae286dfc6a71cb6cc251d584d5e80a1a9}} 
+\index{gameplay.GamePanel@{gameplay.GamePanel}!prevMaps@{prevMaps}}
+\index{prevMaps@{prevMaps}!gameplay.GamePanel@{gameplay.GamePanel}}
+\doxysubsubsection{prevMaps}
+{\footnotesize\ttfamily \textbf{ Previous\+Maps} gameplay.\+Game\+Panel.\+prev\+Maps = new \textbf{ Previous\+Maps}()}
+
+Azok a pályák ahol már járt a játékos, így könnyen bejárható mind, és könnyen el tudjuk menteni 
+
+Definition at line \textbf{ 61} of file \textbf{ Game\+Panel.\+java}.
+
+\mbox{\label{classgameplay_1_1_game_panel_a628fb45e922f40d4872cffc3aa13f8ef}} 
+\index{gameplay.GamePanel@{gameplay.GamePanel}!tileMg@{tileMg}}
+\index{tileMg@{tileMg}!gameplay.GamePanel@{gameplay.GamePanel}}
+\doxysubsubsection{tileMg}
+{\footnotesize\ttfamily \textbf{ Tile\+Manager} gameplay.\+Game\+Panel.\+tile\+Mg}
+
+A tileokat beállító és pályát kirajzoló adattag 
+
+Definition at line \textbf{ 73} of file \textbf{ Game\+Panel.\+java}.
+
+\mbox{\label{classgameplay_1_1_game_panel_a4cdac8269bebfa585ed57ab5be78e7f6}} 
+\index{gameplay.GamePanel@{gameplay.GamePanel}!ui@{ui}}
+\index{ui@{ui}!gameplay.GamePanel@{gameplay.GamePanel}}
+\doxysubsubsection{ui}
+{\footnotesize\ttfamily \textbf{ User\+Interface} gameplay.\+Game\+Panel.\+ui = new \textbf{ User\+Interface}(this)}
+
+
+
+Definition at line \textbf{ 78} of file \textbf{ Game\+Panel.\+java}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+gameplay/\textbf{ Game\+Panel.\+java}\end{DoxyCompactItemize}

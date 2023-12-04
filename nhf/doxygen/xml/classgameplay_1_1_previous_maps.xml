@@ -1,0 +1,357 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classgameplay_1_1_previous_maps" kind="class" language="Java" prot="public">
+    <compoundname>gameplay::PreviousMaps</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">java::util::ArrayList&lt; Map &gt;</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">Serializable</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classgameplay_1_1_previous_maps_1a658086e45add8e13aebecd1e84cf2728" prot="private" static="no" mutable="no">
+        <type><ref refid="classentity_1_1_player" kindref="compound">Player</ref></type>
+        <definition>Player gameplay.PreviousMaps.savedPlayer</definition>
+        <argsstring></argsstring>
+        <name>savedPlayer</name>
+        <qualifiedname>gameplay.PreviousMaps.savedPlayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/PreviousMaps.java" line="107" column="16" bodyfile="gameplay/PreviousMaps.java" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgameplay_1_1_previous_maps_1a968aa2c523033bc771c5bbcd08bfe987" prot="private" static="no" mutable="no">
+        <type>ArrayList&lt; <ref refid="classobject_1_1_heart" kindref="compound">Heart</ref> &gt;</type>
+        <definition>ArrayList&lt;Heart&gt; gameplay.PreviousMaps.player_healt</definition>
+        <argsstring></argsstring>
+        <name>player_healt</name>
+        <qualifiedname>gameplay.PreviousMaps.player_healt</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/PreviousMaps.java" line="108" column="19" bodyfile="gameplay/PreviousMaps.java" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgameplay_1_1_previous_maps_1ac7b9e14ebcad705c646a364e70dc630b" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int gameplay.PreviousMaps.currentPrev</definition>
+        <argsstring></argsstring>
+        <name>currentPrev</name>
+        <qualifiedname>gameplay.PreviousMaps.currentPrev</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/PreviousMaps.java" line="109" column="13" bodyfile="gameplay/PreviousMaps.java" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classgameplay_1_1_previous_maps_1a823fe0af861065e59082a5f9fd712737" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void gameplay.PreviousMaps.addPrevMap</definition>
+        <argsstring>(TileManager tileMg, ArrayList&lt; OsObject &gt; objects, ArrayList&lt; Entity &gt; enemys, AssetSetter assS, int playerX, int playerY, String move_dir, int tileSize)</argsstring>
+        <name>addPrevMap</name>
+        <qualifiedname>gameplay.PreviousMaps.addPrevMap</qualifiedname>
+        <param>
+          <type><ref refid="classtile_1_1_tile_manager" kindref="compound">TileManager</ref></type>
+          <declname>tileMg</declname>
+        </param>
+        <param>
+          <type>ArrayList&lt; <ref refid="classobject_1_1_os_object" kindref="compound">OsObject</ref> &gt;</type>
+          <declname>objects</declname>
+        </param>
+        <param>
+          <type>ArrayList&lt; <ref refid="classentity_1_1_entity" kindref="compound">Entity</ref> &gt;</type>
+          <declname>enemys</declname>
+        </param>
+        <param>
+          <type><ref refid="classgameplay_1_1_asset_setter" kindref="compound">AssetSetter</ref></type>
+          <declname>assS</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>playerX</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>playerY</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>move_dir</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>tileSize</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/PreviousMaps.java" line="110" column="13" bodyfile="gameplay/PreviousMaps.java" bodystart="110" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_previous_maps_1a016c183824b39d0386b6c169ac3b257e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void gameplay.PreviousMaps.setupCurrentPrev</definition>
+        <argsstring>()</argsstring>
+        <name>setupCurrentPrev</name>
+        <qualifiedname>gameplay.PreviousMaps.setupCurrentPrev</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Beállítja az elöző pályát, ami egy új pályá bekerülése után fontos meghívni, mert változik a tömb mérete és az utolsó pálya az utolsó indexen lesz </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/PreviousMaps.java" line="116" column="13" bodyfile="gameplay/PreviousMaps.java" bodystart="116" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_previous_maps_1ac1fc643762cbb2d364e06c8ca7a7aaf7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Map</type>
+        <definition>Map gameplay.PreviousMaps.getPrevious</definition>
+        <argsstring>()</argsstring>
+        <name>getPrevious</name>
+        <qualifiedname>gameplay.PreviousMaps.getPrevious</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Visszaadja az előzö Map adatait, de ha nincs akkor null pointert ad vissza, és beállítja az éppen elöző pálya indexét az éppen soron lévő elözöt <simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/PreviousMaps.java" line="125" column="12" bodyfile="gameplay/PreviousMaps.java" bodystart="125" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_previous_maps_1adf7558c0187a0cc06aac8b7e696b26ec" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Map</type>
+        <definition>Map gameplay.PreviousMaps.getNextPrevMap</definition>
+        <argsstring>()</argsstring>
+        <name>getNextPrevMap</name>
+        <qualifiedname>gameplay.PreviousMaps.getNextPrevMap</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Visszaadja a következő Map adatait, de ha nincs akkor null pointert ad vissza és beállítja az éppen soronlévő pálya indexét is <simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/PreviousMaps.java" line="135" column="12" bodyfile="gameplay/PreviousMaps.java" bodystart="135" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_previous_maps_1a5e16efcf9924829ef40334372cc53bac" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int gameplay.PreviousMaps.getCurrentPrev</definition>
+        <argsstring>()</argsstring>
+        <name>getCurrentPrev</name>
+        <qualifiedname>gameplay.PreviousMaps.getCurrentPrev</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Visszaadja az elöző pálya indexét, azaz ahol a legutobb volt a játékos <simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/PreviousMaps.java" line="144" column="12" bodyfile="gameplay/PreviousMaps.java" bodystart="144" bodyend="146"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_previous_maps_1a0c6c7fec90e86bab5e2a97149cc3f2fa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classentity_1_1_player" kindref="compound">Player</ref></type>
+        <definition>Player gameplay.PreviousMaps.getSavedPlayer</definition>
+        <argsstring>()</argsstring>
+        <name>getSavedPlayer</name>
+        <qualifiedname>gameplay.PreviousMaps.getSavedPlayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/PreviousMaps.java" line="175" column="15" bodyfile="gameplay/PreviousMaps.java" bodystart="175" bodyend="177"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_previous_maps_1aea0adcf23c69d9ad68ff75600a9cf229" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void gameplay.PreviousMaps.setSavedPlayer</definition>
+        <argsstring>(Player savedPlayer)</argsstring>
+        <name>setSavedPlayer</name>
+        <qualifiedname>gameplay.PreviousMaps.setSavedPlayer</qualifiedname>
+        <param>
+          <type><ref refid="classentity_1_1_player" kindref="compound">Player</ref></type>
+          <declname>savedPlayer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/PreviousMaps.java" line="178" column="13" bodyfile="gameplay/PreviousMaps.java" bodystart="178" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_previous_maps_1aba8af6c5a0508713cea99dc47de5a76e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ArrayList&lt; <ref refid="classobject_1_1_heart" kindref="compound">Heart</ref> &gt;</type>
+        <definition>ArrayList&lt; Heart &gt; gameplay.PreviousMaps.getPlayer_healt</definition>
+        <argsstring>()</argsstring>
+        <name>getPlayer_healt</name>
+        <qualifiedname>gameplay.PreviousMaps.getPlayer_healt</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/PreviousMaps.java" line="181" column="18" bodyfile="gameplay/PreviousMaps.java" bodystart="181" bodyend="183"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_previous_maps_1aedd690088ecc44bfef29acfc9f5608f6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void gameplay.PreviousMaps.setPlayer_healt</definition>
+        <argsstring>(ArrayList&lt; Heart &gt; player_healt)</argsstring>
+        <name>setPlayer_healt</name>
+        <qualifiedname>gameplay.PreviousMaps.setPlayer_healt</qualifiedname>
+        <param>
+          <type>ArrayList&lt; <ref refid="classobject_1_1_heart" kindref="compound">Heart</ref> &gt;</type>
+          <declname>player_healt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/PreviousMaps.java" line="184" column="13" bodyfile="gameplay/PreviousMaps.java" bodystart="184" bodyend="186"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classgameplay_1_1_previous_maps_1a71a50b6950ba63c7112846583dc53218" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void gameplay.PreviousMaps.saveAllPreviousMaps</definition>
+        <argsstring>(PreviousMaps prevMaps, String fName)</argsstring>
+        <name>saveAllPreviousMaps</name>
+        <qualifiedname>gameplay.PreviousMaps.saveAllPreviousMaps</qualifiedname>
+        <param>
+          <type><ref refid="classgameplay_1_1_previous_maps" kindref="compound">PreviousMaps</ref></type>
+          <declname>prevMaps</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>fName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Elmenti a kapott fájlnév helyén lévő fájlba az összes pályát <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>prevMaps</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PreviousMaps </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Fájl ahova menteni akarjuk </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/PreviousMaps.java" line="152" column="20" bodyfile="gameplay/PreviousMaps.java" bodystart="152" bodyend="158"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_previous_maps_1ab3c9bdfe87a64998d641654df25cac2a" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classgameplay_1_1_previous_maps" kindref="compound">PreviousMaps</ref></type>
+        <definition>static PreviousMaps gameplay.PreviousMaps.loadALlPreviousMaps</definition>
+        <argsstring>(String fName)</argsstring>
+        <name>loadALlPreviousMaps</name>
+        <qualifiedname>gameplay.PreviousMaps.loadALlPreviousMaps</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>fName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Visszatölti és aztán visszaadja a kapott fájlból kiolvasott pályákat, fontos hogyha nem sikerül null pointert ad vissza <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Fájl amiből betöltjük </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>PreviousMaps amit betöltött </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/PreviousMaps.java" line="164" column="28" bodyfile="gameplay/PreviousMaps.java" bodystart="164" bodyend="174"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Az osztály alakalmas eltárolni bármennyi pályát ami, már előzöleg volt a játéksorán képes el is menteni azokat egy kapott fájlba, és vissza is tölteni </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>gameplay.PreviousMaps</label>
+        <link refid="classgameplay_1_1_previous_maps"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Serializable</label>
+      </node>
+      <node id="2">
+        <label>ArrayList&lt; Map &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>gameplay.PreviousMaps</label>
+        <link refid="classgameplay_1_1_previous_maps"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Serializable</label>
+      </node>
+      <node id="2">
+        <label>ArrayList&lt; Map &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="gameplay/PreviousMaps.java" line="106" column="7" bodyfile="gameplay/PreviousMaps.java" bodystart="106" bodyend="187"/>
+    <listofallmembers>
+      <member refid="classgameplay_1_1_previous_maps_1a823fe0af861065e59082a5f9fd712737" prot="public" virt="non-virtual"><scope>gameplay::PreviousMaps</scope><name>addPrevMap</name></member>
+      <member refid="classgameplay_1_1_previous_maps_1ac7b9e14ebcad705c646a364e70dc630b" prot="private" virt="non-virtual"><scope>gameplay::PreviousMaps</scope><name>currentPrev</name></member>
+      <member refid="classgameplay_1_1_previous_maps_1a5e16efcf9924829ef40334372cc53bac" prot="public" virt="non-virtual"><scope>gameplay::PreviousMaps</scope><name>getCurrentPrev</name></member>
+      <member refid="classgameplay_1_1_previous_maps_1adf7558c0187a0cc06aac8b7e696b26ec" prot="public" virt="non-virtual"><scope>gameplay::PreviousMaps</scope><name>getNextPrevMap</name></member>
+      <member refid="classgameplay_1_1_previous_maps_1aba8af6c5a0508713cea99dc47de5a76e" prot="public" virt="non-virtual"><scope>gameplay::PreviousMaps</scope><name>getPlayer_healt</name></member>
+      <member refid="classgameplay_1_1_previous_maps_1ac1fc643762cbb2d364e06c8ca7a7aaf7" prot="public" virt="non-virtual"><scope>gameplay::PreviousMaps</scope><name>getPrevious</name></member>
+      <member refid="classgameplay_1_1_previous_maps_1a0c6c7fec90e86bab5e2a97149cc3f2fa" prot="public" virt="non-virtual"><scope>gameplay::PreviousMaps</scope><name>getSavedPlayer</name></member>
+      <member refid="classgameplay_1_1_previous_maps_1ab3c9bdfe87a64998d641654df25cac2a" prot="public" virt="non-virtual"><scope>gameplay::PreviousMaps</scope><name>loadALlPreviousMaps</name></member>
+      <member refid="classgameplay_1_1_previous_maps_1a968aa2c523033bc771c5bbcd08bfe987" prot="private" virt="non-virtual"><scope>gameplay::PreviousMaps</scope><name>player_healt</name></member>
+      <member refid="classgameplay_1_1_previous_maps_1a71a50b6950ba63c7112846583dc53218" prot="public" virt="non-virtual"><scope>gameplay::PreviousMaps</scope><name>saveAllPreviousMaps</name></member>
+      <member refid="classgameplay_1_1_previous_maps_1a658086e45add8e13aebecd1e84cf2728" prot="private" virt="non-virtual"><scope>gameplay::PreviousMaps</scope><name>savedPlayer</name></member>
+      <member refid="classgameplay_1_1_previous_maps_1aedd690088ecc44bfef29acfc9f5608f6" prot="public" virt="non-virtual"><scope>gameplay::PreviousMaps</scope><name>setPlayer_healt</name></member>
+      <member refid="classgameplay_1_1_previous_maps_1aea0adcf23c69d9ad68ff75600a9cf229" prot="public" virt="non-virtual"><scope>gameplay::PreviousMaps</scope><name>setSavedPlayer</name></member>
+      <member refid="classgameplay_1_1_previous_maps_1a016c183824b39d0386b6c169ac3b257e" prot="public" virt="non-virtual"><scope>gameplay::PreviousMaps</scope><name>setupCurrentPrev</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

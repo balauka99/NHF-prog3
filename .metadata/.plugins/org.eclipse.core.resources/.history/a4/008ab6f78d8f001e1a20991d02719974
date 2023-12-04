@@ -1,0 +1,21 @@
+package loaders;
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
+public class TestScore {
+	String name = "player name";
+	Score tested;
+	/**
+	 * Beállít egy játékost és pontját
+	 */
+	@Before
+	public void setup() {
+		tested = new Score("player name", 10);
+	}
+	@Test
+	public void testKonstruktor() {
+		Assert.assertTrue("Test name is correct", tested.getName().equals("player name"));
+	}
+}

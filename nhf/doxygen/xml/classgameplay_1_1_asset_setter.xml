@@ -1,0 +1,356 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classgameplay_1_1_asset_setter" kind="class" language="Java" prot="public">
+    <compoundname>gameplay::AssetSetter</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Serializable</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classgameplay_1_1_asset_setter_1a39066d4c9f7a7a7e6224e3136ceaab38" prot="private" static="no" mutable="no">
+        <type>transient <ref refid="classgameplay_1_1_game_panel" kindref="compound">GamePanel</ref></type>
+        <definition>transient GamePanel gameplay.AssetSetter.gameP</definition>
+        <argsstring></argsstring>
+        <name>gameP</name>
+        <qualifiedname>gameplay.AssetSetter.gameP</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Kell a GamePanel, amin elhelyezi az object-eket és entity-ket </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/AssetSetter.java" line="25" column="29" bodyfile="gameplay/AssetSetter.java" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgameplay_1_1_asset_setter_1ace4ffbbf7aadca06d4f9593c3c746103" prot="private" static="no" mutable="no">
+        <type>Random</type>
+        <definition>Random gameplay.AssetSetter.rndNum</definition>
+        <argsstring></argsstring>
+        <name>rndNum</name>
+        <qualifiedname>gameplay.AssetSetter.rndNum</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Kell egy random szám, hogy minél élvezhetőbb legyen a játék, mert random helyen jelennek meg az ebject-ek és entity-k </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/AssetSetter.java" line="29" column="16" bodyfile="gameplay/AssetSetter.java" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgameplay_1_1_asset_setter_1adb22ea5c826d81722a21c93654e8d708" prot="private" static="no" mutable="no">
+        <type>String</type>
+        <definition>String gameplay.AssetSetter.obj_file</definition>
+        <argsstring></argsstring>
+        <name>obj_file</name>
+        <qualifiedname>gameplay.AssetSetter.obj_file</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Az a fájl, ami megmodnja egy mappon hol jelenhetnek meg objectetk </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/AssetSetter.java" line="33" column="16" bodyfile="gameplay/AssetSetter.java" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgameplay_1_1_asset_setter_1a068d1a4ea4ebcd63ca1e37f31819326a" prot="private" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean gameplay.AssetSetter.obj_map[][]</definition>
+        <argsstring>[][]</argsstring>
+        <name>obj_map</name>
+        <qualifiedname>gameplay.AssetSetter.obj_map</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Mivel a fájlban 0 és 1-val vannak jelölva, hogy hol jelenhetnek meg object-ek, azokat egy 2x2-es tömbbe mentjük el a 2x2-es tömb az x és y koordinátákat jelölik a tile-okra felbontott mapon </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/AssetSetter.java" line="38" column="17" bodyfile="gameplay/AssetSetter.java" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgameplay_1_1_asset_setter_1ace77d6c20ec2b1f8c5126436f1b8d9c1" prot="private" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean gameplay.AssetSetter.enemys_canbePlaced[][]</definition>
+        <argsstring>[][]</argsstring>
+        <name>enemys_canbePlaced</name>
+        <qualifiedname>gameplay.AssetSetter.enemys_canbePlaced</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Ugyan olyan mint az obj_map, csak ez az entity-knek szól </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/AssetSetter.java" line="42" column="17" bodyfile="gameplay/AssetSetter.java" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgameplay_1_1_asset_setter_1a1df35361d4de6bc4bc966b72c41681db" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int gameplay.AssetSetter.canPlace</definition>
+        <argsstring></argsstring>
+        <name>canPlace</name>
+        <qualifiedname>gameplay.AssetSetter.canPlace</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Mennyi entity rakható le </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/AssetSetter.java" line="46" column="13" bodyfile="gameplay/AssetSetter.java" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classgameplay_1_1_asset_setter_1ae489e42decdf4dedc55d07b28be5f923" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>gameplay.AssetSetter.AssetSetter</definition>
+        <argsstring>(GamePanel gp, String file)</argsstring>
+        <name>AssetSetter</name>
+        <qualifiedname>gameplay.AssetSetter.AssetSetter</qualifiedname>
+        <param>
+          <type><ref refid="classgameplay_1_1_game_panel" kindref="compound">GamePanel</ref></type>
+          <declname>gp</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Konstruktor, megkapjuk melyik GamePanel-re helyezzük le, és a mapfájlt <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gp</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/AssetSetter.java" line="52" column="8" bodyfile="gameplay/AssetSetter.java" bodystart="52" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_asset_setter_1a06d58e2499aaf10dca9fab8eb8de7975" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void gameplay.AssetSetter.closeAllDoor</definition>
+        <argsstring>()</argsstring>
+        <name>closeAllDoor</name>
+        <qualifiedname>gameplay.AssetSetter.closeAllDoor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Becsukja az összes azjót, minden esetben az első object-ek a GamePanel objects tömbben az ajtók kell, hogy legyenek csak akkor csukja be azokat, ha vannak is </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/AssetSetter.java" line="93" column="13" bodyfile="gameplay/AssetSetter.java" bodystart="93" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_asset_setter_1a87399624f8e5e47383338385066ad7cd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void gameplay.AssetSetter.setObject</definition>
+        <argsstring>()</argsstring>
+        <name>setObject</name>
+        <qualifiedname>gameplay.AssetSetter.setObject</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Az összes objectet elhelyezi </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/AssetSetter.java" line="112" column="13" bodyfile="gameplay/AssetSetter.java" bodystart="112" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_asset_setter_1aa8ee0043c8057daaf72eba28869ec404" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void gameplay.AssetSetter.setEnemys</definition>
+        <argsstring>()</argsstring>
+        <name>setEnemys</name>
+        <qualifiedname>gameplay.AssetSetter.setEnemys</qualifiedname>
+        <exceptions> throws <ref refid="classerror_1_1_own_error" kindref="compound">OwnError</ref> </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Az összes Entity-t elhelyezi a mapon, megfelelő koodinátákba, a GamePanel tileSize alapján <parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>OwnError</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Tövábbdobjuk a hiba üzenetet </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/AssetSetter.java" line="155" column="13" bodyfile="gameplay/AssetSetter.java" bodystart="155" bodyend="175"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_asset_setter_1ad028e4e118d371608e9e2bc26c11a42e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void gameplay.AssetSetter.resetMap</definition>
+        <argsstring>()</argsstring>
+        <name>resetMap</name>
+        <qualifiedname>gameplay.AssetSetter.resetMap</qualifiedname>
+        <exceptions> throws <ref refid="classerror_1_1_own_error" kindref="compound">OwnError</ref> </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Újra betölti a mapon lévő object-eket és entity-ket <parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>OwnError</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Tövábbdobjuk a hiba üzenetet </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/AssetSetter.java" line="180" column="13" bodyfile="gameplay/AssetSetter.java" bodystart="180" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_asset_setter_1a02bf464c9dee09225c7dccefb443d5d6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int gameplay.AssetSetter.getCanPlaced</definition>
+        <argsstring>()</argsstring>
+        <name>getCanPlaced</name>
+        <qualifiedname>gameplay.AssetSetter.getCanPlaced</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/AssetSetter.java" line="187" column="12" bodyfile="gameplay/AssetSetter.java" bodystart="187" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_asset_setter_1a90efddfff3dccc98c709019cde88b71e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void gameplay.AssetSetter.reLoad</definition>
+        <argsstring>(GamePanel gameP)</argsstring>
+        <name>reLoad</name>
+        <qualifiedname>gameplay.AssetSetter.reLoad</qualifiedname>
+        <param>
+          <type><ref refid="classgameplay_1_1_game_panel" kindref="compound">GamePanel</ref></type>
+          <declname>gameP</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Serializálás után meg kell kapni azt a GamePanelt, ahol éppen vagyunk <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gameP</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/AssetSetter.java" line="224" column="13" bodyfile="gameplay/AssetSetter.java" bodystart="224" bodyend="226"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classgameplay_1_1_asset_setter_1aa6ea7eb62c6d35f9eb52e993917534f7" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int gameplay.AssetSetter.setDoorsInMap</definition>
+        <argsstring>(int ind)</argsstring>
+        <name>setDoorsInMap</name>
+        <qualifiedname>gameplay.AssetSetter.setDoorsInMap</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>ind</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Beállítja az összes ajtót, fix poziciókba, az alsó ajtót kinyitja, aminugye bement a gamer <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ind</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/AssetSetter.java" line="66" column="13" bodyfile="gameplay/AssetSetter.java" bodystart="66" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_asset_setter_1a0cc9b98a031a2b4f11aae427b5f866e8" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void gameplay.AssetSetter.loadObjMap</definition>
+        <argsstring>()</argsstring>
+        <name>loadObjMap</name>
+        <qualifiedname>gameplay.AssetSetter.loadObjMap</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Betölti a konstruktorban megkapott fájlból azokat a helyeket ahová le lehet rakni objectet </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/AssetSetter.java" line="193" column="14" bodyfile="gameplay/AssetSetter.java" bodystart="193" bodyend="219"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Ez az osztály felelős az objectek és entity-k elhelyezdekésének beállításáért </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>gameplay.AssetSetter</label>
+        <link refid="classgameplay_1_1_asset_setter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Serializable</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>gameplay.AssetSetter</label>
+        <link refid="classgameplay_1_1_asset_setter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Serializable</label>
+      </node>
+    </collaborationgraph>
+    <location file="gameplay/AssetSetter.java" line="21" column="7" bodyfile="gameplay/AssetSetter.java" bodystart="21" bodyend="227"/>
+    <listofallmembers>
+      <member refid="classgameplay_1_1_asset_setter_1ae489e42decdf4dedc55d07b28be5f923" prot="public" virt="non-virtual"><scope>gameplay::AssetSetter</scope><name>AssetSetter</name></member>
+      <member refid="classgameplay_1_1_asset_setter_1a1df35361d4de6bc4bc966b72c41681db" prot="private" virt="non-virtual"><scope>gameplay::AssetSetter</scope><name>canPlace</name></member>
+      <member refid="classgameplay_1_1_asset_setter_1a06d58e2499aaf10dca9fab8eb8de7975" prot="public" virt="non-virtual"><scope>gameplay::AssetSetter</scope><name>closeAllDoor</name></member>
+      <member refid="classgameplay_1_1_asset_setter_1ace77d6c20ec2b1f8c5126436f1b8d9c1" prot="private" virt="non-virtual"><scope>gameplay::AssetSetter</scope><name>enemys_canbePlaced</name></member>
+      <member refid="classgameplay_1_1_asset_setter_1a39066d4c9f7a7a7e6224e3136ceaab38" prot="private" virt="non-virtual"><scope>gameplay::AssetSetter</scope><name>gameP</name></member>
+      <member refid="classgameplay_1_1_asset_setter_1a02bf464c9dee09225c7dccefb443d5d6" prot="public" virt="non-virtual"><scope>gameplay::AssetSetter</scope><name>getCanPlaced</name></member>
+      <member refid="classgameplay_1_1_asset_setter_1a0cc9b98a031a2b4f11aae427b5f866e8" prot="private" virt="non-virtual"><scope>gameplay::AssetSetter</scope><name>loadObjMap</name></member>
+      <member refid="classgameplay_1_1_asset_setter_1adb22ea5c826d81722a21c93654e8d708" prot="private" virt="non-virtual"><scope>gameplay::AssetSetter</scope><name>obj_file</name></member>
+      <member refid="classgameplay_1_1_asset_setter_1a068d1a4ea4ebcd63ca1e37f31819326a" prot="private" virt="non-virtual"><scope>gameplay::AssetSetter</scope><name>obj_map</name></member>
+      <member refid="classgameplay_1_1_asset_setter_1a90efddfff3dccc98c709019cde88b71e" prot="public" virt="non-virtual"><scope>gameplay::AssetSetter</scope><name>reLoad</name></member>
+      <member refid="classgameplay_1_1_asset_setter_1ad028e4e118d371608e9e2bc26c11a42e" prot="public" virt="non-virtual"><scope>gameplay::AssetSetter</scope><name>resetMap</name></member>
+      <member refid="classgameplay_1_1_asset_setter_1ace4ffbbf7aadca06d4f9593c3c746103" prot="private" virt="non-virtual"><scope>gameplay::AssetSetter</scope><name>rndNum</name></member>
+      <member refid="classgameplay_1_1_asset_setter_1aa6ea7eb62c6d35f9eb52e993917534f7" prot="private" virt="non-virtual"><scope>gameplay::AssetSetter</scope><name>setDoorsInMap</name></member>
+      <member refid="classgameplay_1_1_asset_setter_1aa8ee0043c8057daaf72eba28869ec404" prot="public" virt="non-virtual"><scope>gameplay::AssetSetter</scope><name>setEnemys</name></member>
+      <member refid="classgameplay_1_1_asset_setter_1a87399624f8e5e47383338385066ad7cd" prot="public" virt="non-virtual"><scope>gameplay::AssetSetter</scope><name>setObject</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

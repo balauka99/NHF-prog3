@@ -1,0 +1,239 @@
+\doxysection{entity.\+Eye\+Ball Class Reference}
+\label{classentity_1_1_eye_ball}\index{entity.EyeBall@{entity.EyeBall}}
+Inheritance diagram for entity.\+Eye\+Ball\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classentity_1_1_eye_ball}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Eye\+Ball} ()  throws Own\+Error 
+\item 
+void \textbf{ draw} (Graphics2D grap2)
+\item 
+void \textbf{ animation\+Start} ()
+\item 
+void \textbf{ attack\+With\+Weapon} ()
+\item 
+void \textbf{ move\+To\+Point} (int \textbf{ x}, int \textbf{ y})
+\item 
+void \textbf{ run} ()
+\item 
+void \textbf{ re\+Load} ()  throws Own\+Error 
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \textbf{ entity.\+Entity}}
+\begin{DoxyCompactItemize}
+\item 
+int \textbf{ getX} ()
+\item 
+void \textbf{ setX} (int newx)
+\item 
+int \textbf{ getY} ()
+\item 
+void \textbf{ setY} (int newy)
+\item 
+int \textbf{ get\+Speed} ()
+\item 
+int \textbf{ get\+Healt} ()
+\item 
+int \textbf{ get\+Max\+Healt} ()
+\item 
+void \textbf{ set\+Speed} (int newspeed)
+\item 
+void \textbf{ reset\+Hitbox\+To\+Default} ()
+\item 
+void \textbf{ reset\+View\+Distance\+Default} ()
+\item 
+void \textbf{ damaged} (int damage)
+\item 
+boolean \textbf{ is\+Dead} ()
+\item 
+void \textbf{ draw} (Graphics2D grap2)
+\item 
+void \textbf{ attack\+With\+Weapon} ()
+\item 
+int \textbf{ get\+Weapon\+Damage} ()
+\item 
+void \textbf{ move\+To\+Point} (int \textbf{ x}, int \textbf{ y})
+\item 
+void \textbf{ re\+Load} ()  throws Own\+Error 
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ die} ()
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ die} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Public Attributes inherited from \textbf{ entity.\+Entity}}
+\begin{DoxyCompactItemize}
+\item 
+String \textbf{ move\+\_\+dir} = \char`\"{}down\char`\"{}
+\item 
+int \textbf{ sheet\+Cnt} = 0
+\item 
+int \textbf{ sheet\+Num} = 1
+\item 
+Rectangle \textbf{ hitbox}
+\item 
+int \textbf{ hitbox\+DefaultX}
+\item 
+int \textbf{ hitbox\+DefaultY}
+\item 
+Rectangle \textbf{ view\+\_\+distance}
+\item 
+int \textbf{ view\+DDefaultX}
+\item 
+int \textbf{ view\+DDefaultY}
+\item 
+boolean \textbf{ collision\+On} = false
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes inherited from \textbf{ entity.\+Entity}}
+\begin{DoxyCompactItemize}
+\item 
+int \textbf{ x}
+\item 
+int \textbf{ y}
+\item 
+int \textbf{ speed}
+\item 
+int \textbf{ max\+Healt} = 101
+\item 
+int \textbf{ healt} = 101
+\item 
+boolean \textbf{ dead} = false
+\item 
+transient \textbf{ Sheet\+Loader} \textbf{ sheet}
+\item 
+transient Buffered\+Image \textbf{ skin}
+\item 
+\textbf{ Weapon} \textbf{ weapon}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Ez egy ellenfél entitás, egy kis szem a kinézete, az animációja miatt szükség van, hogy Runnable legyen 
+
+Definition at line \textbf{ 20} of file \textbf{ Eye\+Ball.\+java}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classentity_1_1_eye_ball_a328580546d12b0002d5ddc5148fd4587}} 
+\index{entity.EyeBall@{entity.EyeBall}!EyeBall@{EyeBall}}
+\index{EyeBall@{EyeBall}!entity.EyeBall@{entity.EyeBall}}
+\doxysubsubsection{EyeBall()}
+{\footnotesize\ttfamily entity.\+Eye\+Ball.\+Eye\+Ball (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \textbf{ Own\+Error}}
+
+Konstruktor, beállítja az alap adatait, kinézet hitbox ami előre megvan határozva mekkora 
+\begin{DoxyExceptions}{Exceptions}
+{\em Own\+Error} & Visszadobjuk a hiba üzenetet \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \textbf{ 37} of file \textbf{ Eye\+Ball.\+java}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classentity_1_1_eye_ball_a49e441f5a8bc364603993f581fc33df1}} 
+\index{entity.EyeBall@{entity.EyeBall}!animationStart@{animationStart}}
+\index{animationStart@{animationStart}!entity.EyeBall@{entity.EyeBall}}
+\doxysubsubsection{animationStart()}
+{\footnotesize\ttfamily void entity.\+Eye\+Ball.\+animation\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Elindítja az animation szállat 
+
+Definition at line \textbf{ 74} of file \textbf{ Eye\+Ball.\+java}.
+
+\mbox{\label{classentity_1_1_eye_ball_a00fed86491261fbc8913eb3db8fc78c1}} 
+\index{entity.EyeBall@{entity.EyeBall}!attackWithWeapon@{attackWithWeapon}}
+\index{attackWithWeapon@{attackWithWeapon}!entity.EyeBall@{entity.EyeBall}}
+\doxysubsubsection{attackWithWeapon()}
+{\footnotesize\ttfamily void entity.\+Eye\+Ball.\+attack\+With\+Weapon (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Meghívja az ős metodust, aztán belép a megfelelő state-\/ba és betölti a támadási kinézetet 
+
+Reimplemented from \textbf{ entity.\+Entity} \doxyref{}{p.}{classentity_1_1_entity_a2eab14e983f296d66138f2edbcbadca5}.
+
+
+
+Definition at line \textbf{ 83} of file \textbf{ Eye\+Ball.\+java}.
+
+\mbox{\label{classentity_1_1_eye_ball_a89d397c84b69bf2f4ecd7e79c2c6fa95}} 
+\index{entity.EyeBall@{entity.EyeBall}!die@{die}}
+\index{die@{die}!entity.EyeBall@{entity.EyeBall}}
+\doxysubsubsection{die()}
+{\footnotesize\ttfamily void entity.\+Eye\+Ball.\+die (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Mivel alőre tudni kell egy sheet-\/ben hol milyen kinézet van, az Eye\+Bell halott kinézete pedig az 5 indexen érhető el, ezért mikor meghall meghívjuk az őse metodusát, aztán beállítjuk a kinézetet 
+
+Reimplemented from \textbf{ entity.\+Entity} \doxyref{}{p.}{classentity_1_1_entity_ada9f35af61ec4cef68b655b21fea7346}.
+
+
+
+Definition at line \textbf{ 67} of file \textbf{ Eye\+Ball.\+java}.
+
+\mbox{\label{classentity_1_1_eye_ball_ae3a17990affdb87a3ebf5146a7c77b7d}} 
+\index{entity.EyeBall@{entity.EyeBall}!draw@{draw}}
+\index{draw@{draw}!entity.EyeBall@{entity.EyeBall}}
+\doxysubsubsection{draw()}
+{\footnotesize\ttfamily void entity.\+Eye\+Ball.\+draw (\begin{DoxyParamCaption}\item[{Graphics2D}]{grap2 }\end{DoxyParamCaption})}
+
+Újra definiáéja az Entity osztály metodusát, hogy a fegyverét is kirajzolja, ha azzal éppen támad 
+
+Reimplemented from \textbf{ entity.\+Entity} \doxyref{}{p.}{classentity_1_1_entity_a499e01694b8f0e6533902c08e5c9eea8}.
+
+
+
+Definition at line \textbf{ 58} of file \textbf{ Eye\+Ball.\+java}.
+
+\mbox{\label{classentity_1_1_eye_ball_a157ce11a133e22aa2063f79849e3252f}} 
+\index{entity.EyeBall@{entity.EyeBall}!moveToPoint@{moveToPoint}}
+\index{moveToPoint@{moveToPoint}!entity.EyeBall@{entity.EyeBall}}
+\doxysubsubsection{moveToPoint()}
+{\footnotesize\ttfamily void entity.\+Eye\+Ball.\+move\+To\+Point (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+Csak akkor mozgunk, he nem támadunk, az ős pedig csak akkor mozog, ha \char`\"{}él\char`\"{} az entitás 
+
+Reimplemented from \textbf{ entity.\+Entity} \doxyref{}{p.}{classentity_1_1_entity_ab75525e184a350f04d8d395c813ee041}.
+
+
+
+Definition at line \textbf{ 92} of file \textbf{ Eye\+Ball.\+java}.
+
+\mbox{\label{classentity_1_1_eye_ball_ad065d41764891a5a220a3a7acc67c797}} 
+\index{entity.EyeBall@{entity.EyeBall}!reLoad@{reLoad}}
+\index{reLoad@{reLoad}!entity.EyeBall@{entity.EyeBall}}
+\doxysubsubsection{reLoad()}
+{\footnotesize\ttfamily void entity.\+Eye\+Ball.\+re\+Load (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \textbf{ Own\+Error}}
+
+Megvalosítja az ős re\+Load metodusát 
+
+Reimplemented from \textbf{ entity.\+Entity} \doxyref{}{p.}{classentity_1_1_entity_a7e492d42868aba82311a6a21016dd671}.
+
+
+
+Definition at line \textbf{ 150} of file \textbf{ Eye\+Ball.\+java}.
+
+\mbox{\label{classentity_1_1_eye_ball_aacf61c2be6ba557e491426047f5957a3}} 
+\index{entity.EyeBall@{entity.EyeBall}!run@{run}}
+\index{run@{run}!entity.EyeBall@{entity.EyeBall}}
+\doxysubsubsection{run()}
+{\footnotesize\ttfamily void entity.\+Eye\+Ball.\+run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Addig megy a száll, emeddig meg nem \char`\"{}hal\char`\"{} az Eye\+Ball váltogat a statek között Halál kinézet
+
+Definition at line \textbf{ 103} of file \textbf{ Eye\+Ball.\+java}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+entity/\textbf{ Eye\+Ball.\+java}\end{DoxyCompactItemize}

@@ -1,0 +1,13 @@
+package loaders;
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
+public class TestScore {
+	Score tested;
+	@Before
+	public void setup() {
+		tested = new Score("player name", 10);
+	}
+}

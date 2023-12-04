@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classmenu_1_1_main_menu_1_1_my_button_mouse_adapter" kind="class" language="Java" prot="private">
+    <compoundname>menu::MainMenu::MyButtonMouseAdapter</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MouseAdapter</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmenu_1_1_main_menu_1_1_my_button_mouse_adapter_1a3b4638d28519925f7b0393dddbe75de5" prot="private" static="no" mutable="no">
+        <type>JButton</type>
+        <definition>JButton menu.MainMenu.MyButtonMouseAdapter.butt</definition>
+        <argsstring></argsstring>
+        <name>butt</name>
+        <qualifiedname>menu.MainMenu.MyButtonMouseAdapter.butt</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="menu/MainMenu.java" line="117" column="17" bodyfile="menu/MainMenu.java" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmenu_1_1_main_menu_1_1_my_button_mouse_adapter_1a55bbd952a88240c4bc4da7a1d9b25ec5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>menu.MainMenu.MyButtonMouseAdapter.MyButtonMouseAdapter</definition>
+        <argsstring>(JButton butt)</argsstring>
+        <name>MyButtonMouseAdapter</name>
+        <qualifiedname>menu.MainMenu.MyButtonMouseAdapter.MyButtonMouseAdapter</qualifiedname>
+        <param>
+          <type>JButton</type>
+          <declname>butt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="menu/MainMenu.java" line="118" column="8" bodyfile="menu/MainMenu.java" bodystart="118" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="function" id="classmenu_1_1_main_menu_1_1_my_button_mouse_adapter_1aacf2f691902d0ca9a43fe9f050eed2be" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void menu.MainMenu.MyButtonMouseAdapter.mouseEntered</definition>
+        <argsstring>(MouseEvent e)</argsstring>
+        <name>mouseEntered</name>
+        <qualifiedname>menu.MainMenu.MyButtonMouseAdapter.mouseEntered</qualifiedname>
+        <param>
+          <type>MouseEvent</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="menu/MainMenu.java" line="122" column="17" bodyfile="menu/MainMenu.java" bodystart="122" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="classmenu_1_1_main_menu_1_1_my_button_mouse_adapter_1a7c071b610b1e891c055966d373a5f7e5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void menu.MainMenu.MyButtonMouseAdapter.mouseExited</definition>
+        <argsstring>(MouseEvent e)</argsstring>
+        <name>mouseExited</name>
+        <qualifiedname>menu.MainMenu.MyButtonMouseAdapter.mouseExited</qualifiedname>
+        <param>
+          <type>MouseEvent</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="menu/MainMenu.java" line="127" column="17" bodyfile="menu/MainMenu.java" bodystart="127" bodyend="129"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>MouseAdapter</label>
+      </node>
+      <node id="1">
+        <label>menu.MainMenu.MyButtonMouseAdapter</label>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>MouseAdapter</label>
+      </node>
+      <node id="1">
+        <label>menu.MainMenu.MyButtonMouseAdapter</label>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="menu/MainMenu.java" line="116" column="8" bodyfile="menu/MainMenu.java" bodystart="116" bodyend="130"/>
+    <listofallmembers>
+      <member refid="classmenu_1_1_main_menu_1_1_my_button_mouse_adapter_1a3b4638d28519925f7b0393dddbe75de5" prot="private" virt="non-virtual"><scope>menu::MainMenu::MyButtonMouseAdapter</scope><name>butt</name></member>
+      <member refid="classmenu_1_1_main_menu_1_1_my_button_mouse_adapter_1aacf2f691902d0ca9a43fe9f050eed2be" prot="public" virt="non-virtual"><scope>menu::MainMenu::MyButtonMouseAdapter</scope><name>mouseEntered</name></member>
+      <member refid="classmenu_1_1_main_menu_1_1_my_button_mouse_adapter_1a7c071b610b1e891c055966d373a5f7e5" prot="public" virt="non-virtual"><scope>menu::MainMenu::MyButtonMouseAdapter</scope><name>mouseExited</name></member>
+      <member refid="classmenu_1_1_main_menu_1_1_my_button_mouse_adapter_1a55bbd952a88240c4bc4da7a1d9b25ec5" prot="public" virt="non-virtual"><scope>menu::MainMenu::MyButtonMouseAdapter</scope><name>MyButtonMouseAdapter</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,11 @@
+package entity;
+
+import org.junit.Before;
+
+public class TestEntity {
+	Entity tested;
+	@Before
+	public void setup() {
+		tested = new Entity();
+	}
+}

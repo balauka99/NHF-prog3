@@ -1,0 +1,48 @@
+package entity;
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
+public class TestWeapon {
+	Weapon groundAttack;
+	Weapon eyeballAttack;
+	Weapon waveAttack;
+	/**
+	 * Minden fegyver tipus beállítunk
+	 */
+	@Before
+	public void setup() {
+		groundAttack = new Weapon("ground_attack", "down");
+		eyeballAttack = new Weapon("eyeball_attack", "down");
+		waveAttack = new Weapon("wave_attack", "down");
+	}
+	/**
+	 * Ellenőrizzük, minden fegyvernem rendesen létrejön, helyes sebbzéssel
+	 */
+	@Test
+	public void testKonstruktor() {
+		/**
+		 * Ground Attack TESTS
+		 */
+		Assert.assertTrue("Test ground Attack type is correct", groundAttack.getAttackHitbox().getWeaponType().equals("ground_attack"));
+		Assert.assertEquals("Test ground Attack damage is correct", 10, groundAttack.getDamage());
+		/**
+		 * Eyeball Attack TESTS
+		 */
+		Assert.assertTrue("Test eyeball Attack type is correct", eyeballAttack.getAttackHitbox().getWeaponType().equals("eyeball_attack"));
+		Assert.assertEquals("Test eyeball Attack damage is correct", 2, eyeballAttack.getDamage());
+		/**
+		 * Wave Attack TESTS
+		 */
+		Assert.assertTrue("Test wave Attack type is correct", waveAttack.getAttackHitbox().getWeaponType().equals("wave_attack"));
+		Assert.assertEquals("Test wave Attack damage is correct", 25, waveAttack.getDamage());
+	}
+	/**
+	 * Teszteljük a ground attack tényleg támad, a hitbox helyes helyen jön létre és az animáció elindúl
+	 */
+	@Test
+	public void testGroundAttack_Attacks() {
+		
+	}
+}

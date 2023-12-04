@@ -1,0 +1,15 @@
+package loaders;
+
+import java.io.IOException;
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
+public class TestSheetLoader {
+	SheetLoader sheet;
+	@Test (expected=IOException.class)
+	public void testThrow() {
+		sheet = new SheetLoader("nemjo_file_name", 10, 10, 20, 20)
+	}
+}

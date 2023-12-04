@@ -1,0 +1,98 @@
+\doxysection{Tile\+Manager.\+java}
+\label{_tile_manager_8java_source}\index{tile/TileManager.java@{tile/TileManager.java}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{package\ }tile;}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{import}\ java.awt.Graphics2D;}
+\DoxyCodeLine{00004\ \textcolor{keyword}{import}\ java.io.BufferedReader;}
+\DoxyCodeLine{00005\ \textcolor{keyword}{import}\ java.io.IOException;}
+\DoxyCodeLine{00006\ \textcolor{keyword}{import}\ java.io.InputStream;}
+\DoxyCodeLine{00007\ \textcolor{keyword}{import}\ java.io.InputStreamReader;}
+\DoxyCodeLine{00008\ \textcolor{keyword}{import}\ java.io.Serializable;}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{import}\ javax.imageio.ImageIO;}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{import}\ gameplay.GamePanel;}
+\DoxyCodeLine{00013\ \textcolor{keyword}{import}\ gameplay.UtilityTools;}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ @SuppressWarnings(\textcolor{stringliteral}{"{}serial"{}})}
+\DoxyCodeLine{00019\ public\ class\ TileManager\ implements\ Serializable\{}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{transient}\ GamePanel\ gameP;}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{public}\ Tile[]\ tiles;}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ map[][];}
+\DoxyCodeLine{00032\ \ \ \ \ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{public}\ TileManager(GamePanel\ gp,\ String\ filename)\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ gameP\ =\ gp;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ tiles\ =\ \textcolor{keyword}{new}\ Tile[10];\ \ \ \textcolor{comment}{//Ennyi\ tileunk\ lehet\ max,\ flore,\ lava,\ wall\ stb...}}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ map\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{int}[gameP.maxOszlop][gameP.maxSor];\ \ \ \ \textcolor{comment}{//\ Létrehozzuk\ a\ mátrixot,\ és\ akkorára\ álítjuk\ amekkora\ a\ game\ panel\ tile\ felosztás}}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ setTilesImage();}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ loadMap(filename);}
+\DoxyCodeLine{00039\ \ \ \ \ \}}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ loadMap(String\ fileP)\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ InputStream\ inS\ =\ getClass().getResourceAsStream(fileP);}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ BufferedReader\ bufR\ =\ \textcolor{keyword}{new}\ BufferedReader(\textcolor{keyword}{new}\ InputStreamReader(inS));}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ col\ =\ 0;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ row\ =\ 0;}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(col\ <\ gameP.maxOszlop\ \&\&\ row\ <\ gameP.maxSor)\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ String\ line\ =\ bufR.readLine();}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(col\ <\ gameP.maxOszlop)\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ String\ inds[]\ =\ line.split(\textcolor{stringliteral}{"{}\ "{}});}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ ind\ =\ Integer.parseInt(inds[col]);}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ map[col][row]\ =\ ind;}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ col++;}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(col\ ==\ gameP.maxOszlop)\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ col\ =\ 0;}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ row++;}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ bufR.close();}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{catch}(Exception\ e)\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00069\ \ \ \ \ \}}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ setTilesImage()\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ this.setupTile(0,\ \textcolor{stringliteral}{"{}flore"{}},\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ this.setupTile(1,\ \textcolor{stringliteral}{"{}wall"{}},\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ this.setupTile(2,\ \textcolor{stringliteral}{"{}lava"{}},\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00074\ \ \ \ \ \}}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ setupTile(\textcolor{keywordtype}{int}\ ind,\ String\ imageName,\ \textcolor{keywordtype}{boolean}\ collision)\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ UtilityTools\ uT\ =\ \textcolor{keyword}{new}\ UtilityTools();}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ tiles[ind]\ =\ \textcolor{keyword}{new}\ Tile();}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ tiles[ind].setSkin(uT.scaleImage(ImageIO.read(getClass().getResourceAsStream(\textcolor{stringliteral}{"{}/tiles/"{}}\ +\ imageName\ +\ \textcolor{stringliteral}{"{}.png"{}})),\ gameP.tileSize,\ gameP.tileSize),\ imageName);}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(collision)\ tiles[ind].enableCollision();}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (IOException\ e)\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ e.printStackTrace();}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00091\ \ \ \ \ \}}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ draw(Graphics2D\ grap2)\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ col\ =\ 0;}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ row\ =\ 0;}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ x\ =\ 0;}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ y\ =\ 0;}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(col\ <gameP.maxOszlop\ \&\&\ row\ <\ gameP.maxSor)\ \{}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ tileInd\ =\ map[col][row];}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ grap2.drawImage(tiles[tileInd].getSkin(),\ x,\ y,\ \textcolor{keyword}{null});}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ col++;}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ x\ +=\ gameP.tileSize;}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(col\ ==\ gameP.maxOszlop)\ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ col\ =\ 0;}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x\ =\ 0;}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ row++;}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ y\ +=\ gameP.tileSize;}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00115\ \ \ \ \ \}}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ reLoadTileSkins(GamePanel\ gameP)\ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ this.gameP\ =\ gameP;}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ this.setTilesImage();}
+\DoxyCodeLine{00123\ \ \ \ \ \}}
+\DoxyCodeLine{00124\ \}}
+
+\end{DoxyCode}

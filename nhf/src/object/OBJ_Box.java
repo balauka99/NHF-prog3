@@ -2,6 +2,7 @@ package object;
 
 import java.util.Random;
 
+@SuppressWarnings("serial")
 public class OBJ_Box extends OsObject{
 	private Random rndNum = new Random();
 	

@@ -1,0 +1,73 @@
+package entity;
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
+public class TestWeapon {
+	Weapon groundAttack;
+	Weapon eyeballAttack;
+	Weapon waveAttack;
+	/**
+	 * Minden fegyver tipus beállítunk
+	 */
+	@Before
+	public void setup() {
+		groundAttack = new Weapon("ground_attack", "down");
+		eyeballAttack = new Weapon("eyeball_attack", "down");
+		waveAttack = new Weapon("wave_attack", "down");
+	}
+	/**
+	 * Ellenőrizzük, minden fegyvernem rendesen létrejön, helyes sebbzéssel
+	 */
+	@Test
+	public void testKonstruktor() {
+		/**
+		 * Ground Attack TESTS
+		 */
+		Assert.assertTrue("Test ground Attack type is correct", groundAttack.getAttackHitbox().getWeaponType().equals("ground_attack"));
+		Assert.assertEquals("Test ground Attack damage is correct", 10, groundAttack.getDamage());
+		/**
+		 * Eyeball Attack TESTS
+		 */
+		Assert.assertTrue("Test eyeball Attack type is correct", eyeballAttack.getAttackHitbox().getWeaponType().equals("eyeball_attack"));
+		Assert.assertEquals("Test eyeball Attack damage is correct", 2, eyeballAttack.getDamage());
+		/**
+		 * Wave Attack TESTS
+		 */
+		Assert.assertTrue("Test wave Attack type is correct", waveAttack.getAttackHitbox().getWeaponType().equals("wave_attack"));
+		Assert.assertEquals("Test wave Attack damage is correct", 25, waveAttack.getDamage());
+	}
+	/**
+	 * Teszteljük a ground attack tényleg támad és a hitbox helyes helyen jön létre, a fegyvernek nem számit milyen irányba üt
+	 * ezért csak a lefele van tesztelve
+	 */
+	@Test
+	public void testGroundAttack_Attacking() {
+		groundAttack.attack(100, 100, "down");
+		Assert.assertTrue("Test move direction is correct", groundAttack.getAttackHitbox().move_dir.equals("down"));
+		Assert.assertEquals("Test x koordinate is in right place", 100, groundAttack.getAttackHitbox().getX());
+		Assert.assertEquals("Test y koordinate is in right place", 100, groundAttack.getAttackHitbox().getY());
+		Assert.assertNotNull(groundAttack.getAttackHitbox().getSkin());
+	}
+	/**
+	 * Teszteljük a eyeball attack tényleg támad és a hitbox helyes helyen jön létre, a fegyvernek nem számit milyen irányba üt
+	 * ezért csak a lefele van tesztelve
+	 */
+	@Test
+	public void testEyebellAttack_Attacking() {
+		eyeballAttack.attack(100, 100, "down");
+		Assert.assertTrue("Test move direction is correct", eyeballAttack.getAttackHitbox().move_dir.equals("down"));
+		Assert.assertEquals("Test x koordinate is in right place", 100, eyeballAttack.getAttackHitbox().getX());
+		Assert.assertEquals("Test y koordinate is in right place", 100, eyeballAttack.getAttackHitbox().getY());
+		Assert.assertNotNull(eyeballAttack.getAttackHitbox().getSkin());
+	}
+	@Test
+	public void testWaveAttack_AttackingDown() {
+		waveAttack.attack(100, 100, "down");
+		Assert.assertTrue("Test move direction is correct", waveAttack.getAttackHitbox().move_dir.equals("down"));
+		Assert.assertEquals("Test x koordinate is in right place", 100, waveAttack.getAttackHitbox().getX());
+		Assert.assertEquals("Test y koordinate is in right place", 172, waveAttack.getAttackHitbox().getY());
+		Assert.assertNotNull(waveAttack.getAttackHitbox().getSkin());
+	}
+}

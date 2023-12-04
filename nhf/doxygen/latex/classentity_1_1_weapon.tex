@@ -1,0 +1,137 @@
+\doxysection{entity.\+Weapon Class Reference}
+\label{classentity_1_1_weapon}\index{entity.Weapon@{entity.Weapon}}
+Inheritance diagram for entity.\+Weapon\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classentity_1_1_weapon}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Weapon} (String weapon\+\_\+type, String move\+\_\+dir)
+\item 
+void \textbf{ attack} (int x, int y, String move\+\_\+dir)
+\item 
+void \textbf{ draw} (Graphics2D grap2)
+\item 
+boolean \textbf{ is\+Attacking} ()
+\item 
+void \textbf{ run} ()
+\item 
+\textbf{ Attack\+Hitbox} \textbf{ get\+Attack\+Hitbox} ()
+\item 
+int \textbf{ get\+Damage} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Az osztály egy Entity-\/nek a fegyverének az adatait tárolja 
+
+Definition at line \textbf{ 10} of file \textbf{ Weapon.\+java}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classentity_1_1_weapon_a007092a2daab86505df47d39da746e7f}} 
+\index{entity.Weapon@{entity.Weapon}!Weapon@{Weapon}}
+\index{Weapon@{Weapon}!entity.Weapon@{entity.Weapon}}
+\doxysubsubsection{Weapon()}
+{\footnotesize\ttfamily entity.\+Weapon.\+Weapon (\begin{DoxyParamCaption}\item[{String}]{weapon\+\_\+type,  }\item[{String}]{move\+\_\+dir }\end{DoxyParamCaption})}
+
+Konstruktor, ami beállítja a fegyver fajtájához képest az adatait 
+\begin{DoxyParams}{Parameters}
+{\em weapon\+\_\+type} & \\
+\hline
+{\em move\+\_\+dir} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \textbf{ 30} of file \textbf{ Weapon.\+java}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classentity_1_1_weapon_afa03f0c433a892ad3aaea957fdd0fe52}} 
+\index{entity.Weapon@{entity.Weapon}!attack@{attack}}
+\index{attack@{attack}!entity.Weapon@{entity.Weapon}}
+\doxysubsubsection{attack()}
+{\footnotesize\ttfamily void entity.\+Weapon.\+attack (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{String}]{move\+\_\+dir }\end{DoxyParamCaption})}
+
+A megkapott koordinátán támad a fegyver, azaz beállítja a hitboxát és elindítja a támadás animáció szállát 
+\begin{DoxyParams}{Parameters}
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+{\em move\+\_\+dir} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 52} of file \textbf{ Weapon.\+java}.
+
+\mbox{\label{classentity_1_1_weapon_a24927d092551f1516902e98f3a9b581f}} 
+\index{entity.Weapon@{entity.Weapon}!draw@{draw}}
+\index{draw@{draw}!entity.Weapon@{entity.Weapon}}
+\doxysubsubsection{draw()}
+{\footnotesize\ttfamily void entity.\+Weapon.\+draw (\begin{DoxyParamCaption}\item[{Graphics2D}]{grap2 }\end{DoxyParamCaption})}
+
+Kirajzolja a kapott Graphics2\+D-\/re a fegyver kinézetét, a hivónak kell tudni, csak akkor rajzolja, ha éppen támad 
+\begin{DoxyParams}{Parameters}
+{\em grap2} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \textbf{ 63} of file \textbf{ Weapon.\+java}.
+
+\mbox{\label{classentity_1_1_weapon_a9f73a19aef0589f757223f285fd57582}} 
+\index{entity.Weapon@{entity.Weapon}!getAttackHitbox@{getAttackHitbox}}
+\index{getAttackHitbox@{getAttackHitbox}!entity.Weapon@{entity.Weapon}}
+\doxysubsubsection{getAttackHitbox()}
+{\footnotesize\ttfamily \textbf{ Attack\+Hitbox} entity.\+Weapon.\+get\+Attack\+Hitbox (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 97} of file \textbf{ Weapon.\+java}.
+
+\mbox{\label{classentity_1_1_weapon_a2443a5dd9647a21558c5217f1289f963}} 
+\index{entity.Weapon@{entity.Weapon}!getDamage@{getDamage}}
+\index{getDamage@{getDamage}!entity.Weapon@{entity.Weapon}}
+\doxysubsubsection{getDamage()}
+{\footnotesize\ttfamily int entity.\+Weapon.\+get\+Damage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 100} of file \textbf{ Weapon.\+java}.
+
+\mbox{\label{classentity_1_1_weapon_a9329216676feee9daee6b0b87ecda1a3}} 
+\index{entity.Weapon@{entity.Weapon}!isAttacking@{isAttacking}}
+\index{isAttacking@{isAttacking}!entity.Weapon@{entity.Weapon}}
+\doxysubsubsection{isAttacking()}
+{\footnotesize\ttfamily boolean entity.\+Weapon.\+is\+Attacking (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 67} of file \textbf{ Weapon.\+java}.
+
+\mbox{\label{classentity_1_1_weapon_a09a2edc43911d0c7439a1821ae3c88e5}} 
+\index{entity.Weapon@{entity.Weapon}!run@{run}}
+\index{run@{run}!entity.Weapon@{entity.Weapon}}
+\doxysubsubsection{run()}
+{\footnotesize\ttfamily void entity.\+Weapon.\+run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Támadás animáció, miközben tart az attacking adattag igaz, ha végez vel akkor hamisra vált 
+
+Definition at line \textbf{ 74} of file \textbf{ Weapon.\+java}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+entity/\textbf{ Weapon.\+java}\end{DoxyCompactItemize}

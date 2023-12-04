@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="dir_a9ce4a667258dfd846731f482ac4f0fc" kind="dir">
+    <compoundname>ospanel</compoundname>
+    <innerfile refid="_dead_screen_8java">DeadScreen.java</innerfile>
+    <innerfile refid="_menu_panel_8java">MenuPanel.java</innerfile>
+    <innerfile refid="_os_panel_8java">OsPanel.java</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="ospanel/"/>
+  </compounddef>
+</doxygen>

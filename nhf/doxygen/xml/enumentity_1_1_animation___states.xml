@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="enumentity_1_1_animation___states" kind="enum" language="Java" prot="package">
+    <compoundname>entity::Animation_States</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="enumentity_1_1_animation___states_1ab240d80255039dc1a1285e45a1db5206" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>entity.Animation_States.Still</definition>
+        <argsstring></argsstring>
+        <name>Still</name>
+        <qualifiedname>entity.Animation_States.Still</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/EyeBall.java" line="15" column="22" bodyfile="entity/EyeBall.java" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumentity_1_1_animation___states_1ab4fb33121165fd99c43f893728e1a3ca" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>entity.Animation_States.Move</definition>
+        <argsstring></argsstring>
+        <name>Move</name>
+        <qualifiedname>entity.Animation_States.Move</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/EyeBall.java" line="15" column="22" bodyfile="entity/EyeBall.java" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumentity_1_1_animation___states_1af6f7c63d0d86991ca8a3319454606a16" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>entity.Animation_States.Attack</definition>
+        <argsstring></argsstring>
+        <name>Attack</name>
+        <qualifiedname>entity.Animation_States.Attack</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/EyeBall.java" line="15" column="22" bodyfile="entity/EyeBall.java" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Szüksége van az EyeBall-nak egy animáció statre Still - éppen nem mozog, de él Move - éppen mozog valamerre Attack - éppen támad Ha halott akkor egyik állapotban sincsen, és nem is tud visszamenni egyikbe se </para>
+    </detaileddescription>
+    <location file="entity/EyeBall.java" line="15" column="1" bodyfile="entity/EyeBall.java" bodystart="15" bodyend="15"/>
+    <listofallmembers>
+      <member refid="enumentity_1_1_animation___states_1af6f7c63d0d86991ca8a3319454606a16" prot="public" virt="non-virtual"><scope>entity::Animation_States</scope><name>Attack</name></member>
+      <member refid="enumentity_1_1_animation___states_1ab4fb33121165fd99c43f893728e1a3ca" prot="public" virt="non-virtual"><scope>entity::Animation_States</scope><name>Move</name></member>
+      <member refid="enumentity_1_1_animation___states_1ab240d80255039dc1a1285e45a1db5206" prot="public" virt="non-virtual"><scope>entity::Animation_States</scope><name>Still</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

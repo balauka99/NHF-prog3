@@ -1,0 +1,538 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classentity_1_1_player" kind="class" language="Java" prot="public">
+    <compoundname>entity::Player</compoundname>
+    <basecompoundref refid="classentity_1_1_entity" prot="public" virt="non-virtual">entity.Entity</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classentity_1_1_player_1a9253dc8017e34d3136b7621fbf38f2f3" prot="private" static="no" mutable="no">
+        <type>transient <ref refid="classgameplay_1_1_game_panel" kindref="compound">GamePanel</ref></type>
+        <definition>transient GamePanel entity.Player.gameP</definition>
+        <argsstring></argsstring>
+        <name>gameP</name>
+        <qualifiedname>entity.Player.gameP</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Szükségünk van a játék loop-ot tartalmazó GamePanel-re </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Player.java" line="21" column="29" bodyfile="entity/Player.java" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classentity_1_1_player_1a54ca773a20745e807ebd31952be2e4c4" prot="private" static="no" mutable="no">
+        <type>transient <ref refid="classgameplay_1_1_key_handler" kindref="compound">KeyHandler</ref></type>
+        <definition>transient KeyHandler entity.Player.keyH</definition>
+        <argsstring></argsstring>
+        <name>keyH</name>
+        <qualifiedname>entity.Player.keyH</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Ebben vannak tárolva az éppen megnyomott gombok, azaz mit akar a játékos csinálni </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Player.java" line="25" column="30" bodyfile="entity/Player.java" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classentity_1_1_player_1a703250671cc8aeb2a001236ed249fad9" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int entity.Player.point</definition>
+        <argsstring></argsstring>
+        <name>point</name>
+        <qualifiedname>entity.Player.point</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Játékos gyűjtött pontjai </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Player.java" line="29" column="13" bodyfile="entity/Player.java" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classentity_1_1_player_1a5709f9115e8934508b51ab2d82dc6905" prot="private" static="no" mutable="no">
+        <type>String</type>
+        <definition>String entity.Player.character_name</definition>
+        <argsstring></argsstring>
+        <name>character_name</name>
+        <qualifiedname>entity.Player.character_name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A karakter neve amit választott magának </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Player.java" line="33" column="16" bodyfile="entity/Player.java" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classentity_1_1_player_1adbbdedeca171408150a3c611cb119463" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>entity.Player.Player</definition>
+        <argsstring>(GamePanel gP, KeyHandler kH, String character)</argsstring>
+        <name>Player</name>
+        <qualifiedname>entity.Player.Player</qualifiedname>
+        <param>
+          <type><ref refid="classgameplay_1_1_game_panel" kindref="compound">GamePanel</ref></type>
+          <declname>gP</declname>
+        </param>
+        <param>
+          <type><ref refid="classgameplay_1_1_key_handler" kindref="compound">KeyHandler</ref></type>
+          <declname>kH</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>character</declname>
+        </param>
+        <exceptions> throws <ref refid="classerror_1_1_own_error" kindref="compound">OwnError</ref> </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Konstruktor, nem indítja el a Main szállat, azt külön kell meghívni itt csak az alap játékállást állítja be <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gP</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>GamePanel, amin van a játékos </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>kH</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>KeyHandel, ami a GamePanel-en van </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>character</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>String, karakter neve </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>OwnError</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Visszaadjuk a hibaüzenetet tartalmazó hibát </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Player.java" line="42" column="8" bodyfile="entity/Player.java" bodystart="42" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="classentity_1_1_player_1a87b2a9eb1624561502c92a979d594f53" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void entity.Player.defaultPos</definition>
+        <argsstring>()</argsstring>
+        <name>defaultPos</name>
+        <qualifiedname>entity.Player.defaultPos</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Egy alapértelmezetten beállított helyre állítja a Player adatait </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Player.java" line="78" column="13" bodyfile="entity/Player.java" bodystart="78" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="classentity_1_1_player_1a424c3ed74dce1ad505b71351751034dd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void entity.Player.setGamerSkin</definition>
+        <argsstring>()</argsstring>
+        <name>setGamerSkin</name>
+        <qualifiedname>entity.Player.setGamerSkin</qualifiedname>
+        <exceptions> throws <ref refid="classerror_1_1_own_error" kindref="compound">OwnError</ref> </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Beállítja a választott karakterhez a kinézetét <parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>OwnError</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Visszadobjuk a hiba üzenetet </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Player.java" line="90" column="13" bodyfile="entity/Player.java" bodystart="90" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="classentity_1_1_player_1afba2e1ec85e29a43889813391a27ba24" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void entity.Player.damaged</definition>
+        <argsstring>(int damage)</argsstring>
+        <name>damaged</name>
+        <qualifiedname>entity.Player.damaged</qualifiedname>
+        <reimplements refid="classentity_1_1_entity_1ab83a6124b4bcbd834acc4cb1b4104c52">damaged</reimplements>
+        <param>
+          <type>int</type>
+          <declname>damage</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Felülírja az ős damage funkcióját, és megjeleníti az életerejét a GamePanel player_healt adattag segítségével </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Player.java" line="98" column="13" bodyfile="entity/Player.java" bodystart="98" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="classentity_1_1_player_1a5d171c9ba9a17a57c5f85951c5dae3fa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void entity.Player.heal</definition>
+        <argsstring>(int plus)</argsstring>
+        <name>heal</name>
+        <qualifiedname>entity.Player.heal</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>plus</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A kapott int változóval megnőveli az életerejét és a GamePanel player_healt-ra kihelyezi az éppeni életerejét <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>plus</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Player.java" line="121" column="13" bodyfile="entity/Player.java" bodystart="121" bodyend="146"/>
+      </memberdef>
+      <memberdef kind="function" id="classentity_1_1_player_1abe81ee5bfc362d06d88fce3a7aecdf7a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void entity.Player.update</definition>
+        <argsstring>()</argsstring>
+        <name>update</name>
+        <qualifiedname>entity.Player.update</qualifiedname>
+        <exceptions> throws IOException </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A frissités funkciója, ami a felhasználó által megnyomott gombszerint változtatja a helyzetét vagy támad <parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>IOException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Player.java" line="151" column="13" bodyfile="entity/Player.java" bodystart="151" bodyend="212"/>
+      </memberdef>
+      <memberdef kind="function" id="classentity_1_1_player_1a03bf1be78b0de719c7aa691f302f0c89" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void entity.Player.interactObj</definition>
+        <argsstring>(int ind)</argsstring>
+        <name>interactObj</name>
+        <qualifiedname>entity.Player.interactObj</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>ind</declname>
+        </param>
+        <exceptions> throws IOException </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>ind paraméterként megkapja a GamePanel objects adattagjának melyik OsObjectel kell interaktolnia azaz azzal az obejectel érintkezik a Player <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ind</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>IOException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>Ha ajtóval érintkezik, akkor attól függöen milyen állapotban vagyunk, vagy melyik ajtót használjuk, úgy kell tovább menni egy másik mapra</para>
+        </inbodydescription>
+        <location file="entity/Player.java" line="219" column="13" bodyfile="entity/Player.java" bodystart="219" bodyend="257"/>
+      </memberdef>
+      <memberdef kind="function" id="classentity_1_1_player_1a988462e92c62d8051ed3b10903779ec1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void entity.Player.draw</definition>
+        <argsstring>(Graphics2D grap2)</argsstring>
+        <name>draw</name>
+        <qualifiedname>entity.Player.draw</qualifiedname>
+        <reimplements refid="classentity_1_1_entity_1a499e01694b8f0e6533902c08e5c9eea8">draw</reimplements>
+        <param>
+          <type>Graphics2D</type>
+          <declname>grap2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Kirajzolja magát a kapott Graphics2D-re a saját koordinátájára, és megváltoztatja a sheet-je, ami arra utal éppen mozog és melyik lábbal lép </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Player.java" line="262" column="13" bodyfile="entity/Player.java" bodystart="262" bodyend="296"/>
+      </memberdef>
+      <memberdef kind="function" id="classentity_1_1_player_1a8c1c5109fab5b4a0a3ee2c766fc833b9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int entity.Player.getPoint</definition>
+        <argsstring>()</argsstring>
+        <name>getPoint</name>
+        <qualifiedname>entity.Player.getPoint</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Player.java" line="298" column="12" bodyfile="entity/Player.java" bodystart="298" bodyend="300"/>
+      </memberdef>
+      <memberdef kind="function" id="classentity_1_1_player_1a9df39bdc13549149ea201bd837f7062d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int entity.Player.getHealt</definition>
+        <argsstring>()</argsstring>
+        <name>getHealt</name>
+        <qualifiedname>entity.Player.getHealt</qualifiedname>
+        <reimplements refid="classentity_1_1_entity_1ae1076f804d943271dcb922a185c20a44">getHealt</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Player.java" line="302" column="12" bodyfile="entity/Player.java" bodystart="302" bodyend="304"/>
+      </memberdef>
+      <memberdef kind="function" id="classentity_1_1_player_1ab8cae899413ffb1e9711f3085da51b64" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String entity.Player.getCharType</definition>
+        <argsstring>()</argsstring>
+        <name>getCharType</name>
+        <qualifiedname>entity.Player.getCharType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Player.java" line="306" column="15" bodyfile="entity/Player.java" bodystart="306" bodyend="308"/>
+      </memberdef>
+      <memberdef kind="function" id="classentity_1_1_player_1a5ca82557f2268f0990eadf1e8175e064" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String entity.Player.getWeaponType</definition>
+        <argsstring>()</argsstring>
+        <name>getWeaponType</name>
+        <qualifiedname>entity.Player.getWeaponType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Player.java" line="310" column="15" bodyfile="entity/Player.java" bodystart="310" bodyend="312"/>
+      </memberdef>
+      <memberdef kind="function" id="classentity_1_1_player_1a6228999753f3acfc92577c95fbbfd462" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void entity.Player.reLoad</definition>
+        <argsstring>(GamePanel gameP, KeyHandler keyH)</argsstring>
+        <name>reLoad</name>
+        <qualifiedname>entity.Player.reLoad</qualifiedname>
+        <param>
+          <type><ref refid="classgameplay_1_1_game_panel" kindref="compound">GamePanel</ref></type>
+          <declname>gameP</declname>
+        </param>
+        <param>
+          <type><ref refid="classgameplay_1_1_key_handler" kindref="compound">KeyHandler</ref></type>
+          <declname>keyH</declname>
+        </param>
+        <exceptions> throws <ref refid="classerror_1_1_own_error" kindref="compound">OwnError</ref> </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Mikor Serializálás után visszatöltjük, a BufferImage-t vissza kell állítani <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gameP</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Azt a GamePanel-t is vissza kell állítani amiben éppen vagyunk </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>keyH</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A KeyHandel-re is ami éppen figyel, azt is vissza kell állítani </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Player.java" line="318" column="13" bodyfile="entity/Player.java" bodystart="318" bodyend="323"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Ez az osztály a játékosnak az adatait tárolja, ez maga a játékos </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>entity.Player</label>
+        <link refid="classentity_1_1_player"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>entity.Entity</label>
+        <link refid="classentity_1_1_entity"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Serializable</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="9">
+        <label>Runnable</label>
+      </node>
+      <node id="1">
+        <label>entity.Player</label>
+        <link refid="classentity_1_1_player"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>entity.Entity</label>
+        <link refid="classentity_1_1_entity"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>hitbox</edgelabel>
+          <edgelabel>view_distance</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>sheet</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>skin</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>weapon</edgelabel>
+        </childnode>
+      </node>
+      <node id="8">
+        <label>entity.Weapon</label>
+        <link refid="classentity_1_1_weapon"/>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Rectangle</label>
+      </node>
+      <node id="7">
+        <label>BufferedImage</label>
+      </node>
+      <node id="3">
+        <label>Serializable</label>
+      </node>
+      <node id="6">
+        <label>ArrayList&lt; BufferedImage &gt;</label>
+      </node>
+      <node id="5">
+        <label>loaders.SheetLoader</label>
+        <link refid="classloaders_1_1_sheet_loader"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="entity/Player.java" line="17" column="7" bodyfile="entity/Player.java" bodystart="17" bodyend="324"/>
+    <listofallmembers>
+      <member refid="classentity_1_1_entity_1a2eab14e983f296d66138f2edbcbadca5" prot="public" virt="non-virtual"><scope>entity::Player</scope><name>attackWithWeapon</name></member>
+      <member refid="classentity_1_1_player_1a5709f9115e8934508b51ab2d82dc6905" prot="private" virt="non-virtual"><scope>entity::Player</scope><name>character_name</name></member>
+      <member refid="classentity_1_1_entity_1a70223ae28e59753be46342f56174aa96" prot="public" virt="non-virtual"><scope>entity::Player</scope><name>collisionOn</name></member>
+      <member refid="classentity_1_1_player_1afba2e1ec85e29a43889813391a27ba24" prot="public" virt="non-virtual"><scope>entity::Player</scope><name>damaged</name></member>
+      <member refid="classentity_1_1_entity_1a24d978740a4020fc28d1789686cb7453" prot="protected" virt="non-virtual"><scope>entity::Player</scope><name>dead</name></member>
+      <member refid="classentity_1_1_player_1a87b2a9eb1624561502c92a979d594f53" prot="public" virt="non-virtual"><scope>entity::Player</scope><name>defaultPos</name></member>
+      <member refid="classentity_1_1_entity_1ada9f35af61ec4cef68b655b21fea7346" prot="protected" virt="non-virtual"><scope>entity::Player</scope><name>die</name></member>
+      <member refid="classentity_1_1_player_1a988462e92c62d8051ed3b10903779ec1" prot="public" virt="non-virtual"><scope>entity::Player</scope><name>draw</name></member>
+      <member refid="classentity_1_1_player_1a9253dc8017e34d3136b7621fbf38f2f3" prot="private" virt="non-virtual"><scope>entity::Player</scope><name>gameP</name></member>
+      <member refid="classentity_1_1_player_1ab8cae899413ffb1e9711f3085da51b64" prot="public" virt="non-virtual"><scope>entity::Player</scope><name>getCharType</name></member>
+      <member refid="classentity_1_1_player_1a9df39bdc13549149ea201bd837f7062d" prot="public" virt="non-virtual"><scope>entity::Player</scope><name>getHealt</name></member>
+      <member refid="classentity_1_1_entity_1a920ef8ae6ceae092fa8cf9f33a72f064" prot="public" virt="non-virtual"><scope>entity::Player</scope><name>getMaxHealt</name></member>
+      <member refid="classentity_1_1_player_1a8c1c5109fab5b4a0a3ee2c766fc833b9" prot="public" virt="non-virtual"><scope>entity::Player</scope><name>getPoint</name></member>
+      <member refid="classentity_1_1_entity_1a37bf6872289a50ac5160577d6532691c" prot="public" virt="non-virtual"><scope>entity::Player</scope><name>getSpeed</name></member>
+      <member refid="classentity_1_1_entity_1a59f731d2cfd4b83606e31aade584b877" prot="public" virt="non-virtual"><scope>entity::Player</scope><name>getWeaponDamage</name></member>
+      <member refid="classentity_1_1_player_1a5ca82557f2268f0990eadf1e8175e064" prot="public" virt="non-virtual"><scope>entity::Player</scope><name>getWeaponType</name></member>
+      <member refid="classentity_1_1_entity_1ad155ea8fc8ca4f6bc6ac11d1d9647679" prot="public" virt="non-virtual"><scope>entity::Player</scope><name>getX</name></member>
+      <member refid="classentity_1_1_entity_1a8b1969dd948ca89723ab3e5071f7297a" prot="public" virt="non-virtual"><scope>entity::Player</scope><name>getY</name></member>
+      <member refid="classentity_1_1_player_1a5d171c9ba9a17a57c5f85951c5dae3fa" prot="public" virt="non-virtual"><scope>entity::Player</scope><name>heal</name></member>
+      <member refid="classentity_1_1_entity_1a659e2f3ff696afa20135a59fc4b87ac6" prot="protected" virt="non-virtual"><scope>entity::Player</scope><name>healt</name></member>
+      <member refid="classentity_1_1_entity_1a5b026458182ab12ddcacb2858eca0a41" prot="public" virt="non-virtual"><scope>entity::Player</scope><name>hitbox</name></member>
+      <member refid="classentity_1_1_entity_1a9c16cdaf10b8ec7e783f184be1431a99" prot="public" virt="non-virtual"><scope>entity::Player</scope><name>hitboxDefaultX</name></member>
+      <member refid="classentity_1_1_entity_1abcf43b7fd4db801ef159fdaabea112f3" prot="public" virt="non-virtual"><scope>entity::Player</scope><name>hitboxDefaultY</name></member>
+      <member refid="classentity_1_1_player_1a03bf1be78b0de719c7aa691f302f0c89" prot="public" virt="non-virtual"><scope>entity::Player</scope><name>interactObj</name></member>
+      <member refid="classentity_1_1_entity_1aa1aafb9bfedd991b84800ab4e6d3f4bc" prot="public" virt="non-virtual"><scope>entity::Player</scope><name>isDead</name></member>
+      <member refid="classentity_1_1_player_1a54ca773a20745e807ebd31952be2e4c4" prot="private" virt="non-virtual"><scope>entity::Player</scope><name>keyH</name></member>
+      <member refid="classentity_1_1_entity_1a335228020c35226129694b5693460cf2" prot="protected" virt="non-virtual"><scope>entity::Player</scope><name>maxHealt</name></member>
+      <member refid="classentity_1_1_entity_1ab9e5041999c4c41f032c973893259201" prot="public" virt="non-virtual"><scope>entity::Player</scope><name>move_dir</name></member>
+      <member refid="classentity_1_1_entity_1ab75525e184a350f04d8d395c813ee041" prot="public" virt="non-virtual"><scope>entity::Player</scope><name>moveToPoint</name></member>
+      <member refid="classentity_1_1_player_1adbbdedeca171408150a3c611cb119463" prot="public" virt="non-virtual"><scope>entity::Player</scope><name>Player</name></member>
+      <member refid="classentity_1_1_player_1a703250671cc8aeb2a001236ed249fad9" prot="private" virt="non-virtual"><scope>entity::Player</scope><name>point</name></member>
+      <member refid="classentity_1_1_player_1a6228999753f3acfc92577c95fbbfd462" prot="public" virt="non-virtual"><scope>entity::Player</scope><name>reLoad</name></member>
+      <member refid="classentity_1_1_entity_1a7e492d42868aba82311a6a21016dd671" prot="public" virt="non-virtual" ambiguityscope="entity::Entity."><scope>entity::Player</scope><name>reLoad</name></member>
+      <member refid="classentity_1_1_entity_1ae2b4e2e0a290140a3180a8dbc17a1e62" prot="public" virt="non-virtual"><scope>entity::Player</scope><name>resetHitboxToDefault</name></member>
+      <member refid="classentity_1_1_entity_1a0a21cc1080caed66e21cc6e7f6ab83f3" prot="public" virt="non-virtual"><scope>entity::Player</scope><name>resetViewDistanceDefault</name></member>
+      <member refid="classentity_1_1_player_1a424c3ed74dce1ad505b71351751034dd" prot="public" virt="non-virtual"><scope>entity::Player</scope><name>setGamerSkin</name></member>
+      <member refid="classentity_1_1_entity_1ab46f2776de81b178d38abd4a0fa82055" prot="public" virt="non-virtual"><scope>entity::Player</scope><name>setSpeed</name></member>
+      <member refid="classentity_1_1_entity_1a9b029fad06135f8ca27627e78e4220a7" prot="public" virt="non-virtual"><scope>entity::Player</scope><name>setX</name></member>
+      <member refid="classentity_1_1_entity_1aaec68b6742e4be19b87fff73f933f40f" prot="public" virt="non-virtual"><scope>entity::Player</scope><name>setY</name></member>
+      <member refid="classentity_1_1_entity_1a9bc701dff83e2cd5317707910aced397" prot="protected" virt="non-virtual"><scope>entity::Player</scope><name>sheet</name></member>
+      <member refid="classentity_1_1_entity_1abaac51fede5861249818e335261657ca" prot="public" virt="non-virtual"><scope>entity::Player</scope><name>sheetCnt</name></member>
+      <member refid="classentity_1_1_entity_1a42a6d1b56669ee70abdda02303aa3a8a" prot="public" virt="non-virtual"><scope>entity::Player</scope><name>sheetNum</name></member>
+      <member refid="classentity_1_1_entity_1a8f771a1d2e1048173c76c5cb2f970b91" prot="protected" virt="non-virtual"><scope>entity::Player</scope><name>skin</name></member>
+      <member refid="classentity_1_1_entity_1af9b5fa055734ddb2512dec70a74e129c" prot="protected" virt="non-virtual"><scope>entity::Player</scope><name>speed</name></member>
+      <member refid="classentity_1_1_player_1abe81ee5bfc362d06d88fce3a7aecdf7a" prot="public" virt="non-virtual"><scope>entity::Player</scope><name>update</name></member>
+      <member refid="classentity_1_1_entity_1a05416e3360c0e4bb83f8bfa3c5f22fce" prot="public" virt="non-virtual"><scope>entity::Player</scope><name>view_distance</name></member>
+      <member refid="classentity_1_1_entity_1ab45f0aaf46ebb5af86abac3701abf92e" prot="public" virt="non-virtual"><scope>entity::Player</scope><name>viewDDefaultX</name></member>
+      <member refid="classentity_1_1_entity_1ad70a483039623f68921b28433d2ef537" prot="public" virt="non-virtual"><scope>entity::Player</scope><name>viewDDefaultY</name></member>
+      <member refid="classentity_1_1_entity_1abaa404d99ab8e7149ea9f4fbd43fe2ab" prot="protected" virt="non-virtual"><scope>entity::Player</scope><name>weapon</name></member>
+      <member refid="classentity_1_1_entity_1aecf9bc460c95122a484978c816743a9c" prot="protected" virt="non-virtual"><scope>entity::Player</scope><name>x</name></member>
+      <member refid="classentity_1_1_entity_1ad256e5814a65756ce28018537753b1a3" prot="protected" virt="non-virtual"><scope>entity::Player</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

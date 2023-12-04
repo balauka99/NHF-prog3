@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="dir_1185030844786df31eb5c50dc7b70078" kind="dir">
+    <compoundname>gameplay</compoundname>
+    <innerfile refid="_asset_setter_8java">AssetSetter.java</innerfile>
+    <innerfile refid="_collision_checker_8java">CollisionChecker.java</innerfile>
+    <innerfile refid="_game_panel_8java">GamePanel.java</innerfile>
+    <innerfile refid="_key_handler_8java">KeyHandler.java</innerfile>
+    <innerfile refid="_map___status_8java">Map_Status.java</innerfile>
+    <innerfile refid="_previous_maps_8java">PreviousMaps.java</innerfile>
+    <innerfile refid="_user_interface_8java">UserInterface.java</innerfile>
+    <innerfile refid="_utility_tools_8java">UtilityTools.java</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="gameplay/"/>
+  </compounddef>
+</doxygen>

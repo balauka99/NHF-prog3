@@ -1,0 +1,17 @@
+package entity;
+
+import org.junit.Before;
+
+public class TestEntity {
+	Entity tested;
+	@Before
+	/**
+	 * 
+	 */
+	public void setup() {
+		tested = new Entity();
+		tested.setSpeed(4);
+		tested.setX(100);
+		tested.setY(100);
+	}
+}

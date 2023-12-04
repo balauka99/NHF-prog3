@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="_utility_tools_8java" kind="file" language="Java">
+    <compoundname>UtilityTools.java</compoundname>
+    <innerclass refid="classgameplay_1_1_utility_tools" prot="public">gameplay::UtilityTools</innerclass>
+    <innernamespace refid="namespacegameplay">gameplay</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">gameplay;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.awt.Graphics2D;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.awt.image.BufferedImage;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.Serializable;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal">@SuppressWarnings(</highlight><highlight class="stringliteral">&quot;serial&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="11" refid="classgameplay_1_1_utility_tools" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="classgameplay_1_1_utility_tools" kindref="compound">UtilityTools</ref><sp/>implements<sp/>Serializable{</highlight></codeline>
+<codeline lineno="20" refid="classgameplay_1_1_utility_tools_1a71c48780886f140f3bd62ee480c13aca" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>BufferedImage<sp/><ref refid="classgameplay_1_1_utility_tools_1a71c48780886f140f3bd62ee480c13aca" kindref="member">scaleImage</ref>(BufferedImage<sp/>original,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>width,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>height)<sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BufferedImage<sp/>scaledImage<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>BufferedImage(width,<sp/>height,<sp/>original.getType());</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Graphics2D<sp/>tmpGrap2<sp/>=<sp/>scaledImage.createGraphics();</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tmpGrap2.drawImage(original,<sp/>0,<sp/>0,<sp/>width,<sp/>height,<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tmpGrap2.dispose();</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>scaledImage;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="gameplay/UtilityTools.java"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classospanel_1_1_dead_screen_1_1_back_to_main_menu" kind="class" language="Java" prot="private">
+    <compoundname>ospanel::DeadScreen::BackToMainMenu</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ActionListener</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classospanel_1_1_dead_screen_1_1_back_to_main_menu_1a640ca63d510a6a49b6657fc7348ec38b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ospanel.DeadScreen.BackToMainMenu.actionPerformed</definition>
+        <argsstring>(ActionEvent newgame)</argsstring>
+        <name>actionPerformed</name>
+        <qualifiedname>ospanel.DeadScreen.BackToMainMenu.actionPerformed</qualifiedname>
+        <param>
+          <type>ActionEvent</type>
+          <declname>newgame</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ospanel/DeadScreen.java" line="52" column="13" bodyfile="ospanel/DeadScreen.java" bodystart="52" bodyend="54"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ActionListener</label>
+      </node>
+      <node id="1">
+        <label>ospanel.DeadScreen.BackToMainMenu</label>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ActionListener</label>
+      </node>
+      <node id="1">
+        <label>ospanel.DeadScreen.BackToMainMenu</label>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="ospanel/DeadScreen.java" line="51" column="8" bodyfile="ospanel/DeadScreen.java" bodystart="51" bodyend="55"/>
+    <listofallmembers>
+      <member refid="classospanel_1_1_dead_screen_1_1_back_to_main_menu_1a640ca63d510a6a49b6657fc7348ec38b" prot="public" virt="non-virtual"><scope>ospanel::DeadScreen::BackToMainMenu</scope><name>actionPerformed</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

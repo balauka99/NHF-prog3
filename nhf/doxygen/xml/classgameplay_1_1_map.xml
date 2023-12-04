@@ -1,0 +1,487 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classgameplay_1_1_map" kind="class" language="Java" prot="package">
+    <compoundname>gameplay::Map</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Serializable</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classgameplay_1_1_map_1adaae4cb0b188fcc1784e43d16ebf41b8" prot="private" static="no" mutable="no">
+        <type><ref refid="classtile_1_1_tile_manager" kindref="compound">TileManager</ref></type>
+        <definition>TileManager gameplay.Map.tileMg</definition>
+        <argsstring></argsstring>
+        <name>tileMg</name>
+        <qualifiedname>gameplay.Map.tileMg</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/PreviousMaps.java" line="23" column="21" bodyfile="gameplay/PreviousMaps.java" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgameplay_1_1_map_1a869d32cd4b0160979969573df1027c67" prot="private" static="no" mutable="no">
+        <type>ArrayList&lt; <ref refid="classobject_1_1_os_object" kindref="compound">OsObject</ref> &gt;</type>
+        <definition>ArrayList&lt;OsObject&gt; gameplay.Map.objects</definition>
+        <argsstring></argsstring>
+        <name>objects</name>
+        <qualifiedname>gameplay.Map.objects</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/PreviousMaps.java" line="24" column="19" bodyfile="gameplay/PreviousMaps.java" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgameplay_1_1_map_1ae2e4ac8ef2f409f277c2470e8ab9ee2d" prot="private" static="no" mutable="no">
+        <type>ArrayList&lt; <ref refid="classentity_1_1_entity" kindref="compound">Entity</ref> &gt;</type>
+        <definition>ArrayList&lt;Entity&gt; gameplay.Map.enemys</definition>
+        <argsstring></argsstring>
+        <name>enemys</name>
+        <qualifiedname>gameplay.Map.enemys</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/PreviousMaps.java" line="25" column="19" bodyfile="gameplay/PreviousMaps.java" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgameplay_1_1_map_1a5d92389fcaa04a55342d2efefbe350a0" prot="private" static="no" mutable="no">
+        <type><ref refid="classgameplay_1_1_asset_setter" kindref="compound">AssetSetter</ref></type>
+        <definition>AssetSetter gameplay.Map.assSetter</definition>
+        <argsstring></argsstring>
+        <name>assSetter</name>
+        <qualifiedname>gameplay.Map.assSetter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/PreviousMaps.java" line="26" column="21" bodyfile="gameplay/PreviousMaps.java" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgameplay_1_1_map_1a283459e1d81504a78bb52b866ca72073" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int gameplay.Map.playerX</definition>
+        <argsstring></argsstring>
+        <name>playerX</name>
+        <qualifiedname>gameplay.Map.playerX</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/PreviousMaps.java" line="27" column="13" bodyfile="gameplay/PreviousMaps.java" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgameplay_1_1_map_1aaba66d186284e7accac8ac4f30ff8c44" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int gameplay.Map.playerY</definition>
+        <argsstring></argsstring>
+        <name>playerY</name>
+        <qualifiedname>gameplay.Map.playerY</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/PreviousMaps.java" line="27" column="21" bodyfile="gameplay/PreviousMaps.java" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classgameplay_1_1_map_1a16d670c9445c69f06bcffa9ce908f075" prot="public" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean gameplay.Map.isMapInPrevMaps</definition>
+        <argsstring></argsstring>
+        <name>isMapInPrevMaps</name>
+        <qualifiedname>gameplay.Map.isMapInPrevMaps</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/PreviousMaps.java" line="28" column="16" bodyfile="gameplay/PreviousMaps.java" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgameplay_1_1_map_1a32c3a6fb4a01ec4765fa986c72373e2c" prot="public" static="no" mutable="no">
+        <type><ref refid="enumgameplay_1_1_map___status" kindref="compound">Map_Status</ref></type>
+        <definition>Map_Status gameplay.Map.map_state</definition>
+        <argsstring></argsstring>
+        <name>map_state</name>
+        <qualifiedname>gameplay.Map.map_state</qualifiedname>
+        <initializer>= <ref refid="enumgameplay_1_1_map___status_1a8dab22dc2adb1ab73687b918861a998f" kindref="member">Map_Status.IN_PREVIOUS</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/PreviousMaps.java" line="29" column="19" bodyfile="gameplay/PreviousMaps.java" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classgameplay_1_1_map_1a4203cbb2273fafa94e8d86009782454c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>gameplay.Map.Map</definition>
+        <argsstring>(TileManager tileMg, ArrayList&lt; OsObject &gt; objects, ArrayList&lt; Entity &gt; enemys, AssetSetter assS, int playerX, int playerY, String move_dir, int tileSize)</argsstring>
+        <name>Map</name>
+        <qualifiedname>gameplay.Map.Map</qualifiedname>
+        <param>
+          <type><ref refid="classtile_1_1_tile_manager" kindref="compound">TileManager</ref></type>
+          <declname>tileMg</declname>
+        </param>
+        <param>
+          <type>ArrayList&lt; <ref refid="classobject_1_1_os_object" kindref="compound">OsObject</ref> &gt;</type>
+          <declname>objects</declname>
+        </param>
+        <param>
+          <type>ArrayList&lt; <ref refid="classentity_1_1_entity" kindref="compound">Entity</ref> &gt;</type>
+          <declname>enemys</declname>
+        </param>
+        <param>
+          <type><ref refid="classgameplay_1_1_asset_setter" kindref="compound">AssetSetter</ref></type>
+          <declname>assS</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>playerX</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>playerY</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>move_dir</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>tileSize</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Egy Mapnak a minden adata <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>tileMg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>TileManager </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>objects</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ArrayList&lt;OsObject&gt; </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>enemys</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ArrayList&lt;Entity&gt; </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>assS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>AssetSetter </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>playerX</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Player last x koordinate </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>playerY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Player last y koordinate </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>move_dir</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Player last move direction </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tileSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>GamePanel tile size </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/PreviousMaps.java" line="41" column="8" bodyfile="gameplay/PreviousMaps.java" bodystart="41" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_map_1a0b29cb15bfcd8ff310ebc88d0dd373b0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classtile_1_1_tile_manager" kindref="compound">TileManager</ref></type>
+        <definition>TileManager gameplay.Map.getTileMg</definition>
+        <argsstring>()</argsstring>
+        <name>getTileMg</name>
+        <qualifiedname>gameplay.Map.getTileMg</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/PreviousMaps.java" line="63" column="20" bodyfile="gameplay/PreviousMaps.java" bodystart="63" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_map_1a16c6fc06675151b6eac8ca5d7c5d7b91" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void gameplay.Map.setTileMg</definition>
+        <argsstring>(TileManager tileMg)</argsstring>
+        <name>setTileMg</name>
+        <qualifiedname>gameplay.Map.setTileMg</qualifiedname>
+        <param>
+          <type><ref refid="classtile_1_1_tile_manager" kindref="compound">TileManager</ref></type>
+          <declname>tileMg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/PreviousMaps.java" line="66" column="13" bodyfile="gameplay/PreviousMaps.java" bodystart="66" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_map_1a0b4b99af342cb79a32b7648ba650ae29" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ArrayList&lt; <ref refid="classobject_1_1_os_object" kindref="compound">OsObject</ref> &gt;</type>
+        <definition>ArrayList&lt; OsObject &gt; gameplay.Map.getObjects</definition>
+        <argsstring>()</argsstring>
+        <name>getObjects</name>
+        <qualifiedname>gameplay.Map.getObjects</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/PreviousMaps.java" line="69" column="18" bodyfile="gameplay/PreviousMaps.java" bodystart="69" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_map_1a41adbc7fda8316a57eca0c7dab6d6fa2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void gameplay.Map.setObjects</definition>
+        <argsstring>(ArrayList&lt; OsObject &gt; objects)</argsstring>
+        <name>setObjects</name>
+        <qualifiedname>gameplay.Map.setObjects</qualifiedname>
+        <param>
+          <type>ArrayList&lt; <ref refid="classobject_1_1_os_object" kindref="compound">OsObject</ref> &gt;</type>
+          <declname>objects</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/PreviousMaps.java" line="72" column="13" bodyfile="gameplay/PreviousMaps.java" bodystart="72" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_map_1a26fb9231209ead388037039ddd401613" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int gameplay.Map.getPlayerLastX</definition>
+        <argsstring>()</argsstring>
+        <name>getPlayerLastX</name>
+        <qualifiedname>gameplay.Map.getPlayerLastX</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/PreviousMaps.java" line="75" column="12" bodyfile="gameplay/PreviousMaps.java" bodystart="75" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_map_1a6927e8f8350a24274d4a20e24d52ba94" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void gameplay.Map.setPlayerLastX</definition>
+        <argsstring>(int playerX)</argsstring>
+        <name>setPlayerLastX</name>
+        <qualifiedname>gameplay.Map.setPlayerLastX</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>playerX</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/PreviousMaps.java" line="78" column="13" bodyfile="gameplay/PreviousMaps.java" bodystart="78" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_map_1af2a111a7b80b3ccfe38a020a02fa23e0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int gameplay.Map.getPlayerLastY</definition>
+        <argsstring>()</argsstring>
+        <name>getPlayerLastY</name>
+        <qualifiedname>gameplay.Map.getPlayerLastY</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/PreviousMaps.java" line="81" column="12" bodyfile="gameplay/PreviousMaps.java" bodystart="81" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_map_1ab5535b96c2a1cbfeb70b9110d5b9189d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void gameplay.Map.setPlayerLastY</definition>
+        <argsstring>(int playerY)</argsstring>
+        <name>setPlayerLastY</name>
+        <qualifiedname>gameplay.Map.setPlayerLastY</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>playerY</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/PreviousMaps.java" line="84" column="13" bodyfile="gameplay/PreviousMaps.java" bodystart="84" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_map_1a748c62c639a499faec0cfd55469219d3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classgameplay_1_1_asset_setter" kindref="compound">AssetSetter</ref></type>
+        <definition>AssetSetter gameplay.Map.getAssSetter</definition>
+        <argsstring>()</argsstring>
+        <name>getAssSetter</name>
+        <qualifiedname>gameplay.Map.getAssSetter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/PreviousMaps.java" line="87" column="20" bodyfile="gameplay/PreviousMaps.java" bodystart="87" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_map_1a3e82c5f07da2dec017caf056630c31cf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void gameplay.Map.setAssSetter</definition>
+        <argsstring>(AssetSetter assSetter)</argsstring>
+        <name>setAssSetter</name>
+        <qualifiedname>gameplay.Map.setAssSetter</qualifiedname>
+        <param>
+          <type><ref refid="classgameplay_1_1_asset_setter" kindref="compound">AssetSetter</ref></type>
+          <declname>assSetter</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/PreviousMaps.java" line="90" column="13" bodyfile="gameplay/PreviousMaps.java" bodystart="90" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_map_1aefa35bb2fece7f06a129269210ca54d2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ArrayList&lt; <ref refid="classentity_1_1_entity" kindref="compound">Entity</ref> &gt;</type>
+        <definition>ArrayList&lt; Entity &gt; gameplay.Map.getEnemys</definition>
+        <argsstring>()</argsstring>
+        <name>getEnemys</name>
+        <qualifiedname>gameplay.Map.getEnemys</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/PreviousMaps.java" line="93" column="18" bodyfile="gameplay/PreviousMaps.java" bodystart="93" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_map_1a59593b131dfdcab85fc41cc183988d08" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void gameplay.Map.setEnemys</definition>
+        <argsstring>(ArrayList&lt; Entity &gt; enemys)</argsstring>
+        <name>setEnemys</name>
+        <qualifiedname>gameplay.Map.setEnemys</qualifiedname>
+        <param>
+          <type>ArrayList&lt; <ref refid="classentity_1_1_entity" kindref="compound">Entity</ref> &gt;</type>
+          <declname>enemys</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/PreviousMaps.java" line="96" column="13" bodyfile="gameplay/PreviousMaps.java" bodystart="96" bodyend="98"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Ebben az osztályban van eltárolva egy pályának az adatai, tehát a GamePanel-nek egy állása minden ami szükséges egy játék lebonyolitására el van itt tárolva, Serializálásra készen </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>gameplay.Map</label>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Serializable</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>gameplay.Map</label>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>map_state</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>gameplay.Map_Status</label>
+        <link refid="enumgameplay_1_1_map___status"/>
+      </node>
+      <node id="2">
+        <label>Serializable</label>
+      </node>
+    </collaborationgraph>
+    <location file="gameplay/PreviousMaps.java" line="22" column="1" bodyfile="gameplay/PreviousMaps.java" bodystart="22" bodyend="99"/>
+    <listofallmembers>
+      <member refid="classgameplay_1_1_map_1a5d92389fcaa04a55342d2efefbe350a0" prot="private" virt="non-virtual"><scope>gameplay::Map</scope><name>assSetter</name></member>
+      <member refid="classgameplay_1_1_map_1ae2e4ac8ef2f409f277c2470e8ab9ee2d" prot="private" virt="non-virtual"><scope>gameplay::Map</scope><name>enemys</name></member>
+      <member refid="classgameplay_1_1_map_1a748c62c639a499faec0cfd55469219d3" prot="public" virt="non-virtual"><scope>gameplay::Map</scope><name>getAssSetter</name></member>
+      <member refid="classgameplay_1_1_map_1aefa35bb2fece7f06a129269210ca54d2" prot="public" virt="non-virtual"><scope>gameplay::Map</scope><name>getEnemys</name></member>
+      <member refid="classgameplay_1_1_map_1a0b4b99af342cb79a32b7648ba650ae29" prot="public" virt="non-virtual"><scope>gameplay::Map</scope><name>getObjects</name></member>
+      <member refid="classgameplay_1_1_map_1a26fb9231209ead388037039ddd401613" prot="public" virt="non-virtual"><scope>gameplay::Map</scope><name>getPlayerLastX</name></member>
+      <member refid="classgameplay_1_1_map_1af2a111a7b80b3ccfe38a020a02fa23e0" prot="public" virt="non-virtual"><scope>gameplay::Map</scope><name>getPlayerLastY</name></member>
+      <member refid="classgameplay_1_1_map_1a0b29cb15bfcd8ff310ebc88d0dd373b0" prot="public" virt="non-virtual"><scope>gameplay::Map</scope><name>getTileMg</name></member>
+      <member refid="classgameplay_1_1_map_1a16d670c9445c69f06bcffa9ce908f075" prot="public" virt="non-virtual"><scope>gameplay::Map</scope><name>isMapInPrevMaps</name></member>
+      <member refid="classgameplay_1_1_map_1a4203cbb2273fafa94e8d86009782454c" prot="public" virt="non-virtual"><scope>gameplay::Map</scope><name>Map</name></member>
+      <member refid="classgameplay_1_1_map_1a32c3a6fb4a01ec4765fa986c72373e2c" prot="public" virt="non-virtual"><scope>gameplay::Map</scope><name>map_state</name></member>
+      <member refid="classgameplay_1_1_map_1a869d32cd4b0160979969573df1027c67" prot="private" virt="non-virtual"><scope>gameplay::Map</scope><name>objects</name></member>
+      <member refid="classgameplay_1_1_map_1a283459e1d81504a78bb52b866ca72073" prot="private" virt="non-virtual"><scope>gameplay::Map</scope><name>playerX</name></member>
+      <member refid="classgameplay_1_1_map_1aaba66d186284e7accac8ac4f30ff8c44" prot="private" virt="non-virtual"><scope>gameplay::Map</scope><name>playerY</name></member>
+      <member refid="classgameplay_1_1_map_1a3e82c5f07da2dec017caf056630c31cf" prot="public" virt="non-virtual"><scope>gameplay::Map</scope><name>setAssSetter</name></member>
+      <member refid="classgameplay_1_1_map_1a59593b131dfdcab85fc41cc183988d08" prot="public" virt="non-virtual"><scope>gameplay::Map</scope><name>setEnemys</name></member>
+      <member refid="classgameplay_1_1_map_1a41adbc7fda8316a57eca0c7dab6d6fa2" prot="public" virt="non-virtual"><scope>gameplay::Map</scope><name>setObjects</name></member>
+      <member refid="classgameplay_1_1_map_1a6927e8f8350a24274d4a20e24d52ba94" prot="public" virt="non-virtual"><scope>gameplay::Map</scope><name>setPlayerLastX</name></member>
+      <member refid="classgameplay_1_1_map_1ab5535b96c2a1cbfeb70b9110d5b9189d" prot="public" virt="non-virtual"><scope>gameplay::Map</scope><name>setPlayerLastY</name></member>
+      <member refid="classgameplay_1_1_map_1a16c6fc06675151b6eac8ca5d7c5d7b91" prot="public" virt="non-virtual"><scope>gameplay::Map</scope><name>setTileMg</name></member>
+      <member refid="classgameplay_1_1_map_1adaae4cb0b188fcc1784e43d16ebf41b8" prot="private" virt="non-virtual"><scope>gameplay::Map</scope><name>tileMg</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

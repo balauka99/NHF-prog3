@@ -1,0 +1,771 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classentity_1_1_entity" kind="class" language="Java" prot="public">
+    <compoundname>entity::Entity</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Serializable</basecompoundref>
+    <derivedcompoundref refid="classentity_1_1_attack_hitbox" prot="public" virt="non-virtual">entity.AttackHitbox</derivedcompoundref>
+    <derivedcompoundref refid="classentity_1_1_eye_ball" prot="public" virt="non-virtual">entity.EyeBall</derivedcompoundref>
+    <derivedcompoundref refid="classentity_1_1_player" prot="public" virt="non-virtual">entity.Player</derivedcompoundref>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classentity_1_1_entity_1aecf9bc460c95122a484978c816743a9c" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int entity.Entity.x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <qualifiedname>entity.Entity.x</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Default alapadatok, és szükséges értékek, x és y koordináta speed - milyen gyorsan mozog az entitás </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Entity.java" line="21" column="15" bodyfile="entity/Entity.java" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classentity_1_1_entity_1ad256e5814a65756ce28018537753b1a3" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int entity.Entity.y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <qualifiedname>entity.Entity.y</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Entity.java" line="21" column="17" bodyfile="entity/Entity.java" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classentity_1_1_entity_1af9b5fa055734ddb2512dec70a74e129c" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int entity.Entity.speed</definition>
+        <argsstring></argsstring>
+        <name>speed</name>
+        <qualifiedname>entity.Entity.speed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Entity.java" line="21" column="19" bodyfile="entity/Entity.java" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classentity_1_1_entity_1a335228020c35226129694b5693460cf2" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int entity.Entity.maxHealt</definition>
+        <argsstring></argsstring>
+        <name>maxHealt</name>
+        <qualifiedname>entity.Entity.maxHealt</qualifiedname>
+        <initializer>= 101</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Entity.java" line="22" column="15" bodyfile="entity/Entity.java" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classentity_1_1_entity_1a659e2f3ff696afa20135a59fc4b87ac6" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int entity.Entity.healt</definition>
+        <argsstring></argsstring>
+        <name>healt</name>
+        <qualifiedname>entity.Entity.healt</qualifiedname>
+        <initializer>= 101</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Entity.java" line="23" column="15" bodyfile="entity/Entity.java" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classentity_1_1_entity_1a24d978740a4020fc28d1789686cb7453" prot="protected" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean entity.Entity.dead</definition>
+        <argsstring></argsstring>
+        <name>dead</name>
+        <qualifiedname>entity.Entity.dead</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Entity.java" line="24" column="19" bodyfile="entity/Entity.java" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classentity_1_1_entity_1a9bc701dff83e2cd5317707910aced397" prot="protected" static="no" mutable="no">
+        <type>transient <ref refid="classloaders_1_1_sheet_loader" kindref="compound">SheetLoader</ref></type>
+        <definition>transient SheetLoader entity.Entity.sheet</definition>
+        <argsstring></argsstring>
+        <name>sheet</name>
+        <qualifiedname>entity.Entity.sheet</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Egy spirite sheet-ből vannak betölte ebbe a tömbe az kinézetek, tudni kell melyik kinézet hol van a sheet-en </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Entity.java" line="62" column="33" bodyfile="entity/Entity.java" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classentity_1_1_entity_1a8f771a1d2e1048173c76c5cb2f970b91" prot="protected" static="no" mutable="no">
+        <type>transient BufferedImage</type>
+        <definition>transient BufferedImage entity.Entity.skin</definition>
+        <argsstring></argsstring>
+        <name>skin</name>
+        <qualifiedname>entity.Entity.skin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Az a kinézet ami éppen be van töltve a sheet-ről, vagy csak be van töltve ide </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Entity.java" line="66" column="35" bodyfile="entity/Entity.java" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classentity_1_1_entity_1abaa404d99ab8e7149ea9f4fbd43fe2ab" prot="protected" static="no" mutable="no">
+        <type><ref refid="classentity_1_1_weapon" kindref="compound">Weapon</ref></type>
+        <definition>Weapon entity.Entity.weapon</definition>
+        <argsstring></argsstring>
+        <name>weapon</name>
+        <qualifiedname>entity.Entity.weapon</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Az entitás fegyvere </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Entity.java" line="70" column="18" bodyfile="entity/Entity.java" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classentity_1_1_entity_1ab9e5041999c4c41f032c973893259201" prot="public" static="no" mutable="no">
+        <type>String</type>
+        <definition>String entity.Entity.move_dir</definition>
+        <argsstring></argsstring>
+        <name>move_dir</name>
+        <qualifiedname>entity.Entity.move_dir</qualifiedname>
+        <initializer>= &quot;down&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Entity.java" line="28" column="15" bodyfile="entity/Entity.java" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classentity_1_1_entity_1abaac51fede5861249818e335261657ca" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int entity.Entity.sheetCnt</definition>
+        <argsstring></argsstring>
+        <name>sheetCnt</name>
+        <qualifiedname>entity.Entity.sheetCnt</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Entity.java" line="35" column="12" bodyfile="entity/Entity.java" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classentity_1_1_entity_1a42a6d1b56669ee70abdda02303aa3a8a" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int entity.Entity.sheetNum</definition>
+        <argsstring></argsstring>
+        <name>sheetNum</name>
+        <qualifiedname>entity.Entity.sheetNum</qualifiedname>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Entity.java" line="36" column="12" bodyfile="entity/Entity.java" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classentity_1_1_entity_1a5b026458182ab12ddcacb2858eca0a41" prot="public" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle entity.Entity.hitbox</definition>
+        <argsstring></argsstring>
+        <name>hitbox</name>
+        <qualifiedname>entity.Entity.hitbox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Entity.java" line="40" column="18" bodyfile="entity/Entity.java" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classentity_1_1_entity_1a9c16cdaf10b8ec7e783f184be1431a99" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int entity.Entity.hitboxDefaultX</definition>
+        <argsstring></argsstring>
+        <name>hitboxDefaultX</name>
+        <qualifiedname>entity.Entity.hitboxDefaultX</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A Rectangle külön x, y koordinátákkal rendelkezik, mindig be kell állítani honann kezdődik a hitbox pl: ha kicsit kisebb mint egy tile, hogy könyebben tudjon mozogni a játékos </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Entity.java" line="45" column="12" bodyfile="entity/Entity.java" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classentity_1_1_entity_1abcf43b7fd4db801ef159fdaabea112f3" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int entity.Entity.hitboxDefaultY</definition>
+        <argsstring></argsstring>
+        <name>hitboxDefaultY</name>
+        <qualifiedname>entity.Entity.hitboxDefaultY</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Entity.java" line="45" column="27" bodyfile="entity/Entity.java" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classentity_1_1_entity_1a05416e3360c0e4bb83f8bfa3c5f22fce" prot="public" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle entity.Entity.view_distance</definition>
+        <argsstring></argsstring>
+        <name>view_distance</name>
+        <qualifiedname>entity.Entity.view_distance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Ugyan az mint a hitbox, csak ez egy nagyobb terület, amit &quot;lát&quot; az entitás </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Entity.java" line="49" column="18" bodyfile="entity/Entity.java" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classentity_1_1_entity_1ab45f0aaf46ebb5af86abac3701abf92e" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int entity.Entity.viewDDefaultX</definition>
+        <argsstring></argsstring>
+        <name>viewDDefaultX</name>
+        <qualifiedname>entity.Entity.viewDDefaultX</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Arra szolgálnak mint a hitboxDefault adatai, itt fontosabb, mert nagyobb a látó tovolsága mint amekkora maga az entitás muszály minuszba mennyenek a koordináták, azt meg tárolni kell </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Entity.java" line="54" column="12" bodyfile="entity/Entity.java" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classentity_1_1_entity_1ad70a483039623f68921b28433d2ef537" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int entity.Entity.viewDDefaultY</definition>
+        <argsstring></argsstring>
+        <name>viewDDefaultY</name>
+        <qualifiedname>entity.Entity.viewDDefaultY</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Entity.java" line="54" column="26" bodyfile="entity/Entity.java" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classentity_1_1_entity_1a70223ae28e59753be46342f56174aa96" prot="public" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean entity.Entity.collisionOn</definition>
+        <argsstring></argsstring>
+        <name>collisionOn</name>
+        <qualifiedname>entity.Entity.collisionOn</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Ha éppen összeütközik valamivel akkor ez igaz lesz </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Entity.java" line="58" column="16" bodyfile="entity/Entity.java" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classentity_1_1_entity_1ad155ea8fc8ca4f6bc6ac11d1d9647679" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int entity.Entity.getX</definition>
+        <argsstring>()</argsstring>
+        <name>getX</name>
+        <qualifiedname>entity.Entity.getX</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Entity.java" line="71" column="12" bodyfile="entity/Entity.java" bodystart="71" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="classentity_1_1_entity_1a9b029fad06135f8ca27627e78e4220a7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void entity.Entity.setX</definition>
+        <argsstring>(int newx)</argsstring>
+        <name>setX</name>
+        <qualifiedname>entity.Entity.setX</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>newx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Entity.java" line="72" column="13" bodyfile="entity/Entity.java" bodystart="72" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="classentity_1_1_entity_1a8b1969dd948ca89723ab3e5071f7297a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int entity.Entity.getY</definition>
+        <argsstring>()</argsstring>
+        <name>getY</name>
+        <qualifiedname>entity.Entity.getY</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Entity.java" line="73" column="12" bodyfile="entity/Entity.java" bodystart="73" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classentity_1_1_entity_1aaec68b6742e4be19b87fff73f933f40f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void entity.Entity.setY</definition>
+        <argsstring>(int newy)</argsstring>
+        <name>setY</name>
+        <qualifiedname>entity.Entity.setY</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>newy</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Entity.java" line="74" column="13" bodyfile="entity/Entity.java" bodystart="74" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="classentity_1_1_entity_1a37bf6872289a50ac5160577d6532691c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int entity.Entity.getSpeed</definition>
+        <argsstring>()</argsstring>
+        <name>getSpeed</name>
+        <qualifiedname>entity.Entity.getSpeed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Entity.java" line="75" column="12" bodyfile="entity/Entity.java" bodystart="75" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="classentity_1_1_entity_1ae1076f804d943271dcb922a185c20a44" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int entity.Entity.getHealt</definition>
+        <argsstring>()</argsstring>
+        <name>getHealt</name>
+        <qualifiedname>entity.Entity.getHealt</qualifiedname>
+        <reimplementedby refid="classentity_1_1_player_1a9df39bdc13549149ea201bd837f7062d">getHealt</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Entity.java" line="76" column="12" bodyfile="entity/Entity.java" bodystart="76" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="classentity_1_1_entity_1a920ef8ae6ceae092fa8cf9f33a72f064" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int entity.Entity.getMaxHealt</definition>
+        <argsstring>()</argsstring>
+        <name>getMaxHealt</name>
+        <qualifiedname>entity.Entity.getMaxHealt</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Entity.java" line="77" column="12" bodyfile="entity/Entity.java" bodystart="77" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="classentity_1_1_entity_1ab46f2776de81b178d38abd4a0fa82055" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void entity.Entity.setSpeed</definition>
+        <argsstring>(int newspeed)</argsstring>
+        <name>setSpeed</name>
+        <qualifiedname>entity.Entity.setSpeed</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>newspeed</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Entity.java" line="78" column="13" bodyfile="entity/Entity.java" bodystart="78" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="classentity_1_1_entity_1ae2b4e2e0a290140a3180a8dbc17a1e62" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void entity.Entity.resetHitboxToDefault</definition>
+        <argsstring>()</argsstring>
+        <name>resetHitboxToDefault</name>
+        <qualifiedname>entity.Entity.resetHitboxToDefault</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Entity.java" line="79" column="13" bodyfile="entity/Entity.java" bodystart="79" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="classentity_1_1_entity_1a0a21cc1080caed66e21cc6e7f6ab83f3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void entity.Entity.resetViewDistanceDefault</definition>
+        <argsstring>()</argsstring>
+        <name>resetViewDistanceDefault</name>
+        <qualifiedname>entity.Entity.resetViewDistanceDefault</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Entity.java" line="83" column="13" bodyfile="entity/Entity.java" bodystart="83" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="classentity_1_1_entity_1ab83a6124b4bcbd834acc4cb1b4104c52" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void entity.Entity.damaged</definition>
+        <argsstring>(int damage)</argsstring>
+        <name>damaged</name>
+        <qualifiedname>entity.Entity.damaged</qualifiedname>
+        <reimplementedby refid="classentity_1_1_player_1afba2e1ec85e29a43889813391a27ba24">damaged</reimplementedby>
+        <param>
+          <type>int</type>
+          <declname>damage</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Ha ez entitás sebződik ezt kell meghívni, megkapott int-el sebbződik <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>damage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Entity.java" line="91" column="13" bodyfile="entity/Entity.java" bodystart="91" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="classentity_1_1_entity_1aa1aafb9bfedd991b84800ab4e6d3f4bc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean entity.Entity.isDead</definition>
+        <argsstring>()</argsstring>
+        <name>isDead</name>
+        <qualifiedname>entity.Entity.isDead</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Visszaadja meghalt-e az entitás <simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Entity.java" line="108" column="16" bodyfile="entity/Entity.java" bodystart="108" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="classentity_1_1_entity_1a499e01694b8f0e6533902c08e5c9eea8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void entity.Entity.draw</definition>
+        <argsstring>(Graphics2D grap2)</argsstring>
+        <name>draw</name>
+        <qualifiedname>entity.Entity.draw</qualifiedname>
+        <reimplementedby refid="classentity_1_1_eye_ball_1ae3a17990affdb87a3ebf5146a7c77b7d">draw</reimplementedby>
+        <reimplementedby refid="classentity_1_1_player_1a988462e92c62d8051ed3b10903779ec1">draw</reimplementedby>
+        <param>
+          <type>Graphics2D</type>
+          <declname>grap2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Rajzoló metódus ami a megkapott Graphics2D-re felteszi a saját kinézetét a saját koordinátájára <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>grap2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Entity.java" line="115" column="13" bodyfile="entity/Entity.java" bodystart="115" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="classentity_1_1_entity_1a2eab14e983f296d66138f2edbcbadca5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void entity.Entity.attackWithWeapon</definition>
+        <argsstring>()</argsstring>
+        <name>attackWithWeapon</name>
+        <qualifiedname>entity.Entity.attackWithWeapon</qualifiedname>
+        <reimplementedby refid="classentity_1_1_eye_ball_1a00fed86491261fbc8913eb3db8fc78c1">attackWithWeapon</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Ha meghívjuk támadni fog a fegyverével </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Entity.java" line="121" column="13" bodyfile="entity/Entity.java" bodystart="121" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="function" id="classentity_1_1_entity_1a59f731d2cfd4b83606e31aade584b877" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int entity.Entity.getWeaponDamage</definition>
+        <argsstring>()</argsstring>
+        <name>getWeaponDamage</name>
+        <qualifiedname>entity.Entity.getWeaponDamage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Visszaadja a fegyverének mekkora a sebbzése <simplesect kind="return"><para>int, sebbzés </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Entity.java" line="128" column="12" bodyfile="entity/Entity.java" bodystart="128" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="classentity_1_1_entity_1ab75525e184a350f04d8d395c813ee041" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void entity.Entity.moveToPoint</definition>
+        <argsstring>(int x, int y)</argsstring>
+        <name>moveToPoint</name>
+        <qualifiedname>entity.Entity.moveToPoint</qualifiedname>
+        <reimplementedby refid="classentity_1_1_eye_ball_1a157ce11a133e22aa2063f79849e3252f">moveToPoint</reimplementedby>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Paraméterként megkapott koordinátára mozog a sebességével <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Entity.java" line="136" column="13" bodyfile="entity/Entity.java" bodystart="136" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="function" id="classentity_1_1_entity_1a7e492d42868aba82311a6a21016dd671" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void entity.Entity.reLoad</definition>
+        <argsstring>()</argsstring>
+        <name>reLoad</name>
+        <qualifiedname>entity.Entity.reLoad</qualifiedname>
+        <reimplementedby refid="classentity_1_1_attack_hitbox_1a04b4f93f5bf0496881ce7ca0061f22c8">reLoad</reimplementedby>
+        <reimplementedby refid="classentity_1_1_eye_ball_1ad065d41764891a5a220a3a7acc67c797">reLoad</reimplementedby>
+        <exceptions> throws <ref refid="classerror_1_1_own_error" kindref="compound">OwnError</ref> </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Arra szolgál miután Serializáltuk és visszaakarjuk tölteni, visszaállítja a kinézetét és a sheetjét, ez minden entitésnak magának kell megvalósítani, ez entitásnak kell tudnia mi a kinézete <parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>OwnError</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Visszadobja a hibaüzenetet, ha adódik </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Entity.java" line="156" column="13" bodyfile="entity/Entity.java" bodystart="156" bodyend="156"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classentity_1_1_entity_1ada9f35af61ec4cef68b655b21fea7346" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void entity.Entity.die</definition>
+        <argsstring>()</argsstring>
+        <name>die</name>
+        <qualifiedname>entity.Entity.die</qualifiedname>
+        <reimplementedby refid="classentity_1_1_eye_ball_1a89d397c84b69bf2f4ecd7e79c2c6fa95">die</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Ha meghívjuk instant &quot;meghall&quot; az entitsá, azaz nem lesz életereje és igaz lesz a dead boolean </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Entity.java" line="100" column="16" bodyfile="entity/Entity.java" bodystart="100" bodyend="103"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Ez az osztály egy valamilyen entitás egységes alapadatait tárolja, és alap metódusokat képes meghatározni amikre a játék loop-ban majd szükségesek lehetnek </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>entity.Entity</label>
+        <link refid="classentity_1_1_entity"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>entity.AttackHitbox</label>
+        <link refid="classentity_1_1_attack_hitbox"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>entity.EyeBall</label>
+        <link refid="classentity_1_1_eye_ball"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>entity.Player</label>
+        <link refid="classentity_1_1_player"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Serializable</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="8">
+        <label>Runnable</label>
+      </node>
+      <node id="1">
+        <label>entity.Entity</label>
+        <link refid="classentity_1_1_entity"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>hitbox</edgelabel>
+          <edgelabel>view_distance</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>sheet</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>skin</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>weapon</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>entity.Weapon</label>
+        <link refid="classentity_1_1_weapon"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Rectangle</label>
+      </node>
+      <node id="6">
+        <label>BufferedImage</label>
+      </node>
+      <node id="2">
+        <label>Serializable</label>
+      </node>
+      <node id="5">
+        <label>ArrayList&lt; BufferedImage &gt;</label>
+      </node>
+      <node id="4">
+        <label>loaders.SheetLoader</label>
+        <link refid="classloaders_1_1_sheet_loader"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="entity/Entity.java" line="16" column="7" bodyfile="entity/Entity.java" bodystart="16" bodyend="157"/>
+    <listofallmembers>
+      <member refid="classentity_1_1_entity_1a2eab14e983f296d66138f2edbcbadca5" prot="public" virt="non-virtual"><scope>entity::Entity</scope><name>attackWithWeapon</name></member>
+      <member refid="classentity_1_1_entity_1a70223ae28e59753be46342f56174aa96" prot="public" virt="non-virtual"><scope>entity::Entity</scope><name>collisionOn</name></member>
+      <member refid="classentity_1_1_entity_1ab83a6124b4bcbd834acc4cb1b4104c52" prot="public" virt="non-virtual"><scope>entity::Entity</scope><name>damaged</name></member>
+      <member refid="classentity_1_1_entity_1a24d978740a4020fc28d1789686cb7453" prot="protected" virt="non-virtual"><scope>entity::Entity</scope><name>dead</name></member>
+      <member refid="classentity_1_1_entity_1ada9f35af61ec4cef68b655b21fea7346" prot="protected" virt="non-virtual"><scope>entity::Entity</scope><name>die</name></member>
+      <member refid="classentity_1_1_entity_1a499e01694b8f0e6533902c08e5c9eea8" prot="public" virt="non-virtual"><scope>entity::Entity</scope><name>draw</name></member>
+      <member refid="classentity_1_1_entity_1ae1076f804d943271dcb922a185c20a44" prot="public" virt="non-virtual"><scope>entity::Entity</scope><name>getHealt</name></member>
+      <member refid="classentity_1_1_entity_1a920ef8ae6ceae092fa8cf9f33a72f064" prot="public" virt="non-virtual"><scope>entity::Entity</scope><name>getMaxHealt</name></member>
+      <member refid="classentity_1_1_entity_1a37bf6872289a50ac5160577d6532691c" prot="public" virt="non-virtual"><scope>entity::Entity</scope><name>getSpeed</name></member>
+      <member refid="classentity_1_1_entity_1a59f731d2cfd4b83606e31aade584b877" prot="public" virt="non-virtual"><scope>entity::Entity</scope><name>getWeaponDamage</name></member>
+      <member refid="classentity_1_1_entity_1ad155ea8fc8ca4f6bc6ac11d1d9647679" prot="public" virt="non-virtual"><scope>entity::Entity</scope><name>getX</name></member>
+      <member refid="classentity_1_1_entity_1a8b1969dd948ca89723ab3e5071f7297a" prot="public" virt="non-virtual"><scope>entity::Entity</scope><name>getY</name></member>
+      <member refid="classentity_1_1_entity_1a659e2f3ff696afa20135a59fc4b87ac6" prot="protected" virt="non-virtual"><scope>entity::Entity</scope><name>healt</name></member>
+      <member refid="classentity_1_1_entity_1a5b026458182ab12ddcacb2858eca0a41" prot="public" virt="non-virtual"><scope>entity::Entity</scope><name>hitbox</name></member>
+      <member refid="classentity_1_1_entity_1a9c16cdaf10b8ec7e783f184be1431a99" prot="public" virt="non-virtual"><scope>entity::Entity</scope><name>hitboxDefaultX</name></member>
+      <member refid="classentity_1_1_entity_1abcf43b7fd4db801ef159fdaabea112f3" prot="public" virt="non-virtual"><scope>entity::Entity</scope><name>hitboxDefaultY</name></member>
+      <member refid="classentity_1_1_entity_1aa1aafb9bfedd991b84800ab4e6d3f4bc" prot="public" virt="non-virtual"><scope>entity::Entity</scope><name>isDead</name></member>
+      <member refid="classentity_1_1_entity_1a335228020c35226129694b5693460cf2" prot="protected" virt="non-virtual"><scope>entity::Entity</scope><name>maxHealt</name></member>
+      <member refid="classentity_1_1_entity_1ab9e5041999c4c41f032c973893259201" prot="public" virt="non-virtual"><scope>entity::Entity</scope><name>move_dir</name></member>
+      <member refid="classentity_1_1_entity_1ab75525e184a350f04d8d395c813ee041" prot="public" virt="non-virtual"><scope>entity::Entity</scope><name>moveToPoint</name></member>
+      <member refid="classentity_1_1_entity_1a7e492d42868aba82311a6a21016dd671" prot="public" virt="non-virtual"><scope>entity::Entity</scope><name>reLoad</name></member>
+      <member refid="classentity_1_1_entity_1ae2b4e2e0a290140a3180a8dbc17a1e62" prot="public" virt="non-virtual"><scope>entity::Entity</scope><name>resetHitboxToDefault</name></member>
+      <member refid="classentity_1_1_entity_1a0a21cc1080caed66e21cc6e7f6ab83f3" prot="public" virt="non-virtual"><scope>entity::Entity</scope><name>resetViewDistanceDefault</name></member>
+      <member refid="classentity_1_1_entity_1ab46f2776de81b178d38abd4a0fa82055" prot="public" virt="non-virtual"><scope>entity::Entity</scope><name>setSpeed</name></member>
+      <member refid="classentity_1_1_entity_1a9b029fad06135f8ca27627e78e4220a7" prot="public" virt="non-virtual"><scope>entity::Entity</scope><name>setX</name></member>
+      <member refid="classentity_1_1_entity_1aaec68b6742e4be19b87fff73f933f40f" prot="public" virt="non-virtual"><scope>entity::Entity</scope><name>setY</name></member>
+      <member refid="classentity_1_1_entity_1a9bc701dff83e2cd5317707910aced397" prot="protected" virt="non-virtual"><scope>entity::Entity</scope><name>sheet</name></member>
+      <member refid="classentity_1_1_entity_1abaac51fede5861249818e335261657ca" prot="public" virt="non-virtual"><scope>entity::Entity</scope><name>sheetCnt</name></member>
+      <member refid="classentity_1_1_entity_1a42a6d1b56669ee70abdda02303aa3a8a" prot="public" virt="non-virtual"><scope>entity::Entity</scope><name>sheetNum</name></member>
+      <member refid="classentity_1_1_entity_1a8f771a1d2e1048173c76c5cb2f970b91" prot="protected" virt="non-virtual"><scope>entity::Entity</scope><name>skin</name></member>
+      <member refid="classentity_1_1_entity_1af9b5fa055734ddb2512dec70a74e129c" prot="protected" virt="non-virtual"><scope>entity::Entity</scope><name>speed</name></member>
+      <member refid="classentity_1_1_entity_1a05416e3360c0e4bb83f8bfa3c5f22fce" prot="public" virt="non-virtual"><scope>entity::Entity</scope><name>view_distance</name></member>
+      <member refid="classentity_1_1_entity_1ab45f0aaf46ebb5af86abac3701abf92e" prot="public" virt="non-virtual"><scope>entity::Entity</scope><name>viewDDefaultX</name></member>
+      <member refid="classentity_1_1_entity_1ad70a483039623f68921b28433d2ef537" prot="public" virt="non-virtual"><scope>entity::Entity</scope><name>viewDDefaultY</name></member>
+      <member refid="classentity_1_1_entity_1abaa404d99ab8e7149ea9f4fbd43fe2ab" prot="protected" virt="non-virtual"><scope>entity::Entity</scope><name>weapon</name></member>
+      <member refid="classentity_1_1_entity_1aecf9bc460c95122a484978c816743a9c" prot="protected" virt="non-virtual"><scope>entity::Entity</scope><name>x</name></member>
+      <member refid="classentity_1_1_entity_1ad256e5814a65756ce28018537753b1a3" prot="protected" virt="non-virtual"><scope>entity::Entity</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

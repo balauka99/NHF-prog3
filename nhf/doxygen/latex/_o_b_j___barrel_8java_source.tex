@@ -1,0 +1,56 @@
+\doxysection{OBJ\+\_\+\+Barrel.\+java}
+\label{_o_b_j___barrel_8java_source}\index{object/OBJ\_Barrel.java@{object/OBJ\_Barrel.java}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{package\ }object;}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ @SuppressWarnings(\textcolor{stringliteral}{"{}serial"{}})}
+\DoxyCodeLine{00004\ public\ class\ OBJ\_Barrel\ extends\ OsObject\ implements\ Runnable\{}
+\DoxyCodeLine{00005\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{transient}\ Thread\ boom;}
+\DoxyCodeLine{00006\ \ \ \ \ }
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keyword}{public}\ OBJ\_Barrel()\ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ setName(\textcolor{stringliteral}{"{}Barrel"{}});}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ this.setupSkin(\textcolor{stringliteral}{"{}barrel"{}});}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ collision\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00011\ \ \ \ \ \}}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ boom()\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!this.isDestroyed())\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ boom\ =\ \textcolor{keyword}{new}\ Thread(\textcolor{keyword}{this});}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ boom.start();}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00017\ \ \ \ \ \}}
+\DoxyCodeLine{00018\ \ \ \ \ @Override}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ destroy()\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!unBreakAble)\ boom();}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ super.destroy();}
+\DoxyCodeLine{00022\ \ \ \ \ \}}
+\DoxyCodeLine{00023\ \ \ \ \ @Override}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ run()\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Robbanás\ animáció}}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this.setupSkin(\textcolor{stringliteral}{"{}barrelBoom/boom1"{}});}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Thread.sleep(100);}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this.setupSkin(\textcolor{stringliteral}{"{}barrelBoom/boom2"{}});}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Thread.sleep(200);}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this.setupSkin(\textcolor{stringliteral}{"{}barrelBoom/boom3"{}});}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Thread.sleep(300);}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this.setupSkin(\textcolor{stringliteral}{"{}barrelBoom/boom4"{}});}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Thread.sleep(1000);}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this.setupSkin(\textcolor{stringliteral}{"{}barrelBoom/barrel\_boomed"{}});}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (InterruptedException\ e)\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO\ Auto-\/generated\ catch\ block}}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ e.printStackTrace();}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00041\ \ \ \ \ \}}
+\DoxyCodeLine{00042\ \ \ \ \ @Override}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ reLoad()\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ setName(\textcolor{stringliteral}{"{}Barrel"{}});}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(this.isDestroyed())\ this.setupSkin(\textcolor{stringliteral}{"{}barrelBoom/barrel\_boomed"{}});}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ this.setupSkin(\textcolor{stringliteral}{"{}barrel"{}});}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00049\ \ \ \ \ \}}
+\DoxyCodeLine{00050\ \}}
+
+\end{DoxyCode}

@@ -3,9 +3,11 @@ package gameplay;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.Serializable;
-import java.util.Scanner;
 
 @SuppressWarnings("serial")
+/**
+ * Ez az osztály felelős a gombok nyomásának a detektálásáért
+ */
 public class KeyHandler implements KeyListener, Serializable{
 
 	public boolean wP, sP, aP, dP, spaceP;	// wasd valamelyik gombja meg lett nyomva

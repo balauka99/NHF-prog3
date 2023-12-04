@@ -1,0 +1,27 @@
+\doxysection{OBJ\+\_\+\+Chest.\+java}
+\label{_o_b_j___chest_8java_source}\index{object/OBJ\_Chest.java@{object/OBJ\_Chest.java}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{package\ }object;}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ @SuppressWarnings(\textcolor{stringliteral}{"{}serial"{}})}
+\DoxyCodeLine{00004\ public\ class\ OBJ\_Chest\ extends\ OsObject\{}
+\DoxyCodeLine{00005\ \ \ \ \ \textcolor{keyword}{public}\ OBJ\_Chest()\ \{}
+\DoxyCodeLine{00006\ \ \ \ \ \ \ \ \ setName(\textcolor{stringliteral}{"{}Chest"{}});}
+\DoxyCodeLine{00007\ \ \ \ \ \ \ \ \ this.setupSkin(\textcolor{stringliteral}{"{}chest"{}});}
+\DoxyCodeLine{00008\ \ \ \ \ \}}
+\DoxyCodeLine{00009\ \ \ \ \ @Override}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ useObject()\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ super.useObject();}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ this.setupSkin(\textcolor{stringliteral}{"{}chest\_opened"{}});}
+\DoxyCodeLine{00013\ \ \ \ \ \}}
+\DoxyCodeLine{00014\ \ \ \ \ @Override}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ reLoad()\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ setName(\textcolor{stringliteral}{"{}Chest"{}});}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(this.isObjectUsed())\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ this.setupSkin(\textcolor{stringliteral}{"{}chest\_opened"{}});}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ this.setupSkin(\textcolor{stringliteral}{"{}chest"{}});}
+\DoxyCodeLine{00020\ \ \ \ \ \}}
+\DoxyCodeLine{00021\ \}}
+
+\end{DoxyCode}

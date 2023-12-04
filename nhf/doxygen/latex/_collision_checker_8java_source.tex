@@ -1,0 +1,195 @@
+\doxysection{Collision\+Checker.\+java}
+\label{_collision_checker_8java_source}\index{gameplay/CollisionChecker.java@{gameplay/CollisionChecker.java}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{package\ }gameplay;}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{import}\ java.io.Serializable;}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{import}\ entity.Entity;}
+\DoxyCodeLine{00006\ \textcolor{keyword}{import}\ entity.Weapon;}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ @SuppressWarnings(\textcolor{stringliteral}{"{}serial"{}})}
+\DoxyCodeLine{00012\ public\ class\ CollisionChecker\ implements\ Serializable\{}
+\DoxyCodeLine{00016\ \ \ \ \ GamePanel\ gameP;}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{public}\ CollisionChecker(GamePanel\ gp)\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ gameP\ =\ gp;}
+\DoxyCodeLine{00019\ \ \ \ \ \}}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ checkTile(Entity\ ent)\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ entLeftX\ =\ ent.getX()\ +\ ent.hitbox.x;}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ entRightX\ =\ ent.getX()\ +\ ent.hitbox.x\ +\ ent.hitbox.width;}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ entTopY\ =\ ent.getY()\ +\ ent.hitbox.y;}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ entBottomY\ =\ ent.getY()\ +\ ent.hitbox.y\ +\ ent.hitbox.height;}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ entLeftCol\ =\ entLeftX/gameP.tileSize;}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ entRightCol\ =\ entRightX/gameP.tileSize;}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ entTopRow\ =\ entTopY/gameP.tileSize;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ entBottomRow\ =\ entBottomY/gameP.tileSize;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ tileNum1,\ tileNum2;}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(ent.move\_dir)\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{stringliteral}{"{}up"{}}:}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ entTopRow\ =\ (entTopY\ -\/\ ent.getSpeed())/gameP.tileSize;\ \ \textcolor{comment}{//Megnézzük,\ merre\ lesz\ a\ player}}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ tileNum1\ =\ gameP.tileMg.map[entLeftCol][entTopRow];}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ tileNum2\ =\ gameP.tileMg.map[entRightCol][entTopRow];}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(gameP.tileMg.tiles[tileNum1].isSolid()\ ||\ gameP.tileMg.tiles[tileNum2].isSolid())\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ent.collisionOn\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{stringliteral}{"{}down"{}}:}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ entBottomRow\ =\ (entBottomY\ +\ ent.getSpeed())/gameP.tileSize;\ \ \ \ \textcolor{comment}{//Megnézzük,\ merre\ lesz\ a\ player}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(entBottomRow\ >=\ gameP.maxSor)\ \{\ \ \ \ \textcolor{comment}{//\ Mivel\ ha\ az\ ajján\ vagyunk,\ akkor\ a\ kisebbített\ hitbox\ következő\ poziciója\ már\ a\ képen\ kivül\ lenne,\ ami\ pedig\ túlidexelést\ jelentene,\ egyből\ azt\ állítjuk\ nem\ tud\ menni\ tovább}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ent.collisionOn\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ tileNum1\ =\ gameP.tileMg.map[entLeftCol][entBottomRow];}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ tileNum2\ =\ gameP.tileMg.map[entRightCol][entBottomRow];}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(gameP.tileMg.tiles[tileNum1].isSolid()\ ||\ gameP.tileMg.tiles[tileNum2].isSolid())\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ent.collisionOn\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{stringliteral}{"{}left"{}}:}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ entLeftCol\ =\ (entLeftX\ -\/\ ent.getSpeed())/gameP.tileSize;\ \ \ \ \textcolor{comment}{//Megnézzük,\ merre\ lesz\ a\ player}}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ tileNum1\ =\ gameP.tileMg.map[entLeftCol][entTopRow];}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ tileNum2\ =\ gameP.tileMg.map[entLeftCol][entBottomRow];}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(gameP.tileMg.tiles[tileNum1].isSolid()\ ||\ gameP.tileMg.tiles[tileNum2].isSolid())\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ent.collisionOn\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{stringliteral}{"{}right"{}}:}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ entRightCol\ =\ (entRightX\ +\ ent.getSpeed())/gameP.tileSize;\ \ \textcolor{comment}{//Megnézzük,\ merre\ lesz\ a\ player}}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ tileNum1\ =\ gameP.tileMg.map[entRightCol][entTopRow];}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ tileNum2\ =\ gameP.tileMg.map[entRightCol][entBottomRow];}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(gameP.tileMg.tiles[tileNum1].isSolid()\ ||\ gameP.tileMg.tiles[tileNum2].isSolid())\ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ent.collisionOn\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00076\ \ \ \ \ \}}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ checkObject(Entity\ ent,\ \textcolor{keywordtype}{boolean}\ player)\ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ index\ =\ 999;}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ gameP.objects.size();\ i++)\ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(gameP.objects.get(i)\ !=\ \textcolor{keyword}{null})\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Entity\ hitbox\ poziciója\ kiszámítása}}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ent.hitbox.x\ =\ ent.getX()\ +\ ent.hitbox.x;}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ent.hitbox.y\ =\ ent.getY()\ +\ ent.hitbox.y;}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Object\ hitbox\ poziciója\ kiszámítása}}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gameP.objects.get(i).hitbox.x\ +=\ gameP.objects.get(i).x;}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gameP.objects.get(i).hitbox.y\ +=\ gameP.objects.get(i).y;}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(ent.move\_dir)\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{stringliteral}{"{}up"{}}:}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ent.hitbox.y\ -\/=\ ent.getSpeed();}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(ent.hitbox.intersects(gameP.objects.get(i).hitbox))\ \{\ \ \ \textcolor{comment}{//Ha\ összeérnek\ akkor\ igazat\ ad\ vissza}}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(gameP.objects.get(i).collision\ ==\ \textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ent.collisionOn\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(player\ ==\ \textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ index\ =\ i;\ \ \textcolor{comment}{//\ Ha\ a\ playerért\ hozzá\ akkor\ visszaadjuk\ annak\ az\ indexét,\ de\ ha\ nem\ akkor\ 999-\/et\ adunk\ vissza,\ anniy\ objectünk\ biztos\ nem\ lesz\ egyszerre\ a\ képen}}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{stringliteral}{"{}down"{}}:}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ent.hitbox.y\ +=\ ent.getSpeed();}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(ent.hitbox.intersects(gameP.objects.get(i).hitbox))\ \{\ \ \ \textcolor{comment}{//Ha\ összeérnek\ akkor\ igazat\ ad\ vissza}}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(gameP.objects.get(i).collision\ ==\ \textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ent.collisionOn\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(player\ ==\ \textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ index\ =\ i;}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{stringliteral}{"{}left"{}}:}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ent.hitbox.x\ -\/=\ ent.getSpeed();}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(ent.hitbox.intersects(gameP.objects.get(i).hitbox))\ \{\ \ \ \textcolor{comment}{//Ha\ összeérnek\ akkor\ igazat\ ad\ vissza}}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(gameP.objects.get(i).collision\ ==\ \textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ent.collisionOn\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(player\ ==\ \textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ index\ =\ i;}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{stringliteral}{"{}right"{}}:}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ent.hitbox.x\ +=\ ent.getSpeed();}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(ent.hitbox.intersects(gameP.objects.get(i).hitbox))\ \{\ \ \ \textcolor{comment}{//Ha\ összeérnek\ akkor\ igazat\ ad\ vissza}}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(gameP.objects.get(i).collision\ ==\ \textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ent.collisionOn\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(player\ ==\ \textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ index\ =\ i;}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ent.resetHitboxToDefault();}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gameP.objects.get(i).resetHitboxToDefault();}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ index;}
+\DoxyCodeLine{00147\ \ \ \ \ \}}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ checkWeaponDestroysOBJ(Weapon\ wep)\ \{}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(wep.isAttacking())\ \{}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Weapon\ hitbox\ position\ kiszámítása}}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ wep.getAttackHitbox().hitbox.x\ +=\ wep.getAttackHitbox().getX();}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ wep.getAttackHitbox().hitbox.y\ +=\ wep.getAttackHitbox().getY();}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ gameP.objects.size();\ i++)\ \{}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(gameP.objects.get(i)\ !=\ \textcolor{keyword}{null}\ \&\&\ wep.isAttacking())\ \{}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Object\ hitbox\ position\ kiszámítása}}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gameP.objects.get(i).hitbox.x\ +=\ gameP.objects.get(i).x;}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gameP.objects.get(i).hitbox.y\ +=\ gameP.objects.get(i).y;}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(wep.getAttackHitbox().hitbox.intersects(gameP.objects.get(i).hitbox))\ \{}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gameP.objects.get(i).destroy();}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gameP.objects.get(i).resetHitboxToDefault();}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ wep.getAttackHitbox().resetHitboxToDefault();}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00171\ \ \ \ \ \}}
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ checkWeaponDamageEnemys(Entity\ player,\ Weapon\ wep)\ \{}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(wep.isAttacking())\ \{}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ wep.getAttackHitbox().hitbox.x\ +=\ wep.getAttackHitbox().getX();}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ wep.getAttackHitbox().hitbox.y\ +=\ wep.getAttackHitbox().getY();}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ gameP.enemys.size();\ i++)\ \{}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Enemy\ hitbox\ position\ kiszámítása}}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gameP.enemys.get(i).hitbox.x\ +=\ gameP.enemys.get(i).getX();}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gameP.enemys.get(i).hitbox.y\ +=\ gameP.enemys.get(i).getY();}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Ha\ a\ player\ weaponje\ hozzáér\ egy\ enemyhez\ akkor\ sebbezze\ meg\ azt}}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(wep.getAttackHitbox().hitbox.intersects(gameP.enemys.get(i).hitbox))\ \{}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gameP.enemys.get(i).damaged(player.getWeaponDamage());}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gameP.enemys.get(i).resetHitboxToDefault();}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ wep.getAttackHitbox().resetHitboxToDefault();}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00194\ \ \ \ \ \}}
+\DoxyCodeLine{00201\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ checkEnemysSeePlayer(Entity\ player)\ \{}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ player.hitbox.x\ +=\ player.getX();}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ player.hitbox.y\ +=\ player.getY();}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ gameP.enemys.size();\ i++)\ \{}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ gameP.enemys.get(i).view\_distance.x\ +=\ gameP.enemys.get(i).getX();}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ gameP.enemys.get(i).view\_distance.y\ +=\ gameP.enemys.get(i).getY();}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ gameP.enemys.get(i).hitbox.x\ +=\ gameP.enemys.get(i).getX();}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ gameP.enemys.get(i).hitbox.y\ +=\ gameP.enemys.get(i).getY();}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(player.hitbox.intersects(gameP.enemys.get(i).view\_distance)\ \&\&\ !gameP.enemys.get(i).isDead())\ \{}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gameP.enemys.get(i).moveToPoint(player.getX(),\ player.getY());}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(player.hitbox.intersects(gameP.enemys.get(i).hitbox))\ \{}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ player.damaged(gameP.enemys.get(i).getWeaponDamage());}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gameP.enemys.get(i).attackWithWeapon();}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ gameP.enemys.get(i).resetViewDistanceDefault();}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ gameP.enemys.get(i).resetHitboxToDefault();}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ player.resetHitboxToDefault();}
+\DoxyCodeLine{00221\ \ \ \ \ \}}
+\DoxyCodeLine{00222\ \}}
+
+\end{DoxyCode}

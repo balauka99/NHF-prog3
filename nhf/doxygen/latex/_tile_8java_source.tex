@@ -1,0 +1,40 @@
+\doxysection{Tile.\+java}
+\label{_tile_8java_source}\index{tile/Tile.java@{tile/Tile.java}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{package\ }tile;}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{import}\ java.awt.image.BufferedImage;}
+\DoxyCodeLine{00004\ \textcolor{keyword}{import}\ java.io.Serializable;}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ @SuppressWarnings(\textcolor{stringliteral}{"{}serial"{}})}
+\DoxyCodeLine{00011\ public\ class\ Tile\ implements\ Serializable\{}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{private}\ String\ name;}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{transient}\ BufferedImage\ skin;}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{boolean}\ collision\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00024\ \ \ \ \ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ setSkin(BufferedImage\ img,\ String\ name)\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ skin\ =\ img;}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ this.name\ =\ name;}
+\DoxyCodeLine{00028\ \ \ \ \ \}}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{public}\ BufferedImage\ getSkin()\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ skin;}
+\DoxyCodeLine{00031\ \ \ \ \ \}}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ noCollision()\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ collision\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00034\ \ \ \ \ \}}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ enableCollision()\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ collision\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00037\ \ \ \ \ \}}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{boolean}\ isSolid()\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ collision;}
+\DoxyCodeLine{00040\ \ \ \ \ \}}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{public}\ String\ getName()\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ name;}
+\DoxyCodeLine{00043\ \ \ \ \ \}}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ setName(String\ name)\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ this.name\ =\ name;}
+\DoxyCodeLine{00046\ \ \ \ \ \}}
+\DoxyCodeLine{00047\ \}}
+
+\end{DoxyCode}

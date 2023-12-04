@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classloaders_1_1_best_rounds" kind="class" language="Java" prot="public">
+    <compoundname>loaders::BestRounds</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">java::util::ArrayList&lt; Score &gt;</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">Serializable</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classloaders_1_1_best_rounds_1a7d0ce25cf22d719739059aee63029fe0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void loaders.BestRounds.reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <qualifiedname>loaders.BestRounds.reset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="loaders/BestRounds.java" line="16" column="13" bodyfile="loaders/BestRounds.java" bodystart="16" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classloaders_1_1_best_rounds_1a72a5ccad2e45547c9770670229e8d7ba" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classloaders_1_1_score" kindref="compound">Score</ref></type>
+        <definition>Score loaders.BestRounds.getCurrent</definition>
+        <argsstring>()</argsstring>
+        <name>getCurrent</name>
+        <qualifiedname>loaders.BestRounds.getCurrent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Az aki éppen most játszik az mindig az utolsó indexen van, mert egymás után kerülnek be az adatok <simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="loaders/BestRounds.java" line="23" column="14" bodyfile="loaders/BestRounds.java" bodystart="23" bodyend="25"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classloaders_1_1_best_rounds_1a00f5d2a173675288af5da01b6a7108f2" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void loaders.BestRounds.saveBests</definition>
+        <argsstring>(BestRounds bests, String fName)</argsstring>
+        <name>saveBests</name>
+        <qualifiedname>loaders.BestRounds.saveBests</qualifiedname>
+        <param>
+          <type><ref refid="classloaders_1_1_best_rounds" kindref="compound">BestRounds</ref></type>
+          <declname>bests</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>fName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="loaders/BestRounds.java" line="26" column="20" bodyfile="loaders/BestRounds.java" bodystart="26" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="classloaders_1_1_best_rounds_1ac6451d0dca7ca7899957be98a24de564" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classloaders_1_1_best_rounds" kindref="compound">BestRounds</ref></type>
+        <definition>static BestRounds loaders.BestRounds.loadBests</definition>
+        <argsstring>(String fName)</argsstring>
+        <name>loadBests</name>
+        <qualifiedname>loaders.BestRounds.loadBests</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>fName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="loaders/BestRounds.java" line="33" column="26" bodyfile="loaders/BestRounds.java" bodystart="33" bodyend="43"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Az osztály képes tárolni egy felhasználónak/játékosnak a nevét és pontját ami összegyűjtött </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>Serializable</label>
+      </node>
+      <node id="2">
+        <label>ArrayList&lt; Score &gt;</label>
+      </node>
+      <node id="1">
+        <label>loaders.BestRounds</label>
+        <link refid="classloaders_1_1_best_rounds"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>Serializable</label>
+      </node>
+      <node id="2">
+        <label>ArrayList&lt; Score &gt;</label>
+      </node>
+      <node id="1">
+        <label>loaders.BestRounds</label>
+        <link refid="classloaders_1_1_best_rounds"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="loaders/BestRounds.java" line="15" column="7" bodyfile="loaders/BestRounds.java" bodystart="15" bodyend="44"/>
+    <listofallmembers>
+      <member refid="classloaders_1_1_best_rounds_1a72a5ccad2e45547c9770670229e8d7ba" prot="public" virt="non-virtual"><scope>loaders::BestRounds</scope><name>getCurrent</name></member>
+      <member refid="classloaders_1_1_best_rounds_1ac6451d0dca7ca7899957be98a24de564" prot="public" virt="non-virtual"><scope>loaders::BestRounds</scope><name>loadBests</name></member>
+      <member refid="classloaders_1_1_best_rounds_1a7d0ce25cf22d719739059aee63029fe0" prot="public" virt="non-virtual"><scope>loaders::BestRounds</scope><name>reset</name></member>
+      <member refid="classloaders_1_1_best_rounds_1a00f5d2a173675288af5da01b6a7108f2" prot="public" virt="non-virtual"><scope>loaders::BestRounds</scope><name>saveBests</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

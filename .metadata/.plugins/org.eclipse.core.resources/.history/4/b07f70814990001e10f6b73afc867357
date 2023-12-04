@@ -1,0 +1,15 @@
+package loaders;
+
+import org.junit.Test;
+
+public class TestSheetLoader {
+	SheetLoader sheet;
+	@Test (expected=IllegalArgumentException.class)
+	public void testThrowIllegalArgumentException() throws Exception {
+		sheet = new SheetLoader("nemjo_file_name", 10, 10, 20, 20);
+	}
+	@Test (expected=NullPointerException.class)
+	public void testThrowIOException() throws Exception {
+		sheet = new SheetLoader("/save_file/testBestRounds.txt", 10, 10, 20, 20);
+	}
+}

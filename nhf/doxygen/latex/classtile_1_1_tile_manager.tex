@@ -1,0 +1,122 @@
+\doxysection{tile.\+Tile\+Manager Class Reference}
+\label{classtile_1_1_tile_manager}\index{tile.TileManager@{tile.TileManager}}
+Inheritance diagram for tile.\+Tile\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classtile_1_1_tile_manager}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Tile\+Manager} (\textbf{ Game\+Panel} gp, String filename)
+\item 
+void \textbf{ load\+Map} (String fileP)
+\item 
+void \textbf{ draw} (Graphics2D grap2)
+\item 
+void \textbf{ re\+Load\+Tile\+Skins} (\textbf{ Game\+Panel} gameP)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Tile}[$\,$] \textbf{ tiles}
+\item 
+int \textbf{ map} [$\,$][$\,$]
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Ez az osztály feladata a Tile-\/ok rendes elhelyezése, az Os\+Panelben definiált 20x15-\/ős Panel-\/en kell elhelyezni mindet 
+
+Definition at line \textbf{ 19} of file \textbf{ Tile\+Manager.\+java}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classtile_1_1_tile_manager_a27dec0fe8ea1a99b403c166d5c89d913}} 
+\index{tile.TileManager@{tile.TileManager}!TileManager@{TileManager}}
+\index{TileManager@{TileManager}!tile.TileManager@{tile.TileManager}}
+\doxysubsubsection{TileManager()}
+{\footnotesize\ttfamily tile.\+Tile\+Manager.\+Tile\+Manager (\begin{DoxyParamCaption}\item[{\textbf{ Game\+Panel}}]{gp,  }\item[{String}]{filename }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 33} of file \textbf{ Tile\+Manager.\+java}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classtile_1_1_tile_manager_a5af2a6629224ed16a5fb111697b9c4a0}} 
+\index{tile.TileManager@{tile.TileManager}!draw@{draw}}
+\index{draw@{draw}!tile.TileManager@{tile.TileManager}}
+\doxysubsubsection{draw()}
+{\footnotesize\ttfamily void tile.\+Tile\+Manager.\+draw (\begin{DoxyParamCaption}\item[{Graphics2D}]{grap2 }\end{DoxyParamCaption})}
+
+Kirajzolja az összes tileot a helyére, az Os\+Panel definiálta, de a Game\+Panel használja fel a tileok méretét és felosztását 
+\begin{DoxyParams}{Parameters}
+{\em grap2} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \textbf{ 96} of file \textbf{ Tile\+Manager.\+java}.
+
+\mbox{\label{classtile_1_1_tile_manager_a8cffc72edeb2b362e99782634093290e}} 
+\index{tile.TileManager@{tile.TileManager}!loadMap@{loadMap}}
+\index{loadMap@{loadMap}!tile.TileManager@{tile.TileManager}}
+\doxysubsubsection{loadMap()}
+{\footnotesize\ttfamily void tile.\+Tile\+Manager.\+load\+Map (\begin{DoxyParamCaption}\item[{String}]{fileP }\end{DoxyParamCaption})}
+
+Betölti a mapott a kapott fájlból, a hívonak kell tudni, hogy mindig jó fájlt kell magadjon, amiben egy 20x15-\/ős felosztásban index számok jelennek meg, jelen esetben 0-\/2 
+\begin{DoxyParams}{Parameters}
+{\em fileP} & Fájl neve amiben a pálya van \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \textbf{ 45} of file \textbf{ Tile\+Manager.\+java}.
+
+\mbox{\label{classtile_1_1_tile_manager_a3221ef74f0c304939274f84e7d61950b}} 
+\index{tile.TileManager@{tile.TileManager}!reLoadTileSkins@{reLoadTileSkins}}
+\index{reLoadTileSkins@{reLoadTileSkins}!tile.TileManager@{tile.TileManager}}
+\doxysubsubsection{reLoadTileSkins()}
+{\footnotesize\ttfamily void tile.\+Tile\+Manager.\+re\+Load\+Tile\+Skins (\begin{DoxyParamCaption}\item[{\textbf{ Game\+Panel}}]{gameP }\end{DoxyParamCaption})}
+
+Serializálás után, mikor visszatöltjük a kinézeteket vissza kell állítani, erre szolgál ez a metódus 
+\begin{DoxyParams}{Parameters}
+{\em gameP} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \textbf{ 120} of file \textbf{ Tile\+Manager.\+java}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\label{classtile_1_1_tile_manager_aa1d136f3ab69e2a458b416c9b400670a}} 
+\index{tile.TileManager@{tile.TileManager}!map@{map}}
+\index{map@{map}!tile.TileManager@{tile.TileManager}}
+\doxysubsubsection{map}
+{\footnotesize\ttfamily int tile.\+Tile\+Manager.\+map[$\,$][$\,$]}
+
+2 Dimenziós tömbben tároljuk el a fájlból betöltött mapot, amiben index számokkal vannnak jeölve hol milyen tile legyen 
+
+Definition at line \textbf{ 31} of file \textbf{ Tile\+Manager.\+java}.
+
+\mbox{\label{classtile_1_1_tile_manager_a36cea6c79afe7cd4f0aa4ccbec39501b}} 
+\index{tile.TileManager@{tile.TileManager}!tiles@{tiles}}
+\index{tiles@{tiles}!tile.TileManager@{tile.TileManager}}
+\doxysubsubsection{tiles}
+{\footnotesize\ttfamily \textbf{ Tile} [$\,$] tile.\+Tile\+Manager.\+tiles}
+
+Az összes Tile egy tömbenn van eltárolva 
+
+Definition at line \textbf{ 27} of file \textbf{ Tile\+Manager.\+java}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+tile/\textbf{ Tile\+Manager.\+java}\end{DoxyCompactItemize}

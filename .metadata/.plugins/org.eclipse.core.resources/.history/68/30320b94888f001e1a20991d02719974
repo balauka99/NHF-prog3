@@ -1,0 +1,37 @@
+package entity;
+
+import java.awt.Rectangle;
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
+import gameplay.KeyHandler;
+
+import java.lang.reflect.Field;
+
+public class TestPlayer {
+	Player viking;
+	Player robot;
+	KeyHandler testKH = new KeyHandler();
+	/**
+	 * Beállítja a két elérhető karaktert
+	 */
+	@Before
+	public void setup() {
+		viking = new Player(null, testKH, "viking");
+		robot = new Player(null, testKH, "robot");
+	}
+	@Test
+	public void testKonstruktor() {
+		/**
+		 * Viking TEST
+		 */
+		Assert.assertTrue("Test viking Character Type", viking.getCharType().equals("viking"));
+		Assert.assertEquals("Test Player hitbox is correct", new Rectangle(8, 16, 32, 32), viking.hitbox);
+		Assert.assertEquals("Test viking healt is correct", 1001, viking.getHealt());
+		Assert.assertEquals("Test viking healt is full", viking.getMaxHealt(), viking.getHealt());
+		
+		Field vikingF = Player.class.getDeclaredField("privateField");
+	}
+}

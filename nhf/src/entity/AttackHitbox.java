@@ -10,19 +10,29 @@ import javax.imageio.ImageIO;
 import gameplay.UtilityTools;
 
 @SuppressWarnings("serial")
+/**
+ * Egy fegyvernek a hitbox-át tárolja és a kinézetét, mivel akkor a kinézete mint a hitboxa
+ * Mivel a BufferImagek-et nem lehet Serializálni azt transient-nek kell állítani
+ */
 public class AttackHitbox extends Entity implements Serializable{
 	private String weapon_type;
 	private transient UtilityTools uT = new UtilityTools();
-	private transient BufferedImage skin;
 	private int range;
-	
+	/**
+	 * Konstruktor
+	 * @param weapon_type - a fegyver neve, ground_attack stb... szükség van rá, tudjuk mi a kinézete és hogyan állítsuk be a hitbox-ot
+	 * @param move_dir - ha kell a fegyver tipushoz, mint a wave_attack-hoz, meg kel helyesen adni
+	 */
 	public AttackHitbox(String weapon_type, String move_dir) {
 		this.weapon_type = weapon_type;
 		this.setupAttackType(move_dir);
 		hitboxDefaultX = hitbox.x;
 		hitboxDefaultY = hitbox.y;
 	}
-	
+	/**
+	 * A fegyvertipustól függve beállítja a fegyver hitbox-át, kinézetet és range-ét
+	 * @param move_dir - milyen irányba néz a fegyver, up, left stb...
+	 */
 	public void setupAttackType(String move_dir) {
 		switch(weapon_type) {
 		case "ground_attack":
@@ -93,22 +103,38 @@ public class AttackHitbox extends Entity implements Serializable{
 			break;
 		}
 	}
-	
+	/**
+	 * Visszaadja a fegyver range-ét, fontos lehet mekkora a hatótávja
+	 * @return int range
+	 */
 	public int getRange() {
 		return range;
 	}
-
+	/**
+	 * Visszaadja a fegyver kinézetét
+	 * @return BufferedImage skin
+	 */
 	public BufferedImage getSkin() {
 		return skin;
 	}
-
+	/**
+	 * A paraméterként kapott BufferedImage-ét beállítja a fegyver kinézetének
+	 * @param skin - egy BufferedImage
+	 */
 	public void setSkin(BufferedImage skin) {
 		this.skin = skin;
 	}
-	
+	/**
+	 * Visszaadja a fegyver tipusát, ami fontos lehet, milyen tipusú a támadás
+	 * @return String weapon_type
+	 */
 	public String getWeaponType() {
 		return weapon_type;
 	}
+	/**
+	 * A Serializálás után kell meghívni ez a metódust, mert a BufferedImage-t nem lehet Serializálni
+	 * ezért a fegyver tipusától, amit lehet Serializálni, visszaálítjuk azt
+	 */
 	public void reLoad() {
 		uT = new UtilityTools();
 		this.setupAttackType(this.weapon_type);

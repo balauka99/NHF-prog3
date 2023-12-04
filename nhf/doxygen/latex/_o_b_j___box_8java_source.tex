@@ -1,0 +1,54 @@
+\doxysection{OBJ\+\_\+\+Box.\+java}
+\label{_o_b_j___box_8java_source}\index{object/OBJ\_Box.java@{object/OBJ\_Box.java}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{package\ }object;}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{import}\ java.util.Random;}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ @SuppressWarnings(\textcolor{stringliteral}{"{}serial"{}})}
+\DoxyCodeLine{00006\ public\ class\ OBJ\_Box\ extends\ OsObject\{}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keyword}{private}\ Random\ rndNum\ =\ \textcolor{keyword}{new}\ Random();}
+\DoxyCodeLine{00008\ \ \ \ \ }
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{public}\ OBJ\_Box()\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ setName(\textcolor{stringliteral}{"{}Box"{}});}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ this.setupSkin(\textcolor{stringliteral}{"{}box"{}});}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ collision\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00013\ \ \ \ \ \}}
+\DoxyCodeLine{00014\ \ \ \ \ @Override}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ useObject()\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ super.useObject();}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(this.getName()\ ==\ \textcolor{stringliteral}{"{}Heal"{}})\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ this.setupSkin(\textcolor{stringliteral}{"{}barrelBoom/barrel\_boomed"{}});}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00020\ \ \ \ \ \}}
+\DoxyCodeLine{00021\ \ \ \ \ }
+\DoxyCodeLine{00022\ \ \ \ \ @Override}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ destroy()\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!this.isDestroyed())\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ whatInTheBox\ =\ rndNum.nextInt(10);}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(whatInTheBox)\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 5:}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ setName(\textcolor{stringliteral}{"{}Heal"{}});}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this.setupSkin(\textcolor{stringliteral}{"{}heart"{}});}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this.setupSkin(\textcolor{stringliteral}{"{}barrelBoom/barrel\_boomed"{}});}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ super.destroy();}
+\DoxyCodeLine{00037\ \ \ \ \ \}}
+\DoxyCodeLine{00038\ \ \ \ \ @Override}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ reLoad()\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ setName(\textcolor{stringliteral}{"{}Box"{}});}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(this.isDestroyed())\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(getName()\ ==\ \textcolor{stringliteral}{"{}Heal"{}}\ \&\&\ !this.isObjectUsed())\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this.setupSkin(\textcolor{stringliteral}{"{}heart"{}});}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ this.setupSkin(\textcolor{stringliteral}{"{}barrelBoom/barrel\_boomed"{}});}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ this.setupSkin(\textcolor{stringliteral}{"{}box"{}});}
+\DoxyCodeLine{00047\ \ \ \ \ \}}
+\DoxyCodeLine{00048\ \}}
+
+\end{DoxyCode}

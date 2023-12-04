@@ -12,15 +12,43 @@ import java.io.Serializable;
 import java.util.Random;
 
 import entity.EyeBall;
+import error.OwnError;
 
+@SuppressWarnings("serial")
+/**
+ * Ez az osztály felelős az objectek és entity-k elhelyezdekésének beállításáért
+ */
 public class AssetSetter implements Serializable{
+	/**
+	 * Kell a GamePanel, amin elhelyezi az object-eket és entity-ket
+	 */
 	private transient GamePanel gameP;
+	/**
+	 * Kell egy random szám, hogy minél élvezhetőbb legyen a játék, mert random helyen jelennek meg az ebject-ek és entity-k
+	 */
 	private Random rndNum;
+	/**
+	 * Az a fájl, ami megmodnja egy mappon hol jelenhetnek meg objectetk
+	 */
 	private String obj_file;
+	/**
+	 * Mivel a fájlban 0 és 1-val vannak jelölva, hogy hol jelenhetnek meg object-ek, azokat egy 2x2-es tömbbe mentjük el
+	 * a 2x2-es tömb az x és y koordinátákat jelölik a tile-okra felbontott mapon
+	 */
 	private boolean obj_map[][];
+	/**
+	 * Ugyan olyan mint az obj_map, csak ez az entity-knek szól
+	 */
 	private boolean enemys_canbePlaced[][];
+	/**
+	 * Mennyi entity rakható le
+	 */
 	private int canPlace = 0;
-	
+	/**
+	 * Konstruktor, megkapjuk melyik GamePanel-re helyezzük le, és a mapfájlt
+	 * @param gp
+	 * @param file
+	 */
 	public AssetSetter(GamePanel gp, String file) {
 		obj_file = file;
 		gameP = gp;
@@ -30,7 +58,11 @@ public class AssetSetter implements Serializable{
 		loadObjMap();
 	}
 	
-	// Beállítja az összes ajtót, fix poziciókba, az alsó ajtót kinyitja, aminugye bement a gamer
+	/**
+	 * Beállítja az összes ajtót, fix poziciókba, az alsó ajtót kinyitja, aminugye bement a gamer
+	 * @param ind
+	 * @return
+	 */
 	private int setDoorsInMap(int ind) {
 		if(obj_map[9][0]) {
 			gameP.objects.add(new OBJ_Door());
@@ -54,7 +86,10 @@ public class AssetSetter implements Serializable{
 		}
 		return ind;
 	}
-	
+	/**
+	 * Becsukja az összes azjót, minden esetben az első object-ek a GamePanel objects tömbben az ajtók kell, hogy legyenek
+	 * csak akkor csukja be azokat, ha vannak is
+	 */
 	public void closeAllDoor() {
 		int ind = 0;
 		if(obj_map[9][0]) {
@@ -71,8 +106,10 @@ public class AssetSetter implements Serializable{
 		}
 	}
 	
-	// Az összes objectet elhelyezi
-	public void setObject() {	//TODO átgondolni
+	/**
+	 * Az összes objectet elhelyezi
+	 */
+	public void setObject() {
 		int ind = 0;
 		int spawnFrom = 10;
 		boolean chestSpawned = false;
@@ -111,8 +148,11 @@ public class AssetSetter implements Serializable{
 			}
 		}
 	}
-	
-	public void setEnemys() {
+	/**
+	 * Az összes Entity-t elhelyezi a mapon, megfelelő koodinátákba, a GamePanel tileSize alapján
+	 * @throws OwnError Tövábbdobjuk a hiba üzenetet
+	 */
+	public void setEnemys() throws OwnError {
 		int ind = 0;
 		int enemyCount = this.canPlace/10;
 		int enemik_kozotti_tavolsag = 4;
@@ -133,8 +173,11 @@ public class AssetSetter implements Serializable{
 			}
 		}
 	}
-	
-	public void resetMap() {
+	/**
+	 * Újra betölti a mapon lévő object-eket és entity-ket
+	 * @throws OwnError Tövábbdobjuk a hiba üzenetet
+	 */
+	public void resetMap() throws OwnError {
 		canPlace = 0;
 		gameP.resetObjects();
 		setObject();
@@ -144,7 +187,9 @@ public class AssetSetter implements Serializable{
 	public int getCanPlaced() {
 		return canPlace;
 	}
-	
+	/**
+	 * Betölti a konstruktorban megkapott fájlból azokat a helyeket ahová le lehet rakni objectet
+	 */
 	private void loadObjMap() {
 		try {
 			InputStream inS = getClass().getResourceAsStream(obj_file);
@@ -172,7 +217,10 @@ public class AssetSetter implements Serializable{
 		}
 		enemys_canbePlaced = new boolean[gameP.maxOszlop][gameP.maxSor];
 	}
-	
+	/**
+	 * Serializálás után meg kell kapni azt a GamePanelt, ahol éppen vagyunk
+	 * @param gameP
+	 */
 	public void reLoad(GamePanel gameP) {
 		this.gameP = gameP;
 	}

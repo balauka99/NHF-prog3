@@ -1,0 +1,8 @@
+package objects;
+
+import object.OsObject;
+
+public class TestOsObject {
+	OsObject tested;
+	
+}

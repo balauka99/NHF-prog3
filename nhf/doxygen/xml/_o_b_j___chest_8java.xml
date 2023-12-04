@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="_o_b_j___chest_8java" kind="file" language="Java">
+    <compoundname>OBJ_Chest.java</compoundname>
+    <innerclass refid="classobject_1_1_o_b_j___chest" prot="public">object::OBJ_Chest</innerclass>
+    <innernamespace refid="namespaceobject">object</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">object;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal">@SuppressWarnings(</highlight><highlight class="stringliteral">&quot;serial&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="4" refid="classobject_1_1_o_b_j___chest" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="classobject_1_1_o_b_j___chest" kindref="compound">OBJ_Chest</ref><sp/>extends<sp/><ref refid="classobject_1_1_os_object" kindref="compound">OsObject</ref>{</highlight></codeline>
+<codeline lineno="5" refid="classobject_1_1_o_b_j___chest_1a8aa748f3ba47eddad04e8a67dc046d31" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classobject_1_1_o_b_j___chest_1a8aa748f3ba47eddad04e8a67dc046d31" kindref="member">OBJ_Chest</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>setName(</highlight><highlight class="stringliteral">&quot;Chest&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.setupSkin(</highlight><highlight class="stringliteral">&quot;chest&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="10" refid="classobject_1_1_o_b_j___chest_1a9a25b9904af4c2539e2b294c99172dd3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classobject_1_1_o_b_j___chest_1a9a25b9904af4c2539e2b294c99172dd3" kindref="member">useObject</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super.useObject();</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.setupSkin(</highlight><highlight class="stringliteral">&quot;chest_opened&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="15" refid="classobject_1_1_o_b_j___chest_1ae433b4c71a948556aa1fdb126c5cd1a1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classobject_1_1_o_b_j___chest_1ae433b4c71a948556aa1fdb126c5cd1a1" kindref="member">reLoad</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>setName(</highlight><highlight class="stringliteral">&quot;Chest&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(this.isObjectUsed())<sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.setupSkin(</highlight><highlight class="stringliteral">&quot;chest_opened&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>this.setupSkin(</highlight><highlight class="stringliteral">&quot;chest&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="object/OBJ_Chest.java"/>
+  </compounddef>
+</doxygen>

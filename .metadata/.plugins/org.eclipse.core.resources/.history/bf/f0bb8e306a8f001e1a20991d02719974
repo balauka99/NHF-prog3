@@ -1,0 +1,45 @@
+package entity;
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
+public class TestEntity {
+	Entity tested;
+	/**
+	 * Alap beállítások egy Entity-nek
+	 */
+	@Before
+	public void setup() {
+		tested = new Entity();
+		tested.setSpeed(4);
+		tested.setX(100);
+		tested.setY(100);
+	}
+	/**
+	 * Teszteljük sebződik-e egy entitás
+	 */
+	@Test
+	public void testDamaged() {
+		int defHealt = tested.getHealt();
+		tested.damaged(10);
+		Assert.assertNotEquals(defHealt, tested.getHealt());
+	}
+	/**
+	 * Teszteljük, ha többel sebződik, mint amennyi léetereje van, akkor meghal-e
+	 */
+	@Test
+	public void testDieWhenNoHealt() {
+		int defHealt = tested.getHealt();
+		tested.damaged(defHealt+defHealt);
+		Assert.assertTrue(tested.isDead());
+	}
+	/**
+	 * Teszteljük, ha meghívjuk a halál metódust, tényleg meghal-e
+	 */
+	@Test
+	public void testDie() {
+		tested.die();
+		Assert.assertTrue(tested.isDead());
+	}
+}

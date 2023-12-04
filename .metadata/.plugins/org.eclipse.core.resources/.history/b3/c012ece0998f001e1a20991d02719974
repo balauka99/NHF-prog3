@@ -1,0 +1,27 @@
+package loaders;
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
+public class TestBestRounds {
+	BestRounds tested;
+	@Before
+	public void setup() {
+		tested = new BestRounds();
+		tested.add(new Score("balauka", 10));
+		tested.add(new Score("Fanni", 11));
+		tested.add(new Score("Sok", 12));
+		tested.add(new Score("player4", 10));
+		tested.add(new Score("player5", 10));
+	}
+	@Test
+	public void testLoad() {
+		tested = BestRounds.loadBests("/save_file/bestRounds.txt");
+		Assert.assertNotNull(tested);
+	}
+	@Test
+	public void testWrite() {
+		BestRounds.saveBests(tested, "source/save_file/bestRounds.txt");
+	}
+}

@@ -1,0 +1,272 @@
+\doxysection{Player.\+java}
+\label{_player_8java_source}\index{entity/Player.java@{entity/Player.java}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{package\ }entity;}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{import}\ java.awt.Graphics2D;}
+\DoxyCodeLine{00004\ \textcolor{keyword}{import}\ java.awt.Rectangle;}
+\DoxyCodeLine{00005\ \textcolor{keyword}{import}\ java.io.IOException;}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{import}\ error.OwnError;}
+\DoxyCodeLine{00008\ \textcolor{keyword}{import}\ gameplay.GamePanel;}
+\DoxyCodeLine{00009\ \textcolor{keyword}{import}\ gameplay.KeyHandler;}
+\DoxyCodeLine{00010\ \textcolor{keyword}{import}\ gameplay.Map\_Status;}
+\DoxyCodeLine{00011\ \textcolor{keyword}{import}\ loaders.SheetLoader;}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00016\ @SuppressWarnings(\textcolor{stringliteral}{"{}serial"{}})}
+\DoxyCodeLine{00017\ public\ class\ Player\ extends\ Entity\{}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{transient}\ GamePanel\ gameP;}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{transient}\ KeyHandler\ keyH;}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{int}\ point\ =\ 0;}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{private}\ String\ character\_name;}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{public}\ Player(GamePanel\ gP,\ KeyHandler\ kH,\ String\ character)\ \textcolor{keywordflow}{throws}\ OwnError\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(character.equals(\textcolor{stringliteral}{"{}throw"{}}))\{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ OwnError(\textcolor{stringliteral}{"{}Sikerult!"{}});}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ gameP\ =\ gP;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ keyH\ =\ kH;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ hitbox\ =\ \textcolor{keyword}{new}\ Rectangle(8,\ 16,\ 32,\ 32);}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ hitboxDefaultX\ =\ hitbox.x;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ hitboxDefaultY\ =\ hitbox.y;}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ character\_name\ =\ character;}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(character\_name)\{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{stringliteral}{"{}viking"{}}:}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ healt\ =\ 1001;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ maxHealt\ =\ 1001;}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ weapon\ =\ \textcolor{keyword}{new}\ Weapon(\textcolor{stringliteral}{"{}ground\_attack"{}},\ move\_dir);}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{stringliteral}{"{}robot"{}}:}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ healt\ =\ 501;}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ maxHealt\ =\ 501;}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ weapon\ =\ \textcolor{keyword}{new}\ Weapon(\textcolor{stringliteral}{"{}wave\_attack"{}},\ move\_dir);}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ character\_name\ =\ \textcolor{stringliteral}{"{}viking"{}};}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ healt\ =\ 1001;}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ maxHealt\ =\ 1001;}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ weapon\ =\ \textcolor{keyword}{new}\ Weapon(\textcolor{stringliteral}{"{}ground\_attack"{}},\ move\_dir);}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ defaultPos();}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ setGamerSkin();}
+\DoxyCodeLine{00074\ \ \ \ \ \}}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ defaultPos()\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ tile\ =\ 48;}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(gameP\ !=\ \textcolor{keyword}{null})\ tile\ =\ gameP.tileSize;\ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ setX(9*tile);}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ setY(12*tile);}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ setSpeed(4);}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ move\_dir\ =\ \textcolor{stringliteral}{"{}down"{}};}
+\DoxyCodeLine{00085\ \ \ \ \ \}}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ setGamerSkin()\ throws\ OwnError\ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Down,\ Left,\ Right,\ Up}}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ sheet\ =\ \textcolor{keyword}{new}\ SheetLoader(\textcolor{stringliteral}{"{}/gamer/"{}}\ +\ character\_name\ +\ \textcolor{stringliteral}{"{}.png"{}},\ 8,\ 1,\ 16,\ 16);}
+\DoxyCodeLine{00093\ \ \ \ \ \}}
+\DoxyCodeLine{00097\ \ \ \ \ @Override}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ damaged(\textcolor{keywordtype}{int}\ damage)\ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ super.damaged(damage);}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ actual\_healt\_ratio;}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(character\_name\ ==\ \textcolor{stringliteral}{"{}viking"{}})\ actual\_healt\_ratio\ =\ healt/100;}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ actual\_healt\_ratio\ =\ healt/50;}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ heart\_ratio\ =\ 0;}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(gameP\ !=\ \textcolor{keyword}{null})\ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ gameP.player\_healt.size();\ i++)\ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ heart\_ratio\ +=\ gameP.player\_healt.get(i).getHeartState();}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(heart\_ratio\ >\ actual\_healt\_ratio\ \&\&\ gameP\ !=\ \textcolor{keyword}{null})\ \{}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ (gameP.player\_healt.size()-\/1);\ i\ >\ -\/1;\ i-\/-\/)\ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ tmp\ =\ gameP.player\_healt.get(i).getHeartState();}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(tmp\ ==\ 2\ ||\ tmp\ ==\ 1)\ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gameP.player\_healt.get(i).damaged();}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00116\ \ \ \ \ \}}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ heal(\textcolor{keywordtype}{int}\ plus)\ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(healt\ <\ maxHealt)\ healt\ +=\ plus;}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ actual\_healt\_ratio;}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(character\_name\ ==\ \textcolor{stringliteral}{"{}viking"{}})\ actual\_healt\_ratio\ =\ healt/100;}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ actual\_healt\_ratio\ =\ healt/50;}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ heart\_ratio\ =\ 0;}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(gameP\ !=\ \textcolor{keyword}{null})\ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ gameP.player\_healt.size();\ i++)\ \{}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ heart\_ratio\ +=\ gameP.player\_healt.get(i).getHeartState();}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(heart\_ratio\ <\ actual\_healt\_ratio\ \&\&\ gameP\ !=\ \textcolor{keyword}{null})\ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ gameP.player\_healt.size();\ i++)\ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ tmp\ =\ gameP.player\_healt.get(i).getHeartState();}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(tmp\ ==\ 0\ ||\ tmp\ ==\ 1)\ \{}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gameP.player\_healt.get(i).heal();}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(healt\ >\ maxHealt)\ healt\ =\ maxHealt;}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(healt\ ==\ maxHealt\ \&\&\ gameP\ !=\ \textcolor{keyword}{null})\ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ gameP.player\_healt.size();\ i++)\ \{}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gameP.player\_healt.get(i).heal();}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gameP.player\_healt.get(i).heal();}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00146\ \ \ \ \ \}}
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ update()\ throws\ IOException\ \{}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(keyH.attackButtonPressed())\ \{}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!weapon.isAttacking())\ \{}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ weapon.attack(this.getX()\ -\/\ gameP.tileSize,\ \textcolor{keyword}{this}.getY()\ -\/\ gameP.tileSize,\ move\_dir);}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ gameP.cChecker.checkWeaponDestroysOBJ(weapon);}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ gameP.cChecker.checkWeaponDamageEnemys(\textcolor{keyword}{this},\ weapon);}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(keyH.moveButtonPressed())\ \{\ \textcolor{comment}{//Csak\ akkor\ kell\ nézzen\ valami\ és\ frissítse\ a\ sheet-\/et,\ ha\ meg\ lett\ nyomva\ gomb}}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(keyH.wP\ ==\ \textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ move\_dir\ =\ \textcolor{stringliteral}{"{}up"{}};}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(keyH.sP\ ==\ \textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ move\_dir\ =\ \textcolor{stringliteral}{"{}down"{}};}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(keyH.aP\ ==\ \textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ move\_dir\ =\ \textcolor{stringliteral}{"{}left"{}};}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(keyH.dP\ ==\ \textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ move\_dir\ =\ \textcolor{stringliteral}{"{}right"{}};}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Tile\ ütközést\ vizsgál}}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ collisionOn\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ gameP.cChecker.checkTile(\textcolor{keyword}{this});}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Object\ ütközés\ vizsgálat}}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ objind\ =\ gameP.cChecker.checkObject(\textcolor{keyword}{this},\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ interactObj(objind);}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(collisionOn\ ==\ \textcolor{keyword}{false})\ \{}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(move\_dir)\ \{}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{stringliteral}{"{}up"{}}:}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((getY()\ >\ 0))\ setY(getY()\ -\/\ getSpeed());}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ setY(0);}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{stringliteral}{"{}down"{}}:}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(getY()\ <\ gameP.screenHeight\ -\/\ gameP.tileSize)setY(getY()\ +\ getSpeed());}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ setY(gameP.screenHeight\ -\/\ gameP.tileSize);}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{stringliteral}{"{}left"{}}:}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((getX()\ >\ 0))\ setX(getX()\ -\/\ getSpeed());}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ setX(0);}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{stringliteral}{"{}right"{}}:}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(getX()\ <\ gameP.screenWidth\ -\/\ gameP.tileSize)\ setX(getX()\ +\ getSpeed());}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ setX(gameP.screenWidth\ -\/\ gameP.tileSize);}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ sheetCnt++;}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(sheetCnt\ >\ 12)\ \{}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(sheetNum\ ==\ 1)\ \{}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sheetNum\ =\ 2;}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(sheetNum\ ==\ 2)\ \{}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sheetNum\ =\ 1;}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sheetCnt\ =\ 0;}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Mindig\ meg\ kell\ nézni\ lát-\/e\ valaki}}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ gameP.cChecker.checkEnemysSeePlayer(\textcolor{keyword}{this});}
+\DoxyCodeLine{00212\ \ \ \ \ \}}
+\DoxyCodeLine{00219\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ interactObj(\textcolor{keywordtype}{int}\ ind)\ \textcolor{keywordflow}{throws}\ IOException\ \{}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(ind\ !=\ 999)\ \{}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ String\ objName\ =\ gameP.objects.get(ind).getName();}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(objName\ ==\ \textcolor{stringliteral}{"{}Chest"{}})\ \{}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!gameP.objects.get(ind).isObjectUsed()\ \&\&\ gameP.isLevelCleared())\ \{}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gameP.objects.get(ind).useObject();}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ point++;}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(objName\ ==\ \textcolor{stringliteral}{"{}Door"{}})\ \{}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!gameP.objects.get(ind).isObjectUsed()\ \&\&\ gameP.isLevelCleared())\ \{}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gameP.objects.get(ind).useObject();}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(gameP.objects.get(ind).x\ ==\ 9*gameP.tileSize\ \&\&\ gameP.objects.get(ind).y\ ==\ 14*gameP.tileSize)\ \{\ \ \ \textcolor{comment}{//\ Alsó\ ajtónál\ vagyunk\ és\ megyünk\ be}}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gameP.loadPreviousMap();}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(gameP.map\_state\ ==\ Map\_Status.IN\_NEW)\ \{}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gameP.enterNewMap();}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(gameP.map\_state\ ==\ Map\_Status.IN\_PREVIOUS)\ \{}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gameP.enterPreviousMapFromPreviousMap();}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(objName\ ==\ \textcolor{stringliteral}{"{}Barrel"{}})\ \{}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!gameP.objects.get(ind).isDestroyed())\ \{}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this.damaged(100);}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gameP.objects.get(ind).destroy();}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(objName\ ==\ \textcolor{stringliteral}{"{}Heal"{}})\ \{}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!gameP.objects.get(ind).isObjectUsed()\ \&\&\ healt\ !=\ maxHealt)\ \{}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gameP.objects.get(ind).useObject();}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this.heal(200);}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00257\ \ \ \ \ \}}
+\DoxyCodeLine{00261\ \ \ \ \ @Override}
+\DoxyCodeLine{00262\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ draw(Graphics2D\ grap2)\ \{}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(move\_dir)\ \{}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{stringliteral}{"{}up"{}}:}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(sheetNum\ ==\ 1)\ \{}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ skin\ =\ sheet.get(6);;}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ skin\ =\ sheet.get(7);;}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{stringliteral}{"{}down"{}}:}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(sheetNum\ ==\ 1)\ \{}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ skin\ =\ sheet.get(0);}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ skin\ =\ sheet.get(1);;}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{stringliteral}{"{}left"{}}:}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(sheetNum\ ==\ 1)\ \{}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ skin\ =\ sheet.get(2);;}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ skin\ =\ sheet.get(3);;}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{stringliteral}{"{}right"{}}:}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(sheetNum\ ==\ 1)\ \{}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ skin\ =\ sheet.get(4);;}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ skin\ =\ sheet.get(5);;}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ grap2.drawImage(skin,\ getX(),\ getY(),\ \textcolor{keyword}{null});}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(weapon.isAttacking())\ weapon.draw(grap2);}
+\DoxyCodeLine{00296\ \ \ \ \ \}}
+\DoxyCodeLine{00297\ \ \ \ \ }
+\DoxyCodeLine{00298\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ getPoint()\ \{}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ point;}
+\DoxyCodeLine{00300\ \ \ \ \ \}}
+\DoxyCodeLine{00301\ \ \ \ \ }
+\DoxyCodeLine{00302\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ getHealt()\ \{}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ healt;}
+\DoxyCodeLine{00304\ \ \ \ \ \}}
+\DoxyCodeLine{00305\ \ \ \ \ }
+\DoxyCodeLine{00306\ \ \ \ \ \textcolor{keyword}{public}\ String\ getCharType()\ \{}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ character\_name;}
+\DoxyCodeLine{00308\ \ \ \ \ \}}
+\DoxyCodeLine{00309\ \ \ \ \ }
+\DoxyCodeLine{00310\ \ \ \ \ \textcolor{keyword}{public}\ String\ getWeaponType()\ \{}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ weapon.getAttackHitbox().getWeaponType();}
+\DoxyCodeLine{00312\ \ \ \ \ \}}
+\DoxyCodeLine{00318\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ reLoad(GamePanel\ gameP,\ KeyHandler\ keyH)\ \textcolor{keywordflow}{throws}\ OwnError\ \{}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ this.gameP\ =\ gameP;}
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ this.keyH\ =\ keyH;}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ this.setGamerSkin();}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ this.weapon.getAttackHitbox().reLoad();}
+\DoxyCodeLine{00323\ \ \ \ \ \}}
+\DoxyCodeLine{00324\ \}}
+
+\end{DoxyCode}

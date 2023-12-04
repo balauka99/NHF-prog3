@@ -1,0 +1,29 @@
+package entity;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import org.junit.Assert;
+
+public class TestAttackHitbox {
+	AttackHitbox groundAttack;
+	AttackHitbox eyeballAttack;
+	AttackHitbox waveAttack;
+	@Before
+	public void setup() {
+		groundAttack = new AttackHitbox("ground_attack", "down");
+		eyeballAttack = new AttackHitbox("eyeball_attack", "down");
+		waveAttack = new AttackHitbox("wave_attack", "down");
+	}
+	@Test
+	public void testKonstruktor() {
+		Assert.assertTrue("Test groundAttack", groundAttack.getWeaponType().equals("ground_attack"));
+		Assert.assertEquals("Test ground Attack range created", 144, groundAttack.getRange());
+		
+		Assert.assertTrue("Test eyeballAttack", eyeballAttack.getWeaponType().equals("eyeball_attack"));
+		Assert.assertEquals("Test eyeball Attack range created", 48, eyeballAttack.getRange());
+		
+		Assert.assertTrue("Test waveAttack", waveAttack.getWeaponType().equals("wave_attack"));
+		Assert.assertEquals("Test wave Attack range created", 144, waveAttack.getRange());
+	}
+}

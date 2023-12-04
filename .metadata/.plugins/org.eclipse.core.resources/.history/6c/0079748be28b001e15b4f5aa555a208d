@@ -1,8 +1,0 @@
-package ospanel;
-
-public class DeadScreen extends OsPanel{
-	public DeadScreen() {
-		super();
-		
-	}
-}

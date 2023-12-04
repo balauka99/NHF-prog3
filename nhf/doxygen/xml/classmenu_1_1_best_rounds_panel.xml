@@ -1,0 +1,218 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classmenu_1_1_best_rounds_panel" kind="class" language="Java" prot="public">
+    <compoundname>menu::BestRoundsPanel</compoundname>
+    <basecompoundref refid="classospanel_1_1_os_panel" prot="public" virt="non-virtual">ospanel.OsPanel</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmenu_1_1_best_rounds_panel_1a88cb6fcea99fbfb5aece1eaa27d784ff" prot="private" static="no" mutable="no">
+        <type><ref refid="classloaders_1_1_best_rounds" kindref="compound">BestRounds</ref></type>
+        <definition>BestRounds menu.BestRoundsPanel.bests</definition>
+        <argsstring></argsstring>
+        <name>bests</name>
+        <qualifiedname>menu.BestRoundsPanel.bests</qualifiedname>
+        <initializer>= <ref refid="classloaders_1_1_best_rounds_1ac6451d0dca7ca7899957be98a24de564" kindref="member">BestRounds.loadBests</ref>(&quot;source/save_file/bestRounds.txt&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="menu/BestRoundsPanel.java" line="26" column="20" bodyfile="menu/BestRoundsPanel.java" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmenu_1_1_best_rounds_panel_1ae70006909e12260318ab3434280253de" prot="private" static="no" mutable="no">
+        <type>JLabel</type>
+        <definition>JLabel menu.BestRoundsPanel.field1</definition>
+        <argsstring></argsstring>
+        <name>field1</name>
+        <qualifiedname>menu.BestRoundsPanel.field1</qualifiedname>
+        <initializer>= new JLabel()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="menu/BestRoundsPanel.java" line="27" column="16" bodyfile="menu/BestRoundsPanel.java" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmenu_1_1_best_rounds_panel_1a46db63861b27572c1b2e14a10d10bc15" prot="private" static="no" mutable="no">
+        <type>JLabel</type>
+        <definition>JLabel menu.BestRoundsPanel.field2</definition>
+        <argsstring></argsstring>
+        <name>field2</name>
+        <qualifiedname>menu.BestRoundsPanel.field2</qualifiedname>
+        <initializer>= new JLabel()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="menu/BestRoundsPanel.java" line="28" column="16" bodyfile="menu/BestRoundsPanel.java" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmenu_1_1_best_rounds_panel_1a0f8058b13e4f00fe7d1002ef2126c089" prot="private" static="no" mutable="no">
+        <type>JLabel</type>
+        <definition>JLabel menu.BestRoundsPanel.field3</definition>
+        <argsstring></argsstring>
+        <name>field3</name>
+        <qualifiedname>menu.BestRoundsPanel.field3</qualifiedname>
+        <initializer>= new JLabel()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="menu/BestRoundsPanel.java" line="29" column="16" bodyfile="menu/BestRoundsPanel.java" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmenu_1_1_best_rounds_panel_1a44ab0dba61b880efcd5ef019f19ec84b" prot="private" static="no" mutable="no">
+        <type>BufferedImage</type>
+        <definition>BufferedImage menu.BestRoundsPanel.backGround</definition>
+        <argsstring></argsstring>
+        <name>backGround</name>
+        <qualifiedname>menu.BestRoundsPanel.backGround</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="menu/BestRoundsPanel.java" line="30" column="23" bodyfile="menu/BestRoundsPanel.java" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmenu_1_1_best_rounds_panel_1a10ce0c15fa0304f4c1c7bda2d7a40fa8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>menu.BestRoundsPanel.BestRoundsPanel</definition>
+        <argsstring>(MainMenu win)</argsstring>
+        <name>BestRoundsPanel</name>
+        <qualifiedname>menu.BestRoundsPanel.BestRoundsPanel</qualifiedname>
+        <param>
+          <type><ref refid="classmenu_1_1_main_menu" kindref="compound">MainMenu</ref></type>
+          <declname>win</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="menu/BestRoundsPanel.java" line="31" column="8" bodyfile="menu/BestRoundsPanel.java" bodystart="31" bodyend="69"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmenu_1_1_best_rounds_panel_1a12fce12d8d443d20d1a8fcca0c0518b4" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void menu.BestRoundsPanel.writeScore</definition>
+        <argsstring>()</argsstring>
+        <name>writeScore</name>
+        <qualifiedname>menu.BestRoundsPanel.writeScore</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="menu/BestRoundsPanel.java" line="70" column="14" bodyfile="menu/BestRoundsPanel.java" bodystart="70" bodyend="90"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classmenu_1_1_best_rounds_panel_1a41ea8ed394a603af0375bacf08190674" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void menu.BestRoundsPanel.paintComponent</definition>
+        <argsstring>(Graphics g)</argsstring>
+        <name>paintComponent</name>
+        <qualifiedname>menu.BestRoundsPanel.paintComponent</qualifiedname>
+        <param>
+          <type>Graphics</type>
+          <declname>g</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="menu/BestRoundsPanel.java" line="91" column="16" bodyfile="menu/BestRoundsPanel.java" bodystart="91" bodyend="95"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Az osztály egy OsPanel leszármazott, és egy előre beállított legjobb köröket vagyis játékosneveket és pontokat jeleníti meg, de azokból is csak a legjobb hármat amit a BestRounds osztály elmentett </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>JPanel</label>
+      </node>
+      <node id="1">
+        <label>menu.BestRoundsPanel</label>
+        <link refid="classmenu_1_1_best_rounds_panel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ospanel.OsPanel</label>
+        <link refid="classospanel_1_1_os_panel"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="6">
+        <label>Font</label>
+      </node>
+      <node id="5">
+        <label>JFrame</label>
+      </node>
+      <node id="3">
+        <label>JPanel</label>
+      </node>
+      <node id="1">
+        <label>menu.BestRoundsPanel</label>
+        <link refid="classmenu_1_1_best_rounds_panel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>menu.MainMenu</label>
+        <link refid="classmenu_1_1_main_menu"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ospanel.OsPanel</label>
+        <link refid="classospanel_1_1_os_panel"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>menuWin</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>defFont</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="menu/BestRoundsPanel.java" line="25" column="7" bodyfile="menu/BestRoundsPanel.java" bodystart="25" bodyend="96"/>
+    <listofallmembers>
+      <member refid="classmenu_1_1_best_rounds_panel_1a44ab0dba61b880efcd5ef019f19ec84b" prot="private" virt="non-virtual"><scope>menu::BestRoundsPanel</scope><name>backGround</name></member>
+      <member refid="classmenu_1_1_best_rounds_panel_1a10ce0c15fa0304f4c1c7bda2d7a40fa8" prot="public" virt="non-virtual"><scope>menu::BestRoundsPanel</scope><name>BestRoundsPanel</name></member>
+      <member refid="classmenu_1_1_best_rounds_panel_1a88cb6fcea99fbfb5aece1eaa27d784ff" prot="private" virt="non-virtual"><scope>menu::BestRoundsPanel</scope><name>bests</name></member>
+      <member refid="classospanel_1_1_os_panel_1af81a93cee7a90439996b00212f939333" prot="protected" virt="non-virtual"><scope>menu::BestRoundsPanel</scope><name>defFont</name></member>
+      <member refid="classmenu_1_1_best_rounds_panel_1ae70006909e12260318ab3434280253de" prot="private" virt="non-virtual"><scope>menu::BestRoundsPanel</scope><name>field1</name></member>
+      <member refid="classmenu_1_1_best_rounds_panel_1a46db63861b27572c1b2e14a10d10bc15" prot="private" virt="non-virtual"><scope>menu::BestRoundsPanel</scope><name>field2</name></member>
+      <member refid="classmenu_1_1_best_rounds_panel_1a0f8058b13e4f00fe7d1002ef2126c089" prot="private" virt="non-virtual"><scope>menu::BestRoundsPanel</scope><name>field3</name></member>
+      <member refid="classospanel_1_1_os_panel_1a4e63e2d858941f57ee05d0fb36c9744b" prot="public" virt="non-virtual"><scope>menu::BestRoundsPanel</scope><name>maxOszlop</name></member>
+      <member refid="classospanel_1_1_os_panel_1ac8dc3fa503af745ff5ef305b53eeeb21" prot="public" virt="non-virtual"><scope>menu::BestRoundsPanel</scope><name>maxSor</name></member>
+      <member refid="classospanel_1_1_os_panel_1a2ae1b27ad7ac5593b5c3fbe07c05cbc2" prot="protected" virt="non-virtual"><scope>menu::BestRoundsPanel</scope><name>menuWin</name></member>
+      <member refid="classospanel_1_1_os_panel_1a1542e83366ae2906abfadee883bed1d9" prot="package" virt="non-virtual"><scope>menu::BestRoundsPanel</scope><name>orgTileSize</name></member>
+      <member refid="classospanel_1_1_os_panel_1aa066569b93a785885accee5b58dc4115" prot="public" virt="non-virtual"><scope>menu::BestRoundsPanel</scope><name>OsPanel</name></member>
+      <member refid="classmenu_1_1_best_rounds_panel_1a41ea8ed394a603af0375bacf08190674" prot="protected" virt="non-virtual"><scope>menu::BestRoundsPanel</scope><name>paintComponent</name></member>
+      <member refid="classospanel_1_1_os_panel_1a5e4711ce4355fd92d3fa8115ea4e5f92" prot="package" virt="non-virtual"><scope>menu::BestRoundsPanel</scope><name>scale</name></member>
+      <member refid="classospanel_1_1_os_panel_1aec7a226c7185834771d824e33f6b5dde" prot="public" virt="non-virtual"><scope>menu::BestRoundsPanel</scope><name>screenHeight</name></member>
+      <member refid="classospanel_1_1_os_panel_1a13038a52d6befb5f4aed6d6e99fa9926" prot="public" virt="non-virtual"><scope>menu::BestRoundsPanel</scope><name>screenWidth</name></member>
+      <member refid="classospanel_1_1_os_panel_1a4fcfcd7d6831a23ade72244455be91b3" prot="public" virt="non-virtual"><scope>menu::BestRoundsPanel</scope><name>setMenuWin</name></member>
+      <member refid="classospanel_1_1_os_panel_1aab27138ecd638c8d2fd640eedbfc8801" prot="public" virt="non-virtual"><scope>menu::BestRoundsPanel</scope><name>tileSize</name></member>
+      <member refid="classmenu_1_1_best_rounds_panel_1a12fce12d8d443d20d1a8fcca0c0518b4" prot="private" virt="non-virtual"><scope>menu::BestRoundsPanel</scope><name>writeScore</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

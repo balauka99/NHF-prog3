@@ -1,0 +1,100 @@
+\doxysection{Entity.\+java}
+\label{_entity_8java_source}\index{entity/Entity.java@{entity/Entity.java}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{package\ }entity;}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{import}\ java.awt.Graphics2D;}
+\DoxyCodeLine{00004\ \textcolor{keyword}{import}\ java.awt.Rectangle;}
+\DoxyCodeLine{00005\ \textcolor{keyword}{import}\ java.awt.image.BufferedImage;}
+\DoxyCodeLine{00006\ \textcolor{keyword}{import}\ java.io.Serializable;}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{import}\ error.OwnError;}
+\DoxyCodeLine{00009\ \textcolor{keyword}{import}\ loaders.SheetLoader;}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00015\ @SuppressWarnings(\textcolor{stringliteral}{"{}serial"{}})}
+\DoxyCodeLine{00016\ public\ class\ Entity\ implements\ Serializable\{}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{protected}\ \textcolor{keywordtype}{int}\ x,\ y,\ speed;}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{protected}\ \textcolor{keywordtype}{int}\ maxHealt\ =\ 101;}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{protected}\ \textcolor{keywordtype}{int}\ healt\ =\ 101;}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{protected}\ \textcolor{keywordtype}{boolean}\ dead\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ \ \ \ \ *\ Move\ direction,\ amerre\ éppen\ néz\ a\ karakter,\ vagyis\ melyik\ kép\ van\ betöltve}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{public}\ String\ move\_dir\ =\ \textcolor{stringliteral}{"{}down"{}};}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ \ \ \ \ *\ Miközben\ mozog\ egy\ entitás,\ állalában\ ez\ egy\ kis\ animációval\ jár}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ \ \ \ \ *\ erre\ szolgál\ ez\ a\ két\ adat}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ \ \ \ \ *\ sheetCnt\ -\/\ Mivel\ másodpercenként\ 60szor\ frissítve\ a\ kép\ lelasítjuk\ mikor\ váltsa\ a\ sheet-\/eket}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ \ \ \ \ *\ sheetNum\ -\/\ éppen\ melyik\ sheet-\/en\ van,\ pl:\ ball\ vagy\ jobb\ láb\ fent}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ sheetCnt\ =\ 0;}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ sheetNum\ =\ 1;}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00038\ \textcolor{comment}{\ \ \ \ \ *\ Az\ a\ terület\ ami,\ "{}szilárd"{}\ terület\ az\ entitásnak,\ ha\ ez\ a\ fegyverrel\ ütközik\ sebezze\ meg}}
+\DoxyCodeLine{00039\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{public}\ Rectangle\ hitbox;}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ hitboxDefaultX,\ hitboxDefaultY;}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{public}\ Rectangle\ view\_distance;}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ viewDDefaultX,\ viewDDefaultY;}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{boolean}\ collisionOn\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{protected}\ \textcolor{keyword}{transient}\ SheetLoader\ sheet;}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keyword}{protected}\ \textcolor{keyword}{transient}\ BufferedImage\ skin;}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{protected}\ Weapon\ weapon;}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ getX()\ \{\ \textcolor{keywordflow}{return}\ x;\ \}}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ setX(\textcolor{keywordtype}{int}\ newx)\ \{\ x\ =\ newx;\ \}}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ getY()\ \{\ \textcolor{keywordflow}{return}\ y;\ \}}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ setY(\textcolor{keywordtype}{int}\ newy)\ \{\ y\ =\ newy;\ \}}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ getSpeed()\ \{\ \textcolor{keywordflow}{return}\ speed;\ \}}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ getHealt()\ \{\ \textcolor{keywordflow}{return}\ healt;\ \}}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ getMaxHealt()\ \{\ \textcolor{keywordflow}{return}\ maxHealt;\ \}}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ setSpeed(\textcolor{keywordtype}{int}\ newspeed)\ \{\ speed\ =\ newspeed;\ \}}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ resetHitboxToDefault()\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ hitbox.x\ =\ hitboxDefaultX;}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ hitbox.y\ =\ hitboxDefaultY;}
+\DoxyCodeLine{00082\ \ \ \ \ \}}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ resetViewDistanceDefault()\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ view\_distance.x\ =\ viewDDefaultX;}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ view\_distance.y\ =\ viewDDefaultY;}
+\DoxyCodeLine{00086\ \ \ \ \ \}}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ damaged(\textcolor{keywordtype}{int}\ damage)\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(healt\ >\ 0)\ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ healt\ -\/=\ damage;}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(healt\ <\ 0)\ this.die();}
+\DoxyCodeLine{00096\ \ \ \ \ \}}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keyword}{protected}\ \textcolor{keywordtype}{void}\ die()\ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ healt\ =\ 0;}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ dead\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00103\ \ \ \ \ \}}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{boolean}\ isDead()\ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ dead;}
+\DoxyCodeLine{00110\ \ \ \ \ \}}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ draw(Graphics2D\ grap2)\ \{}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ System.out.println(\textcolor{stringliteral}{"{}Entity\ drawed"{}});}
+\DoxyCodeLine{00117\ \ \ \ \ \}}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ attackWithWeapon()\ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ weapon.attack(x,\ y,\ move\_dir);}
+\DoxyCodeLine{00123\ \ \ \ \ \}}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ getWeaponDamage()\ \{}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ weapon.getDamage();}
+\DoxyCodeLine{00130\ \ \ \ \ \}}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ moveToPoint(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y)\ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(isDead())\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Menjen\ az\ x\ koordinátájával\ közelebb}}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(x\ <\ this.x)\ \{}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ this.x\ -\/=\ speed;}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ move\_dir\ =\ \textcolor{stringliteral}{"{}left"{}};}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(x\ >\ this.x)\ \{}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ this.x\ +=\ speed;}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ move\_dir\ =\ \textcolor{stringliteral}{"{}right"{}};}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Menjen\ az\ y\ koordinátájával\ közelebb}}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(y\ <\ this.y)\ this.y\ -\/=\ speed;}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(y\ >\ this.y)\ this.y\ +=\ speed;}
+\DoxyCodeLine{00150\ \ \ \ \ \}}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ reLoad()\ throws\ OwnError\ \{\}}
+\DoxyCodeLine{00157\ \}}
+
+\end{DoxyCode}

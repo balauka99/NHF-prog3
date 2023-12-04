@@ -8,7 +8,10 @@ import java.io.IOException;
 import java.io.Serializable;
 
 import javax.imageio.ImageIO;
-
+/**
+ * Az osztály eltárol egy felhasználói felületnek a szükséges információit, fontos, hogy a játékos mindig tudja mennyi az élet ereje és a pontja
+ */
+@SuppressWarnings("serial")
 public class UserInterface implements Serializable{
 	private GamePanel gameP;
 	private Font font;

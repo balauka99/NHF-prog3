@@ -1,0 +1,148 @@
+\doxysection{Previous\+Maps.\+java}
+\label{_previous_maps_8java_source}\index{gameplay/PreviousMaps.java@{gameplay/PreviousMaps.java}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{package\ }gameplay;}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{import}\ java.io.FileInputStream;}
+\DoxyCodeLine{00004\ \textcolor{keyword}{import}\ java.io.FileOutputStream;}
+\DoxyCodeLine{00005\ \textcolor{keyword}{import}\ java.io.IOException;}
+\DoxyCodeLine{00006\ \textcolor{keyword}{import}\ java.io.ObjectInputStream;}
+\DoxyCodeLine{00007\ \textcolor{keyword}{import}\ java.io.ObjectOutputStream;}
+\DoxyCodeLine{00008\ \textcolor{keyword}{import}\ java.io.Serializable;}
+\DoxyCodeLine{00009\ \textcolor{keyword}{import}\ java.util.ArrayList;}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{import}\ entity.Entity;}
+\DoxyCodeLine{00012\ \textcolor{keyword}{import}\ entity.Player;}
+\DoxyCodeLine{00013\ \textcolor{keyword}{import}\ \textcolor{keywordtype}{object}.Heart;}
+\DoxyCodeLine{00014\ \textcolor{keyword}{import}\ \textcolor{keywordtype}{object}.OsObject;}
+\DoxyCodeLine{00015\ \textcolor{keyword}{import}\ tile.TileManager;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ @SuppressWarnings(\textcolor{stringliteral}{"{}serial"{}})}
+\DoxyCodeLine{00022\ class\ Map\ implements\ Serializable\{}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{private}\ TileManager\ tileMg;}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{private}\ ArrayList<OsObject>\ objects;}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{private}\ ArrayList<Entity>\ enemys;}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{private}\ AssetSetter\ assSetter;}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{int}\ playerX,\ playerY;}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{boolean}\ isMapInPrevMaps\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{public}\ Map\_Status\ map\_state\ =\ Map\_Status.IN\_PREVIOUS;}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{public}\ Map(TileManager\ tileMg,\ ArrayList<OsObject>\ objects,\ ArrayList<Entity>\ enemys,\ AssetSetter\ assS,\ \textcolor{keywordtype}{int}\ playerX,\ \textcolor{keywordtype}{int}\ playerY,\ String\ move\_dir,\ \textcolor{keywordtype}{int}\ tileSize)\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ this.tileMg\ =\ tileMg;}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ this.objects\ =\ objects;}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ this.setEnemys(enemys);}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ this.assSetter\ =\ assS;}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ this.playerX\ =\ playerX;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ this.playerY\ =\ playerY;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(move\_dir)\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{stringliteral}{"{}up"{}}:}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ this.playerY\ +=\ tileSize;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{stringliteral}{"{}left"{}}:}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ this.playerX\ +=\ tileSize;}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{stringliteral}{"{}right"{}}:}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ this.playerX\ -\/=\ tileSize;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{stringliteral}{"{}down"{}}:}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ this.playerY\ -\/=\ tileSize;}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00062\ \ \ \ \ \}}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{public}\ TileManager\ getTileMg()\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ tileMg;}
+\DoxyCodeLine{00065\ \ \ \ \ \}}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ setTileMg(TileManager\ tileMg)\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ this.tileMg\ =\ tileMg;}
+\DoxyCodeLine{00068\ \ \ \ \ \}}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{public}\ ArrayList<OsObject>\ getObjects()\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ objects;}
+\DoxyCodeLine{00071\ \ \ \ \ \}}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ setObjects(ArrayList<OsObject>\ objects)\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ this.objects\ =\ objects;}
+\DoxyCodeLine{00074\ \ \ \ \ \}}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ getPlayerLastX()\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ playerX;}
+\DoxyCodeLine{00077\ \ \ \ \ \}}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ setPlayerLastX(\textcolor{keywordtype}{int}\ playerX)\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ this.playerX\ =\ playerX;}
+\DoxyCodeLine{00080\ \ \ \ \ \}}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ getPlayerLastY()\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ playerY;}
+\DoxyCodeLine{00083\ \ \ \ \ \}}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ setPlayerLastY(\textcolor{keywordtype}{int}\ playerY)\ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ this.playerY\ =\ playerY;}
+\DoxyCodeLine{00086\ \ \ \ \ \}}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keyword}{public}\ AssetSetter\ getAssSetter()\ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ assSetter;}
+\DoxyCodeLine{00089\ \ \ \ \ \}}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ setAssSetter(AssetSetter\ assSetter)\ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ this.assSetter\ =\ assSetter;}
+\DoxyCodeLine{00092\ \ \ \ \ \}}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keyword}{public}\ ArrayList<Entity>\ getEnemys()\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ enemys;}
+\DoxyCodeLine{00095\ \ \ \ \ \}}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ setEnemys(ArrayList<Entity>\ enemys)\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ this.enemys\ =\ enemys;}
+\DoxyCodeLine{00098\ \ \ \ \ \}}
+\DoxyCodeLine{00099\ \}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ @SuppressWarnings(\textcolor{stringliteral}{"{}serial"{}})}
+\DoxyCodeLine{00106\ public\ class\ PreviousMaps\ extends\ ArrayList<Map>\ implements\ Serializable\{}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keyword}{private}\ Player\ savedPlayer;}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keyword}{private}\ ArrayList<Heart>\ player\_healt;}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{int}\ currentPrev\ =\ 0;}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ addPrevMap(TileManager\ tileMg,\ ArrayList<OsObject>\ objects,\ ArrayList<Entity>\ enemys,\ AssetSetter\ assS,\ \textcolor{keywordtype}{int}\ playerX,\ \textcolor{keywordtype}{int}\ playerY,\ String\ move\_dir,\ \textcolor{keywordtype}{int}\ tileSize)\ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ this.add(\textcolor{keyword}{new}\ Map(tileMg,\ objects,\ enemys,\ assS,\ playerX,\ playerY,\ move\_dir,\ tileSize));}
+\DoxyCodeLine{00112\ \ \ \ \ \}}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ setupCurrentPrev()\ \{}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ currentPrev\ =\ this.size()\ -\/\ 1;}
+\DoxyCodeLine{00118\ \ \ \ \ \}}
+\DoxyCodeLine{00119\ \ \ \ \ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keyword}{public}\ Map\ getPrevious()\ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(this.size()\ ==\ 0)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{null};}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(currentPrev\ !=\ 0)\ currentPrev-\/-\/;}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this.\textcolor{keyword}{get}(currentPrev);}
+\DoxyCodeLine{00129\ \ \ \ \ \}}
+\DoxyCodeLine{00130\ \ \ \ \ }
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keyword}{public}\ Map\ getNextPrevMap()\ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(this.size()\ <\ 1\ ||\ currentPrev\ ==\ this.size()\ -\/1)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{null};}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \textcolor{comment}{//if(++currentPrev\ ==\ this.size())\ this.get(currentPrev).map\_state\ =\ Map\_Status.IN\_NEW;}}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this.\textcolor{keyword}{get}(++currentPrev);}
+\DoxyCodeLine{00139\ \ \ \ \ \}}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ getCurrentPrev()\ \{}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ currentPrev;}
+\DoxyCodeLine{00146\ \ \ \ \ \}}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ saveAllPreviousMaps(PreviousMaps\ prevMaps,\ String\ fName)\ \{}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ (ObjectOutputStream\ saver\ =\ \textcolor{keyword}{new}\ ObjectOutputStream(\textcolor{keyword}{new}\ FileOutputStream(fName)))\ \{}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ saver.writeObject(prevMaps);}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (IOException\ e)\ \{}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ e.printStackTrace();}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00158\ \ \ \ \ \}}
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ PreviousMaps\ loadALlPreviousMaps(String\ fName)\ \{}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ (ObjectInputStream\ loader\ =\ \textcolor{keyword}{new}\ ObjectInputStream(\textcolor{keyword}{new}\ FileInputStream(fName)))\ \{}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ Object\ maps\ =\ loader.readObject();}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (maps\ instanceof\ PreviousMaps)\ \{}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (PreviousMaps)\ maps;}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (IOException\ |\ ClassNotFoundException\ e)\ \{}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ e.printStackTrace();}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{null};}
+\DoxyCodeLine{00174\ \ \ \ \ \}}
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keyword}{public}\ Player\ getSavedPlayer()\ \{}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ savedPlayer;}
+\DoxyCodeLine{00177\ \ \ \ \ \}}
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ setSavedPlayer(Player\ savedPlayer)\ \{}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ this.savedPlayer\ =\ savedPlayer;}
+\DoxyCodeLine{00180\ \ \ \ \ \}}
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{keyword}{public}\ ArrayList<Heart>\ getPlayer\_healt()\ \{}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ player\_healt;}
+\DoxyCodeLine{00183\ \ \ \ \ \}}
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ setPlayer\_healt(ArrayList<Heart>\ player\_healt)\ \{}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ this.player\_healt\ =\ player\_healt;}
+\DoxyCodeLine{00186\ \ \ \ \ \}}
+\DoxyCodeLine{00187\ \}}
+
+\end{DoxyCode}

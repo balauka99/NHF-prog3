@@ -1,0 +1,77 @@
+\doxysection{Os\+Object.\+java}
+\label{_os_object_8java_source}\index{object/OsObject.java@{object/OsObject.java}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{package\ }object;}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{import}\ java.awt.Graphics2D;}
+\DoxyCodeLine{00004\ \textcolor{keyword}{import}\ java.awt.Rectangle;}
+\DoxyCodeLine{00005\ \textcolor{keyword}{import}\ java.awt.image.BufferedImage;}
+\DoxyCodeLine{00006\ \textcolor{keyword}{import}\ java.io.IOException;}
+\DoxyCodeLine{00007\ \textcolor{keyword}{import}\ java.io.Serializable;}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{import}\ javax.imageio.ImageIO;}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{import}\ error.OwnError;}
+\DoxyCodeLine{00012\ \textcolor{keyword}{import}\ gameplay.GamePanel;}
+\DoxyCodeLine{00013\ \textcolor{keyword}{import}\ gameplay.UtilityTools;}
+\DoxyCodeLine{00014\ \textcolor{keyword}{import}\ loaders.SheetLoader;}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ @SuppressWarnings(\textcolor{stringliteral}{"{}serial"{}})}
+\DoxyCodeLine{00020\ public\ class\ OsObject\ implements\ Serializable\{}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{protected}\ \textcolor{keywordtype}{int}\ defaultTileSize\ =\ 48;}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{protected}\ \textcolor{keyword}{transient}\ BufferedImage\ skin;}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{protected}\ \textcolor{keyword}{transient}\ SheetLoader\ sheet;}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{private}\ String\ name;}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{boolean}\ collision\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ x,\ y;}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{public}\ Rectangle\ hitbox\ =\ \textcolor{keyword}{new}\ Rectangle(0,\ 0,\ defaultTileSize,\ defaultTileSize);\ \ \ \ \textcolor{comment}{//TODO\ máshogy\ A\ teljes\ tile\ benne\ van\ a\ hitbox-\/ban}}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{protected}\ \textcolor{keywordtype}{int}\ hitboxDefaultX\ =\ 0;}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{protected}\ \textcolor{keywordtype}{int}\ hitboxDefaultY\ =\ 0;}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{boolean}\ objectUsed\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{protected}\ \textcolor{keywordtype}{boolean}\ unBreakAble\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{boolean}\ destroyed\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{protected}\ \textcolor{keywordtype}{void}\ setupSkin(String\ skinName)\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ UtilityTools\ uT\ =\ \textcolor{keyword}{new}\ UtilityTools();}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ skin\ =\ uT.scaleImage(ImageIO.read(getClass().getResourceAsStream(\textcolor{stringliteral}{"{}/objects/"{}}\ +\ skinName\ +\ \textcolor{stringliteral}{"{}.png"{}})),\ defaultTileSize,\ defaultTileSize);}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (IOException\ e)\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO\ Auto-\/generated\ catch\ block}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ e.printStackTrace();}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00045\ \ \ \ \ \}}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ draw(Graphics2D\ grap2,\ GamePanel\ gameP)\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ grap2.drawImage(skin,\ x,\ y,\ \textcolor{keyword}{null});}
+\DoxyCodeLine{00048\ \ \ \ \ \}}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ resetHitboxToDefault()\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ hitbox.x\ =\ hitboxDefaultX;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ hitbox.y\ =\ hitboxDefaultY;}
+\DoxyCodeLine{00052\ \ \ \ \ \}}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ useObject()\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ objectUsed\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00058\ \ \ \ \ \}}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{boolean}\ isObjectUsed()\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ objectUsed;}
+\DoxyCodeLine{00061\ \ \ \ \ \}}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ reUseObject()\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ objectUsed\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00064\ \ \ \ \ \}}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ destroy()\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!unBreakAble)\ destroyed\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ collision\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00068\ \ \ \ \ \}}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{boolean}\ isDestroyed()\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ destroyed;}
+\DoxyCodeLine{00071\ \ \ \ \ \}}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ reLoad()\ throws\ OwnError\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ OwnError(\textcolor{stringliteral}{"{}OsObject:\ reLoad\ is\ not\ implemented!"{}});}
+\DoxyCodeLine{00074\ \ \ \ \ \}}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{public}\ String\ getName()\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ name;}
+\DoxyCodeLine{00077\ \ \ \ \ \}}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ setName(String\ name)\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ this.name\ =\ name;}
+\DoxyCodeLine{00080\ \ \ \ \ \}}
+\DoxyCodeLine{00081\ \}}
+
+\end{DoxyCode}

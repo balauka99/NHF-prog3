@@ -1,0 +1,286 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classospanel_1_1_os_panel" kind="class" language="Java" prot="public">
+    <compoundname>ospanel::OsPanel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">JPanel</basecompoundref>
+    <derivedcompoundref refid="classgameplay_1_1_game_panel" prot="public" virt="non-virtual">gameplay.GamePanel</derivedcompoundref>
+    <derivedcompoundref refid="classmenu_1_1_best_rounds_panel" prot="public" virt="non-virtual">menu.BestRoundsPanel</derivedcompoundref>
+    <derivedcompoundref refid="classmenu_1_1_character_choose" prot="public" virt="non-virtual">menu.CharacterChoose</derivedcompoundref>
+    <derivedcompoundref refid="classospanel_1_1_dead_screen" prot="public" virt="non-virtual">ospanel.DeadScreen</derivedcompoundref>
+    <derivedcompoundref refid="classospanel_1_1_menu_panel" prot="public" virt="non-virtual">ospanel.MenuPanel</derivedcompoundref>
+      <sectiondef kind="package-attrib">
+      <memberdef kind="variable" id="classospanel_1_1_os_panel_1a1542e83366ae2906abfadee883bed1d9" prot="package" static="no" mutable="no">
+        <type>final int</type>
+        <definition>final int ospanel.OsPanel.orgTileSize</definition>
+        <argsstring></argsstring>
+        <name>orgTileSize</name>
+        <qualifiedname>ospanel.OsPanel.orgTileSize</qualifiedname>
+        <initializer>= 16</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Megjenelítés segítő argumentek Kisebb kockákra bontom fel a képernyőt, amik a Tile-ok </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ospanel/OsPanel.java" line="17" column="11" bodyfile="ospanel/OsPanel.java" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classospanel_1_1_os_panel_1a5e4711ce4355fd92d3fa8115ea4e5f92" prot="package" static="no" mutable="no">
+        <type>final int</type>
+        <definition>final int ospanel.OsPanel.scale</definition>
+        <argsstring></argsstring>
+        <name>scale</name>
+        <qualifiedname>ospanel.OsPanel.scale</qualifiedname>
+        <initializer>= 3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ospanel/OsPanel.java" line="18" column="11" bodyfile="ospanel/OsPanel.java" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classospanel_1_1_os_panel_1aab27138ecd638c8d2fd640eedbfc8801" prot="public" static="no" mutable="no">
+        <type>final int</type>
+        <definition>final int ospanel.OsPanel.tileSize</definition>
+        <argsstring></argsstring>
+        <name>tileSize</name>
+        <qualifiedname>ospanel.OsPanel.tileSize</qualifiedname>
+        <initializer>= orgTileSize * scale</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ospanel/OsPanel.java" line="19" column="18" bodyfile="ospanel/OsPanel.java" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classospanel_1_1_os_panel_1a4e63e2d858941f57ee05d0fb36c9744b" prot="public" static="no" mutable="no">
+        <type>final int</type>
+        <definition>final int ospanel.OsPanel.maxOszlop</definition>
+        <argsstring></argsstring>
+        <name>maxOszlop</name>
+        <qualifiedname>ospanel.OsPanel.maxOszlop</qualifiedname>
+        <initializer>= 20</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ospanel/OsPanel.java" line="20" column="18" bodyfile="ospanel/OsPanel.java" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classospanel_1_1_os_panel_1ac8dc3fa503af745ff5ef305b53eeeb21" prot="public" static="no" mutable="no">
+        <type>final int</type>
+        <definition>final int ospanel.OsPanel.maxSor</definition>
+        <argsstring></argsstring>
+        <name>maxSor</name>
+        <qualifiedname>ospanel.OsPanel.maxSor</qualifiedname>
+        <initializer>= 15</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ospanel/OsPanel.java" line="21" column="18" bodyfile="ospanel/OsPanel.java" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classospanel_1_1_os_panel_1a13038a52d6befb5f4aed6d6e99fa9926" prot="public" static="no" mutable="no">
+        <type>final int</type>
+        <definition>final int ospanel.OsPanel.screenWidth</definition>
+        <argsstring></argsstring>
+        <name>screenWidth</name>
+        <qualifiedname>ospanel.OsPanel.screenWidth</qualifiedname>
+        <initializer>= <ref refid="classospanel_1_1_os_panel_1aab27138ecd638c8d2fd640eedbfc8801" kindref="member">tileSize</ref> * <ref refid="classospanel_1_1_os_panel_1a4e63e2d858941f57ee05d0fb36c9744b" kindref="member">maxOszlop</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ospanel/OsPanel.java" line="22" column="18" bodyfile="ospanel/OsPanel.java" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classospanel_1_1_os_panel_1aec7a226c7185834771d824e33f6b5dde" prot="public" static="no" mutable="no">
+        <type>final int</type>
+        <definition>final int ospanel.OsPanel.screenHeight</definition>
+        <argsstring></argsstring>
+        <name>screenHeight</name>
+        <qualifiedname>ospanel.OsPanel.screenHeight</qualifiedname>
+        <initializer>= <ref refid="classospanel_1_1_os_panel_1aab27138ecd638c8d2fd640eedbfc8801" kindref="member">tileSize</ref> * <ref refid="classospanel_1_1_os_panel_1ac8dc3fa503af745ff5ef305b53eeeb21" kindref="member">maxSor</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ospanel/OsPanel.java" line="23" column="18" bodyfile="ospanel/OsPanel.java" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classospanel_1_1_os_panel_1a2ae1b27ad7ac5593b5c3fbe07c05cbc2" prot="protected" static="no" mutable="no">
+        <type><ref refid="classmenu_1_1_main_menu" kindref="compound">MainMenu</ref></type>
+        <definition>MainMenu ospanel.OsPanel.menuWin</definition>
+        <argsstring></argsstring>
+        <name>menuWin</name>
+        <qualifiedname>ospanel.OsPanel.menuWin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ospanel/OsPanel.java" line="24" column="20" bodyfile="ospanel/OsPanel.java" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classospanel_1_1_os_panel_1af81a93cee7a90439996b00212f939333" prot="protected" static="no" mutable="no">
+        <type>Font</type>
+        <definition>Font ospanel.OsPanel.defFont</definition>
+        <argsstring></argsstring>
+        <name>defFont</name>
+        <qualifiedname>ospanel.OsPanel.defFont</qualifiedname>
+        <initializer>= new Font(&quot;Century Gothic&quot;, Font.BOLD, 24)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ospanel/OsPanel.java" line="25" column="16" bodyfile="ospanel/OsPanel.java" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classospanel_1_1_os_panel_1aa066569b93a785885accee5b58dc4115" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ospanel.OsPanel.OsPanel</definition>
+        <argsstring>()</argsstring>
+        <name>OsPanel</name>
+        <qualifiedname>ospanel.OsPanel.OsPanel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Az Ős Panel beállítja az alapértelmezett adatokat </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ospanel/OsPanel.java" line="29" column="8" bodyfile="ospanel/OsPanel.java" bodystart="29" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="classospanel_1_1_os_panel_1a4fcfcd7d6831a23ade72244455be91b3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ospanel.OsPanel.setMenuWin</definition>
+        <argsstring>(MainMenu menuWin)</argsstring>
+        <name>setMenuWin</name>
+        <qualifiedname>ospanel.OsPanel.setMenuWin</qualifiedname>
+        <param>
+          <type><ref refid="classmenu_1_1_main_menu" kindref="compound">MainMenu</ref></type>
+          <declname>menuWin</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Van hogy szükséges az az ablak ahol éppen van a Panel <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>menuWin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>MainMenu amiben éppen van </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ospanel/OsPanel.java" line="39" column="13" bodyfile="ospanel/OsPanel.java" bodystart="39" bodyend="41"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>gameplay.GamePanel</label>
+        <link refid="classgameplay_1_1_game_panel"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>JPanel</label>
+      </node>
+      <node id="4">
+        <label>menu.BestRoundsPanel</label>
+        <link refid="classmenu_1_1_best_rounds_panel"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>menu.CharacterChoose</label>
+        <link refid="classmenu_1_1_character_choose"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>ospanel.OsPanel</label>
+        <link refid="classospanel_1_1_os_panel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>ospanel.DeadScreen</label>
+        <link refid="classospanel_1_1_dead_screen"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>ospanel.MenuPanel</label>
+        <link refid="classospanel_1_1_menu_panel"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="5">
+        <label>Font</label>
+      </node>
+      <node id="4">
+        <label>JFrame</label>
+      </node>
+      <node id="2">
+        <label>JPanel</label>
+      </node>
+      <node id="3">
+        <label>menu.MainMenu</label>
+        <link refid="classmenu_1_1_main_menu"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>ospanel.OsPanel</label>
+        <link refid="classospanel_1_1_os_panel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>menuWin</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>defFont</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="ospanel/OsPanel.java" line="12" column="7" bodyfile="ospanel/OsPanel.java" bodystart="12" bodyend="42"/>
+    <listofallmembers>
+      <member refid="classospanel_1_1_os_panel_1af81a93cee7a90439996b00212f939333" prot="protected" virt="non-virtual"><scope>ospanel::OsPanel</scope><name>defFont</name></member>
+      <member refid="classospanel_1_1_os_panel_1a4e63e2d858941f57ee05d0fb36c9744b" prot="public" virt="non-virtual"><scope>ospanel::OsPanel</scope><name>maxOszlop</name></member>
+      <member refid="classospanel_1_1_os_panel_1ac8dc3fa503af745ff5ef305b53eeeb21" prot="public" virt="non-virtual"><scope>ospanel::OsPanel</scope><name>maxSor</name></member>
+      <member refid="classospanel_1_1_os_panel_1a2ae1b27ad7ac5593b5c3fbe07c05cbc2" prot="protected" virt="non-virtual"><scope>ospanel::OsPanel</scope><name>menuWin</name></member>
+      <member refid="classospanel_1_1_os_panel_1a1542e83366ae2906abfadee883bed1d9" prot="package" virt="non-virtual"><scope>ospanel::OsPanel</scope><name>orgTileSize</name></member>
+      <member refid="classospanel_1_1_os_panel_1aa066569b93a785885accee5b58dc4115" prot="public" virt="non-virtual"><scope>ospanel::OsPanel</scope><name>OsPanel</name></member>
+      <member refid="classospanel_1_1_os_panel_1a5e4711ce4355fd92d3fa8115ea4e5f92" prot="package" virt="non-virtual"><scope>ospanel::OsPanel</scope><name>scale</name></member>
+      <member refid="classospanel_1_1_os_panel_1aec7a226c7185834771d824e33f6b5dde" prot="public" virt="non-virtual"><scope>ospanel::OsPanel</scope><name>screenHeight</name></member>
+      <member refid="classospanel_1_1_os_panel_1a13038a52d6befb5f4aed6d6e99fa9926" prot="public" virt="non-virtual"><scope>ospanel::OsPanel</scope><name>screenWidth</name></member>
+      <member refid="classospanel_1_1_os_panel_1a4fcfcd7d6831a23ade72244455be91b3" prot="public" virt="non-virtual"><scope>ospanel::OsPanel</scope><name>setMenuWin</name></member>
+      <member refid="classospanel_1_1_os_panel_1aab27138ecd638c8d2fd640eedbfc8801" prot="public" virt="non-virtual"><scope>ospanel::OsPanel</scope><name>tileSize</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,311 @@
+\doxysection{object.\+Os\+Object Class Reference}
+\label{classobject_1_1_os_object}\index{object.OsObject@{object.OsObject}}
+Inheritance diagram for object.\+Os\+Object\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.688000cm]{classobject_1_1_os_object}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ draw} (Graphics2D grap2, \textbf{ Game\+Panel} gameP)
+\item 
+void \textbf{ reset\+Hitbox\+To\+Default} ()
+\item 
+void \textbf{ use\+Object} ()
+\item 
+boolean \textbf{ is\+Object\+Used} ()
+\item 
+void \textbf{ re\+Use\+Object} ()
+\item 
+void \textbf{ destroy} ()
+\item 
+boolean \textbf{ is\+Destroyed} ()
+\item 
+void \textbf{ re\+Load} ()  throws Own\+Error 
+\item 
+String \textbf{ get\+Name} ()
+\item 
+void \textbf{ set\+Name} (String name)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+boolean \textbf{ collision} = false
+\item 
+int \textbf{ x}
+\item 
+int \textbf{ y}
+\item 
+Rectangle \textbf{ hitbox} = new Rectangle(0, 0, \textbf{ default\+Tile\+Size}, \textbf{ default\+Tile\+Size})
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ setup\+Skin} (String skin\+Name)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \textbf{ default\+Tile\+Size} = 48
+\item 
+transient Buffered\+Image \textbf{ skin}
+\item 
+transient \textbf{ Sheet\+Loader} \textbf{ sheet}
+\item 
+int \textbf{ hitbox\+DefaultX} = 0
+\item 
+int \textbf{ hitbox\+DefaultY} = 0
+\item 
+boolean \textbf{ un\+Break\+Able} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Az osztály az Ős Object, itt megvan minden amire szüksége lehet egy dolognak ami a pályán elhelyezkedik 
+
+Definition at line \textbf{ 20} of file \textbf{ Os\+Object.\+java}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classobject_1_1_os_object_ac8faa795bba7f6168d27fbf88ef36bfa}} 
+\index{object.OsObject@{object.OsObject}!destroy@{destroy}}
+\index{destroy@{destroy}!object.OsObject@{object.OsObject}}
+\doxysubsubsection{destroy()}
+{\footnotesize\ttfamily void object.\+Os\+Object.\+destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reimplemented in \textbf{ object.\+OBJ\+\_\+\+Barrel} \doxyref{}{p.}{classobject_1_1_o_b_j___barrel_aa9735d32afc41bd7a3362c225020b418}, and \textbf{ object.\+OBJ\+\_\+\+Box} \doxyref{}{p.}{classobject_1_1_o_b_j___box_adc619b82df87f2f03cf1212c5536e613}.
+
+
+
+Definition at line \textbf{ 65} of file \textbf{ Os\+Object.\+java}.
+
+\mbox{\label{classobject_1_1_os_object_aeaf7cad2789e3d57733e126e9fa73cdc}} 
+\index{object.OsObject@{object.OsObject}!draw@{draw}}
+\index{draw@{draw}!object.OsObject@{object.OsObject}}
+\doxysubsubsection{draw()}
+{\footnotesize\ttfamily void object.\+Os\+Object.\+draw (\begin{DoxyParamCaption}\item[{Graphics2D}]{grap2,  }\item[{\textbf{ Game\+Panel}}]{gameP }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 46} of file \textbf{ Os\+Object.\+java}.
+
+\mbox{\label{classobject_1_1_os_object_aec101e19d148a0965d41bd1bf3490f03}} 
+\index{object.OsObject@{object.OsObject}!getName@{getName}}
+\index{getName@{getName}!object.OsObject@{object.OsObject}}
+\doxysubsubsection{getName()}
+{\footnotesize\ttfamily String object.\+Os\+Object.\+get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 75} of file \textbf{ Os\+Object.\+java}.
+
+\mbox{\label{classobject_1_1_os_object_a4b0307e664d6e6360195f05e9cfca6a2}} 
+\index{object.OsObject@{object.OsObject}!isDestroyed@{isDestroyed}}
+\index{isDestroyed@{isDestroyed}!object.OsObject@{object.OsObject}}
+\doxysubsubsection{isDestroyed()}
+{\footnotesize\ttfamily boolean object.\+Os\+Object.\+is\+Destroyed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 69} of file \textbf{ Os\+Object.\+java}.
+
+\mbox{\label{classobject_1_1_os_object_a2adb45a0cb5b721cbab1f8e9bd9770ec}} 
+\index{object.OsObject@{object.OsObject}!isObjectUsed@{isObjectUsed}}
+\index{isObjectUsed@{isObjectUsed}!object.OsObject@{object.OsObject}}
+\doxysubsubsection{isObjectUsed()}
+{\footnotesize\ttfamily boolean object.\+Os\+Object.\+is\+Object\+Used (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 59} of file \textbf{ Os\+Object.\+java}.
+
+\mbox{\label{classobject_1_1_os_object_a447b2ecb2fca45bd741fc5593ce41343}} 
+\index{object.OsObject@{object.OsObject}!reLoad@{reLoad}}
+\index{reLoad@{reLoad}!object.OsObject@{object.OsObject}}
+\doxysubsubsection{reLoad()}
+{\footnotesize\ttfamily void object.\+Os\+Object.\+re\+Load (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \textbf{ Own\+Error}}
+
+
+
+Reimplemented in \textbf{ object.\+Heart} \doxyref{}{p.}{classobject_1_1_heart_af82f5f126b8f70b2b839f5f071eaf547}, \textbf{ object.\+OBJ\+\_\+\+Barrel} \doxyref{}{p.}{classobject_1_1_o_b_j___barrel_ab603c8e394c01e269f1a76908753792b}, \textbf{ object.\+OBJ\+\_\+\+Box} \doxyref{}{p.}{classobject_1_1_o_b_j___box_a9463c0ff574ee6460624fa816a8e12f4}, \textbf{ object.\+OBJ\+\_\+\+Chest} \doxyref{}{p.}{classobject_1_1_o_b_j___chest_ae433b4c71a948556aa1fdb126c5cd1a1}, and \textbf{ object.\+OBJ\+\_\+\+Door} \doxyref{}{p.}{classobject_1_1_o_b_j___door_ae270a6c40c284f823ea20bc703707dcd}.
+
+
+
+Definition at line \textbf{ 72} of file \textbf{ Os\+Object.\+java}.
+
+\mbox{\label{classobject_1_1_os_object_ad4774e2362d8def20c29035ce87b6296}} 
+\index{object.OsObject@{object.OsObject}!resetHitboxToDefault@{resetHitboxToDefault}}
+\index{resetHitboxToDefault@{resetHitboxToDefault}!object.OsObject@{object.OsObject}}
+\doxysubsubsection{resetHitboxToDefault()}
+{\footnotesize\ttfamily void object.\+Os\+Object.\+reset\+Hitbox\+To\+Default (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 49} of file \textbf{ Os\+Object.\+java}.
+
+\mbox{\label{classobject_1_1_os_object_a0f45a46b97d61fda33b821e75b3f56cd}} 
+\index{object.OsObject@{object.OsObject}!reUseObject@{reUseObject}}
+\index{reUseObject@{reUseObject}!object.OsObject@{object.OsObject}}
+\doxysubsubsection{reUseObject()}
+{\footnotesize\ttfamily void object.\+Os\+Object.\+re\+Use\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reimplemented in \textbf{ object.\+OBJ\+\_\+\+Door} \doxyref{}{p.}{classobject_1_1_o_b_j___door_a7907fa3f1899dde0f82db1bbb5768afc}.
+
+
+
+Definition at line \textbf{ 62} of file \textbf{ Os\+Object.\+java}.
+
+\mbox{\label{classobject_1_1_os_object_a126a1b249be41df28d929a5e7c7f68b3}} 
+\index{object.OsObject@{object.OsObject}!setName@{setName}}
+\index{setName@{setName}!object.OsObject@{object.OsObject}}
+\doxysubsubsection{setName()}
+{\footnotesize\ttfamily void object.\+Os\+Object.\+set\+Name (\begin{DoxyParamCaption}\item[{String}]{name }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 78} of file \textbf{ Os\+Object.\+java}.
+
+\mbox{\label{classobject_1_1_os_object_a5fec5dc47715450c3a9c958888b1299b}} 
+\index{object.OsObject@{object.OsObject}!setupSkin@{setupSkin}}
+\index{setupSkin@{setupSkin}!object.OsObject@{object.OsObject}}
+\doxysubsubsection{setupSkin()}
+{\footnotesize\ttfamily void object.\+Os\+Object.\+setup\+Skin (\begin{DoxyParamCaption}\item[{String}]{skin\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Beállítja a kinézetét, ami scalel is, arra a képre ami a kapott fájlnév alatt van 
+\begin{DoxyParams}{Parameters}
+{\em skin\+Name} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \textbf{ 37} of file \textbf{ Os\+Object.\+java}.
+
+\mbox{\label{classobject_1_1_os_object_abf43b8090e550222903b10a09d4bcc89}} 
+\index{object.OsObject@{object.OsObject}!useObject@{useObject}}
+\index{useObject@{useObject}!object.OsObject@{object.OsObject}}
+\doxysubsubsection{useObject()}
+{\footnotesize\ttfamily void object.\+Os\+Object.\+use\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Mindig meg kell hívni a super.\+use\+Object() metódust, hogy true legyen a használata 
+
+Reimplemented in \textbf{ object.\+OBJ\+\_\+\+Box} \doxyref{}{p.}{classobject_1_1_o_b_j___box_af996465b2c391799ca0ce85f094cfbb1}, \textbf{ object.\+OBJ\+\_\+\+Chest} \doxyref{}{p.}{classobject_1_1_o_b_j___chest_a9a25b9904af4c2539e2b294c99172dd3}, and \textbf{ object.\+OBJ\+\_\+\+Door} \doxyref{}{p.}{classobject_1_1_o_b_j___door_a90b53bf18d95a2d011dded42182b34af}.
+
+
+
+Definition at line \textbf{ 56} of file \textbf{ Os\+Object.\+java}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\label{classobject_1_1_os_object_aa05d7f8f9f1d5669292046eceffd2c0e}} 
+\index{object.OsObject@{object.OsObject}!collision@{collision}}
+\index{collision@{collision}!object.OsObject@{object.OsObject}}
+\doxysubsubsection{collision}
+{\footnotesize\ttfamily boolean object.\+Os\+Object.\+collision = false}
+
+
+
+Definition at line \textbf{ 25} of file \textbf{ Os\+Object.\+java}.
+
+\mbox{\label{classobject_1_1_os_object_a8483428dc1e84b9205c3649b57ae3ae7}} 
+\index{object.OsObject@{object.OsObject}!defaultTileSize@{defaultTileSize}}
+\index{defaultTileSize@{defaultTileSize}!object.OsObject@{object.OsObject}}
+\doxysubsubsection{defaultTileSize}
+{\footnotesize\ttfamily int object.\+Os\+Object.\+default\+Tile\+Size = 48\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \textbf{ 21} of file \textbf{ Os\+Object.\+java}.
+
+\mbox{\label{classobject_1_1_os_object_ac3ffd8ac7650723736beea1d19c5b980}} 
+\index{object.OsObject@{object.OsObject}!hitbox@{hitbox}}
+\index{hitbox@{hitbox}!object.OsObject@{object.OsObject}}
+\doxysubsubsection{hitbox}
+{\footnotesize\ttfamily Rectangle object.\+Os\+Object.\+hitbox = new Rectangle(0, 0, \textbf{ default\+Tile\+Size}, \textbf{ default\+Tile\+Size})}
+
+
+
+Definition at line \textbf{ 27} of file \textbf{ Os\+Object.\+java}.
+
+\mbox{\label{classobject_1_1_os_object_a47be4d3e929f6d3720f004a80175ba39}} 
+\index{object.OsObject@{object.OsObject}!hitboxDefaultX@{hitboxDefaultX}}
+\index{hitboxDefaultX@{hitboxDefaultX}!object.OsObject@{object.OsObject}}
+\doxysubsubsection{hitboxDefaultX}
+{\footnotesize\ttfamily int object.\+Os\+Object.\+hitbox\+DefaultX = 0\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \textbf{ 28} of file \textbf{ Os\+Object.\+java}.
+
+\mbox{\label{classobject_1_1_os_object_adb470b8307675bb4db574edd7beb38c3}} 
+\index{object.OsObject@{object.OsObject}!hitboxDefaultY@{hitboxDefaultY}}
+\index{hitboxDefaultY@{hitboxDefaultY}!object.OsObject@{object.OsObject}}
+\doxysubsubsection{hitboxDefaultY}
+{\footnotesize\ttfamily int object.\+Os\+Object.\+hitbox\+DefaultY = 0\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \textbf{ 29} of file \textbf{ Os\+Object.\+java}.
+
+\mbox{\label{classobject_1_1_os_object_ab5f130e9c4071d8e8d3be7807c049a69}} 
+\index{object.OsObject@{object.OsObject}!sheet@{sheet}}
+\index{sheet@{sheet}!object.OsObject@{object.OsObject}}
+\doxysubsubsection{sheet}
+{\footnotesize\ttfamily transient \textbf{ Sheet\+Loader} object.\+Os\+Object.\+sheet\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \textbf{ 23} of file \textbf{ Os\+Object.\+java}.
+
+\mbox{\label{classobject_1_1_os_object_aa12adf4058ca516a2bbb78cd845fab6d}} 
+\index{object.OsObject@{object.OsObject}!skin@{skin}}
+\index{skin@{skin}!object.OsObject@{object.OsObject}}
+\doxysubsubsection{skin}
+{\footnotesize\ttfamily transient Buffered\+Image object.\+Os\+Object.\+skin\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \textbf{ 22} of file \textbf{ Os\+Object.\+java}.
+
+\mbox{\label{classobject_1_1_os_object_af11f5428937bc2a3feca5c43c69ecc55}} 
+\index{object.OsObject@{object.OsObject}!unBreakAble@{unBreakAble}}
+\index{unBreakAble@{unBreakAble}!object.OsObject@{object.OsObject}}
+\doxysubsubsection{unBreakAble}
+{\footnotesize\ttfamily boolean object.\+Os\+Object.\+un\+Break\+Able = false\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \textbf{ 31} of file \textbf{ Os\+Object.\+java}.
+
+\mbox{\label{classobject_1_1_os_object_a91159d1f8716489e8da0de1a9cd1380b}} 
+\index{object.OsObject@{object.OsObject}!x@{x}}
+\index{x@{x}!object.OsObject@{object.OsObject}}
+\doxysubsubsection{x}
+{\footnotesize\ttfamily int object.\+Os\+Object.\+x}
+
+
+
+Definition at line \textbf{ 26} of file \textbf{ Os\+Object.\+java}.
+
+\mbox{\label{classobject_1_1_os_object_a77f3a709e58bfed6f0a0db68f022d0e1}} 
+\index{object.OsObject@{object.OsObject}!y@{y}}
+\index{y@{y}!object.OsObject@{object.OsObject}}
+\doxysubsubsection{y}
+{\footnotesize\ttfamily int object.\+Os\+Object.\+y}
+
+
+
+Definition at line \textbf{ 26} of file \textbf{ Os\+Object.\+java}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+object/\textbf{ Os\+Object.\+java}\end{DoxyCompactItemize}

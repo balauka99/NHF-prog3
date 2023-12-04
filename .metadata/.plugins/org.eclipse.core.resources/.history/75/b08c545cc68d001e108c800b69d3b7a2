@@ -1,0 +1,37 @@
+package tile;
+
+import java.awt.image.BufferedImage;
+import java.io.Serializable;
+
+@SuppressWarnings("serial")
+/**
+ * Ebben az osztályban van elrátolva egyx tile-nak mimden adata, az OsPanel-ben van definiálva mekkora egy tile
+ */
+public class Tile implements Serializable{
+	private String name;
+	private transient BufferedImage skin;
+	private boolean collision = false;	//Ha hamis áttudnak rajta menni az entity osztály tagjai, de ha true akkor nem
+	
+	public void setSkin(BufferedImage img, String name) {
+		skin = img;
+		this.name = name;
+	}
+	public BufferedImage getSkin() {
+		return skin;
+	}
+	public void noCollision() {
+		collision = false;
+	}
+	public void enableCollision() {
+		collision = true;
+	}
+	public boolean isSolid() {
+		return collision;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+}

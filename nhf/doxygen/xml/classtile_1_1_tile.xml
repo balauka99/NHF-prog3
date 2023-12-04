@@ -1,0 +1,207 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classtile_1_1_tile" kind="class" language="Java" prot="public">
+    <compoundname>tile::Tile</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Serializable</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classtile_1_1_tile_1abfe4ae46c8d5bf30056bdb95bf571b30" prot="private" static="no" mutable="no">
+        <type>String</type>
+        <definition>String tile.Tile.name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <qualifiedname>tile.Tile.name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Tile neve, fontos hogy tudjuk amikor betöltjük </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tile/Tile.java" line="15" column="16" bodyfile="tile/Tile.java" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtile_1_1_tile_1a32148ac64d7352be64dbe9eadb69d863" prot="private" static="no" mutable="no">
+        <type>transient BufferedImage</type>
+        <definition>transient BufferedImage tile.Tile.skin</definition>
+        <argsstring></argsstring>
+        <name>skin</name>
+        <qualifiedname>tile.Tile.skin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Kinézete a tile-nak </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tile/Tile.java" line="19" column="33" bodyfile="tile/Tile.java" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtile_1_1_tile_1adb9a2ffb72adbe176d97f6f85f14b856" prot="private" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean tile.Tile.collision</definition>
+        <argsstring></argsstring>
+        <name>collision</name>
+        <qualifiedname>tile.Tile.collision</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Ha hamis áttudnak rajta menni az entity(leginkább a Player-re vonatkozik) osztály tagjai, de ha true akkor nem </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tile/Tile.java" line="23" column="17" bodyfile="tile/Tile.java" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classtile_1_1_tile_1a136c756011d2a5c72fb4962600365d30" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void tile.Tile.setSkin</definition>
+        <argsstring>(BufferedImage img, String name)</argsstring>
+        <name>setSkin</name>
+        <qualifiedname>tile.Tile.setSkin</qualifiedname>
+        <param>
+          <type>BufferedImage</type>
+          <declname>img</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tile/Tile.java" line="25" column="13" bodyfile="tile/Tile.java" bodystart="25" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classtile_1_1_tile_1a42113fc91f7f4204cfa722404a94762f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>BufferedImage</type>
+        <definition>BufferedImage tile.Tile.getSkin</definition>
+        <argsstring>()</argsstring>
+        <name>getSkin</name>
+        <qualifiedname>tile.Tile.getSkin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tile/Tile.java" line="29" column="22" bodyfile="tile/Tile.java" bodystart="29" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classtile_1_1_tile_1a1c7b9d3cc3c90ad0dee9b5ff34d6acb4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void tile.Tile.noCollision</definition>
+        <argsstring>()</argsstring>
+        <name>noCollision</name>
+        <qualifiedname>tile.Tile.noCollision</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tile/Tile.java" line="32" column="13" bodyfile="tile/Tile.java" bodystart="32" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="classtile_1_1_tile_1a3a045d8f11369d24b06335e302d1678e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void tile.Tile.enableCollision</definition>
+        <argsstring>()</argsstring>
+        <name>enableCollision</name>
+        <qualifiedname>tile.Tile.enableCollision</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tile/Tile.java" line="35" column="13" bodyfile="tile/Tile.java" bodystart="35" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="classtile_1_1_tile_1aed9cfa3726d5f5594992acf6acda3612" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean tile.Tile.isSolid</definition>
+        <argsstring>()</argsstring>
+        <name>isSolid</name>
+        <qualifiedname>tile.Tile.isSolid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tile/Tile.java" line="38" column="16" bodyfile="tile/Tile.java" bodystart="38" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classtile_1_1_tile_1a3fce90ea1772133ec8c795fecb142f4a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String tile.Tile.getName</definition>
+        <argsstring>()</argsstring>
+        <name>getName</name>
+        <qualifiedname>tile.Tile.getName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tile/Tile.java" line="41" column="15" bodyfile="tile/Tile.java" bodystart="41" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classtile_1_1_tile_1a0cfd6b21798fc0e79ed446e2eb75315e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void tile.Tile.setName</definition>
+        <argsstring>(String name)</argsstring>
+        <name>setName</name>
+        <qualifiedname>tile.Tile.setName</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tile/Tile.java" line="44" column="13" bodyfile="tile/Tile.java" bodystart="44" bodyend="46"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Ebben az osztályban van elrátolva egyx tile-nak mimden adata, az OsPanel-ben van definiálva mekkora egy tile 48x48 a rendes mére a scale után, de minden kép 16x16-os méretben lett megrajzolva </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Serializable</label>
+      </node>
+      <node id="1">
+        <label>tile.Tile</label>
+        <link refid="classtile_1_1_tile"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Serializable</label>
+      </node>
+      <node id="1">
+        <label>tile.Tile</label>
+        <link refid="classtile_1_1_tile"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="tile/Tile.java" line="11" column="7" bodyfile="tile/Tile.java" bodystart="11" bodyend="47"/>
+    <listofallmembers>
+      <member refid="classtile_1_1_tile_1adb9a2ffb72adbe176d97f6f85f14b856" prot="private" virt="non-virtual"><scope>tile::Tile</scope><name>collision</name></member>
+      <member refid="classtile_1_1_tile_1a3a045d8f11369d24b06335e302d1678e" prot="public" virt="non-virtual"><scope>tile::Tile</scope><name>enableCollision</name></member>
+      <member refid="classtile_1_1_tile_1a3fce90ea1772133ec8c795fecb142f4a" prot="public" virt="non-virtual"><scope>tile::Tile</scope><name>getName</name></member>
+      <member refid="classtile_1_1_tile_1a42113fc91f7f4204cfa722404a94762f" prot="public" virt="non-virtual"><scope>tile::Tile</scope><name>getSkin</name></member>
+      <member refid="classtile_1_1_tile_1aed9cfa3726d5f5594992acf6acda3612" prot="public" virt="non-virtual"><scope>tile::Tile</scope><name>isSolid</name></member>
+      <member refid="classtile_1_1_tile_1abfe4ae46c8d5bf30056bdb95bf571b30" prot="private" virt="non-virtual"><scope>tile::Tile</scope><name>name</name></member>
+      <member refid="classtile_1_1_tile_1a1c7b9d3cc3c90ad0dee9b5ff34d6acb4" prot="public" virt="non-virtual"><scope>tile::Tile</scope><name>noCollision</name></member>
+      <member refid="classtile_1_1_tile_1a0cfd6b21798fc0e79ed446e2eb75315e" prot="public" virt="non-virtual"><scope>tile::Tile</scope><name>setName</name></member>
+      <member refid="classtile_1_1_tile_1a136c756011d2a5c72fb4962600365d30" prot="public" virt="non-virtual"><scope>tile::Tile</scope><name>setSkin</name></member>
+      <member refid="classtile_1_1_tile_1a32148ac64d7352be64dbe9eadb69d863" prot="private" virt="non-virtual"><scope>tile::Tile</scope><name>skin</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

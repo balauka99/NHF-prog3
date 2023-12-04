@@ -1,0 +1,307 @@
+\doxysection{Game\+Panel.\+java}
+\label{_game_panel_8java_source}\index{gameplay/GamePanel.java@{gameplay/GamePanel.java}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{package\ }gameplay;}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{import}\ java.awt.Color;}
+\DoxyCodeLine{00004\ \textcolor{keyword}{import}\ java.awt.Graphics;}
+\DoxyCodeLine{00005\ \textcolor{keyword}{import}\ java.awt.Graphics2D;}
+\DoxyCodeLine{00006\ \textcolor{keyword}{import}\ java.io.IOException;}
+\DoxyCodeLine{00007\ \textcolor{keyword}{import}\ java.util.ArrayList;}
+\DoxyCodeLine{00008\ \textcolor{keyword}{import}\ java.util.Random;}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{import}\ javax.swing.JLabel;}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{import}\ entity.Entity;}
+\DoxyCodeLine{00013\ \textcolor{keyword}{import}\ entity.Player;}
+\DoxyCodeLine{00014\ \textcolor{keyword}{import}\ error.OwnError;}
+\DoxyCodeLine{00015\ \textcolor{keyword}{import}\ loaders.BestRounds;}
+\DoxyCodeLine{00016\ \textcolor{keyword}{import}\ loaders.Score;}
+\DoxyCodeLine{00017\ \textcolor{keyword}{import}\ \textcolor{keywordtype}{object}.Heart;}
+\DoxyCodeLine{00018\ \textcolor{keyword}{import}\ \textcolor{keywordtype}{object}.OsObject;}
+\DoxyCodeLine{00019\ \textcolor{keyword}{import}\ ospanel.DeadScreen;}
+\DoxyCodeLine{00020\ \textcolor{keyword}{import}\ ospanel.OsPanel;}
+\DoxyCodeLine{00021\ \textcolor{keyword}{import}\ tile.TileManager;}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ @SuppressWarnings(\textcolor{stringliteral}{"{}serial"{}})}
+\DoxyCodeLine{00028\ public\ class\ GamePanel\ extends\ OsPanel\ implements\ Runnable\{}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{public}\ Map\_Status\ map\_state\ =\ Map\_Status.IN\_NEW;}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{private}\ KeyHandler\ keyH\ =\ \textcolor{keyword}{new}\ KeyHandler();}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{transient}\ Thread\ mainT;}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{private}\ Player\ gamer;}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{public}\ ArrayList<Heart>\ player\_healt\ =\ \textcolor{keyword}{new}\ ArrayList<Heart>();\ \ \textcolor{comment}{//TODO\ mentsd\ el}}
+\DoxyCodeLine{00053\ \textcolor{comment}{}\ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{transient}\ String\ playerName;}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{transient}\ BestRounds\ playersScoures;}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{public}\ PreviousMaps\ prevMaps\ =\ \textcolor{keyword}{new}\ PreviousMaps();}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{boolean}\ isMapInPrevMaps\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{int}\ fps\ =\ 60;}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{public}\ TileManager\ tileMg;}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{public}\ CollisionChecker\ cChecker\ =\ \textcolor{keyword}{new}\ CollisionChecker(\textcolor{keyword}{this});}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{public}\ ArrayList<OsObject>\ objects\ =\ \textcolor{keyword}{new}\ ArrayList<OsObject>();}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keyword}{public}\ ArrayList<Entity>\ enemys\ =\ \textcolor{keyword}{new}\ ArrayList<Entity>();}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{public}\ AssetSetter\ assSetter;}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keyword}{public}\ UserInterface\ ui\ =\ \textcolor{keyword}{new}\ UserInterface(\textcolor{keyword}{this});}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{private}\ Random\ rndNum\ =\ \textcolor{keyword}{new}\ Random();}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ genNewMap()\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ mapNum\ =\ rndNum.nextInt(4)\ +\ 1;}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ tileMg\ =\ \textcolor{keyword}{new}\ TileManager(\textcolor{keyword}{this},\ \textcolor{stringliteral}{"{}/maps/map"{}}\ +\ mapNum\ +\ \textcolor{stringliteral}{"{}.txt"{}});}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ assSetter\ =\ \textcolor{keyword}{new}\ AssetSetter(\textcolor{keyword}{this},\ \textcolor{stringliteral}{"{}/obj\_positions/obj\_pos"{}}\ +\ mapNum\ +\ \textcolor{stringliteral}{"{}.txt"{}});}
+\DoxyCodeLine{00087\ \ \ \ \ \}}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keyword}{public}\ GamePanel(String\ character,\ String\ playerName)\ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ super();}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!playerName.equals(\textcolor{stringliteral}{"{}load\_game"{}}))\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ this.playerName\ =\ playerName;}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ playersScoures\ =\ BestRounds.loadBests(\textcolor{stringliteral}{"{}source/save\_file/bestRounds.txt"{}});}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ playersScoures.add(\textcolor{keyword}{new}\ Score(this.playerName,\ 0));}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!character.equals(\textcolor{stringliteral}{"{}load\_game"{}}))}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//gamer\ =\ new\ Player(this,\ keyH,\ character);}}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gamer\ =\ \textcolor{keyword}{new}\ Player(\textcolor{keyword}{this},\ keyH,\ \textcolor{stringliteral}{"{}throw"{}});}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (OwnError\ e)\ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this.errorIsHappened(e.getMessage());}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ this.addKeyListener(keyH);}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ this.setFocusable(\textcolor{keyword}{true});}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ this.setupHealtPos();}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ this.genNewMap();}
+\DoxyCodeLine{00116\ \ \ \ \ \}}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ setupGame()\ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(map\_state\ !=\ Map\_Status.ERROR)\ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ assSetter.setObject();}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ assSetter.setEnemys();}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (OwnError\ e)\ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this.errorIsHappened(e.getMessage());}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ gamer.defaultPos();}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00131\ \ \ \ \ \}}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ setupHealtPos()\ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Ballról\ jobbra\ a\ szívek}}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 5;\ i++)\ \{}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ player\_healt.add(\textcolor{keyword}{new}\ Heart());}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (OwnError\ e)\ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this.errorIsHappened(e.getMessage());}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ player\_healt.get(i).y\ =\ 14*tileSize;}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ player\_healt.get(i).x\ =\ (15+i)*tileSize;}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00146\ \ \ \ \ \}}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ startMainT()\ \{}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ mainT\ =\ \textcolor{keyword}{new}\ Thread(\textcolor{keyword}{this});}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ mainT.start();}
+\DoxyCodeLine{00153\ \ \ \ \ \}}
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ resetObjects()\ \{}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ objects\ =\ \textcolor{keyword}{new}\ ArrayList<OsObject>();}
+\DoxyCodeLine{00156\ \ \ \ \ \}}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ resetEnemys()\ \{}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ enemys\ =\ \textcolor{keyword}{new}\ ArrayList<Entity>();}
+\DoxyCodeLine{00159\ \ \ \ \ \}}
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ saveMap()\ \{}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!isMapInPrevMaps)\ \{}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ prevMaps.addPrevMap(tileMg,\ objects,\ enemys,\ assSetter,\ gamer.getX(),\ gamer.getY(),\ gamer.move\_dir,\ tileSize);}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ prevMaps.setupCurrentPrev();}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00168\ \ \ \ \ \}}
+\DoxyCodeLine{00169\ \ \ \ \ }
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ enterNewMap()\ \{}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ saveMap();}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ this.saveGameData();}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ this.genNewMap();}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ objects\ =\ \textcolor{keyword}{new}\ ArrayList<OsObject>();}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ enemys\ =\ \textcolor{keyword}{new}\ ArrayList<Entity>();}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ isMapInPrevMaps\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ map\_state\ =\ Map\_Status.IN\_NEW;}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ setupGame();}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ playersScoures.getCurrent().setPoint(gamer.getPoint());}
+\DoxyCodeLine{00183\ \ \ \ \ \}}
+\DoxyCodeLine{00188\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ getInformationFromMAP(Map\ tmp)\ \{}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ tileMg\ =\ tmp.getTileMg();}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ objects\ =\ tmp.getObjects();}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ enemys\ =\ tmp.getEnemys();}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ assSetter\ =\ tmp.getAssSetter();}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ isMapInPrevMaps\ =\ tmp.isMapInPrevMaps;}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ map\_state\ =\ tmp.map\_state;}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ this.reLoadALL();}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ assSetter.closeAllDoor();}
+\DoxyCodeLine{00197\ \ \ \ \ \}}
+\DoxyCodeLine{00201\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ loadPreviousMap()\ \{}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ saveMap();}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ Map\ tmp\ =\ prevMaps.getPrevious();}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(tmp\ ==\ \textcolor{keyword}{null})\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ this.getInformationFromMAP(tmp);}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ gamer.setX(tmp.getPlayerLastX());}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ gamer.setY(tmp.getPlayerLastY());}
+\DoxyCodeLine{00208\ \ \ \ \ \}}
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ enterPreviousMapFromPreviousMap()\ \{}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ Map\ tmp\ =\ prevMaps.getNextPrevMap();}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(tmp\ ==\ \textcolor{keyword}{null})\ \{}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ enterNewMap();}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ this.getInformationFromMAP(tmp);}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ gamer.defaultPos();}
+\DoxyCodeLine{00220\ \ \ \ \ \}}
+\DoxyCodeLine{00225\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ errorIsHappened(String\ error)\ \{}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ removeAll();}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ setLayout(\textcolor{keyword}{null});}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ this.map\_state\ =\ Map\_Status.ERROR;}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ JLabel\ errorMessage\ =\ \textcolor{keyword}{new}\ JLabel();}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ this.setBackground(Color.BLACK);}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ errorMessage.setBounds(250,\ 360,\ 540,\ 50);}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ errorMessage.setFont(defFont);}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ errorMessage.setForeground(Color.RED);}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ errorMessage.setText(error);}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ add(errorMessage);}
+\DoxyCodeLine{00236\ \ \ \ \ \}}
+\DoxyCodeLine{00240\ \ \ \ \ @Override}
+\DoxyCodeLine{00241\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ run()\ \{}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ drawInterval\ =\ 1000000000/fps;\ \ \ \textcolor{comment}{//\ Ez\ egy\ másodperc\ nano\ sec-\/ben\ nézve\ és\ elosztva\ az\ fps-\/el,\ ennyi\ időnként\ fissítsuk\ a\ képernyöt}}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ nextDrawTime\ =\ System.nanoTime()\ +\ drawInterval;\ \textcolor{comment}{//\ nano\ sec-\/ben\ számolva\ mikor\ kell\ kövinenk\ frissíteni\ a\ képet}}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{long}\ timer\ =\ 0;}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ drawCount\ =\ 0;}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ A\ game\ loop\ addig\ megy\ ameddig\ tart\ a\ main\ szállunk}}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(map\_state\ !=\ Map\_Status.ERROR\ \&\&\ gamer.getHealt()\ >\ 0)\ \{}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ updatePanel();}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (IOException\ e)\ \{}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ e.printStackTrace();}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ repaint();}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ drawCount++;}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ remainingTime\ =\ nextDrawTime\ -\/\ System.nanoTime();\ \ \ \ \textcolor{comment}{//\ maga\ a\ parancsok\ végrehajtása\ közben\ is\ eltelt\ idő,\ ha\ maradt\ azzal\ dolgozunk}}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ remainingTime\ /=\ 1000000;\ \ \ \textcolor{comment}{//\ nano\ sec-\/et\ át\ kell\ váltani\ milli\ sec-\/re,\ mert\ a\ sleep-\/nek\ az\ kell}}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(remainingTime\ <\ 0)\ \{}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ remainingTime\ =\ 0;\ \ \textcolor{comment}{//\ Ha\ gond\ lenne,\ lagolnánk,\ akkor\ ne\ essen\ minuszba\ a\ sleep\ time}}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Thread.sleep((\textcolor{keywordtype}{long})remainingTime);}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nextDrawTime\ +=\ drawInterval;}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Minden\ másodpercben\ kiírjuk,\ hányszor\ volt\ meghívva\ a\ repaint}}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (System.nanoTime()\ -\/\ timer\ >=\ 1000000000)\ \{}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ System.out.println(\textcolor{stringliteral}{"{}FPS:\ "{}}\ +\ drawCount);}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ drawCount\ =\ 0;}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ timer\ =\ System.nanoTime();}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (InterruptedException\ e)\ \{}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this.errorIsHappened(\textcolor{stringliteral}{"{}In\ GamePanel\ run:\ Thread.sleep\ throw\ InterruptedException"{}});}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00279\ \ \ \ \ \}}
+\DoxyCodeLine{00284\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ updatePanel()\ throws\ IOException\ \{}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!this.hasFocus())\ this.requestFocusInWindow();}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ gamer.update();}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(gamer.getHealt()\ ==\ 0)\ \{}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \ \ \ \ DeadScreen\ deadS\ =\ \textcolor{keyword}{new}\ DeadScreen(playerName,\ gamer.getPoint());}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ deadS.setMenuWin(menuWin);}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \ \ \ \ menuWin.addNewCard(deadS,\ \textcolor{stringliteral}{"{}DeadScreen"{}});}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ menuWin.changeCard(\textcolor{stringliteral}{"{}DeadScreen"{}});}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00293\ \ \ \ \ \}}
+\DoxyCodeLine{00298\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{boolean}\ isLevelCleared()\ \{}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ enemys.size();\ i++)\ \{}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!enemys.get(i).isDead())\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00303\ \ \ \ \ \}}
+\DoxyCodeLine{00304\ \ \ \ \ }
+\DoxyCodeLine{00305\ \ \ \ \ \textcolor{comment}{//\ GETTERS}}
+\DoxyCodeLine{00306\ \ \ \ \ \textcolor{keyword}{public}\ KeyHandler\ getKeyListener()\ \{}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ keyH;}
+\DoxyCodeLine{00308\ \ \ \ \ \}}
+\DoxyCodeLine{00309\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ getPlayerPoint()\ \{}
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ gamer.getPoint();}
+\DoxyCodeLine{00311\ \ \ \ \ \}}
+\DoxyCodeLine{00312\ \ \ \ \ \textcolor{keyword}{public}\ Player\ getPlayer()\ \{}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ gamer;}
+\DoxyCodeLine{00314\ \ \ \ \ \}}
+\DoxyCodeLine{00315\ \ \ \ \ \textcolor{keyword}{public}\ String\ getPlayerName()\ \{}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ playerName;}
+\DoxyCodeLine{00317\ \ \ \ \ \}}
+\DoxyCodeLine{00318\ \ \ \ \ \textcolor{keyword}{public}\ BestRounds\ getPLayersScore()\ \{}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ playersScoures;}
+\DoxyCodeLine{00320\ \ \ \ \ \}}
+\DoxyCodeLine{00321\ \ \ \ \ }
+\DoxyCodeLine{00325\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ paintComponent(Graphics\ grap)\ \{}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(map\_state\ !=\ Map\_Status.ERROR)\ \{}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Itt\ kell\ rajzolni\ minden\ fel}}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \ \ \ \ super.paintComponent(grap);}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \ \ \ \ Graphics2D\ grap2\ =\ (Graphics2D)\ grap;}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Tileok,\ legalsó\ elemek}}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \ \ \ \ tileMg.draw(grap2);\ \textcolor{comment}{//\ Előbb\ ezt\ kell\ meghívni,\ hogy\ a\ tileok\ legyenek\ hátrébb\ a\ layerben}}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Objectek}}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ objects.size();\ i++)\ \{}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ objects.get(i).draw(grap2,\ \textcolor{keyword}{this});}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Entity\ draw}}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ enemys.size();\ i++)\ \{}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ enemys.get(i).draw(grap2);}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Játékos,\ neki\ kell\ lennie\ legfent}}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ player\_healt.size();\ i++)\ \{}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ player\_healt.get(i).draw(grap2,\ \textcolor{keyword}{this});}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \ \ \ \ gamer.draw(grap2);}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \ \ \ \ ui.draw(grap2);}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ \ \ \ \ grap2.dispose();\ \ \ \ \textcolor{comment}{//\ Megsporolunk\ egy\ kis\ memóriát}}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00354\ \ \ \ \ \}}
+\DoxyCodeLine{00358\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ saveGameData()\ \{}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ prevMaps.setSavedPlayer(gamer);}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ prevMaps.setPlayer\_healt(player\_healt);}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Fogalmam\ sincsen\ miért,\ de\ nem\ működött\ máshogy\ :(}}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ PreviousMaps.saveAllPreviousMaps(prevMaps,\ \textcolor{stringliteral}{"{}C:\(\backslash\)\(\backslash\)OwnThings\(\backslash\)\(\backslash\)BME\_mernokinfo\(\backslash\)\(\backslash\)3félév\(\backslash\)\(\backslash\)Prog3\(\backslash\)\(\backslash\)NagyHázi\(\backslash\)\(\backslash\)nhf\(\backslash\)\(\backslash\)source\(\backslash\)\(\backslash\)save\_file\(\backslash\)\(\backslash\)last\_save.txt"{}});}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ playersScoures.getCurrent().setPoint(gamer.getPoint());}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ BestRounds.saveBests(playersScoures,\ \textcolor{stringliteral}{"{}C:\(\backslash\)\(\backslash\)OwnThings\(\backslash\)\(\backslash\)BME\_mernokinfo\(\backslash\)\(\backslash\)3félév\(\backslash\)\(\backslash\)Prog3\(\backslash\)\(\backslash\)NagyHázi\(\backslash\)\(\backslash\)nhf\(\backslash\)\(\backslash\)source\(\backslash\)\(\backslash\)save\_file\(\backslash\)\(\backslash\)bestRounds.txt"{}});}
+\DoxyCodeLine{00365\ \ \ \ \ \}}
+\DoxyCodeLine{00369\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ reLoadALL()\ \{}
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ \ \ \ \ tileMg.reLoadTileSkins(\textcolor{keyword}{this});}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \ \ \ \ assSetter.reLoad(\textcolor{keyword}{this});}
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ objects.size();\ i++)\ \{}
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ objects.get(i).reLoad();}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ enemys.size();\ i++)\ \{}
+\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ enemys.get(i).reLoad();}
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ \ \ \ \ this.gamer.reLoad(\textcolor{keyword}{this},\ this.keyH);}
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (OwnError\ e)\ \{}
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ \ \ \ \ this.errorIsHappened(e.getMessage());}
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00383\ \ \ \ \ \}}
+\DoxyCodeLine{00387\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ loadGameData()\ \{}
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Egyszerűen\ sehogy\ se\ tudom\ miért\ nem\ müködik\ úgy,\ hogy\ /save\_file/last\_save.txt}}
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ this.prevMaps\ =\ PreviousMaps.loadALlPreviousMaps(\textcolor{stringliteral}{"{}C:\(\backslash\)\(\backslash\)OwnThings\(\backslash\)\(\backslash\)BME\_mernokinfo\(\backslash\)\(\backslash\)3félév\(\backslash\)\(\backslash\)Prog3\(\backslash\)\(\backslash\)NagyHázi\(\backslash\)\(\backslash\)nhf\(\backslash\)\(\backslash\)source\(\backslash\)\(\backslash\)save\_file\(\backslash\)\(\backslash\)last\_save.txt"{}});}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ this.playersScoures\ =\ BestRounds.loadBests(\textcolor{stringliteral}{"{}C:\(\backslash\)\(\backslash\)OwnThings\(\backslash\)\(\backslash\)BME\_mernokinfo\(\backslash\)\(\backslash\)3félév\(\backslash\)\(\backslash\)Prog3\(\backslash\)\(\backslash\)NagyHázi\(\backslash\)\(\backslash\)nhf\(\backslash\)\(\backslash\)source\(\backslash\)\(\backslash\)save\_file\(\backslash\)\(\backslash\)bestRounds.txt"{}});}
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ this.playerName\ =\ playersScoures.getCurrent().getName();}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ Map\ tmp\ =\ prevMaps.get(prevMaps.size()-\/1);}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ this.gamer\ =\ prevMaps.getSavedPlayer();}
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ this.player\_healt\ =\ prevMaps.getPlayer\_healt();}
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ player\_healt.size();\ i++)\ \{}
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ player\_healt.get(i).reLoad();}
+\DoxyCodeLine{00398\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00399\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (OwnError\ e)\ \{}
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ \ \ \ \ this.errorIsHappened(e.getMessage());}
+\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00402\ \ \ \ \ \ \ \ \ this.getInformationFromMAP(tmp);}
+\DoxyCodeLine{00403\ \ \ \ \ \}}
+\DoxyCodeLine{00404\ \}}
+
+\end{DoxyCode}

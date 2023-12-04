@@ -1,0 +1,11 @@
+package objects;
+
+import object.OsObject;
+
+public class TestOsObject {
+	OsObject tested;
+	@Before
+	public void setup() {
+		tested = new OsObject();
+	}
+}

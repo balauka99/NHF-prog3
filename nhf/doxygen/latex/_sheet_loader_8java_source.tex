@@ -1,0 +1,56 @@
+\doxysection{Sheet\+Loader.\+java}
+\label{_sheet_loader_8java_source}\index{loaders/SheetLoader.java@{loaders/SheetLoader.java}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{package\ }loaders;}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{import}\ java.awt.image.BufferedImage;}
+\DoxyCodeLine{00004\ \textcolor{keyword}{import}\ java.io.IOException;}
+\DoxyCodeLine{00005\ \textcolor{keyword}{import}\ java.io.Serializable;}
+\DoxyCodeLine{00006\ \textcolor{keyword}{import}\ java.util.ArrayList;}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{import}\ javax.imageio.ImageIO;}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{import}\ error.OwnError;}
+\DoxyCodeLine{00011\ \textcolor{keyword}{import}\ gameplay.UtilityTools;}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ @SuppressWarnings(\textcolor{stringliteral}{"{}serial"{}})}
+\DoxyCodeLine{00018\ public\ class\ SheetLoader\ extends\ ArrayList<BufferedImage>\ implements\ Serializable\{}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{private}\ BufferedImage\ sheet;}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{int}\ maxcol,\ maxrow,\ frameWidth,\ frameHeight;}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{public}\ SheetLoader(String\ filename,\ \textcolor{keywordtype}{int}\ mcol,\ \textcolor{keywordtype}{int}\ mrow,\ \textcolor{keywordtype}{int}\ fHeight,\ \textcolor{keywordtype}{int}\ fWidth)\ \textcolor{keywordflow}{throws}\ OwnError\{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ sheet\ =\ ImageIO.read(getClass().getResourceAsStream(filename));}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (IOException\ e)\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ OwnError(\textcolor{stringliteral}{"{}SheetLoader:\ IOException\ is\ found!"{}});}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (IllegalArgumentException\ e)\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ OwnError(\textcolor{stringliteral}{"{}SheetLoader:\ Bad\ File\ name\ -\/>"{}}\ +\ filename);}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (NullPointerException\ e)\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ OwnError(\textcolor{stringliteral}{"{}SheetLoader:\ Can't\ find\ Image\ in\ file\ -\/>"{}}\ +\ filename);}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ maxcol\ =\ mcol;}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ maxrow\ =\ mrow;}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ frameHeight\ =\ fHeight;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ frameWidth\ =\ fWidth;}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ makeArray();}
+\DoxyCodeLine{00053\ \ \ \ \ \}}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ makeArray()\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ UtilityTools\ uT\ =\ \textcolor{keyword}{new}\ UtilityTools();}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ currentLoad\ =\ 0;}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ (maxcol\ *\ maxrow);\ i++)\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ col\ =\ currentLoad\ \%\ maxcol;}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ row\ =\ currentLoad\ /\ maxcol;}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ x\ =\ col\ *\ frameWidth;}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ y\ =\ row\ *\ frameHeight;}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ sizeToScale\ =\ 48;}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(frameWidth\ >\ sizeToScale\ ||\ frameHeight\ >\ sizeToScale)\ add(sheet.getSubimage(x,\ y,\ frameWidth,\ frameHeight));\ \ \ \ \textcolor{comment}{//Kissebre\ valamiért\ nem\ tud\ scalelni\ jól\ a\ BufferedReader,\ szétesinek\ a\ képek}}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ add(uT.scaleImage(sheet.getSubimage(x,\ y,\ frameWidth,\ frameHeight),\ sizeToScale,\ sizeToScale));}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ currentLoad\ =\ (currentLoad\ +\ 1)\ \%\ (maxcol\ *\ maxrow);}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00073\ \ \ \ \ \}}
+\DoxyCodeLine{00074\ \}}
+
+\end{DoxyCode}

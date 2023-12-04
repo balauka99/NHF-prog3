@@ -1,0 +1,98 @@
+\doxysection{Best\+Rounds\+Panel.\+java}
+\label{_best_rounds_panel_8java_source}\index{menu/BestRoundsPanel.java@{menu/BestRoundsPanel.java}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{package\ }menu;}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{import}\ java.awt.Color;}
+\DoxyCodeLine{00004\ \textcolor{keyword}{import}\ java.awt.Font;}
+\DoxyCodeLine{00005\ \textcolor{keyword}{import}\ java.awt.Graphics;}
+\DoxyCodeLine{00006\ \textcolor{keyword}{import}\ java.awt.Graphics2D;}
+\DoxyCodeLine{00007\ \textcolor{keyword}{import}\ java.awt.event.ActionEvent;}
+\DoxyCodeLine{00008\ \textcolor{keyword}{import}\ java.awt.event.ActionListener;}
+\DoxyCodeLine{00009\ \textcolor{keyword}{import}\ java.awt.image.BufferedImage;}
+\DoxyCodeLine{00010\ \textcolor{keyword}{import}\ java.io.IOException;}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{import}\ javax.imageio.ImageIO;}
+\DoxyCodeLine{00013\ \textcolor{keyword}{import}\ javax.swing.JButton;}
+\DoxyCodeLine{00014\ \textcolor{keyword}{import}\ javax.swing.JLabel;}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{import}\ gameplay.UtilityTools;}
+\DoxyCodeLine{00017\ \textcolor{keyword}{import}\ loaders.BestRounds;}
+\DoxyCodeLine{00018\ \textcolor{keyword}{import}\ ospanel.OsPanel;}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ @SuppressWarnings(\textcolor{stringliteral}{"{}serial"{}})}
+\DoxyCodeLine{00025\ public\ class\ BestRoundsPanel\ extends\ OsPanel\{}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{private}\ BestRounds\ bests\ =\ BestRounds.loadBests(\textcolor{stringliteral}{"{}source/save\_file/bestRounds.txt"{}});}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{private}\ JLabel\ field1\ =\ \textcolor{keyword}{new}\ JLabel();}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{private}\ JLabel\ field2\ =\ \textcolor{keyword}{new}\ JLabel();}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{private}\ JLabel\ field3\ =\ \textcolor{keyword}{new}\ JLabel();}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{private}\ BufferedImage\ backGround;}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{public}\ BestRoundsPanel(MainMenu\ win)\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ super();}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ UtilityTools\ uT\ =\ \textcolor{keyword}{new}\ UtilityTools();}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ backGround\ =\ uT.scaleImage(ImageIO.read(getClass().getResourceAsStream(\textcolor{stringliteral}{"{}/menu/menu\_backG.png"{}})),\ 960,\ 720);}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (IOException\ e)\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ e.printStackTrace();}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ win.setTitle(\textcolor{stringliteral}{"{}Best\ Rounds"{}});}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ Font\ defFont\ =\ \textcolor{keyword}{new}\ Font(\textcolor{stringliteral}{"{}Century\ Gothic"{}},\ Font.BOLD,\ 24);}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ JButton\ backB\ =\ \textcolor{keyword}{new}\ JButton(\textcolor{stringliteral}{"{}BACK"{}});}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ setLayout(\textcolor{keyword}{null});}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ backB.setBackground(Color.gray);}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ backB.setForeground(Color.cyan);}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ backB.setFont(defFont);}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ backB.setBounds(430,\ 500,\ 100,\ 50);}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ backB.addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ win.changeCard(\textcolor{stringliteral}{"{}Menu"{}});}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ field1.setBounds(440,\ 300,\ 300,\ 50);}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ field1.setFont(defFont);}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ field1.setForeground(Color.cyan);}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ field2.setBounds(440,\ 300+50,\ 300,\ 50);}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ field2.setFont(defFont);}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ field2.setFont(defFont);}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ field2.setForeground(Color.cyan);}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ field3.setBounds(440,\ 300+100,\ 300,\ 50);}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ field3.setFont(defFont);}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ field3.setFont(defFont);}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ field3.setForeground(Color.cyan);}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ writeScore();}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ add(backB);}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ add(field1);}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ add(field2);}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ add(field3);}
+\DoxyCodeLine{00069\ \ \ \ \ \}}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ writeScore()\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(bests.size()\ >=\ 1)\ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ ind\ =\ 0;}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ ind2\ =\ 0;}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ ind3\ =\ 0;}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ bests.size();\ i++)\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(bests.get(ind).getPoint()\ <\ bests.get(i).getPoint())\ ind\ =\ i;}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ bests.size();\ i++)\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(i\ ==\ ind)\ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(bests.get(ind2).getPoint()\ <\ bests.get(i).getPoint())\ ind2\ =\ i;}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ bests.size();\ i++)\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(i\ ==\ ind\ ||\ i\ ==\ ind2)\ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(bests.get(ind3).getPoint()\ <\ bests.get(i).getPoint())\ ind3\ =\ i;}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ field1.setText(bests.get(ind).getName()\ +\ \textcolor{stringliteral}{"{}\ "{}}\ +\ bests.get(ind).getPoint());}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ field2.setText(bests.get(ind2).getName()\ +\ \textcolor{stringliteral}{"{}\ "{}}\ +\ bests.get(ind2).getPoint());}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ field3.setText(bests.get(ind3).getName()\ +\ \textcolor{stringliteral}{"{}\ "{}}\ +\ bests.get(ind3).getPoint());}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00090\ \ \ \ \ \}}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keyword}{protected}\ \textcolor{keywordtype}{void}\ paintComponent(Graphics\ g)\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ super.paintComponent(g);}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ Graphics2D\ grap2\ =\ (Graphics2D)\ g;}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ grap2.drawImage(backGround,\ 0,\ 0,\ \textcolor{keyword}{null});}
+\DoxyCodeLine{00095\ \ \ \ \ \}}
+\DoxyCodeLine{00096\ \}}
+
+\end{DoxyCode}

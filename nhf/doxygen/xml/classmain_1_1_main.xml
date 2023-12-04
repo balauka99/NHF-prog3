@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classmain_1_1_main" kind="class" language="Java" prot="public">
+    <compoundname>main::Main</compoundname>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classmain_1_1_main_1aba0b686689a563d42ee162e8a9016e71" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void main.Main.main</definition>
+        <argsstring>(String[] arg)</argsstring>
+        <name>main</name>
+        <qualifiedname>main.Main.main</qualifiedname>
+        <param>
+          <type>String[]</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="main/Main.java" line="9" column="20" bodyfile="main/Main.java" bodystart="9" bodyend="12"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A Main függvény, ami gyakorlatilag csak készít egy MainMenu ablakot amit megjelenít </para>
+    </detaileddescription>
+    <location file="main/Main.java" line="8" column="7" bodyfile="main/Main.java" bodystart="8" bodyend="13"/>
+    <listofallmembers>
+      <member refid="classmain_1_1_main_1aba0b686689a563d42ee162e8a9016e71" prot="public" virt="non-virtual"><scope>main::Main</scope><name>main</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

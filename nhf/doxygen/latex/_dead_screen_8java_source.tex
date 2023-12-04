@@ -1,0 +1,65 @@
+\doxysection{Dead\+Screen.\+java}
+\label{_dead_screen_8java_source}\index{ospanel/DeadScreen.java@{ospanel/DeadScreen.java}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{package\ }ospanel;}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{import}\ java.awt.Color;}
+\DoxyCodeLine{00004\ \textcolor{keyword}{import}\ java.awt.Graphics;}
+\DoxyCodeLine{00005\ \textcolor{keyword}{import}\ java.awt.Graphics2D;}
+\DoxyCodeLine{00006\ \textcolor{keyword}{import}\ java.awt.event.ActionEvent;}
+\DoxyCodeLine{00007\ \textcolor{keyword}{import}\ java.awt.event.ActionListener;}
+\DoxyCodeLine{00008\ \textcolor{keyword}{import}\ java.awt.image.BufferedImage;}
+\DoxyCodeLine{00009\ \textcolor{keyword}{import}\ java.io.IOException;}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{import}\ javax.imageio.ImageIO;}
+\DoxyCodeLine{00012\ \textcolor{keyword}{import}\ javax.swing.JButton;}
+\DoxyCodeLine{00013\ \textcolor{keyword}{import}\ javax.swing.JLabel;}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{import}\ gameplay.UtilityTools;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ @SuppressWarnings(\textcolor{stringliteral}{"{}serial"{}})}
+\DoxyCodeLine{00021\ public\ class\ DeadScreen\ extends\ OsPanel\{}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{private}\ BufferedImage\ backGround;}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{private}\ JLabel\ info\ =\ \textcolor{keyword}{new}\ JLabel();}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{private}\ JButton\ backMainMenu\ =\ \textcolor{keyword}{new}\ JButton(\textcolor{stringliteral}{"{}Back\ To\ Main\ Menu"{}});}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{public}\ DeadScreen(String\ name,\ \textcolor{keywordtype}{int}\ point)\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ super();}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ UtilityTools\ uT\ =\ \textcolor{keyword}{new}\ UtilityTools();}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ backGround\ =\ uT.scaleImage(ImageIO.read(getClass().getResourceAsStream(\textcolor{stringliteral}{"{}/menu/deadScreen.png"{}})),\ 960,\ 720);}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (IOException\ e)\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO\ Auto-\/generated\ catch\ block}}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ e.printStackTrace();}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ setLayout(\textcolor{keyword}{null});}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ info.setBounds(250,\ 360,\ 540,\ 50);}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ info.setBackground(Color.GRAY);}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ info.setForeground(Color.CYAN);}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ info.setFont(defFont);}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ info.setText(\textcolor{stringliteral}{"{}You\ are\ DEAD\ "{}}\ +\ name\ +\ \textcolor{stringliteral}{"{}\ and\ your\ point\ is\ "{}}\ +\ point);}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ backMainMenu.setBounds(280,\ 560,\ 400,\ 50);}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ backMainMenu.setBackground(Color.GRAY);}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ backMainMenu.setForeground(Color.CYAN);}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ backMainMenu.setFont(defFont);}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ backMainMenu.addActionListener(\textcolor{keyword}{new}\ BackToMainMenu());}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ add(info);}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ add(backMainMenu);}
+\DoxyCodeLine{00049\ \ \ \ \ \}}
+\DoxyCodeLine{00050\ \ \ \ \ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{class\ }BackToMainMenu\ \textcolor{keyword}{implements}\ ActionListener\{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ newgame)\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ menuWin.changeCard(\textcolor{stringliteral}{"{}Menu"{}});}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00055\ \ \ \ \ \}}
+\DoxyCodeLine{00056\ \ \ \ \ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{protected}\ \textcolor{keywordtype}{void}\ paintComponent(Graphics\ g)\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ super.paintComponent(g);}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ Graphics2D\ grap2\ =\ (Graphics2D)\ g;}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ grap2.drawImage(backGround,\ 0,\ 0,\ \textcolor{keyword}{null});}
+\DoxyCodeLine{00061\ \ \ \ \ \}}
+\DoxyCodeLine{00062\ \}}
+
+\end{DoxyCode}

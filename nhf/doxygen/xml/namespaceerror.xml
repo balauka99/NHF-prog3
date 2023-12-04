@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="namespaceerror" kind="namespace" language="Java">
+    <compoundname>error</compoundname>
+    <innerclass refid="classerror_1_1_own_error" prot="public">error::OwnError</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="error/OwnError.java" line="1" column="15"/>
+  </compounddef>
+</doxygen>

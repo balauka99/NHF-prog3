@@ -1,0 +1,54 @@
+digraph "gameplay.CollisionChecker"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [label="gameplay.CollisionChecker",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node2 -> Node1 [dir="back",color="steelblue1",style="solid"];
+  Node2 [label="Serializable",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
+  Node3 -> Node1 [dir="back",color="darkorchid3",style="dashed",label=" gameP" ];
+  Node3 [label="gameplay.GamePanel",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$classgameplay_1_1_game_panel.html",tooltip=" "];
+  Node4 -> Node3 [dir="back",color="steelblue1",style="solid"];
+  Node4 [label="ospanel.OsPanel",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$classospanel_1_1_os_panel.html",tooltip=" "];
+  Node5 -> Node4 [dir="back",color="steelblue1",style="solid"];
+  Node5 [label="JPanel",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
+  Node6 -> Node4 [dir="back",color="darkorchid3",style="dashed",label=" menuWin" ];
+  Node6 [label="menu.MainMenu",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$classmenu_1_1_main_menu.html",tooltip=" "];
+  Node7 -> Node6 [dir="back",color="steelblue1",style="solid"];
+  Node7 [label="JFrame",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
+  Node8 -> Node4 [dir="back",color="darkorchid3",style="dashed",label=" defFont" ];
+  Node8 [label="Font",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
+  Node9 -> Node3 [dir="back",color="steelblue1",style="solid"];
+  Node9 [label="Runnable",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
+  Node10 -> Node3 [dir="back",color="darkorchid3",style="dashed",label=" map_state" ];
+  Node10 [label="gameplay.Map_Status",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$enumgameplay_1_1_map___status.html",tooltip=" "];
+  Node11 -> Node3 [dir="back",color="darkorchid3",style="dashed",label=" player_healt" ];
+  Node11 [label="ArrayList\< object.Heart \>",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
+  Node12 -> Node3 [dir="back",color="darkorchid3",style="dashed",label=" prevMaps" ];
+  Node12 [label="gameplay.PreviousMaps",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$classgameplay_1_1_previous_maps.html",tooltip=" "];
+  Node13 -> Node12 [dir="back",color="steelblue1",style="solid"];
+  Node13 [label="ArrayList\< Map \>",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
+  Node2 -> Node12 [dir="back",color="steelblue1",style="solid"];
+  Node14 -> Node3 [dir="back",color="darkorchid3",style="dashed",label=" tileMg" ];
+  Node14 [label="tile.TileManager",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$classtile_1_1_tile_manager.html",tooltip=" "];
+  Node2 -> Node14 [dir="back",color="steelblue1",style="solid"];
+  Node15 -> Node14 [dir="back",color="darkorchid3",style="dashed",label=" tiles" ];
+  Node15 [label="tile.Tile",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$classtile_1_1_tile.html",tooltip=" "];
+  Node2 -> Node15 [dir="back",color="steelblue1",style="solid"];
+  Node16 -> Node3 [dir="back",color="darkorchid3",style="dashed",label=" cChecker" ];
+  Node16 [label="gameplay.CollisionChecker",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$classgameplay_1_1_collision_checker.html",tooltip=" "];
+  Node2 -> Node16 [dir="back",color="steelblue1",style="solid"];
+  Node3 -> Node16 [dir="back",color="darkorchid3",style="dashed",label=" gameP" ];
+  Node17 -> Node3 [dir="back",color="darkorchid3",style="dashed",label=" objects" ];
+  Node17 [label="ArrayList\< object.OsObject \>",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
+  Node18 -> Node3 [dir="back",color="darkorchid3",style="dashed",label=" enemys" ];
+  Node18 [label="ArrayList\< entity.Entity \>",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
+  Node19 -> Node3 [dir="back",color="darkorchid3",style="dashed",label=" assSetter" ];
+  Node19 [label="gameplay.AssetSetter",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$classgameplay_1_1_asset_setter.html",tooltip=" "];
+  Node2 -> Node19 [dir="back",color="steelblue1",style="solid"];
+  Node20 -> Node3 [dir="back",color="darkorchid3",style="dashed",label=" ui" ];
+  Node20 [label="gameplay.UserInterface",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$classgameplay_1_1_user_interface.html",tooltip=" "];
+  Node2 -> Node20 [dir="back",color="steelblue1",style="solid"];
+}

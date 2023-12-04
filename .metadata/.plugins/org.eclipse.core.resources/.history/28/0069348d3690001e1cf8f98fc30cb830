@@ -1,0 +1,43 @@
+package gameplay;
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
+import menu.MainMenu;
+
+public class TestGamePlay {
+	GamePanel tester;
+	MainMenu win;
+	String testCHARACTER = "viking";
+	String testNAME = "testerName";
+	/**
+	 * Beállítunk egy játékot
+	 */
+	@Before
+	public void setup() {
+		win = new MainMenu();
+		tester = new GamePanel(testCHARACTER, testNAME);
+		win.setTitle("Dungeon Run TEST");
+		win.addNewCard(tester, "Game_TEST");
+		tester.setMenuWin(win);
+		tester.setupGame();
+		tester.startMainT();
+		win.pack();
+		win.changeCard("Game_TEST");
+	}
+	/**
+	 * Megnézzük/Teszteljük, minden alapérték a helyén van, azaz mindennek a Poziciója ott van ahol lennie kell és a kapott értékek is helyesek
+	 */
+	@Test
+	public void testDefaultPositionsIsCorrect() {
+		Assert.assertTrue("Test Character name is correct", tester.getPlayer().getCharType().equals(testCHARACTER));
+		Assert.assertTrue("Test Player Name is correct", tester.getPlayerName().equals(testNAME));
+		Assert.assertNotNull("Test CollisionChecker is not null", tester.cChecker);
+		Assert.assertNotNull("Test ArrayList<OsObject> is not null", tester.objects);
+		Assert.assertNotNull("Test ArrayList<Entity> is not null", tester.enemys);
+		Assert.assertNotNull("Test UserInterface is not null", tester.ui);
+		Assert.assertNotNull("Test ArrayList<Heart> is not null", tester.player_healt);
+		Assert.assertEquals(0, 0);
+	}
+}

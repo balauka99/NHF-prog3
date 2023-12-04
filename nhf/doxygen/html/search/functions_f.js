@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['saveallpreviousmaps_0',['saveAllPreviousMaps',['../classgameplay_1_1_previous_maps.html#a71a50b6950ba63c7112846583dc53218',1,'gameplay::PreviousMaps']]],
+  ['savebests_1',['saveBests',['../classloaders_1_1_best_rounds.html#a00f5d2a173675288af5da01b6a7108f2',1,'loaders::BestRounds']]],
+  ['savemap_2',['saveMap',['../classgameplay_1_1_game_panel.html#ad60af0224bea69d6f771d11ff933951c',1,'gameplay::GamePanel']]],
+  ['scaleimage_3',['scaleImage',['../classgameplay_1_1_utility_tools.html#a71c48780886f140f3bd62ee480c13aca',1,'gameplay::UtilityTools']]],
+  ['score_4',['Score',['../classloaders_1_1_score.html#a368274b4d69e51544492d25ad04bd75a',1,'loaders::Score']]],
+  ['setenemys_5',['setEnemys',['../classgameplay_1_1_asset_setter.html#aa8ee0043c8057daaf72eba28869ec404',1,'gameplay::AssetSetter']]],
+  ['setgamerskin_6',['setGamerSkin',['../classentity_1_1_player.html#a424c3ed74dce1ad505b71351751034dd',1,'entity::Player']]],
+  ['setmenuwin_7',['setMenuWin',['../classospanel_1_1_os_panel.html#a4fcfcd7d6831a23ade72244455be91b3',1,'ospanel::OsPanel']]],
+  ['setname_8',['setName',['../classloaders_1_1_score.html#a6662ffeaf6df582b502e38da21f9815d',1,'loaders.Score.setName()'],['../classobject_1_1_os_object.html#a126a1b249be41df28d929a5e7c7f68b3',1,'object.OsObject.setName()'],['../classtile_1_1_tile.html#a0cfd6b21798fc0e79ed446e2eb75315e',1,'tile.Tile.setName()']]],
+  ['setobject_9',['setObject',['../classgameplay_1_1_asset_setter.html#a87399624f8e5e47383338385066ad7cd',1,'gameplay::AssetSetter']]],
+  ['setplayer_5fhealt_10',['setPlayer_healt',['../classgameplay_1_1_previous_maps.html#aedd690088ecc44bfef29acfc9f5608f6',1,'gameplay::PreviousMaps']]],
+  ['setpoint_11',['setPoint',['../classloaders_1_1_score.html#a918b35b7e05c445ffbd02a8a7eb3ec2d',1,'loaders::Score']]],
+  ['setsavedplayer_12',['setSavedPlayer',['../classgameplay_1_1_previous_maps.html#aea0adcf23c69d9ad68ff75600a9cf229',1,'gameplay::PreviousMaps']]],
+  ['setskin_13',['setSkin',['../classentity_1_1_attack_hitbox.html#a73f9937b6301c3ca3dc14969df5c747d',1,'entity.AttackHitbox.setSkin()'],['../classtile_1_1_tile.html#a136c756011d2a5c72fb4962600365d30',1,'tile.Tile.setSkin()']]],
+  ['setspeed_14',['setSpeed',['../classentity_1_1_entity.html#ab46f2776de81b178d38abd4a0fa82055',1,'entity::Entity']]],
+  ['setupattacktype_15',['setupAttackType',['../classentity_1_1_attack_hitbox.html#ad05d8da0d117ae07a149cd9f640d40f3',1,'entity::AttackHitbox']]],
+  ['setupcurrentprev_16',['setupCurrentPrev',['../classgameplay_1_1_previous_maps.html#a016c183824b39d0386b6c169ac3b257e',1,'gameplay::PreviousMaps']]],
+  ['setupgame_17',['setupGame',['../classgameplay_1_1_game_panel.html#a9358fa5ce880a1308870e6d0315c20b1',1,'gameplay::GamePanel']]],
+  ['setuphealtpos_18',['setupHealtPos',['../classgameplay_1_1_game_panel.html#afcd20a2301871cb5d90393ae379b9ce6',1,'gameplay::GamePanel']]],
+  ['setupskin_19',['setupSkin',['../classobject_1_1_os_object.html#a5fec5dc47715450c3a9c958888b1299b',1,'object::OsObject']]],
+  ['setx_20',['setX',['../classentity_1_1_entity.html#a9b029fad06135f8ca27627e78e4220a7',1,'entity::Entity']]],
+  ['sety_21',['setY',['../classentity_1_1_entity.html#aaec68b6742e4be19b87fff73f933f40f',1,'entity::Entity']]],
+  ['sheetloader_22',['SheetLoader',['../classloaders_1_1_sheet_loader.html#ad713b1af4fbe47c61f1b048242bb7c5e',1,'loaders::SheetLoader']]],
+  ['startmaint_23',['startMainT',['../classgameplay_1_1_game_panel.html#af9f8b2659dea2faf05c11e17c7bc3d4f',1,'gameplay::GamePanel']]]
+];

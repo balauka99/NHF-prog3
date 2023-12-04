@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="namespaceentity" kind="namespace" language="Java">
+    <compoundname>entity</compoundname>
+    <innerclass refid="enumentity_1_1_animation___states" prot="package">entity::Animation_States</innerclass>
+    <innerclass refid="classentity_1_1_attack_hitbox" prot="public">entity::AttackHitbox</innerclass>
+    <innerclass refid="classentity_1_1_entity" prot="public">entity::Entity</innerclass>
+    <innerclass refid="classentity_1_1_eye_ball" prot="public">entity::EyeBall</innerclass>
+    <innerclass refid="classentity_1_1_player" prot="public">entity::Player</innerclass>
+    <innerclass refid="classentity_1_1_weapon" prot="public">entity::Weapon</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="entity/AttackHitbox.java" line="1" column="15"/>
+  </compounddef>
+</doxygen>

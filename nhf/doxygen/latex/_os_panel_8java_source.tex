@@ -1,0 +1,37 @@
+\doxysection{Os\+Panel.\+java}
+\label{_os_panel_8java_source}\index{ospanel/OsPanel.java@{ospanel/OsPanel.java}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{package\ }ospanel;}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{import}\ java.awt.Color;}
+\DoxyCodeLine{00004\ \textcolor{keyword}{import}\ java.awt.Dimension;}
+\DoxyCodeLine{00005\ \textcolor{keyword}{import}\ java.awt.Font;}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{import}\ javax.swing.JPanel;}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{import}\ menu.MainMenu;}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ @SuppressWarnings(\textcolor{stringliteral}{"{}serial"{}})}
+\DoxyCodeLine{00012\ public\ class\ OsPanel\ extends\ JPanel\{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{final}\ \textcolor{keywordtype}{int}\ orgTileSize\ =\ 16;\ \textcolor{comment}{//16x16,\ ennyi\ egy\ kis\ kocka\ eredeti\ felbontása}}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{final}\ \textcolor{keywordtype}{int}\ scale\ =\ 3;}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{final}\ \textcolor{keywordtype}{int}\ tileSize\ =\ orgTileSize\ *\ scale;\ \textcolor{comment}{//48x48,\ egy\ kis\ kocka\ az\ ablakban\ ekkora}}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{final}\ \textcolor{keywordtype}{int}\ maxOszlop\ =\ 20;}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{final}\ \textcolor{keywordtype}{int}\ maxSor\ =\ 15;}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{final}\ \textcolor{keywordtype}{int}\ screenWidth\ =\ tileSize\ *\ maxOszlop;\ \ \ \ \textcolor{comment}{//960}}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{final}\ \textcolor{keywordtype}{int}\ screenHeight\ =\ tileSize\ *\ maxSor;\ \ \ \ \ \ \textcolor{comment}{//720}}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{protected}\ MainMenu\ menuWin;}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{protected}\ Font\ defFont\ =\ \textcolor{keyword}{new}\ Font(\textcolor{stringliteral}{"{}Century\ Gothic"{}},\ Font.BOLD,\ 24);}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{public}\ OsPanel()\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ super();}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ setPreferredSize(\textcolor{keyword}{new}\ Dimension(screenWidth,\ screenHeight));}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ setBackground(Color.black);}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ setDoubleBuffered(\textcolor{keyword}{true});}
+\DoxyCodeLine{00034\ \ \ \ \ \}}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ setMenuWin(MainMenu\ menuWin)\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ this.menuWin\ =\ menuWin;}
+\DoxyCodeLine{00041\ \ \ \ \ \}}
+\DoxyCodeLine{00042\ \}}
+
+\end{DoxyCode}

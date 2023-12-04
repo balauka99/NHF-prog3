@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classloaders_1_1_score" kind="class" language="Java" prot="public">
+    <compoundname>loaders::Score</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Serializable</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classloaders_1_1_score_1a890ab6522f0528d8d8e7a3ce84c3ef70" prot="private" static="no" mutable="no">
+        <type>String</type>
+        <definition>String loaders.Score.name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <qualifiedname>loaders.Score.name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="loaders/Score.java" line="10" column="16" bodyfile="loaders/Score.java" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classloaders_1_1_score_1ac1fc8af693271f4fa5f346087409579e" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int loaders.Score.point</definition>
+        <argsstring></argsstring>
+        <name>point</name>
+        <qualifiedname>loaders.Score.point</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="loaders/Score.java" line="11" column="13" bodyfile="loaders/Score.java" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classloaders_1_1_score_1a368274b4d69e51544492d25ad04bd75a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>loaders.Score.Score</definition>
+        <argsstring>(String name, int point)</argsstring>
+        <name>Score</name>
+        <qualifiedname>loaders.Score.Score</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="loaders/Score.java" line="12" column="8" bodyfile="loaders/Score.java" bodystart="12" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classloaders_1_1_score_1a7fc56a9148c44e2dbf57360094d12816" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String loaders.Score.getName</definition>
+        <argsstring>()</argsstring>
+        <name>getName</name>
+        <qualifiedname>loaders.Score.getName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="loaders/Score.java" line="16" column="15" bodyfile="loaders/Score.java" bodystart="16" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classloaders_1_1_score_1a6662ffeaf6df582b502e38da21f9815d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void loaders.Score.setName</definition>
+        <argsstring>(String name)</argsstring>
+        <name>setName</name>
+        <qualifiedname>loaders.Score.setName</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="loaders/Score.java" line="19" column="13" bodyfile="loaders/Score.java" bodystart="19" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classloaders_1_1_score_1afb3c9d8e294a95b79f615d4a6f87abb0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int loaders.Score.getPoint</definition>
+        <argsstring>()</argsstring>
+        <name>getPoint</name>
+        <qualifiedname>loaders.Score.getPoint</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="loaders/Score.java" line="22" column="12" bodyfile="loaders/Score.java" bodystart="22" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classloaders_1_1_score_1a918b35b7e05c445ffbd02a8a7eb3ec2d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void loaders.Score.setPoint</definition>
+        <argsstring>(int point)</argsstring>
+        <name>setPoint</name>
+        <qualifiedname>loaders.Score.setPoint</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="loaders/Score.java" line="25" column="13" bodyfile="loaders/Score.java" bodystart="25" bodyend="27"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Egy felhasználó/játékos nevét és összegyüjtött pontját tárolja </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Serializable</label>
+      </node>
+      <node id="1">
+        <label>loaders.Score</label>
+        <link refid="classloaders_1_1_score"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Serializable</label>
+      </node>
+      <node id="1">
+        <label>loaders.Score</label>
+        <link refid="classloaders_1_1_score"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="loaders/Score.java" line="9" column="7" bodyfile="loaders/Score.java" bodystart="9" bodyend="28"/>
+    <listofallmembers>
+      <member refid="classloaders_1_1_score_1a7fc56a9148c44e2dbf57360094d12816" prot="public" virt="non-virtual"><scope>loaders::Score</scope><name>getName</name></member>
+      <member refid="classloaders_1_1_score_1afb3c9d8e294a95b79f615d4a6f87abb0" prot="public" virt="non-virtual"><scope>loaders::Score</scope><name>getPoint</name></member>
+      <member refid="classloaders_1_1_score_1a890ab6522f0528d8d8e7a3ce84c3ef70" prot="private" virt="non-virtual"><scope>loaders::Score</scope><name>name</name></member>
+      <member refid="classloaders_1_1_score_1ac1fc8af693271f4fa5f346087409579e" prot="private" virt="non-virtual"><scope>loaders::Score</scope><name>point</name></member>
+      <member refid="classloaders_1_1_score_1a368274b4d69e51544492d25ad04bd75a" prot="public" virt="non-virtual"><scope>loaders::Score</scope><name>Score</name></member>
+      <member refid="classloaders_1_1_score_1a6662ffeaf6df582b502e38da21f9815d" prot="public" virt="non-virtual"><scope>loaders::Score</scope><name>setName</name></member>
+      <member refid="classloaders_1_1_score_1a918b35b7e05c445ffbd02a8a7eb3ec2d" prot="public" virt="non-virtual"><scope>loaders::Score</scope><name>setPoint</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

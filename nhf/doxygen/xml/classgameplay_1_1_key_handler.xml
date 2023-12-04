@@ -1,0 +1,229 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classgameplay_1_1_key_handler" kind="class" language="Java" prot="public">
+    <compoundname>gameplay::KeyHandler</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">KeyListener</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">Serializable</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classgameplay_1_1_key_handler_1a650d24bc715eab6f7e20a611a5543a01" prot="public" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean gameplay.KeyHandler.wP</definition>
+        <argsstring></argsstring>
+        <name>wP</name>
+        <qualifiedname>gameplay.KeyHandler.wP</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/KeyHandler.java" line="13" column="16" bodyfile="gameplay/KeyHandler.java" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgameplay_1_1_key_handler_1a715c3ed1b0f32a24b523529beafd5e3f" prot="public" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean gameplay.KeyHandler.sP</definition>
+        <argsstring></argsstring>
+        <name>sP</name>
+        <qualifiedname>gameplay.KeyHandler.sP</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/KeyHandler.java" line="13" column="19" bodyfile="gameplay/KeyHandler.java" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgameplay_1_1_key_handler_1a89aaa5014891bff6980a0473b78c3397" prot="public" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean gameplay.KeyHandler.aP</definition>
+        <argsstring></argsstring>
+        <name>aP</name>
+        <qualifiedname>gameplay.KeyHandler.aP</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/KeyHandler.java" line="13" column="22" bodyfile="gameplay/KeyHandler.java" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgameplay_1_1_key_handler_1af73ed3b8114dbfa042ba628b580f6555" prot="public" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean gameplay.KeyHandler.dP</definition>
+        <argsstring></argsstring>
+        <name>dP</name>
+        <qualifiedname>gameplay.KeyHandler.dP</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/KeyHandler.java" line="13" column="25" bodyfile="gameplay/KeyHandler.java" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgameplay_1_1_key_handler_1a510df73f1761bec3bdc00006253127c3" prot="public" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean gameplay.KeyHandler.spaceP</definition>
+        <argsstring></argsstring>
+        <name>spaceP</name>
+        <qualifiedname>gameplay.KeyHandler.spaceP</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/KeyHandler.java" line="13" column="28" bodyfile="gameplay/KeyHandler.java" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classgameplay_1_1_key_handler_1a797059aa4995a695ef73429133eb0981" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void gameplay.KeyHandler.keyTyped</definition>
+        <argsstring>(KeyEvent e)</argsstring>
+        <name>keyTyped</name>
+        <qualifiedname>gameplay.KeyHandler.keyTyped</qualifiedname>
+        <param>
+          <type>KeyEvent</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/KeyHandler.java" line="16" column="13" bodyfile="gameplay/KeyHandler.java" bodystart="16" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_key_handler_1a5247d99cc5c442c2397878433560501b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void gameplay.KeyHandler.keyPressed</definition>
+        <argsstring>(KeyEvent e)</argsstring>
+        <name>keyPressed</name>
+        <qualifiedname>gameplay.KeyHandler.keyPressed</qualifiedname>
+        <param>
+          <type>KeyEvent</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/KeyHandler.java" line="20" column="13" bodyfile="gameplay/KeyHandler.java" bodystart="20" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_key_handler_1ac259b7ff2d3010ded86d26f240db370e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void gameplay.KeyHandler.keyReleased</definition>
+        <argsstring>(KeyEvent e)</argsstring>
+        <name>keyReleased</name>
+        <qualifiedname>gameplay.KeyHandler.keyReleased</qualifiedname>
+        <param>
+          <type>KeyEvent</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/KeyHandler.java" line="41" column="13" bodyfile="gameplay/KeyHandler.java" bodystart="41" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_key_handler_1ae8c88e6006a2ea1bb82e36aa35e6c0a0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean gameplay.KeyHandler.moveButtonPressed</definition>
+        <argsstring>()</argsstring>
+        <name>moveButtonPressed</name>
+        <qualifiedname>gameplay.KeyHandler.moveButtonPressed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/KeyHandler.java" line="60" column="16" bodyfile="gameplay/KeyHandler.java" bodystart="60" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_key_handler_1ad656915618a61ce6b83b5c6dc2c00caa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean gameplay.KeyHandler.attackButtonPressed</definition>
+        <argsstring>()</argsstring>
+        <name>attackButtonPressed</name>
+        <qualifiedname>gameplay.KeyHandler.attackButtonPressed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/KeyHandler.java" line="63" column="16" bodyfile="gameplay/KeyHandler.java" bodystart="63" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_key_handler_1aed126badc02818d98826c7402b741686" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int gameplay.KeyHandler.pressedButtonNum</definition>
+        <argsstring>()</argsstring>
+        <name>pressedButtonNum</name>
+        <qualifiedname>gameplay.KeyHandler.pressedButtonNum</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/KeyHandler.java" line="66" column="12" bodyfile="gameplay/KeyHandler.java" bodystart="66" bodyend="73"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Ez az osztály felelős a gombok nyomásának a detektálásáért </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>gameplay.KeyHandler</label>
+        <link refid="classgameplay_1_1_key_handler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>KeyListener</label>
+      </node>
+      <node id="3">
+        <label>Serializable</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>gameplay.KeyHandler</label>
+        <link refid="classgameplay_1_1_key_handler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>KeyListener</label>
+      </node>
+      <node id="3">
+        <label>Serializable</label>
+      </node>
+    </collaborationgraph>
+    <location file="gameplay/KeyHandler.java" line="11" column="7" bodyfile="gameplay/KeyHandler.java" bodystart="11" bodyend="74"/>
+    <listofallmembers>
+      <member refid="classgameplay_1_1_key_handler_1a89aaa5014891bff6980a0473b78c3397" prot="public" virt="non-virtual"><scope>gameplay::KeyHandler</scope><name>aP</name></member>
+      <member refid="classgameplay_1_1_key_handler_1ad656915618a61ce6b83b5c6dc2c00caa" prot="public" virt="non-virtual"><scope>gameplay::KeyHandler</scope><name>attackButtonPressed</name></member>
+      <member refid="classgameplay_1_1_key_handler_1af73ed3b8114dbfa042ba628b580f6555" prot="public" virt="non-virtual"><scope>gameplay::KeyHandler</scope><name>dP</name></member>
+      <member refid="classgameplay_1_1_key_handler_1a5247d99cc5c442c2397878433560501b" prot="public" virt="non-virtual"><scope>gameplay::KeyHandler</scope><name>keyPressed</name></member>
+      <member refid="classgameplay_1_1_key_handler_1ac259b7ff2d3010ded86d26f240db370e" prot="public" virt="non-virtual"><scope>gameplay::KeyHandler</scope><name>keyReleased</name></member>
+      <member refid="classgameplay_1_1_key_handler_1a797059aa4995a695ef73429133eb0981" prot="public" virt="non-virtual"><scope>gameplay::KeyHandler</scope><name>keyTyped</name></member>
+      <member refid="classgameplay_1_1_key_handler_1ae8c88e6006a2ea1bb82e36aa35e6c0a0" prot="public" virt="non-virtual"><scope>gameplay::KeyHandler</scope><name>moveButtonPressed</name></member>
+      <member refid="classgameplay_1_1_key_handler_1aed126badc02818d98826c7402b741686" prot="public" virt="non-virtual"><scope>gameplay::KeyHandler</scope><name>pressedButtonNum</name></member>
+      <member refid="classgameplay_1_1_key_handler_1a715c3ed1b0f32a24b523529beafd5e3f" prot="public" virt="non-virtual"><scope>gameplay::KeyHandler</scope><name>sP</name></member>
+      <member refid="classgameplay_1_1_key_handler_1a510df73f1761bec3bdc00006253127c3" prot="public" virt="non-virtual"><scope>gameplay::KeyHandler</scope><name>spaceP</name></member>
+      <member refid="classgameplay_1_1_key_handler_1a650d24bc715eab6f7e20a611a5543a01" prot="public" virt="non-virtual"><scope>gameplay::KeyHandler</scope><name>wP</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

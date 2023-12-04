@@ -1,0 +1,200 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classobject_1_1_o_b_j___barrel" kind="class" language="Java" prot="public">
+    <compoundname>object::OBJ_Barrel</compoundname>
+    <basecompoundref refid="classobject_1_1_os_object" prot="public" virt="non-virtual">object.OsObject</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">Runnable</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classobject_1_1_o_b_j___barrel_1a5d5be8f9d62384ca2980e67af35e46f0" prot="private" static="no" mutable="no">
+        <type>transient Thread</type>
+        <definition>transient Thread object.OBJ_Barrel.boom</definition>
+        <argsstring></argsstring>
+        <name>boom</name>
+        <qualifiedname>object.OBJ_Barrel.boom</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="object/OBJ_Barrel.java" line="5" column="26" bodyfile="object/OBJ_Barrel.java" bodystart="5" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classobject_1_1_o_b_j___barrel_1ae08a0ebf8b40aaff73bf89b000cc0825" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>object.OBJ_Barrel.OBJ_Barrel</definition>
+        <argsstring>()</argsstring>
+        <name>OBJ_Barrel</name>
+        <qualifiedname>object.OBJ_Barrel.OBJ_Barrel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="object/OBJ_Barrel.java" line="7" column="8" bodyfile="object/OBJ_Barrel.java" bodystart="7" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classobject_1_1_o_b_j___barrel_1ad208135b25d4b4de5f56c489080c80be" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void object.OBJ_Barrel.boom</definition>
+        <argsstring>()</argsstring>
+        <name>boom</name>
+        <qualifiedname>object.OBJ_Barrel.boom</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="object/OBJ_Barrel.java" line="12" column="13" bodyfile="object/OBJ_Barrel.java" bodystart="12" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classobject_1_1_o_b_j___barrel_1aa9735d32afc41bd7a3362c225020b418" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void object.OBJ_Barrel.destroy</definition>
+        <argsstring>()</argsstring>
+        <name>destroy</name>
+        <qualifiedname>object.OBJ_Barrel.destroy</qualifiedname>
+        <reimplements refid="classobject_1_1_os_object_1ac8faa795bba7f6168d27fbf88ef36bfa">destroy</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="object/OBJ_Barrel.java" line="19" column="13" bodyfile="object/OBJ_Barrel.java" bodystart="19" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classobject_1_1_o_b_j___barrel_1af53e95c30dc57a4a1fd23f11e581c474" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void object.OBJ_Barrel.run</definition>
+        <argsstring>()</argsstring>
+        <name>run</name>
+        <qualifiedname>object.OBJ_Barrel.run</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="object/OBJ_Barrel.java" line="24" column="13" bodyfile="object/OBJ_Barrel.java" bodystart="24" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classobject_1_1_o_b_j___barrel_1ab603c8e394c01e269f1a76908753792b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void object.OBJ_Barrel.reLoad</definition>
+        <argsstring>()</argsstring>
+        <name>reLoad</name>
+        <qualifiedname>object.OBJ_Barrel.reLoad</qualifiedname>
+        <reimplements refid="classobject_1_1_os_object_1a447b2ecb2fca45bd741fc5593ce41343">reLoad</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="object/OBJ_Barrel.java" line="43" column="13" bodyfile="object/OBJ_Barrel.java" bodystart="43" bodyend="49"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>Runnable</label>
+      </node>
+      <node id="3">
+        <label>Serializable</label>
+      </node>
+      <node id="1">
+        <label>object.OBJ_Barrel</label>
+        <link refid="classobject_1_1_o_b_j___barrel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>object.OsObject</label>
+        <link refid="classobject_1_1_os_object"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="8">
+        <label>Runnable</label>
+      </node>
+      <node id="7">
+        <label>Rectangle</label>
+      </node>
+      <node id="4">
+        <label>BufferedImage</label>
+      </node>
+      <node id="3">
+        <label>Serializable</label>
+      </node>
+      <node id="6">
+        <label>ArrayList&lt; BufferedImage &gt;</label>
+      </node>
+      <node id="5">
+        <label>loaders.SheetLoader</label>
+        <link refid="classloaders_1_1_sheet_loader"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>object.OBJ_Barrel</label>
+        <link refid="classobject_1_1_o_b_j___barrel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>object.OsObject</label>
+        <link refid="classobject_1_1_os_object"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>skin</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>sheet</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>hitbox</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="object/OBJ_Barrel.java" line="4" column="7" bodyfile="object/OBJ_Barrel.java" bodystart="4" bodyend="50"/>
+    <listofallmembers>
+      <member refid="classobject_1_1_o_b_j___barrel_1a5d5be8f9d62384ca2980e67af35e46f0" prot="private" virt="non-virtual"><scope>object::OBJ_Barrel</scope><name>boom</name></member>
+      <member refid="classobject_1_1_o_b_j___barrel_1ad208135b25d4b4de5f56c489080c80be" prot="public" virt="non-virtual"><scope>object::OBJ_Barrel</scope><name>boom</name></member>
+      <member refid="classobject_1_1_os_object_1aa05d7f8f9f1d5669292046eceffd2c0e" prot="public" virt="non-virtual"><scope>object::OBJ_Barrel</scope><name>collision</name></member>
+      <member refid="classobject_1_1_os_object_1a8483428dc1e84b9205c3649b57ae3ae7" prot="protected" virt="non-virtual"><scope>object::OBJ_Barrel</scope><name>defaultTileSize</name></member>
+      <member refid="classobject_1_1_o_b_j___barrel_1aa9735d32afc41bd7a3362c225020b418" prot="public" virt="non-virtual"><scope>object::OBJ_Barrel</scope><name>destroy</name></member>
+      <member refid="classobject_1_1_os_object_1aeaf7cad2789e3d57733e126e9fa73cdc" prot="public" virt="non-virtual"><scope>object::OBJ_Barrel</scope><name>draw</name></member>
+      <member refid="classobject_1_1_os_object_1aec101e19d148a0965d41bd1bf3490f03" prot="public" virt="non-virtual"><scope>object::OBJ_Barrel</scope><name>getName</name></member>
+      <member refid="classobject_1_1_os_object_1ac3ffd8ac7650723736beea1d19c5b980" prot="public" virt="non-virtual"><scope>object::OBJ_Barrel</scope><name>hitbox</name></member>
+      <member refid="classobject_1_1_os_object_1a47be4d3e929f6d3720f004a80175ba39" prot="protected" virt="non-virtual"><scope>object::OBJ_Barrel</scope><name>hitboxDefaultX</name></member>
+      <member refid="classobject_1_1_os_object_1adb470b8307675bb4db574edd7beb38c3" prot="protected" virt="non-virtual"><scope>object::OBJ_Barrel</scope><name>hitboxDefaultY</name></member>
+      <member refid="classobject_1_1_os_object_1a4b0307e664d6e6360195f05e9cfca6a2" prot="public" virt="non-virtual"><scope>object::OBJ_Barrel</scope><name>isDestroyed</name></member>
+      <member refid="classobject_1_1_os_object_1a2adb45a0cb5b721cbab1f8e9bd9770ec" prot="public" virt="non-virtual"><scope>object::OBJ_Barrel</scope><name>isObjectUsed</name></member>
+      <member refid="classobject_1_1_o_b_j___barrel_1ae08a0ebf8b40aaff73bf89b000cc0825" prot="public" virt="non-virtual"><scope>object::OBJ_Barrel</scope><name>OBJ_Barrel</name></member>
+      <member refid="classobject_1_1_o_b_j___barrel_1ab603c8e394c01e269f1a76908753792b" prot="public" virt="non-virtual"><scope>object::OBJ_Barrel</scope><name>reLoad</name></member>
+      <member refid="classobject_1_1_os_object_1ad4774e2362d8def20c29035ce87b6296" prot="public" virt="non-virtual"><scope>object::OBJ_Barrel</scope><name>resetHitboxToDefault</name></member>
+      <member refid="classobject_1_1_os_object_1a0f45a46b97d61fda33b821e75b3f56cd" prot="public" virt="non-virtual"><scope>object::OBJ_Barrel</scope><name>reUseObject</name></member>
+      <member refid="classobject_1_1_o_b_j___barrel_1af53e95c30dc57a4a1fd23f11e581c474" prot="public" virt="non-virtual"><scope>object::OBJ_Barrel</scope><name>run</name></member>
+      <member refid="classobject_1_1_os_object_1a126a1b249be41df28d929a5e7c7f68b3" prot="public" virt="non-virtual"><scope>object::OBJ_Barrel</scope><name>setName</name></member>
+      <member refid="classobject_1_1_os_object_1a5fec5dc47715450c3a9c958888b1299b" prot="protected" virt="non-virtual"><scope>object::OBJ_Barrel</scope><name>setupSkin</name></member>
+      <member refid="classobject_1_1_os_object_1ab5f130e9c4071d8e8d3be7807c049a69" prot="protected" virt="non-virtual"><scope>object::OBJ_Barrel</scope><name>sheet</name></member>
+      <member refid="classobject_1_1_os_object_1aa12adf4058ca516a2bbb78cd845fab6d" prot="protected" virt="non-virtual"><scope>object::OBJ_Barrel</scope><name>skin</name></member>
+      <member refid="classobject_1_1_os_object_1af11f5428937bc2a3feca5c43c69ecc55" prot="protected" virt="non-virtual"><scope>object::OBJ_Barrel</scope><name>unBreakAble</name></member>
+      <member refid="classobject_1_1_os_object_1abf43b8090e550222903b10a09d4bcc89" prot="public" virt="non-virtual"><scope>object::OBJ_Barrel</scope><name>useObject</name></member>
+      <member refid="classobject_1_1_os_object_1a91159d1f8716489e8da0de1a9cd1380b" prot="public" virt="non-virtual"><scope>object::OBJ_Barrel</scope><name>x</name></member>
+      <member refid="classobject_1_1_os_object_1a77f3a709e58bfed6f0a0db68f022d0e1" prot="public" virt="non-virtual"><scope>object::OBJ_Barrel</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

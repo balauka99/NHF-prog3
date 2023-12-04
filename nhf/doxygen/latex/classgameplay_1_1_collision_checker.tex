@@ -1,0 +1,133 @@
+\doxysection{gameplay.\+Collision\+Checker Class Reference}
+\label{classgameplay_1_1_collision_checker}\index{gameplay.CollisionChecker@{gameplay.CollisionChecker}}
+Inheritance diagram for gameplay.\+Collision\+Checker\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classgameplay_1_1_collision_checker}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Collision\+Checker} (\textbf{ Game\+Panel} gp)
+\item 
+void \textbf{ check\+Tile} (\textbf{ Entity} ent)
+\item 
+int \textbf{ check\+Object} (\textbf{ Entity} ent, boolean player)
+\item 
+void \textbf{ check\+Weapon\+Destroys\+OBJ} (\textbf{ Weapon} wep)
+\item 
+void \textbf{ check\+Weapon\+Damage\+Enemys} (\textbf{ Entity} player, \textbf{ Weapon} wep)
+\item 
+void \textbf{ check\+Enemys\+See\+Player} (\textbf{ Entity} player)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Ez az osztály felel azért, hogy detektálja ha valamelyik object-\/hez egy entitás ér, vagy bármilyen 2 hitboxal rendelkező osztály hitboxai összeérnek 
+
+Definition at line \textbf{ 12} of file \textbf{ Collision\+Checker.\+java}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classgameplay_1_1_collision_checker_aaa64a708844763d2d325e836a6206240}} 
+\index{gameplay.CollisionChecker@{gameplay.CollisionChecker}!CollisionChecker@{CollisionChecker}}
+\index{CollisionChecker@{CollisionChecker}!gameplay.CollisionChecker@{gameplay.CollisionChecker}}
+\doxysubsubsection{CollisionChecker()}
+{\footnotesize\ttfamily gameplay.\+Collision\+Checker.\+Collision\+Checker (\begin{DoxyParamCaption}\item[{\textbf{ Game\+Panel}}]{gp }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 17} of file \textbf{ Collision\+Checker.\+java}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classgameplay_1_1_collision_checker_ab256f20118c56d1ace621bc2cd46a77d}} 
+\index{gameplay.CollisionChecker@{gameplay.CollisionChecker}!checkEnemysSeePlayer@{checkEnemysSeePlayer}}
+\index{checkEnemysSeePlayer@{checkEnemysSeePlayer}!gameplay.CollisionChecker@{gameplay.CollisionChecker}}
+\doxysubsubsection{checkEnemysSeePlayer()}
+{\footnotesize\ttfamily void gameplay.\+Collision\+Checker.\+check\+Enemys\+See\+Player (\begin{DoxyParamCaption}\item[{\textbf{ Entity}}]{player }\end{DoxyParamCaption})}
+
+Ez a metódus azt vizsgálja a paraméterkénk megkapott Player osztály tagját \char`\"{}látja-\/e\char`\"{} valamelyik Entity (enemy) a Game\+Panel enemys adattagját használjuk fel és vizsgáljuk meg, hogy a view\+\_\+distance (olyan mint egy hitbox) \char`\"{}látóterével\char`\"{} összeér-\/e a játékos ha igen, akkor az az enemy közeledik a Player-\/hez 
+\begin{DoxyParams}{Parameters}
+{\em player} & Player, a felhasználó \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \textbf{ 201} of file \textbf{ Collision\+Checker.\+java}.
+
+\mbox{\label{classgameplay_1_1_collision_checker_aded93136571342e191e51cd7a0107c7b}} 
+\index{gameplay.CollisionChecker@{gameplay.CollisionChecker}!checkObject@{checkObject}}
+\index{checkObject@{checkObject}!gameplay.CollisionChecker@{gameplay.CollisionChecker}}
+\doxysubsubsection{checkObject()}
+{\footnotesize\ttfamily int gameplay.\+Collision\+Checker.\+check\+Object (\begin{DoxyParamCaption}\item[{\textbf{ Entity}}]{ent,  }\item[{boolean}]{player }\end{DoxyParamCaption})}
+
+Mint a check\+Tile megvizsgálja egy Entity hozzáér-\/e valamelyik object-\/hez, ha a player paraméter igaz, akkor visszaad egy index-\/et így tudja majd a player használni azt az objectet 
+\begin{DoxyParams}{Parameters}
+{\em ent} & Entity \\
+\hline
+{\em player} & boolean \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+egy index, ami a Game\+Panel objects tömbben lévő elemre utal 
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 84} of file \textbf{ Collision\+Checker.\+java}.
+
+\mbox{\label{classgameplay_1_1_collision_checker_a5c2aabcd96d576b3ee1a3a4ddac80b2d}} 
+\index{gameplay.CollisionChecker@{gameplay.CollisionChecker}!checkTile@{checkTile}}
+\index{checkTile@{checkTile}!gameplay.CollisionChecker@{gameplay.CollisionChecker}}
+\doxysubsubsection{checkTile()}
+{\footnotesize\ttfamily void gameplay.\+Collision\+Checker.\+check\+Tile (\begin{DoxyParamCaption}\item[{\textbf{ Entity}}]{ent }\end{DoxyParamCaption})}
+
+A paraméterként kapott Entity osztály tagját, megnézi rajta van-\/e a hitboxa valamelyik tileon, ameik collision adattagja igaz, azaz egy szilárd tile az, mint például egy fall It is lehetne intersectel megvizsgálni, de az túl \char`\"{}drága\char`\"{} így csak 2 tilet vizsgálunk, nem 20x15-\/öt 
+\begin{DoxyParams}{Parameters}
+{\em ent} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \textbf{ 25} of file \textbf{ Collision\+Checker.\+java}.
+
+\mbox{\label{classgameplay_1_1_collision_checker_aa33cf93745e144783e0106faf46eae2a}} 
+\index{gameplay.CollisionChecker@{gameplay.CollisionChecker}!checkWeaponDamageEnemys@{checkWeaponDamageEnemys}}
+\index{checkWeaponDamageEnemys@{checkWeaponDamageEnemys}!gameplay.CollisionChecker@{gameplay.CollisionChecker}}
+\doxysubsubsection{checkWeaponDamageEnemys()}
+{\footnotesize\ttfamily void gameplay.\+Collision\+Checker.\+check\+Weapon\+Damage\+Enemys (\begin{DoxyParamCaption}\item[{\textbf{ Entity}}]{player,  }\item[{\textbf{ Weapon}}]{wep }\end{DoxyParamCaption})}
+
+Nagyon hasonló a check\+Weapon\+Destroys\+OBJ, csak itt nem objectet hanem entity-\/t vizsgálunk és nem elpusztítjuk csak sebbezzük 
+\begin{DoxyParams}{Parameters}
+{\em player} & \\
+\hline
+{\em wep} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \textbf{ 177} of file \textbf{ Collision\+Checker.\+java}.
+
+\mbox{\label{classgameplay_1_1_collision_checker_a4e9544d7ab98c884ea9da92ec49d85aa}} 
+\index{gameplay.CollisionChecker@{gameplay.CollisionChecker}!checkWeaponDestroysOBJ@{checkWeaponDestroysOBJ}}
+\index{checkWeaponDestroysOBJ@{checkWeaponDestroysOBJ}!gameplay.CollisionChecker@{gameplay.CollisionChecker}}
+\doxysubsubsection{checkWeaponDestroysOBJ()}
+{\footnotesize\ttfamily void gameplay.\+Collision\+Checker.\+check\+Weapon\+Destroys\+OBJ (\begin{DoxyParamCaption}\item[{\textbf{ Weapon}}]{wep }\end{DoxyParamCaption})}
+
+Hasonló a check\+Tile-\/hoz, de itt egy Weapon osztály tagját vizsgáljuk meg hozzáér-\/e egy objecthez, ha igen elpusztítjuk azt 
+\begin{DoxyParams}{Parameters}
+{\em wep} & Weapon, egy fegyver valamelyik Entity-\/nek \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \textbf{ 152} of file \textbf{ Collision\+Checker.\+java}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+gameplay/\textbf{ Collision\+Checker.\+java}\end{DoxyCompactItemize}

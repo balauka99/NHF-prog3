@@ -1,0 +1,98 @@
+package tile;
+
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Serializable;
+
+import javax.imageio.ImageIO;
+
+import gameplay.GamePanel;
+import gameplay.UtilityTools;
+
+@SuppressWarnings("serial")
+/**
+ * Ez az osztály feladata a Tile-ok rendes elhelyezése, az OsPanelben definiált 20x15-ős Panel-en kell elhelyezni mindet
+ */
+public class TileManager implements Serializable{
+	private transient GamePanel gameP;
+	public Tile[] tiles;
+	public int map[][];	// 2 Dimenziós tömbben tároljuk el a fájlból betöltött mapot
+	
+	public TileManager(GamePanel gp, String filename) {
+		gameP = gp;
+		//TODO átalakítani
+		tiles = new Tile[10];	//Ennyi tileunk lehet max, flore, lava, wall stb...
+		map = new int[gameP.maxOszlop][gameP.maxSor];	// Létrehozzuk a mátrixot, és akkorára álítjuk amekkora a game panel tile felosztás
+		setTilesImage();
+		loadMap(filename);
+	}
+	public void loadMap(String fileP) {
+		try {
+			InputStream inS = getClass().getResourceAsStream(fileP);
+			BufferedReader bufR = new BufferedReader(new InputStreamReader(inS));
+			
+			int col = 0;
+			int row = 0;
+			while(col < gameP.maxOszlop && row < gameP.maxSor) {
+				String line = bufR.readLine();
+				while(col < gameP.maxOszlop) {
+					String inds[] = line.split(" ");
+					int ind = Integer.parseInt(inds[col]);
+					map[col][row] = ind;
+					col++;
+				}
+				if(col == gameP.maxOszlop) {
+					col = 0;
+					row++;
+				}
+			}
+			bufR.close();
+		}catch(Exception e) {
+			
+		}
+	}
+	private void setTilesImage() {
+			this.setupTile(0, "flore", false);
+			this.setupTile(1, "wall", true);
+			this.setupTile(2, "lava", false);
+	}
+	private void setupTile(int ind, String imageName, boolean collision) {
+		UtilityTools uT = new UtilityTools();
+		try {
+			tiles[ind] = new Tile();
+			tiles[ind].setSkin(ImageIO.read(getClass().getResourceAsStream("/tiles/" + imageName + ".png")), imageName);
+			tiles[ind].setSkin(uT.scaleImage(tiles[ind].getSkin(), gameP.tileSize, gameP.tileSize), imageName);
+			if(collision) tiles[ind].enableCollision();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	public void draw(Graphics2D grap2) {
+		int col = 0;
+		int row = 0;
+		int x = 0;
+		int y = 0;
+		
+		while(col <gameP.maxOszlop && row < gameP.maxSor) {
+			int tileInd = map[col][row];
+			grap2.drawImage(tiles[tileInd].getSkin(), x, y, null);
+			col++;
+			x += gameP.tileSize;
+			
+			if(col == gameP.maxOszlop) {
+				col = 0;
+				x = 0;
+				row++;
+				y += gameP.tileSize;
+			}
+		}
+	}
+	public void reLoadTileSkins(GamePanel gameP) {
+		this.gameP = gameP;
+		this.setTilesImage();
+	}
+}

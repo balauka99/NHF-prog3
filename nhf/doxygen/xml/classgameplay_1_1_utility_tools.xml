@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classgameplay_1_1_utility_tools" kind="class" language="Java" prot="public">
+    <compoundname>gameplay::UtilityTools</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Serializable</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classgameplay_1_1_utility_tools_1a71c48780886f140f3bd62ee480c13aca" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>BufferedImage</type>
+        <definition>BufferedImage gameplay.UtilityTools.scaleImage</definition>
+        <argsstring>(BufferedImage original, int width, int height)</argsstring>
+        <name>scaleImage</name>
+        <qualifiedname>gameplay.UtilityTools.scaleImage</qualifiedname>
+        <param>
+          <type>BufferedImage</type>
+          <declname>original</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Arra kell nekünk, hogy ne akkor scaleljen a program minden egyes alkalommal képeket amikor kirajzolja azokat hanem amikor lekreálja, amikor betöltjük akkor már egyből legyenek scalelvbe <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>original</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Az eredeti kép, már egy BufferedImage-be betöltve </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>width</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A széllesség amire nagyíteni vagy kissebbíteni szeretnénk </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>height</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A magasság amire nagyíteni vagy kissebbíteni szeretnénk </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/UtilityTools.java" line="20" column="22" bodyfile="gameplay/UtilityTools.java" bodystart="20" bodyend="27"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Fontos kis metodusokat lehet idetenni, amik kelhetnek mondjuk a játék optimalizálására </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>gameplay.UtilityTools</label>
+        <link refid="classgameplay_1_1_utility_tools"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Serializable</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>gameplay.UtilityTools</label>
+        <link refid="classgameplay_1_1_utility_tools"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Serializable</label>
+      </node>
+    </collaborationgraph>
+    <location file="gameplay/UtilityTools.java" line="11" column="7" bodyfile="gameplay/UtilityTools.java" bodystart="11" bodyend="28"/>
+    <listofallmembers>
+      <member refid="classgameplay_1_1_utility_tools_1a71c48780886f140f3bd62ee480c13aca" prot="public" virt="non-virtual"><scope>gameplay::UtilityTools</scope><name>scaleImage</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

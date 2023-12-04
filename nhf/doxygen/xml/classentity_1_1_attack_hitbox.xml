@@ -1,0 +1,351 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classentity_1_1_attack_hitbox" kind="class" language="Java" prot="public">
+    <compoundname>entity::AttackHitbox</compoundname>
+    <basecompoundref refid="classentity_1_1_entity" prot="public" virt="non-virtual">entity.Entity</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">Serializable</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classentity_1_1_attack_hitbox_1aed4375872cbc48ecd2c890dd3d94f04d" prot="private" static="no" mutable="no">
+        <type>String</type>
+        <definition>String entity.AttackHitbox.weapon_type</definition>
+        <argsstring></argsstring>
+        <name>weapon_type</name>
+        <qualifiedname>entity.AttackHitbox.weapon_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/AttackHitbox.java" line="18" column="16" bodyfile="entity/AttackHitbox.java" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classentity_1_1_attack_hitbox_1a93a702ef9ea4db2862dbd0b1b5d96c65" prot="private" static="no" mutable="no">
+        <type>transient <ref refid="classgameplay_1_1_utility_tools" kindref="compound">UtilityTools</ref></type>
+        <definition>transient UtilityTools entity.AttackHitbox.uT</definition>
+        <argsstring></argsstring>
+        <name>uT</name>
+        <qualifiedname>entity.AttackHitbox.uT</qualifiedname>
+        <initializer>= new <ref refid="classgameplay_1_1_utility_tools" kindref="compound">UtilityTools</ref>()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/AttackHitbox.java" line="19" column="32" bodyfile="entity/AttackHitbox.java" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classentity_1_1_attack_hitbox_1a5f0a0bf7c7d4339e76fe6b71484b7964" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int entity.AttackHitbox.range</definition>
+        <argsstring></argsstring>
+        <name>range</name>
+        <qualifiedname>entity.AttackHitbox.range</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/AttackHitbox.java" line="20" column="13" bodyfile="entity/AttackHitbox.java" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classentity_1_1_attack_hitbox_1a0d4b40f475bb69dae7a5ecbee28845bb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>entity.AttackHitbox.AttackHitbox</definition>
+        <argsstring>(String weapon_type, String move_dir)</argsstring>
+        <name>AttackHitbox</name>
+        <qualifiedname>entity.AttackHitbox.AttackHitbox</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>weapon_type</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>move_dir</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Konstruktor <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>weapon_type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- a fegyver neve, ground_attack stb... szükség van rá, tudjuk mi a kinézete és hogyan állítsuk be a hitbox-ot </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>move_dir</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- ha kell a fegyver tipushoz, mint a wave_attack-hoz, meg kel helyesen adni </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/AttackHitbox.java" line="26" column="8" bodyfile="entity/AttackHitbox.java" bodystart="26" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classentity_1_1_attack_hitbox_1ad05d8da0d117ae07a149cd9f640d40f3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void entity.AttackHitbox.setupAttackType</definition>
+        <argsstring>(String move_dir)</argsstring>
+        <name>setupAttackType</name>
+        <qualifiedname>entity.AttackHitbox.setupAttackType</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>move_dir</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A fegyvertipustól függve beállítja a fegyver hitbox-át, kinézetet és range-ét <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>move_dir</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- milyen irányba néz a fegyver, up, left stb... </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/AttackHitbox.java" line="36" column="13" bodyfile="entity/AttackHitbox.java" bodystart="36" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="classentity_1_1_attack_hitbox_1a1a897d818ccd1f33f35d7081aa8515cd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int entity.AttackHitbox.getRange</definition>
+        <argsstring>()</argsstring>
+        <name>getRange</name>
+        <qualifiedname>entity.AttackHitbox.getRange</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Visszaadja a fegyver range-ét, fontos lehet mekkora a hatótávja <simplesect kind="return"><para>int range </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/AttackHitbox.java" line="110" column="12" bodyfile="entity/AttackHitbox.java" bodystart="110" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="classentity_1_1_attack_hitbox_1ac77370ddd78e96cf2f05a8ae27bfe270" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>BufferedImage</type>
+        <definition>BufferedImage entity.AttackHitbox.getSkin</definition>
+        <argsstring>()</argsstring>
+        <name>getSkin</name>
+        <qualifiedname>entity.AttackHitbox.getSkin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Visszaadja a fegyver kinézetét <simplesect kind="return"><para>BufferedImage skin </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/AttackHitbox.java" line="117" column="22" bodyfile="entity/AttackHitbox.java" bodystart="117" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="classentity_1_1_attack_hitbox_1a73f9937b6301c3ca3dc14969df5c747d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void entity.AttackHitbox.setSkin</definition>
+        <argsstring>(BufferedImage skin)</argsstring>
+        <name>setSkin</name>
+        <qualifiedname>entity.AttackHitbox.setSkin</qualifiedname>
+        <param>
+          <type>BufferedImage</type>
+          <declname>skin</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A paraméterként kapott BufferedImage-ét beállítja a fegyver kinézetének <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>skin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- egy BufferedImage </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/AttackHitbox.java" line="124" column="13" bodyfile="entity/AttackHitbox.java" bodystart="124" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="classentity_1_1_attack_hitbox_1ae9731c3105bd232caf6ecdb16bab22f2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String entity.AttackHitbox.getWeaponType</definition>
+        <argsstring>()</argsstring>
+        <name>getWeaponType</name>
+        <qualifiedname>entity.AttackHitbox.getWeaponType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Visszaadja a fegyver tipusát, ami fontos lehet, milyen tipusú a támadás <simplesect kind="return"><para>String weapon_type </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/AttackHitbox.java" line="131" column="15" bodyfile="entity/AttackHitbox.java" bodystart="131" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="classentity_1_1_attack_hitbox_1a04b4f93f5bf0496881ce7ca0061f22c8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void entity.AttackHitbox.reLoad</definition>
+        <argsstring>()</argsstring>
+        <name>reLoad</name>
+        <qualifiedname>entity.AttackHitbox.reLoad</qualifiedname>
+        <reimplements refid="classentity_1_1_entity_1a7e492d42868aba82311a6a21016dd671">reLoad</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A Serializálás után kell meghívni ez a metódust, mert a BufferedImage-t nem lehet Serializálni ezért a fegyver tipusától, amit lehet Serializálni, visszaálítjuk azt </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/AttackHitbox.java" line="138" column="13" bodyfile="entity/AttackHitbox.java" bodystart="138" bodyend="140"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Egy fegyvernek a hitbox-át tárolja és a kinézetét, mivel akkor a kinézete mint a hitboxa Mivel a BufferImagek-et nem lehet Serializálni azt transient-nek kell állítani </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>entity.AttackHitbox</label>
+        <link refid="classentity_1_1_attack_hitbox"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>entity.Entity</label>
+        <link refid="classentity_1_1_entity"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Serializable</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="9">
+        <label>Runnable</label>
+      </node>
+      <node id="1">
+        <label>entity.AttackHitbox</label>
+        <link refid="classentity_1_1_attack_hitbox"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>entity.Entity</label>
+        <link refid="classentity_1_1_entity"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>hitbox</edgelabel>
+          <edgelabel>view_distance</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>sheet</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>skin</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>weapon</edgelabel>
+        </childnode>
+      </node>
+      <node id="8">
+        <label>entity.Weapon</label>
+        <link refid="classentity_1_1_weapon"/>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Rectangle</label>
+      </node>
+      <node id="7">
+        <label>BufferedImage</label>
+      </node>
+      <node id="3">
+        <label>Serializable</label>
+      </node>
+      <node id="6">
+        <label>ArrayList&lt; BufferedImage &gt;</label>
+      </node>
+      <node id="5">
+        <label>loaders.SheetLoader</label>
+        <link refid="classloaders_1_1_sheet_loader"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="entity/AttackHitbox.java" line="17" column="7" bodyfile="entity/AttackHitbox.java" bodystart="17" bodyend="141"/>
+    <listofallmembers>
+      <member refid="classentity_1_1_attack_hitbox_1a0d4b40f475bb69dae7a5ecbee28845bb" prot="public" virt="non-virtual"><scope>entity::AttackHitbox</scope><name>AttackHitbox</name></member>
+      <member refid="classentity_1_1_entity_1a2eab14e983f296d66138f2edbcbadca5" prot="public" virt="non-virtual"><scope>entity::AttackHitbox</scope><name>attackWithWeapon</name></member>
+      <member refid="classentity_1_1_entity_1a70223ae28e59753be46342f56174aa96" prot="public" virt="non-virtual"><scope>entity::AttackHitbox</scope><name>collisionOn</name></member>
+      <member refid="classentity_1_1_entity_1ab83a6124b4bcbd834acc4cb1b4104c52" prot="public" virt="non-virtual"><scope>entity::AttackHitbox</scope><name>damaged</name></member>
+      <member refid="classentity_1_1_entity_1a24d978740a4020fc28d1789686cb7453" prot="protected" virt="non-virtual"><scope>entity::AttackHitbox</scope><name>dead</name></member>
+      <member refid="classentity_1_1_entity_1ada9f35af61ec4cef68b655b21fea7346" prot="protected" virt="non-virtual"><scope>entity::AttackHitbox</scope><name>die</name></member>
+      <member refid="classentity_1_1_entity_1a499e01694b8f0e6533902c08e5c9eea8" prot="public" virt="non-virtual"><scope>entity::AttackHitbox</scope><name>draw</name></member>
+      <member refid="classentity_1_1_entity_1ae1076f804d943271dcb922a185c20a44" prot="public" virt="non-virtual"><scope>entity::AttackHitbox</scope><name>getHealt</name></member>
+      <member refid="classentity_1_1_entity_1a920ef8ae6ceae092fa8cf9f33a72f064" prot="public" virt="non-virtual"><scope>entity::AttackHitbox</scope><name>getMaxHealt</name></member>
+      <member refid="classentity_1_1_attack_hitbox_1a1a897d818ccd1f33f35d7081aa8515cd" prot="public" virt="non-virtual"><scope>entity::AttackHitbox</scope><name>getRange</name></member>
+      <member refid="classentity_1_1_attack_hitbox_1ac77370ddd78e96cf2f05a8ae27bfe270" prot="public" virt="non-virtual"><scope>entity::AttackHitbox</scope><name>getSkin</name></member>
+      <member refid="classentity_1_1_entity_1a37bf6872289a50ac5160577d6532691c" prot="public" virt="non-virtual"><scope>entity::AttackHitbox</scope><name>getSpeed</name></member>
+      <member refid="classentity_1_1_entity_1a59f731d2cfd4b83606e31aade584b877" prot="public" virt="non-virtual"><scope>entity::AttackHitbox</scope><name>getWeaponDamage</name></member>
+      <member refid="classentity_1_1_attack_hitbox_1ae9731c3105bd232caf6ecdb16bab22f2" prot="public" virt="non-virtual"><scope>entity::AttackHitbox</scope><name>getWeaponType</name></member>
+      <member refid="classentity_1_1_entity_1ad155ea8fc8ca4f6bc6ac11d1d9647679" prot="public" virt="non-virtual"><scope>entity::AttackHitbox</scope><name>getX</name></member>
+      <member refid="classentity_1_1_entity_1a8b1969dd948ca89723ab3e5071f7297a" prot="public" virt="non-virtual"><scope>entity::AttackHitbox</scope><name>getY</name></member>
+      <member refid="classentity_1_1_entity_1a659e2f3ff696afa20135a59fc4b87ac6" prot="protected" virt="non-virtual"><scope>entity::AttackHitbox</scope><name>healt</name></member>
+      <member refid="classentity_1_1_entity_1a5b026458182ab12ddcacb2858eca0a41" prot="public" virt="non-virtual"><scope>entity::AttackHitbox</scope><name>hitbox</name></member>
+      <member refid="classentity_1_1_entity_1a9c16cdaf10b8ec7e783f184be1431a99" prot="public" virt="non-virtual"><scope>entity::AttackHitbox</scope><name>hitboxDefaultX</name></member>
+      <member refid="classentity_1_1_entity_1abcf43b7fd4db801ef159fdaabea112f3" prot="public" virt="non-virtual"><scope>entity::AttackHitbox</scope><name>hitboxDefaultY</name></member>
+      <member refid="classentity_1_1_entity_1aa1aafb9bfedd991b84800ab4e6d3f4bc" prot="public" virt="non-virtual"><scope>entity::AttackHitbox</scope><name>isDead</name></member>
+      <member refid="classentity_1_1_entity_1a335228020c35226129694b5693460cf2" prot="protected" virt="non-virtual"><scope>entity::AttackHitbox</scope><name>maxHealt</name></member>
+      <member refid="classentity_1_1_entity_1ab9e5041999c4c41f032c973893259201" prot="public" virt="non-virtual"><scope>entity::AttackHitbox</scope><name>move_dir</name></member>
+      <member refid="classentity_1_1_entity_1ab75525e184a350f04d8d395c813ee041" prot="public" virt="non-virtual"><scope>entity::AttackHitbox</scope><name>moveToPoint</name></member>
+      <member refid="classentity_1_1_attack_hitbox_1a5f0a0bf7c7d4339e76fe6b71484b7964" prot="private" virt="non-virtual"><scope>entity::AttackHitbox</scope><name>range</name></member>
+      <member refid="classentity_1_1_attack_hitbox_1a04b4f93f5bf0496881ce7ca0061f22c8" prot="public" virt="non-virtual"><scope>entity::AttackHitbox</scope><name>reLoad</name></member>
+      <member refid="classentity_1_1_entity_1ae2b4e2e0a290140a3180a8dbc17a1e62" prot="public" virt="non-virtual"><scope>entity::AttackHitbox</scope><name>resetHitboxToDefault</name></member>
+      <member refid="classentity_1_1_entity_1a0a21cc1080caed66e21cc6e7f6ab83f3" prot="public" virt="non-virtual"><scope>entity::AttackHitbox</scope><name>resetViewDistanceDefault</name></member>
+      <member refid="classentity_1_1_attack_hitbox_1a73f9937b6301c3ca3dc14969df5c747d" prot="public" virt="non-virtual"><scope>entity::AttackHitbox</scope><name>setSkin</name></member>
+      <member refid="classentity_1_1_entity_1ab46f2776de81b178d38abd4a0fa82055" prot="public" virt="non-virtual"><scope>entity::AttackHitbox</scope><name>setSpeed</name></member>
+      <member refid="classentity_1_1_attack_hitbox_1ad05d8da0d117ae07a149cd9f640d40f3" prot="public" virt="non-virtual"><scope>entity::AttackHitbox</scope><name>setupAttackType</name></member>
+      <member refid="classentity_1_1_entity_1a9b029fad06135f8ca27627e78e4220a7" prot="public" virt="non-virtual"><scope>entity::AttackHitbox</scope><name>setX</name></member>
+      <member refid="classentity_1_1_entity_1aaec68b6742e4be19b87fff73f933f40f" prot="public" virt="non-virtual"><scope>entity::AttackHitbox</scope><name>setY</name></member>
+      <member refid="classentity_1_1_entity_1a9bc701dff83e2cd5317707910aced397" prot="protected" virt="non-virtual"><scope>entity::AttackHitbox</scope><name>sheet</name></member>
+      <member refid="classentity_1_1_entity_1abaac51fede5861249818e335261657ca" prot="public" virt="non-virtual"><scope>entity::AttackHitbox</scope><name>sheetCnt</name></member>
+      <member refid="classentity_1_1_entity_1a42a6d1b56669ee70abdda02303aa3a8a" prot="public" virt="non-virtual"><scope>entity::AttackHitbox</scope><name>sheetNum</name></member>
+      <member refid="classentity_1_1_entity_1a8f771a1d2e1048173c76c5cb2f970b91" prot="protected" virt="non-virtual"><scope>entity::AttackHitbox</scope><name>skin</name></member>
+      <member refid="classentity_1_1_entity_1af9b5fa055734ddb2512dec70a74e129c" prot="protected" virt="non-virtual"><scope>entity::AttackHitbox</scope><name>speed</name></member>
+      <member refid="classentity_1_1_attack_hitbox_1a93a702ef9ea4db2862dbd0b1b5d96c65" prot="private" virt="non-virtual"><scope>entity::AttackHitbox</scope><name>uT</name></member>
+      <member refid="classentity_1_1_entity_1a05416e3360c0e4bb83f8bfa3c5f22fce" prot="public" virt="non-virtual"><scope>entity::AttackHitbox</scope><name>view_distance</name></member>
+      <member refid="classentity_1_1_entity_1ab45f0aaf46ebb5af86abac3701abf92e" prot="public" virt="non-virtual"><scope>entity::AttackHitbox</scope><name>viewDDefaultX</name></member>
+      <member refid="classentity_1_1_entity_1ad70a483039623f68921b28433d2ef537" prot="public" virt="non-virtual"><scope>entity::AttackHitbox</scope><name>viewDDefaultY</name></member>
+      <member refid="classentity_1_1_entity_1abaa404d99ab8e7149ea9f4fbd43fe2ab" prot="protected" virt="non-virtual"><scope>entity::AttackHitbox</scope><name>weapon</name></member>
+      <member refid="classentity_1_1_attack_hitbox_1aed4375872cbc48ecd2c890dd3d94f04d" prot="private" virt="non-virtual"><scope>entity::AttackHitbox</scope><name>weapon_type</name></member>
+      <member refid="classentity_1_1_entity_1aecf9bc460c95122a484978c816743a9c" prot="protected" virt="non-virtual"><scope>entity::AttackHitbox</scope><name>x</name></member>
+      <member refid="classentity_1_1_entity_1ad256e5814a65756ce28018537753b1a3" prot="protected" virt="non-virtual"><scope>entity::AttackHitbox</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

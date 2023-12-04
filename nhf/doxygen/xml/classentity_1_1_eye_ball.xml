@@ -1,0 +1,357 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classentity_1_1_eye_ball" kind="class" language="Java" prot="public">
+    <compoundname>entity::EyeBall</compoundname>
+    <basecompoundref refid="classentity_1_1_entity" prot="public" virt="non-virtual">entity.Entity</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">Runnable</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classentity_1_1_eye_ball_1ac58fd07932e5d7cddc051768b4a573c3" prot="private" static="no" mutable="no">
+        <type>transient Thread</type>
+        <definition>transient Thread entity.EyeBall.animation</definition>
+        <argsstring></argsstring>
+        <name>animation</name>
+        <qualifiedname>entity.EyeBall.animation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Kell egy száll amin futhat az EyeBall animációja </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/EyeBall.java" line="24" column="26" bodyfile="entity/EyeBall.java" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classentity_1_1_eye_ball_1a2f23639f5788b1260dfafc50ab357895" prot="private" static="no" mutable="no">
+        <type>Animation_States</type>
+        <definition>Animation_States entity.EyeBall.aniState</definition>
+        <argsstring></argsstring>
+        <name>aniState</name>
+        <qualifiedname>entity.EyeBall.aniState</qualifiedname>
+        <initializer>= Animation_States.Still</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Az animáció state amiben éppen van </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/EyeBall.java" line="28" column="26" bodyfile="entity/EyeBall.java" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classentity_1_1_eye_ball_1a3172104754bcdeb0a4aa39517d6d71ca" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int entity.EyeBall.lastX</definition>
+        <argsstring></argsstring>
+        <name>lastX</name>
+        <qualifiedname>entity.EyeBall.lastX</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Az elöző képfrissítésnél volt koordinátája, hogy tudjuk éppen egyhelyebn áll-e vagy sem </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/EyeBall.java" line="32" column="13" bodyfile="entity/EyeBall.java" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classentity_1_1_eye_ball_1a16c8a71660694ca36ecbda41684cd295" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int entity.EyeBall.lastY</definition>
+        <argsstring></argsstring>
+        <name>lastY</name>
+        <qualifiedname>entity.EyeBall.lastY</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/EyeBall.java" line="32" column="19" bodyfile="entity/EyeBall.java" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classentity_1_1_eye_ball_1a328580546d12b0002d5ddc5148fd4587" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>entity.EyeBall.EyeBall</definition>
+        <argsstring>()</argsstring>
+        <name>EyeBall</name>
+        <qualifiedname>entity.EyeBall.EyeBall</qualifiedname>
+        <exceptions> throws <ref refid="classerror_1_1_own_error" kindref="compound">OwnError</ref> </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Konstruktor, beállítja az alap adatait, kinézet hitbox ami előre megvan határozva mekkora <parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>OwnError</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Visszadobjuk a hiba üzenetet </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/EyeBall.java" line="37" column="8" bodyfile="entity/EyeBall.java" bodystart="37" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classentity_1_1_eye_ball_1ae3a17990affdb87a3ebf5146a7c77b7d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void entity.EyeBall.draw</definition>
+        <argsstring>(Graphics2D grap2)</argsstring>
+        <name>draw</name>
+        <qualifiedname>entity.EyeBall.draw</qualifiedname>
+        <reimplements refid="classentity_1_1_entity_1a499e01694b8f0e6533902c08e5c9eea8">draw</reimplements>
+        <param>
+          <type>Graphics2D</type>
+          <declname>grap2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Újra definiáéja az Entity osztály metodusát, hogy a fegyverét is kirajzolja, ha azzal éppen támad </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/EyeBall.java" line="58" column="13" bodyfile="entity/EyeBall.java" bodystart="58" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classentity_1_1_eye_ball_1a49e441f5a8bc364603993f581fc33df1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void entity.EyeBall.animationStart</definition>
+        <argsstring>()</argsstring>
+        <name>animationStart</name>
+        <qualifiedname>entity.EyeBall.animationStart</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Elindítja az animation szállat </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/EyeBall.java" line="74" column="13" bodyfile="entity/EyeBall.java" bodystart="74" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="classentity_1_1_eye_ball_1a00fed86491261fbc8913eb3db8fc78c1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void entity.EyeBall.attackWithWeapon</definition>
+        <argsstring>()</argsstring>
+        <name>attackWithWeapon</name>
+        <qualifiedname>entity.EyeBall.attackWithWeapon</qualifiedname>
+        <reimplements refid="classentity_1_1_entity_1a2eab14e983f296d66138f2edbcbadca5">attackWithWeapon</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Meghívja az ős metodust, aztán belép a megfelelő state-ba és betölti a támadási kinézetet </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/EyeBall.java" line="83" column="13" bodyfile="entity/EyeBall.java" bodystart="83" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="classentity_1_1_eye_ball_1a157ce11a133e22aa2063f79849e3252f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void entity.EyeBall.moveToPoint</definition>
+        <argsstring>(int x, int y)</argsstring>
+        <name>moveToPoint</name>
+        <qualifiedname>entity.EyeBall.moveToPoint</qualifiedname>
+        <reimplements refid="classentity_1_1_entity_1ab75525e184a350f04d8d395c813ee041">moveToPoint</reimplements>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Csak akkor mozgunk, he nem támadunk, az ős pedig csak akkor mozog, ha &quot;él&quot; az entitás </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/EyeBall.java" line="92" column="13" bodyfile="entity/EyeBall.java" bodystart="92" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="classentity_1_1_eye_ball_1aacf61c2be6ba557e491426047f5957a3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void entity.EyeBall.run</definition>
+        <argsstring>()</argsstring>
+        <name>run</name>
+        <qualifiedname>entity.EyeBall.run</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Addig megy a száll, emeddig meg nem &quot;hal&quot; az EyeBall váltogat a statek között </para>
+        </detaileddescription>
+        <inbodydescription>
+<para>Halál kinézet</para>
+        </inbodydescription>
+        <location file="entity/EyeBall.java" line="103" column="13" bodyfile="entity/EyeBall.java" bodystart="103" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="classentity_1_1_eye_ball_1ad065d41764891a5a220a3a7acc67c797" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void entity.EyeBall.reLoad</definition>
+        <argsstring>()</argsstring>
+        <name>reLoad</name>
+        <qualifiedname>entity.EyeBall.reLoad</qualifiedname>
+        <reimplements refid="classentity_1_1_entity_1a7e492d42868aba82311a6a21016dd671">reLoad</reimplements>
+        <exceptions> throws <ref refid="classerror_1_1_own_error" kindref="compound">OwnError</ref> </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Megvalosítja az ős reLoad metodusát </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/EyeBall.java" line="150" column="13" bodyfile="entity/EyeBall.java" bodystart="150" bodyend="154"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classentity_1_1_eye_ball_1a89d397c84b69bf2f4ecd7e79c2c6fa95" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void entity.EyeBall.die</definition>
+        <argsstring>()</argsstring>
+        <name>die</name>
+        <qualifiedname>entity.EyeBall.die</qualifiedname>
+        <reimplements refid="classentity_1_1_entity_1ada9f35af61ec4cef68b655b21fea7346">die</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Mivel alőre tudni kell egy sheet-ben hol milyen kinézet van, az EyeBell halott kinézete pedig az 5 indexen érhető el, ezért mikor meghall meghívjuk az őse metodusát, aztán beállítjuk a kinézetet </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/EyeBall.java" line="67" column="16" bodyfile="entity/EyeBall.java" bodystart="67" bodyend="70"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Ez egy ellenfél entitás, egy kis szem a kinézete, az animációja miatt szükség van, hogy Runnable legyen </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>Runnable</label>
+      </node>
+      <node id="1">
+        <label>entity.EyeBall</label>
+        <link refid="classentity_1_1_eye_ball"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>entity.Entity</label>
+        <link refid="classentity_1_1_entity"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Serializable</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="9">
+        <label>Runnable</label>
+      </node>
+      <node id="1">
+        <label>entity.EyeBall</label>
+        <link refid="classentity_1_1_eye_ball"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>entity.Entity</label>
+        <link refid="classentity_1_1_entity"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>hitbox</edgelabel>
+          <edgelabel>view_distance</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>sheet</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>skin</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>weapon</edgelabel>
+        </childnode>
+      </node>
+      <node id="8">
+        <label>entity.Weapon</label>
+        <link refid="classentity_1_1_weapon"/>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Rectangle</label>
+      </node>
+      <node id="7">
+        <label>BufferedImage</label>
+      </node>
+      <node id="3">
+        <label>Serializable</label>
+      </node>
+      <node id="6">
+        <label>ArrayList&lt; BufferedImage &gt;</label>
+      </node>
+      <node id="5">
+        <label>loaders.SheetLoader</label>
+        <link refid="classloaders_1_1_sheet_loader"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="entity/EyeBall.java" line="20" column="7" bodyfile="entity/EyeBall.java" bodystart="20" bodyend="155"/>
+    <listofallmembers>
+      <member refid="classentity_1_1_eye_ball_1ac58fd07932e5d7cddc051768b4a573c3" prot="private" virt="non-virtual"><scope>entity::EyeBall</scope><name>animation</name></member>
+      <member refid="classentity_1_1_eye_ball_1a49e441f5a8bc364603993f581fc33df1" prot="public" virt="non-virtual"><scope>entity::EyeBall</scope><name>animationStart</name></member>
+      <member refid="classentity_1_1_eye_ball_1a2f23639f5788b1260dfafc50ab357895" prot="private" virt="non-virtual"><scope>entity::EyeBall</scope><name>aniState</name></member>
+      <member refid="classentity_1_1_eye_ball_1a00fed86491261fbc8913eb3db8fc78c1" prot="public" virt="non-virtual"><scope>entity::EyeBall</scope><name>attackWithWeapon</name></member>
+      <member refid="classentity_1_1_entity_1a70223ae28e59753be46342f56174aa96" prot="public" virt="non-virtual"><scope>entity::EyeBall</scope><name>collisionOn</name></member>
+      <member refid="classentity_1_1_entity_1ab83a6124b4bcbd834acc4cb1b4104c52" prot="public" virt="non-virtual"><scope>entity::EyeBall</scope><name>damaged</name></member>
+      <member refid="classentity_1_1_entity_1a24d978740a4020fc28d1789686cb7453" prot="protected" virt="non-virtual"><scope>entity::EyeBall</scope><name>dead</name></member>
+      <member refid="classentity_1_1_eye_ball_1a89d397c84b69bf2f4ecd7e79c2c6fa95" prot="protected" virt="non-virtual"><scope>entity::EyeBall</scope><name>die</name></member>
+      <member refid="classentity_1_1_eye_ball_1ae3a17990affdb87a3ebf5146a7c77b7d" prot="public" virt="non-virtual"><scope>entity::EyeBall</scope><name>draw</name></member>
+      <member refid="classentity_1_1_eye_ball_1a328580546d12b0002d5ddc5148fd4587" prot="public" virt="non-virtual"><scope>entity::EyeBall</scope><name>EyeBall</name></member>
+      <member refid="classentity_1_1_entity_1ae1076f804d943271dcb922a185c20a44" prot="public" virt="non-virtual"><scope>entity::EyeBall</scope><name>getHealt</name></member>
+      <member refid="classentity_1_1_entity_1a920ef8ae6ceae092fa8cf9f33a72f064" prot="public" virt="non-virtual"><scope>entity::EyeBall</scope><name>getMaxHealt</name></member>
+      <member refid="classentity_1_1_entity_1a37bf6872289a50ac5160577d6532691c" prot="public" virt="non-virtual"><scope>entity::EyeBall</scope><name>getSpeed</name></member>
+      <member refid="classentity_1_1_entity_1a59f731d2cfd4b83606e31aade584b877" prot="public" virt="non-virtual"><scope>entity::EyeBall</scope><name>getWeaponDamage</name></member>
+      <member refid="classentity_1_1_entity_1ad155ea8fc8ca4f6bc6ac11d1d9647679" prot="public" virt="non-virtual"><scope>entity::EyeBall</scope><name>getX</name></member>
+      <member refid="classentity_1_1_entity_1a8b1969dd948ca89723ab3e5071f7297a" prot="public" virt="non-virtual"><scope>entity::EyeBall</scope><name>getY</name></member>
+      <member refid="classentity_1_1_entity_1a659e2f3ff696afa20135a59fc4b87ac6" prot="protected" virt="non-virtual"><scope>entity::EyeBall</scope><name>healt</name></member>
+      <member refid="classentity_1_1_entity_1a5b026458182ab12ddcacb2858eca0a41" prot="public" virt="non-virtual"><scope>entity::EyeBall</scope><name>hitbox</name></member>
+      <member refid="classentity_1_1_entity_1a9c16cdaf10b8ec7e783f184be1431a99" prot="public" virt="non-virtual"><scope>entity::EyeBall</scope><name>hitboxDefaultX</name></member>
+      <member refid="classentity_1_1_entity_1abcf43b7fd4db801ef159fdaabea112f3" prot="public" virt="non-virtual"><scope>entity::EyeBall</scope><name>hitboxDefaultY</name></member>
+      <member refid="classentity_1_1_entity_1aa1aafb9bfedd991b84800ab4e6d3f4bc" prot="public" virt="non-virtual"><scope>entity::EyeBall</scope><name>isDead</name></member>
+      <member refid="classentity_1_1_eye_ball_1a3172104754bcdeb0a4aa39517d6d71ca" prot="private" virt="non-virtual"><scope>entity::EyeBall</scope><name>lastX</name></member>
+      <member refid="classentity_1_1_eye_ball_1a16c8a71660694ca36ecbda41684cd295" prot="private" virt="non-virtual"><scope>entity::EyeBall</scope><name>lastY</name></member>
+      <member refid="classentity_1_1_entity_1a335228020c35226129694b5693460cf2" prot="protected" virt="non-virtual"><scope>entity::EyeBall</scope><name>maxHealt</name></member>
+      <member refid="classentity_1_1_entity_1ab9e5041999c4c41f032c973893259201" prot="public" virt="non-virtual"><scope>entity::EyeBall</scope><name>move_dir</name></member>
+      <member refid="classentity_1_1_eye_ball_1a157ce11a133e22aa2063f79849e3252f" prot="public" virt="non-virtual"><scope>entity::EyeBall</scope><name>moveToPoint</name></member>
+      <member refid="classentity_1_1_eye_ball_1ad065d41764891a5a220a3a7acc67c797" prot="public" virt="non-virtual"><scope>entity::EyeBall</scope><name>reLoad</name></member>
+      <member refid="classentity_1_1_entity_1ae2b4e2e0a290140a3180a8dbc17a1e62" prot="public" virt="non-virtual"><scope>entity::EyeBall</scope><name>resetHitboxToDefault</name></member>
+      <member refid="classentity_1_1_entity_1a0a21cc1080caed66e21cc6e7f6ab83f3" prot="public" virt="non-virtual"><scope>entity::EyeBall</scope><name>resetViewDistanceDefault</name></member>
+      <member refid="classentity_1_1_eye_ball_1aacf61c2be6ba557e491426047f5957a3" prot="public" virt="non-virtual"><scope>entity::EyeBall</scope><name>run</name></member>
+      <member refid="classentity_1_1_entity_1ab46f2776de81b178d38abd4a0fa82055" prot="public" virt="non-virtual"><scope>entity::EyeBall</scope><name>setSpeed</name></member>
+      <member refid="classentity_1_1_entity_1a9b029fad06135f8ca27627e78e4220a7" prot="public" virt="non-virtual"><scope>entity::EyeBall</scope><name>setX</name></member>
+      <member refid="classentity_1_1_entity_1aaec68b6742e4be19b87fff73f933f40f" prot="public" virt="non-virtual"><scope>entity::EyeBall</scope><name>setY</name></member>
+      <member refid="classentity_1_1_entity_1a9bc701dff83e2cd5317707910aced397" prot="protected" virt="non-virtual"><scope>entity::EyeBall</scope><name>sheet</name></member>
+      <member refid="classentity_1_1_entity_1abaac51fede5861249818e335261657ca" prot="public" virt="non-virtual"><scope>entity::EyeBall</scope><name>sheetCnt</name></member>
+      <member refid="classentity_1_1_entity_1a42a6d1b56669ee70abdda02303aa3a8a" prot="public" virt="non-virtual"><scope>entity::EyeBall</scope><name>sheetNum</name></member>
+      <member refid="classentity_1_1_entity_1a8f771a1d2e1048173c76c5cb2f970b91" prot="protected" virt="non-virtual"><scope>entity::EyeBall</scope><name>skin</name></member>
+      <member refid="classentity_1_1_entity_1af9b5fa055734ddb2512dec70a74e129c" prot="protected" virt="non-virtual"><scope>entity::EyeBall</scope><name>speed</name></member>
+      <member refid="classentity_1_1_entity_1a05416e3360c0e4bb83f8bfa3c5f22fce" prot="public" virt="non-virtual"><scope>entity::EyeBall</scope><name>view_distance</name></member>
+      <member refid="classentity_1_1_entity_1ab45f0aaf46ebb5af86abac3701abf92e" prot="public" virt="non-virtual"><scope>entity::EyeBall</scope><name>viewDDefaultX</name></member>
+      <member refid="classentity_1_1_entity_1ad70a483039623f68921b28433d2ef537" prot="public" virt="non-virtual"><scope>entity::EyeBall</scope><name>viewDDefaultY</name></member>
+      <member refid="classentity_1_1_entity_1abaa404d99ab8e7149ea9f4fbd43fe2ab" prot="protected" virt="non-virtual"><scope>entity::EyeBall</scope><name>weapon</name></member>
+      <member refid="classentity_1_1_entity_1aecf9bc460c95122a484978c816743a9c" prot="protected" virt="non-virtual"><scope>entity::EyeBall</scope><name>x</name></member>
+      <member refid="classentity_1_1_entity_1ad256e5814a65756ce28018537753b1a3" prot="protected" virt="non-virtual"><scope>entity::EyeBall</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

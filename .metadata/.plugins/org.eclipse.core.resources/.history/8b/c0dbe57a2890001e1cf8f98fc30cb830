@@ -1,0 +1,5 @@
+package error;
+
+@SuppressWarnings("serial")
+public class OwnError extends Exception {
+}

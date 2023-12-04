@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="namespaceloaders" kind="namespace" language="Java">
+    <compoundname>loaders</compoundname>
+    <innerclass refid="classloaders_1_1_best_rounds" prot="public">loaders::BestRounds</innerclass>
+    <innerclass refid="classloaders_1_1_score" prot="public">loaders::Score</innerclass>
+    <innerclass refid="classloaders_1_1_sheet_loader" prot="public">loaders::SheetLoader</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="loaders/BestRounds.java" line="1" column="15"/>
+  </compounddef>
+</doxygen>

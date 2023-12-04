@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="dir_87612adcfe7837add8b0d4129f782d83" kind="dir">
+    <compoundname>loaders</compoundname>
+    <innerfile refid="_best_rounds_8java">BestRounds.java</innerfile>
+    <innerfile refid="_score_8java">Score.java</innerfile>
+    <innerfile refid="_sheet_loader_8java">SheetLoader.java</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="loaders/"/>
+  </compounddef>
+</doxygen>

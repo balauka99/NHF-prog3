@@ -5,13 +5,24 @@ import java.io.Serializable;
 import entity.Entity;
 import entity.Weapon;
 
+@SuppressWarnings("serial")
+/**
+ * Ez az osztály felel azért, hogy detektálja ha valamelyik object-hez egy entitás ér, vagy bármilyen 2 hitboxal rendelkező osztály hitboxai összeérnek
+ */
 public class CollisionChecker implements Serializable{
+	/**
+	 * Kell a GamePanel, hogy hozzátudjon férni az összes object és entity-hez
+	 */
 	GamePanel gameP;
 	public CollisionChecker(GamePanel gp) {
 		gameP = gp;
 	}
-	
-	public void checkTile(Entity ent) {	//It is lehetne intersectel megvizsgálni, de az túl "drága" így csak 2 tilet vizsgálunk, nem 20x15-öt
+	/**
+	 * A paraméterként kapott Entity osztály tagját, megnézi rajta van-e a hitboxa valamelyik tileon, ameik collision adattagja igaz, azaz egy szilárd tile az, mint például egy fall
+	 * It is lehetne intersectel megvizsgálni, de az túl "drága" így csak 2 tilet vizsgálunk, nem 20x15-öt
+	 * @param ent
+	 */
+	public void checkTile(Entity ent) {
 		int entLeftX = ent.getX() + ent.hitbox.x;
 		int entRightX = ent.getX() + ent.hitbox.x + ent.hitbox.width;
 		int entTopY = ent.getY() + ent.hitbox.y;
@@ -63,6 +74,13 @@ public class CollisionChecker implements Serializable{
 			break;
 		}
 	}
+	/**
+	 * Mint a checkTile megvizsgálja egy Entity hozzáér-e valamelyik object-hez, ha a player paraméter igaz, akkor visszaad egy index-et
+	 * így tudja majd a player használni azt az objectet
+	 * @param ent Entity
+	 * @param player boolean
+	 * @return egy index, ami a GamePanel objects tömbben lévő elemre utal
+	 */
 	public int checkObject(Entity ent, boolean player) {
 		int index = 999;
 		
@@ -127,7 +145,10 @@ public class CollisionChecker implements Serializable{
 		}
 		return index;
 	}
-	
+	/**
+	 * Hasonló a checkTile-hoz, de itt egy Weapon osztály tagját vizsgáljuk meg hozzáér-e egy objecthez, ha igen elpusztítjuk azt
+	 * @param wep Weapon, egy fegyver valamelyik Entity-nek
+	 */
 	public void checkWeaponDestroysOBJ(Weapon wep) {
 		if(wep.isAttacking()) {
 			//Weapon hitbox position kiszámítása
@@ -148,7 +169,11 @@ public class CollisionChecker implements Serializable{
 			wep.getAttackHitbox().resetHitboxToDefault();
 		}
 	}
-	
+	/**
+	 * Nagyon hasonló a checkWeaponDestroysOBJ, csak itt nem objectet hanem entity-t vizsgálunk és nem elpusztítjuk csak sebbezzük
+	 * @param player
+	 * @param wep
+	 */
 	public void checkWeaponDamageEnemys(Entity player, Weapon wep) {
 		if(wep.isAttacking()) {
 			wep.getAttackHitbox().hitbox.x += wep.getAttackHitbox().getX();
@@ -167,7 +192,12 @@ public class CollisionChecker implements Serializable{
 			wep.getAttackHitbox().resetHitboxToDefault();
 		}
 	}
-	
+	/**
+	 * Ez a metódus azt vizsgálja a paraméterkénk megkapott Player osztály tagját "látja-e" valamelyik Entity (enemy)
+	 * a GamePanel enemys adattagját használjuk fel és vizsgáljuk meg, hogy a view_distance (olyan mint egy hitbox) "látóterével" összeér-e a játékos
+	 * ha igen, akkor az az enemy közeledik a Player-hez
+	 * @param player Player, a felhasználó
+	 */
 	public void checkEnemysSeePlayer(Entity player) {
 		player.hitbox.x += player.getX();
 		player.hitbox.y += player.getY();

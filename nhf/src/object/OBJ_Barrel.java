@@ -1,9 +1,6 @@
 package object;
 
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
-
+@SuppressWarnings("serial")
 public class OBJ_Barrel extends OsObject implements Runnable{
 	private transient Thread boom;
 	

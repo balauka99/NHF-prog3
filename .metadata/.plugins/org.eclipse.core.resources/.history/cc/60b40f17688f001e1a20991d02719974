@@ -1,0 +1,8 @@
+package entity;
+
+public class TestEntity {
+	@Before
+	public void setup() {
+		
+	}
+}

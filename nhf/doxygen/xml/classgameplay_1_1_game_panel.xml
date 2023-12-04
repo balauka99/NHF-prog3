@@ -1,0 +1,960 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classgameplay_1_1_game_panel" kind="class" language="Java" prot="public">
+    <compoundname>gameplay::GamePanel</compoundname>
+    <basecompoundref refid="classospanel_1_1_os_panel" prot="public" virt="non-virtual">ospanel.OsPanel</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">Runnable</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classgameplay_1_1_game_panel_1a3fc4e5df6e7cc5d6c7c2835471815f2f" prot="public" static="no" mutable="no">
+        <type><ref refid="enumgameplay_1_1_map___status" kindref="compound">Map_Status</ref></type>
+        <definition>Map_Status gameplay.GamePanel.map_state</definition>
+        <argsstring></argsstring>
+        <name>map_state</name>
+        <qualifiedname>gameplay.GamePanel.map_state</qualifiedname>
+        <initializer>= <ref refid="enumgameplay_1_1_map___status_1a15aea440a82e455068728b8a88d87fc3" kindref="member">Map_Status.IN_NEW</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A map-nak páylának a státusza, vagy IN_NEW(egy új pálya) vagy IN_PREVIOUS(egy már végzett pálya), ha újban vagyunk csak akkor mehetünk egy másik újba régiből csak egy régebbi, de későbbibe, mint ahol vagyunk pályára </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/GamePanel.java" line="33" column="19" bodyfile="gameplay/GamePanel.java" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgameplay_1_1_game_panel_1ae64e36267f194aede8555452c46444a2" prot="public" static="no" mutable="no">
+        <type>ArrayList&lt; <ref refid="classobject_1_1_heart" kindref="compound">Heart</ref> &gt;</type>
+        <definition>ArrayList&lt;Heart&gt; gameplay.GamePanel.player_healt</definition>
+        <argsstring></argsstring>
+        <name>player_healt</name>
+        <qualifiedname>gameplay.GamePanel.player_healt</qualifiedname>
+        <initializer>= new ArrayList&lt;<ref refid="classobject_1_1_heart" kindref="compound">Heart</ref>&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Játékos életerejét megjelenítő kis szivek </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/GamePanel.java" line="49" column="18" bodyfile="gameplay/GamePanel.java" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgameplay_1_1_game_panel_1ae286dfc6a71cb6cc251d584d5e80a1a9" prot="public" static="no" mutable="no">
+        <type><ref refid="classgameplay_1_1_previous_maps" kindref="compound">PreviousMaps</ref></type>
+        <definition>PreviousMaps gameplay.GamePanel.prevMaps</definition>
+        <argsstring></argsstring>
+        <name>prevMaps</name>
+        <qualifiedname>gameplay.GamePanel.prevMaps</qualifiedname>
+        <initializer>= new <ref refid="classgameplay_1_1_previous_maps" kindref="compound">PreviousMaps</ref>()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Azok a pályák ahol már járt a játékos, így könnyen bejárható mind, és könnyen el tudjuk menteni </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/GamePanel.java" line="61" column="21" bodyfile="gameplay/GamePanel.java" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgameplay_1_1_game_panel_1a881ecc2c0d25fd7e594f7d834cb49ecb" prot="public" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean gameplay.GamePanel.isMapInPrevMaps</definition>
+        <argsstring></argsstring>
+        <name>isMapInPrevMaps</name>
+        <qualifiedname>gameplay.GamePanel.isMapInPrevMaps</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Azt jelzi, hogy az a pálya hol éppen vagyunk, benne van-e a prevMaps-ban, alapból false és csak akkor lesz true amikor beletesszük a prevMaps-ba </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/GamePanel.java" line="65" column="16" bodyfile="gameplay/GamePanel.java" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgameplay_1_1_game_panel_1a628fb45e922f40d4872cffc3aa13f8ef" prot="public" static="no" mutable="no">
+        <type><ref refid="classtile_1_1_tile_manager" kindref="compound">TileManager</ref></type>
+        <definition>TileManager gameplay.GamePanel.tileMg</definition>
+        <argsstring></argsstring>
+        <name>tileMg</name>
+        <qualifiedname>gameplay.GamePanel.tileMg</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A tileokat beállító és pályát kirajzoló adattag </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/GamePanel.java" line="73" column="20" bodyfile="gameplay/GamePanel.java" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgameplay_1_1_game_panel_1ae748f4e9b5ab06ad03f6cb5ad6776bc1" prot="public" static="no" mutable="no">
+        <type><ref refid="classgameplay_1_1_collision_checker" kindref="compound">CollisionChecker</ref></type>
+        <definition>CollisionChecker gameplay.GamePanel.cChecker</definition>
+        <argsstring></argsstring>
+        <name>cChecker</name>
+        <qualifiedname>gameplay.GamePanel.cChecker</qualifiedname>
+        <initializer>= new <ref refid="classgameplay_1_1_collision_checker" kindref="compound">CollisionChecker</ref>(this)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/GamePanel.java" line="74" column="25" bodyfile="gameplay/GamePanel.java" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgameplay_1_1_game_panel_1a57be0dc26760f451632ad5de0c5bdd68" prot="public" static="no" mutable="no">
+        <type>ArrayList&lt; <ref refid="classobject_1_1_os_object" kindref="compound">OsObject</ref> &gt;</type>
+        <definition>ArrayList&lt;OsObject&gt; gameplay.GamePanel.objects</definition>
+        <argsstring></argsstring>
+        <name>objects</name>
+        <qualifiedname>gameplay.GamePanel.objects</qualifiedname>
+        <initializer>= new ArrayList&lt;<ref refid="classobject_1_1_os_object" kindref="compound">OsObject</ref>&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/GamePanel.java" line="75" column="18" bodyfile="gameplay/GamePanel.java" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgameplay_1_1_game_panel_1afc13494d04c7f25933a6f31597bddad9" prot="public" static="no" mutable="no">
+        <type>ArrayList&lt; <ref refid="classentity_1_1_entity" kindref="compound">Entity</ref> &gt;</type>
+        <definition>ArrayList&lt;Entity&gt; gameplay.GamePanel.enemys</definition>
+        <argsstring></argsstring>
+        <name>enemys</name>
+        <qualifiedname>gameplay.GamePanel.enemys</qualifiedname>
+        <initializer>= new ArrayList&lt;<ref refid="classentity_1_1_entity" kindref="compound">Entity</ref>&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/GamePanel.java" line="76" column="18" bodyfile="gameplay/GamePanel.java" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgameplay_1_1_game_panel_1a169c20f261447f33a3c0ee45e8811ae4" prot="public" static="no" mutable="no">
+        <type><ref refid="classgameplay_1_1_asset_setter" kindref="compound">AssetSetter</ref></type>
+        <definition>AssetSetter gameplay.GamePanel.assSetter</definition>
+        <argsstring></argsstring>
+        <name>assSetter</name>
+        <qualifiedname>gameplay.GamePanel.assSetter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/GamePanel.java" line="77" column="20" bodyfile="gameplay/GamePanel.java" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgameplay_1_1_game_panel_1a4cdac8269bebfa585ed57ab5be78e7f6" prot="public" static="no" mutable="no">
+        <type><ref refid="classgameplay_1_1_user_interface" kindref="compound">UserInterface</ref></type>
+        <definition>UserInterface gameplay.GamePanel.ui</definition>
+        <argsstring></argsstring>
+        <name>ui</name>
+        <qualifiedname>gameplay.GamePanel.ui</qualifiedname>
+        <initializer>= new <ref refid="classgameplay_1_1_user_interface" kindref="compound">UserInterface</ref>(this)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/GamePanel.java" line="78" column="22" bodyfile="gameplay/GamePanel.java" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classgameplay_1_1_game_panel_1af7c9eb1c365768dffb0aae38e11ad246" prot="private" static="no" mutable="no">
+        <type><ref refid="classgameplay_1_1_key_handler" kindref="compound">KeyHandler</ref></type>
+        <definition>KeyHandler gameplay.GamePanel.keyH</definition>
+        <argsstring></argsstring>
+        <name>keyH</name>
+        <qualifiedname>gameplay.GamePanel.keyH</qualifiedname>
+        <initializer>= new <ref refid="classgameplay_1_1_key_handler" kindref="compound">KeyHandler</ref>()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gomb nyomásokat lekezeli </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/GamePanel.java" line="37" column="20" bodyfile="gameplay/GamePanel.java" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgameplay_1_1_game_panel_1a89a494a2112510dc26dda252781e9fbe" prot="private" static="no" mutable="no">
+        <type>transient Thread</type>
+        <definition>transient Thread gameplay.GamePanel.mainT</definition>
+        <argsstring></argsstring>
+        <name>mainT</name>
+        <qualifiedname>gameplay.GamePanel.mainT</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A main szálla a játéknak </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/GamePanel.java" line="41" column="26" bodyfile="gameplay/GamePanel.java" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgameplay_1_1_game_panel_1ad771f099c84b310ac33215efe7eecfa6" prot="private" static="no" mutable="no">
+        <type><ref refid="classentity_1_1_player" kindref="compound">Player</ref></type>
+        <definition>Player gameplay.GamePanel.gamer</definition>
+        <argsstring></argsstring>
+        <name>gamer</name>
+        <qualifiedname>gameplay.GamePanel.gamer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Maga a felhasználó vagyis a játékos </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/GamePanel.java" line="45" column="16" bodyfile="gameplay/GamePanel.java" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgameplay_1_1_game_panel_1a95a736e86a7388fc9e7a41c41c7c436b" prot="private" static="no" mutable="no">
+        <type>transient String</type>
+        <definition>transient String gameplay.GamePanel.playerName</definition>
+        <argsstring></argsstring>
+        <name>playerName</name>
+        <qualifiedname>gameplay.GamePanel.playerName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Játékos neve </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/GamePanel.java" line="53" column="26" bodyfile="gameplay/GamePanel.java" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgameplay_1_1_game_panel_1aef2343745893848e5a40f1003597f31a" prot="private" static="no" mutable="no">
+        <type>transient <ref refid="classloaders_1_1_best_rounds" kindref="compound">BestRounds</ref></type>
+        <definition>transient BestRounds gameplay.GamePanel.playersScoures</definition>
+        <argsstring></argsstring>
+        <name>playersScoures</name>
+        <qualifiedname>gameplay.GamePanel.playersScoures</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Az összes játékos és pontjai </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/GamePanel.java" line="57" column="30" bodyfile="gameplay/GamePanel.java" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgameplay_1_1_game_panel_1acb75211aae9847aa2d3764cf2f4f5bb0" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int gameplay.GamePanel.fps</definition>
+        <argsstring></argsstring>
+        <name>fps</name>
+        <qualifiedname>gameplay.GamePanel.fps</qualifiedname>
+        <initializer>= 60</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Lekorlátozzuk azt, hogy hányszor frissűljön a képrenyő, így nem lesz túl gyors, stabil marad </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/GamePanel.java" line="69" column="13" bodyfile="gameplay/GamePanel.java" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgameplay_1_1_game_panel_1a773956ee9287ffe14b90f6ad6278b45d" prot="private" static="no" mutable="no">
+        <type>Random</type>
+        <definition>Random gameplay.GamePanel.rndNum</definition>
+        <argsstring></argsstring>
+        <name>rndNum</name>
+        <qualifiedname>gameplay.GamePanel.rndNum</qualifiedname>
+        <initializer>= new Random()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/GamePanel.java" line="79" column="16" bodyfile="gameplay/GamePanel.java" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classgameplay_1_1_game_panel_1aa201b47d1c2a90c2e6aa3fdafee878f3" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void gameplay.GamePanel.genNewMap</definition>
+        <argsstring>()</argsstring>
+        <name>genNewMap</name>
+        <qualifiedname>gameplay.GamePanel.genNewMap</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Generál egy új pályát, betölti a /source/maps/mapSZÁM.txt alapján a mappokat </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/GamePanel.java" line="83" column="14" bodyfile="gameplay/GamePanel.java" bodystart="83" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_game_panel_1af24b5e756fcf6a8f71a4dd2ce72de400" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void gameplay.GamePanel.getInformationFromMAP</definition>
+        <argsstring>(Map tmp)</argsstring>
+        <name>getInformationFromMAP</name>
+        <qualifiedname>gameplay.GamePanel.getInformationFromMAP</qualifiedname>
+        <param>
+          <type>Map</type>
+          <declname>tmp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Megkap egy Map osztály tagját és kiveszi belőle az adatokat, amiket kicseréli a mostani állásal <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>tmp</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/GamePanel.java" line="188" column="14" bodyfile="gameplay/GamePanel.java" bodystart="188" bodyend="197"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_game_panel_1a2f6a46b6e529d4df6dd94c4b49213077" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void gameplay.GamePanel.errorIsHappened</definition>
+        <argsstring>(String error)</argsstring>
+        <name>errorIsHappened</name>
+        <qualifiedname>gameplay.GamePanel.errorIsHappened</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Ha valami gond történik, ezzel ki lehet iratni a képernyőre <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>error</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Error üzenet, mivel volt a gond </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/GamePanel.java" line="225" column="14" bodyfile="gameplay/GamePanel.java" bodystart="225" bodyend="236"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_game_panel_1a8748c223a64b1fd855cb1b160aedfa1a" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void gameplay.GamePanel.saveGameData</definition>
+        <argsstring>()</argsstring>
+        <name>saveGameData</name>
+        <qualifiedname>gameplay.GamePanel.saveGameData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Elmenti vagyis Serializálja a mappok állástát </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/GamePanel.java" line="358" column="14" bodyfile="gameplay/GamePanel.java" bodystart="358" bodyend="365"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_game_panel_1a6f52592b684d74d6ff53029f2f32342c" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void gameplay.GamePanel.reLoadALL</definition>
+        <argsstring>()</argsstring>
+        <name>reLoadALL</name>
+        <qualifiedname>gameplay.GamePanel.reLoadALL</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Seralizálás után vissza kell tölteni minden BufferImage-t, mert azok nem lehet Serializálni </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/GamePanel.java" line="369" column="14" bodyfile="gameplay/GamePanel.java" bodystart="369" bodyend="383"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classgameplay_1_1_game_panel_1a5a6b3d36bcdf51af9008da8082972b01" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>gameplay.GamePanel.GamePanel</definition>
+        <argsstring>(String character, String playerName)</argsstring>
+        <name>GamePanel</name>
+        <qualifiedname>gameplay.GamePanel.GamePanel</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>character</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>playerName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Konsturktor, megkapja milyen karaktert választott a játékos és mi a játékneve, ha load_game String-eket kapunk, akkor betölti a mentett állást a legújabb adatokat vesszi alapul, tehát azt tölti vissza aki utoljára játszott <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>character</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Karatker neve </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>playerName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Játékos név </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>Fokuszál a key inputra</para>
+        </inbodydescription>
+        <location file="gameplay/GamePanel.java" line="94" column="8" bodyfile="gameplay/GamePanel.java" bodystart="94" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_game_panel_1a9358fa5ce880a1308870e6d0315c20b1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void gameplay.GamePanel.setupGame</definition>
+        <argsstring>()</argsstring>
+        <name>setupGame</name>
+        <qualifiedname>gameplay.GamePanel.setupGame</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Az éppeni adatokkal beállít egy játékállás, először az objecteket kell bállítani, mert az setEnemys oda teszi le az ellenfeleket ahol nincs object </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/GamePanel.java" line="121" column="13" bodyfile="gameplay/GamePanel.java" bodystart="121" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_game_panel_1afcd20a2301871cb5d90393ae379b9ce6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void gameplay.GamePanel.setupHealtPos</definition>
+        <argsstring>()</argsstring>
+        <name>setupHealtPos</name>
+        <qualifiedname>gameplay.GamePanel.setupHealtPos</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Beállítja a kis szívek pozicióját a képrenyőn, ami a bal alsó sarok </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/GamePanel.java" line="135" column="13" bodyfile="gameplay/GamePanel.java" bodystart="135" bodyend="146"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_game_panel_1af9f8b2659dea2faf05c11e17c7bc3d4f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void gameplay.GamePanel.startMainT</definition>
+        <argsstring>()</argsstring>
+        <name>startMainT</name>
+        <qualifiedname>gameplay.GamePanel.startMainT</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Elindítja a Main szállat </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/GamePanel.java" line="150" column="13" bodyfile="gameplay/GamePanel.java" bodystart="150" bodyend="153"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_game_panel_1a099ba3f97e5c8f0ec80c0f2ec1b0726f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void gameplay.GamePanel.resetObjects</definition>
+        <argsstring>()</argsstring>
+        <name>resetObjects</name>
+        <qualifiedname>gameplay.GamePanel.resetObjects</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/GamePanel.java" line="154" column="13" bodyfile="gameplay/GamePanel.java" bodystart="154" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_game_panel_1a491eebb1312017a46d57c32b11f01f02" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void gameplay.GamePanel.resetEnemys</definition>
+        <argsstring>()</argsstring>
+        <name>resetEnemys</name>
+        <qualifiedname>gameplay.GamePanel.resetEnemys</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/GamePanel.java" line="157" column="13" bodyfile="gameplay/GamePanel.java" bodystart="157" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_game_panel_1ad60af0224bea69d6f771d11ff933951c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void gameplay.GamePanel.saveMap</definition>
+        <argsstring>()</argsstring>
+        <name>saveMap</name>
+        <qualifiedname>gameplay.GamePanel.saveMap</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Elmenti, azaz beteszi a prevMaps-ba azt a pályát ahol éppen vagyunk </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/GamePanel.java" line="163" column="13" bodyfile="gameplay/GamePanel.java" bodystart="163" bodyend="168"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_game_panel_1add4a3c3a794666e016768733bc399b15" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void gameplay.GamePanel.enterNewMap</definition>
+        <argsstring>()</argsstring>
+        <name>enterNewMap</name>
+        <qualifiedname>gameplay.GamePanel.enterNewMap</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Elmenti, aztán beállítja a pályát egy új helyzetbe, vagyis egy új pályára lép a játékos </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/GamePanel.java" line="173" column="13" bodyfile="gameplay/GamePanel.java" bodystart="173" bodyend="183"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_game_panel_1a7920643f786ba6295aa631e3b9075ebc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void gameplay.GamePanel.loadPreviousMap</definition>
+        <argsstring>()</argsstring>
+        <name>loadPreviousMap</name>
+        <qualifiedname>gameplay.GamePanel.loadPreviousMap</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Elkéri a prevMaps-ból ez éppen előzö pályát, attól függöen hol vagyunk, és azt beállítja </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/GamePanel.java" line="201" column="13" bodyfile="gameplay/GamePanel.java" bodystart="201" bodyend="208"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_game_panel_1aefb55b905714d570e30e26b872bb7f3d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void gameplay.GamePanel.enterPreviousMapFromPreviousMap</definition>
+        <argsstring>()</argsstring>
+        <name>enterPreviousMapFromPreviousMap</name>
+        <qualifiedname>gameplay.GamePanel.enterPreviousMapFromPreviousMap</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Visszafele megyünk egy már volt pályáról egy olyan pályára ami már szintén volt, vagyis az is egy régi pálya, de később volt mint ahol voltunk </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/GamePanel.java" line="212" column="13" bodyfile="gameplay/GamePanel.java" bodystart="212" bodyend="220"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_game_panel_1a1e9590cb37668ae34f454b9a20dc57a0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void gameplay.GamePanel.run</definition>
+        <argsstring>()</argsstring>
+        <name>run</name>
+        <qualifiedname>gameplay.GamePanel.run</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A játék loopja, a netről néztem. Lényegében frissiti az állást aztán újrarajzolja azt, az fps adattagal van lekorlátozva másodpercenként max 60szor frissítsen </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/GamePanel.java" line="241" column="13" bodyfile="gameplay/GamePanel.java" bodystart="241" bodyend="279"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_game_panel_1aff907d1e955ce4215278e8d7ae92fa01" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void gameplay.GamePanel.updatePanel</definition>
+        <argsstring>()</argsstring>
+        <name>updatePanel</name>
+        <qualifiedname>gameplay.GamePanel.updatePanel</qualifiedname>
+        <exceptions> throws IOException </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Frissíti a játék állását, amit addig csinál ameddig a játékos meg nem hal, ha meghalt átvált a dead screenre <parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>IOException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/GamePanel.java" line="284" column="13" bodyfile="gameplay/GamePanel.java" bodystart="284" bodyend="293"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_game_panel_1a0fb45f12ee95e5c824dd2db0b97300d2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean gameplay.GamePanel.isLevelCleared</definition>
+        <argsstring>()</argsstring>
+        <name>isLevelCleared</name>
+        <qualifiedname>gameplay.GamePanel.isLevelCleared</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Visszaadja a pályán meghalt-e minden ellenfél <simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/GamePanel.java" line="298" column="16" bodyfile="gameplay/GamePanel.java" bodystart="298" bodyend="303"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_game_panel_1aa954ef7049e2dc9dfc7d69189e908dc5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classgameplay_1_1_key_handler" kindref="compound">KeyHandler</ref></type>
+        <definition>KeyHandler gameplay.GamePanel.getKeyListener</definition>
+        <argsstring>()</argsstring>
+        <name>getKeyListener</name>
+        <qualifiedname>gameplay.GamePanel.getKeyListener</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/GamePanel.java" line="306" column="19" bodyfile="gameplay/GamePanel.java" bodystart="306" bodyend="308"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_game_panel_1ab83b252636d7de7fd3e7d09ea2c50d30" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int gameplay.GamePanel.getPlayerPoint</definition>
+        <argsstring>()</argsstring>
+        <name>getPlayerPoint</name>
+        <qualifiedname>gameplay.GamePanel.getPlayerPoint</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/GamePanel.java" line="309" column="12" bodyfile="gameplay/GamePanel.java" bodystart="309" bodyend="311"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_game_panel_1a31fddfe3a40d2de0714058c1857b0b75" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classentity_1_1_player" kindref="compound">Player</ref></type>
+        <definition>Player gameplay.GamePanel.getPlayer</definition>
+        <argsstring>()</argsstring>
+        <name>getPlayer</name>
+        <qualifiedname>gameplay.GamePanel.getPlayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/GamePanel.java" line="312" column="15" bodyfile="gameplay/GamePanel.java" bodystart="312" bodyend="314"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_game_panel_1a6c2a42da7ec2f414d67bf0216637298d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String gameplay.GamePanel.getPlayerName</definition>
+        <argsstring>()</argsstring>
+        <name>getPlayerName</name>
+        <qualifiedname>gameplay.GamePanel.getPlayerName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/GamePanel.java" line="315" column="15" bodyfile="gameplay/GamePanel.java" bodystart="315" bodyend="317"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_game_panel_1a5cc5d57f314335c1c2642b06b3d731e1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classloaders_1_1_best_rounds" kindref="compound">BestRounds</ref></type>
+        <definition>BestRounds gameplay.GamePanel.getPLayersScore</definition>
+        <argsstring>()</argsstring>
+        <name>getPLayersScore</name>
+        <qualifiedname>gameplay.GamePanel.getPLayersScore</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/GamePanel.java" line="318" column="19" bodyfile="gameplay/GamePanel.java" bodystart="318" bodyend="320"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_game_panel_1a50d429bafee856e538faa2652da2b210" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void gameplay.GamePanel.paintComponent</definition>
+        <argsstring>(Graphics grap)</argsstring>
+        <name>paintComponent</name>
+        <qualifiedname>gameplay.GamePanel.paintComponent</qualifiedname>
+        <param>
+          <type>Graphics</type>
+          <declname>grap</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Maga a rajzolás, a repaint a run()-ban ezt hívja meg mindig </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/GamePanel.java" line="325" column="13" bodyfile="gameplay/GamePanel.java" bodystart="325" bodyend="354"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_game_panel_1a44715bd2d5380b90f0b244ec3725aaf8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void gameplay.GamePanel.loadGameData</definition>
+        <argsstring>()</argsstring>
+        <name>loadGameData</name>
+        <qualifiedname>gameplay.GamePanel.loadGameData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A Serializált adatokat visszatöltjük a prevMaps-be és azokból a legujjabban bekerültet töltjük vissza a jelenlegi állásba </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/GamePanel.java" line="387" column="13" bodyfile="gameplay/GamePanel.java" bodystart="387" bodyend="403"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Ez az osztály tartalmazza magát a játék loop-ot (ezt a megoldást neten találtam, és megtetszett logikusnak tűnt) itt van eltárolva minden adat, ami a játék játszása közben szükséges lehet, mivel itt is van minden megjelenítve, ezért egyszerűbb ide tenni mindent is </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>Runnable</label>
+      </node>
+      <node id="1">
+        <label>gameplay.GamePanel</label>
+        <link refid="classgameplay_1_1_game_panel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>JPanel</label>
+      </node>
+      <node id="2">
+        <label>ospanel.OsPanel</label>
+        <link refid="classospanel_1_1_os_panel"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="18">
+        <label>ArrayList&lt; entity.Entity &gt;</label>
+      </node>
+      <node id="9">
+        <label>ArrayList&lt; object.Heart &gt;</label>
+      </node>
+      <node id="17">
+        <label>ArrayList&lt; object.OsObject &gt;</label>
+      </node>
+      <node id="7">
+        <label>Runnable</label>
+      </node>
+      <node id="1">
+        <label>gameplay.GamePanel</label>
+        <link refid="classgameplay_1_1_game_panel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>map_state</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>player_healt</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>prevMaps</edgelabel>
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>tileMg</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>cChecker</edgelabel>
+        </childnode>
+        <childnode refid="17" relation="usage">
+          <edgelabel>objects</edgelabel>
+        </childnode>
+        <childnode refid="18" relation="usage">
+          <edgelabel>enemys</edgelabel>
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>assSetter</edgelabel>
+        </childnode>
+        <childnode refid="20" relation="usage">
+          <edgelabel>ui</edgelabel>
+        </childnode>
+      </node>
+      <node id="19">
+        <label>gameplay.AssetSetter</label>
+        <link refid="classgameplay_1_1_asset_setter"/>
+        <childnode refid="12" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>gameplay.CollisionChecker</label>
+        <link refid="classgameplay_1_1_collision_checker"/>
+        <childnode refid="12" relation="public-inheritance">
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>gameP</edgelabel>
+        </childnode>
+      </node>
+      <node id="16">
+        <label>gameplay.GamePanel</label>
+        <link refid="classgameplay_1_1_game_panel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>map_state</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>player_healt</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>prevMaps</edgelabel>
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>tileMg</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>cChecker</edgelabel>
+        </childnode>
+        <childnode refid="17" relation="usage">
+          <edgelabel>objects</edgelabel>
+        </childnode>
+        <childnode refid="18" relation="usage">
+          <edgelabel>enemys</edgelabel>
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>assSetter</edgelabel>
+        </childnode>
+        <childnode refid="20" relation="usage">
+          <edgelabel>ui</edgelabel>
+        </childnode>
+      </node>
+      <node id="8">
+        <label>gameplay.Map_Status</label>
+        <link refid="enumgameplay_1_1_map___status"/>
+      </node>
+      <node id="10">
+        <label>gameplay.PreviousMaps</label>
+        <link refid="classgameplay_1_1_previous_maps"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+        <childnode refid="12" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>gameplay.UserInterface</label>
+        <link refid="classgameplay_1_1_user_interface"/>
+        <childnode refid="12" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Font</label>
+      </node>
+      <node id="12">
+        <label>Serializable</label>
+      </node>
+      <node id="11">
+        <label>ArrayList&lt; Map &gt;</label>
+      </node>
+      <node id="5">
+        <label>JFrame</label>
+      </node>
+      <node id="3">
+        <label>JPanel</label>
+      </node>
+      <node id="4">
+        <label>menu.MainMenu</label>
+        <link refid="classmenu_1_1_main_menu"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ospanel.OsPanel</label>
+        <link refid="classospanel_1_1_os_panel"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>menuWin</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>defFont</edgelabel>
+        </childnode>
+      </node>
+      <node id="14">
+        <label>tile.Tile</label>
+        <link refid="classtile_1_1_tile"/>
+        <childnode refid="12" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>tile.TileManager</label>
+        <link refid="classtile_1_1_tile_manager"/>
+        <childnode refid="12" relation="public-inheritance">
+        </childnode>
+        <childnode refid="14" relation="usage">
+          <edgelabel>tiles</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="gameplay/GamePanel.java" line="28" column="7" bodyfile="gameplay/GamePanel.java" bodystart="28" bodyend="404"/>
+    <listofallmembers>
+      <member refid="classgameplay_1_1_game_panel_1a169c20f261447f33a3c0ee45e8811ae4" prot="public" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>assSetter</name></member>
+      <member refid="classgameplay_1_1_game_panel_1ae748f4e9b5ab06ad03f6cb5ad6776bc1" prot="public" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>cChecker</name></member>
+      <member refid="classospanel_1_1_os_panel_1af81a93cee7a90439996b00212f939333" prot="protected" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>defFont</name></member>
+      <member refid="classgameplay_1_1_game_panel_1afc13494d04c7f25933a6f31597bddad9" prot="public" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>enemys</name></member>
+      <member refid="classgameplay_1_1_game_panel_1add4a3c3a794666e016768733bc399b15" prot="public" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>enterNewMap</name></member>
+      <member refid="classgameplay_1_1_game_panel_1aefb55b905714d570e30e26b872bb7f3d" prot="public" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>enterPreviousMapFromPreviousMap</name></member>
+      <member refid="classgameplay_1_1_game_panel_1a2f6a46b6e529d4df6dd94c4b49213077" prot="private" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>errorIsHappened</name></member>
+      <member refid="classgameplay_1_1_game_panel_1acb75211aae9847aa2d3764cf2f4f5bb0" prot="private" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>fps</name></member>
+      <member refid="classgameplay_1_1_game_panel_1a5a6b3d36bcdf51af9008da8082972b01" prot="public" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>GamePanel</name></member>
+      <member refid="classgameplay_1_1_game_panel_1ad771f099c84b310ac33215efe7eecfa6" prot="private" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>gamer</name></member>
+      <member refid="classgameplay_1_1_game_panel_1aa201b47d1c2a90c2e6aa3fdafee878f3" prot="private" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>genNewMap</name></member>
+      <member refid="classgameplay_1_1_game_panel_1af24b5e756fcf6a8f71a4dd2ce72de400" prot="private" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>getInformationFromMAP</name></member>
+      <member refid="classgameplay_1_1_game_panel_1aa954ef7049e2dc9dfc7d69189e908dc5" prot="public" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>getKeyListener</name></member>
+      <member refid="classgameplay_1_1_game_panel_1a31fddfe3a40d2de0714058c1857b0b75" prot="public" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>getPlayer</name></member>
+      <member refid="classgameplay_1_1_game_panel_1a6c2a42da7ec2f414d67bf0216637298d" prot="public" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>getPlayerName</name></member>
+      <member refid="classgameplay_1_1_game_panel_1ab83b252636d7de7fd3e7d09ea2c50d30" prot="public" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>getPlayerPoint</name></member>
+      <member refid="classgameplay_1_1_game_panel_1a5cc5d57f314335c1c2642b06b3d731e1" prot="public" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>getPLayersScore</name></member>
+      <member refid="classgameplay_1_1_game_panel_1a0fb45f12ee95e5c824dd2db0b97300d2" prot="public" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>isLevelCleared</name></member>
+      <member refid="classgameplay_1_1_game_panel_1a881ecc2c0d25fd7e594f7d834cb49ecb" prot="public" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>isMapInPrevMaps</name></member>
+      <member refid="classgameplay_1_1_game_panel_1af7c9eb1c365768dffb0aae38e11ad246" prot="private" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>keyH</name></member>
+      <member refid="classgameplay_1_1_game_panel_1a44715bd2d5380b90f0b244ec3725aaf8" prot="public" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>loadGameData</name></member>
+      <member refid="classgameplay_1_1_game_panel_1a7920643f786ba6295aa631e3b9075ebc" prot="public" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>loadPreviousMap</name></member>
+      <member refid="classgameplay_1_1_game_panel_1a89a494a2112510dc26dda252781e9fbe" prot="private" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>mainT</name></member>
+      <member refid="classgameplay_1_1_game_panel_1a3fc4e5df6e7cc5d6c7c2835471815f2f" prot="public" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>map_state</name></member>
+      <member refid="classospanel_1_1_os_panel_1a4e63e2d858941f57ee05d0fb36c9744b" prot="public" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>maxOszlop</name></member>
+      <member refid="classospanel_1_1_os_panel_1ac8dc3fa503af745ff5ef305b53eeeb21" prot="public" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>maxSor</name></member>
+      <member refid="classospanel_1_1_os_panel_1a2ae1b27ad7ac5593b5c3fbe07c05cbc2" prot="protected" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>menuWin</name></member>
+      <member refid="classgameplay_1_1_game_panel_1a57be0dc26760f451632ad5de0c5bdd68" prot="public" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>objects</name></member>
+      <member refid="classospanel_1_1_os_panel_1a1542e83366ae2906abfadee883bed1d9" prot="package" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>orgTileSize</name></member>
+      <member refid="classospanel_1_1_os_panel_1aa066569b93a785885accee5b58dc4115" prot="public" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>OsPanel</name></member>
+      <member refid="classgameplay_1_1_game_panel_1a50d429bafee856e538faa2652da2b210" prot="public" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>paintComponent</name></member>
+      <member refid="classgameplay_1_1_game_panel_1ae64e36267f194aede8555452c46444a2" prot="public" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>player_healt</name></member>
+      <member refid="classgameplay_1_1_game_panel_1a95a736e86a7388fc9e7a41c41c7c436b" prot="private" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>playerName</name></member>
+      <member refid="classgameplay_1_1_game_panel_1aef2343745893848e5a40f1003597f31a" prot="private" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>playersScoures</name></member>
+      <member refid="classgameplay_1_1_game_panel_1ae286dfc6a71cb6cc251d584d5e80a1a9" prot="public" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>prevMaps</name></member>
+      <member refid="classgameplay_1_1_game_panel_1a6f52592b684d74d6ff53029f2f32342c" prot="private" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>reLoadALL</name></member>
+      <member refid="classgameplay_1_1_game_panel_1a491eebb1312017a46d57c32b11f01f02" prot="public" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>resetEnemys</name></member>
+      <member refid="classgameplay_1_1_game_panel_1a099ba3f97e5c8f0ec80c0f2ec1b0726f" prot="public" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>resetObjects</name></member>
+      <member refid="classgameplay_1_1_game_panel_1a773956ee9287ffe14b90f6ad6278b45d" prot="private" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>rndNum</name></member>
+      <member refid="classgameplay_1_1_game_panel_1a1e9590cb37668ae34f454b9a20dc57a0" prot="public" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>run</name></member>
+      <member refid="classgameplay_1_1_game_panel_1a8748c223a64b1fd855cb1b160aedfa1a" prot="private" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>saveGameData</name></member>
+      <member refid="classgameplay_1_1_game_panel_1ad60af0224bea69d6f771d11ff933951c" prot="public" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>saveMap</name></member>
+      <member refid="classospanel_1_1_os_panel_1a5e4711ce4355fd92d3fa8115ea4e5f92" prot="package" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>scale</name></member>
+      <member refid="classospanel_1_1_os_panel_1aec7a226c7185834771d824e33f6b5dde" prot="public" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>screenHeight</name></member>
+      <member refid="classospanel_1_1_os_panel_1a13038a52d6befb5f4aed6d6e99fa9926" prot="public" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>screenWidth</name></member>
+      <member refid="classospanel_1_1_os_panel_1a4fcfcd7d6831a23ade72244455be91b3" prot="public" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>setMenuWin</name></member>
+      <member refid="classgameplay_1_1_game_panel_1a9358fa5ce880a1308870e6d0315c20b1" prot="public" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>setupGame</name></member>
+      <member refid="classgameplay_1_1_game_panel_1afcd20a2301871cb5d90393ae379b9ce6" prot="public" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>setupHealtPos</name></member>
+      <member refid="classgameplay_1_1_game_panel_1af9f8b2659dea2faf05c11e17c7bc3d4f" prot="public" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>startMainT</name></member>
+      <member refid="classgameplay_1_1_game_panel_1a628fb45e922f40d4872cffc3aa13f8ef" prot="public" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>tileMg</name></member>
+      <member refid="classospanel_1_1_os_panel_1aab27138ecd638c8d2fd640eedbfc8801" prot="public" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>tileSize</name></member>
+      <member refid="classgameplay_1_1_game_panel_1a4cdac8269bebfa585ed57ab5be78e7f6" prot="public" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>ui</name></member>
+      <member refid="classgameplay_1_1_game_panel_1aff907d1e955ce4215278e8d7ae92fa01" prot="public" virt="non-virtual"><scope>gameplay::GamePanel</scope><name>updatePanel</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

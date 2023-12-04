@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classmenu_1_1_main_menu_1_1_load_button_listener" kind="class" language="Java" prot="private">
+    <compoundname>menu::MainMenu::LoadButtonListener</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ActionListener</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmenu_1_1_main_menu_1_1_load_button_listener_1a3c700e484d8c6bf6f8232617821cc5ef" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void menu.MainMenu.LoadButtonListener.actionPerformed</definition>
+        <argsstring>(ActionEvent loadgame)</argsstring>
+        <name>actionPerformed</name>
+        <qualifiedname>menu.MainMenu.LoadButtonListener.actionPerformed</qualifiedname>
+        <param>
+          <type>ActionEvent</type>
+          <declname>loadgame</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="menu/MainMenu.java" line="94" column="13" bodyfile="menu/MainMenu.java" bodystart="94" bodyend="103"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Ez az ActionListener hívja meg a GamePanel konsturktorát, hogy hogy az betöltse az adatokat a fájlból ahová ment </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ActionListener</label>
+      </node>
+      <node id="1">
+        <label>menu.MainMenu.LoadButtonListener</label>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ActionListener</label>
+      </node>
+      <node id="1">
+        <label>menu.MainMenu.LoadButtonListener</label>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="menu/MainMenu.java" line="93" column="8" bodyfile="menu/MainMenu.java" bodystart="93" bodyend="104"/>
+    <listofallmembers>
+      <member refid="classmenu_1_1_main_menu_1_1_load_button_listener_1a3c700e484d8c6bf6f8232617821cc5ef" prot="public" virt="non-virtual"><scope>menu::MainMenu::LoadButtonListener</scope><name>actionPerformed</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

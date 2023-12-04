@@ -1,0 +1,99 @@
+\doxysection{Character\+Choose.\+java}
+\label{_character_choose_8java_source}\index{menu/CharacterChoose.java@{menu/CharacterChoose.java}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{package\ }menu;}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{import}\ java.awt.Color;}
+\DoxyCodeLine{00004\ \textcolor{keyword}{import}\ java.awt.Font;}
+\DoxyCodeLine{00005\ \textcolor{keyword}{import}\ java.awt.event.ActionEvent;}
+\DoxyCodeLine{00006\ \textcolor{keyword}{import}\ java.awt.event.ActionListener;}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{import}\ javax.swing.JButton;}
+\DoxyCodeLine{00009\ \textcolor{keyword}{import}\ javax.swing.JLabel;}
+\DoxyCodeLine{00010\ \textcolor{keyword}{import}\ javax.swing.JTextField;}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{import}\ gameplay.GamePanel;}
+\DoxyCodeLine{00013\ \textcolor{keyword}{import}\ ospanel.OsPanel;}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ @SuppressWarnings(\textcolor{stringliteral}{"{}serial"{}})}
+\DoxyCodeLine{00019\ public\ class\ CharacterChoose\ extends\ OsPanel\{}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{private}\ String\ character;}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{private}\ String\ player\_name;}
+\DoxyCodeLine{00022\ \ \ \ \ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{private}\ JButton\ vikingB\ =\ \textcolor{keyword}{new}\ JButton(\textcolor{stringliteral}{"{}Choose\ VIKING\ -\/\ great\ arom,\ but\ low\ damage"{}});}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{private}\ JButton\ robotB\ =\ \textcolor{keyword}{new}\ JButton(\textcolor{stringliteral}{"{}Choose\ ROBOT\ -\/\ low\ armor,\ but\ great\ damage"{}});}
+\DoxyCodeLine{00025\ \ \ \ \ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{private}\ JButton\ selectB\ =\ \textcolor{keyword}{new}\ JButton(\textcolor{stringliteral}{"{}Select\ choosen\ character\ -\/\ START\ GAME"{}});}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{private}\ JLabel\ textL\ =\ \textcolor{keyword}{new}\ JLabel(\textcolor{stringliteral}{"{}PLEAS\ CHOOSE\ A\ CHARACTER\ -\/\ click\ on\ the\ choosen\ one!"{}},\ JLabel.CENTER);}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{private}\ JTextField\ playerName\ =\ \textcolor{keyword}{new}\ JTextField(10);}
+\DoxyCodeLine{00029\ \ \ \ \ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{public}\ CharacterChoose(MainMenu\ win)\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ super();}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ Font\ buttonsFont\ =\ \textcolor{keyword}{new}\ Font(\textcolor{stringliteral}{"{}Century\ Gothic"{}},\ Font.BOLD,\ 24);}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ vikingB.addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ character\ =\ \textcolor{stringliteral}{"{}viking"{}};}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ textL.setText(\textcolor{stringliteral}{"{}VIKING\ is\ Choosen\ -\/\ click\ on\ the\ SELECT\ Button!"{}});}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ robotB.addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ character\ =\ \textcolor{stringliteral}{"{}robot"{}};}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ textL.setText(\textcolor{stringliteral}{"{}ROBOT\ is\ Choosen\ -\/\ click\ on\ the\ SELECT\ Button!"{}});}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ selectB.addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ player\_name\ =\ playerName.getText();}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(character\ !=\ \textcolor{keyword}{null}\ \&\&\ !player\_name.isEmpty())\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GamePanel\ gameP\ =\ \textcolor{keyword}{new}\ GamePanel(character,\ player\_name);}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ win.setTitle(\textcolor{stringliteral}{"{}Dungeon\ Run"{}});}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ win.addNewCard(gameP,\ \textcolor{stringliteral}{"{}Game"{}});}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gameP.setMenuWin(win);}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gameP.setupGame();}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gameP.startMainT();}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ win.pack();}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ win.changeCard(\textcolor{stringliteral}{"{}Game"{}});}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ textL.setText(\textcolor{stringliteral}{"{}YOU\ CHOOSE\ NONE\ OF\ THE\ CHARACTERS\ AND\ ENTER\ YOU\ NAME!"{}});}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ setLayout(\textcolor{keyword}{null});}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ textL.setForeground(Color.white);}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ textL.setBounds(0,\ 0,\ 480,\ 50);}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ playerName.setBackground(Color.gray);}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ playerName.setForeground(Color.cyan);}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ playerName.setFont(buttonsFont);}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ playerName.setBounds(140,\ 50,\ 200,\ 50);}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ vikingB.setBackground(Color.yellow);}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ vikingB.setForeground(Color.black);}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ vikingB.setBounds(140,\ 100+50,\ 320,\ 50);}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ robotB.setBackground(Color.blue);}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ robotB.setForeground(Color.white);}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ robotB.setBounds(140,\ 100+100,\ 320,\ 50);}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ selectB.setBackground(Color.cyan);}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ selectB.setForeground(Color.black);}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ selectB.setBounds(140,\ 100+150,\ 320,\ 50);}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ setBackground(Color.GRAY);}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ add(textL);}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ add(playerName);}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ add(vikingB);}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ add(robotB);}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ add(selectB);}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ win.pack();}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ win.setLocationRelativeTo(\textcolor{keyword}{null});}
+\DoxyCodeLine{00095\ \ \ \ \ \}}
+\DoxyCodeLine{00096\ \}}
+
+\end{DoxyCode}

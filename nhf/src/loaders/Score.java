@@ -2,15 +2,16 @@ package loaders;
 
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
+/**
+ * Egy felhasználó/játékos nevét és összegyüjtött pontját tárolja
+ */
 public class Score implements Serializable{
 	private String name;
 	private int point;
 	public Score(String name, int point) {
 		this.name = name;
 		this.point = point;
-	}
-	public void add() {
-		point++;
 	}
 	public String getName() {
 		return name;

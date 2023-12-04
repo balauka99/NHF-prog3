@@ -2,24 +2,47 @@ package entity;
 
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 
+import error.OwnError;
 import gameplay.GamePanel;
 import gameplay.KeyHandler;
 import gameplay.Map_Status;
 import loaders.SheetLoader;
-import object.OBJ_Barrel;
-import object.OBJ_Chest;
 
+/**
+ * Ez az osztály a játékosnak az adatait tárolja, ez maga a játékos
+ */
+@SuppressWarnings("serial")
 public class Player extends Entity{
+	/**
+	 * Szükségünk van a játék loop-ot tartalmazó GamePanel-re
+	 */
 	private transient GamePanel gameP;
+	/**
+	 * Ebben vannak tárolva az éppen megnyomott gombok, azaz mit akar a játékos csinálni
+	 */
 	private transient KeyHandler keyH;
+	/**
+	 * Játékos gyűjtött pontjai
+	 */
 	private int point = 0;
-	
+	/**
+	 * A karakter neve amit választott magának
+	 */
 	private String character_name;
-	
-	public Player(GamePanel gP, KeyHandler kH, String character) {
+	/**
+	 * Konstruktor, nem indítja el a Main szállat, azt külön kell meghívni
+	 * itt csak az alap játékállást állítja be
+	 * @param gP GamePanel, amin van a játékos
+	 * @param kH KeyHandel, ami a GamePanel-en van
+	 * @param character String, karakter neve 
+	 * @throws OwnError Visszaadjuk a hibaüzenetet tartalmazó hibát
+	 */
+	public Player(GamePanel gP, KeyHandler kH, String character) throws OwnError {
+		if(character.equals("throw")){
+			throw new OwnError("Sikerult!");
+		}
 		gameP = gP;
 		keyH = kH;
 		
@@ -40,6 +63,7 @@ public class Player extends Entity{
 			weapon = new Weapon("wave_attack", move_dir);
 			break;
 		default:
+			character_name = "viking";
 			healt = 1001;
 			maxHealt = 1001;
 			weapon = new Weapon("ground_attack", move_dir);
@@ -48,19 +72,28 @@ public class Player extends Entity{
 		defaultPos();
 		setGamerSkin();
 	}
-	
+	/**
+	 * Egy alapértelmezetten beállított helyre állítja a Player adatait
+	 */
 	public void defaultPos() {
-		setX(9*gameP.tileSize);
-		setY(12*gameP.tileSize);
+		int tile = 48;
+		if(gameP != null) tile = gameP.tileSize; 
+		setX(9*tile);
+		setY(12*tile);
 		setSpeed(4);
 		move_dir = "down";
 	}
-	
-	public void setGamerSkin() {
+	/**
+	 * Beállítja a választott karakterhez a kinézetét
+	 * @throws OwnError Visszadobjuk a hiba üzenetet
+	 */
+	public void setGamerSkin() throws OwnError {
 		// Down, Left, Right, Up
 		sheet = new SheetLoader("/gamer/" + character_name + ".png", 8, 1, 16, 16);
 	}
-	
+	/**
+	 * Felülírja az ős damage funkcióját, és megjeleníti az életerejét a GamePanel player_healt adattag segítségével
+	 */
 	@Override
 	public void damaged(int damage) {
 		super.damaged(damage);
@@ -68,10 +101,10 @@ public class Player extends Entity{
 		if(character_name == "viking") actual_healt_ratio = healt/100;
 		else actual_healt_ratio = healt/50;
 		int heart_ratio = 0;
-		for(int i = 0; i < gameP.player_healt.size(); i++) {
+		if(gameP != null) for(int i = 0; i < gameP.player_healt.size(); i++) {
 			heart_ratio += gameP.player_healt.get(i).getHeartState();
 		}
-		if(heart_ratio > actual_healt_ratio) {
+		if(heart_ratio > actual_healt_ratio && gameP != null) {
 			for(int i = (gameP.player_healt.size()-1); i > -1; i--) {
 				int tmp = gameP.player_healt.get(i).getHeartState();
 				if(tmp == 2 || tmp == 1) {
@@ -81,17 +114,20 @@ public class Player extends Entity{
 			}
 		}
 	}
-	
+	/**
+	 * A kapott int változóval megnőveli az életerejét és a GamePanel player_healt-ra kihelyezi az éppeni életerejét
+	 * @param plus
+	 */
 	public void heal(int plus) {
 		if(healt < maxHealt) healt += plus;
 		int actual_healt_ratio;
 		if(character_name == "viking") actual_healt_ratio = healt/100;
 		else actual_healt_ratio = healt/50;
 		int heart_ratio = 0;
-		for(int i = 0; i < gameP.player_healt.size(); i++) {
+		if(gameP != null) for(int i = 0; i < gameP.player_healt.size(); i++) {
 			heart_ratio += gameP.player_healt.get(i).getHeartState();
 		}
-		if(heart_ratio < actual_healt_ratio) {
+		if(heart_ratio < actual_healt_ratio && gameP != null) {
 			for(int i = 0; i < gameP.player_healt.size(); i++) {
 				int tmp = gameP.player_healt.get(i).getHeartState();
 				if(tmp == 0 || tmp == 1) {
@@ -101,15 +137,18 @@ public class Player extends Entity{
 			}
 		}
 		if(healt > maxHealt) healt = maxHealt;
-		if(healt == maxHealt) {
+		if(healt == maxHealt && gameP != null) {
 			for(int i = 0; i < gameP.player_healt.size(); i++) {
 				gameP.player_healt.get(i).heal();
 				gameP.player_healt.get(i).heal();
 			}
 		}
 	}
-	
-	public void update() throws IOException {
+	/**
+	 * A frissités funkciója, ami a felhasználó által megnyomott gombszerint változtatja a helyzetét vagy támad
+	 * @throws IOException
+	 */
+	public void update() {
 		if(keyH.attackButtonPressed()) {
 			if(!weapon.isAttacking()) {
 				weapon.attack(this.getX() - gameP.tileSize, this.getY() - gameP.tileSize, move_dir);
@@ -159,7 +198,7 @@ public class Player extends Entity{
 				}
 			}
 			sheetCnt++;
-			if(sheetCnt > 12) {		//Mivel másodpercenként 60szor van meghívva lelasítjuk mikor váltsa a sheet-eket, pl: up1 és up2 között
+			if(sheetCnt > 12) {
 				if(sheetNum == 1) {
 					sheetNum = 2;
 				}else if(sheetNum == 2) {
@@ -171,14 +210,23 @@ public class Player extends Entity{
 		// Mindig meg kell nézni lát-e valaki
 		gameP.cChecker.checkEnemysSeePlayer(this);
 	}
-	public void interactObj(int ind) throws IOException {
-		if(ind != 999) {	//Ha 999 nem értünk semmihez
+	/**
+	 * ind paraméterként megkapja a GamePanel objects adattagjának melyik OsObjectel kell interaktolnia
+	 * azaz azzal az obejectel érintkezik a Player
+	 * @param ind
+	 * @throws IOException
+	 */
+	public void interactObj(int ind) {
+		if(ind != 999) {
 			String objName = gameP.objects.get(ind).getName();
 			if(objName == "Chest") {
 				if(!gameP.objects.get(ind).isObjectUsed() && gameP.isLevelCleared()) {
 					gameP.objects.get(ind).useObject();
 					point++;
 				}
+				/**
+				 * Ha ajtóval érintkezik, akkor attól függöen milyen állapotban vagyunk, vagy melyik ajtót használjuk, úgy kell tovább menni egy másik mapra
+				 */
 			}else if(objName == "Door") {
 				if(!gameP.objects.get(ind).isObjectUsed() && gameP.isLevelCleared()) {
 					gameP.objects.get(ind).useObject();
@@ -207,7 +255,9 @@ public class Player extends Entity{
 			}
 		}
 	}
-	
+	/**
+	 * Kirajzolja magát a kapott Graphics2D-re a saját koordinátájára, és megváltoztatja a sheet-je, ami arra utal éppen mozog és melyik lábbal lép
+	 */
 	@Override
 	public void draw(Graphics2D grap2) {
 		switch(move_dir) {
@@ -253,7 +303,19 @@ public class Player extends Entity{
 		return healt;
 	}
 	
-	public void reLoad(GamePanel gameP, KeyHandler keyH) {
+	public String getCharType() {
+		return character_name;
+	}
+	
+	public String getWeaponType() {
+		return weapon.getAttackHitbox().getWeaponType();
+	}
+	/**
+	 * Mikor Serializálás után visszatöltjük, a BufferImage-t vissza kell állítani
+	 * @param gameP Azt a GamePanel-t is vissza kell állítani amiben éppen vagyunk
+	 * @param keyH A KeyHandel-re is ami éppen figyel, azt is vissza kell állítani
+	 */
+	public void reLoad(GamePanel gameP, KeyHandler keyH) throws OwnError {
 		this.gameP = gameP;
 		this.keyH = keyH;
 		this.setGamerSkin();

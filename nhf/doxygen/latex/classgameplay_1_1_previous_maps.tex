@@ -1,0 +1,185 @@
+\doxysection{gameplay.\+Previous\+Maps Class Reference}
+\label{classgameplay_1_1_previous_maps}\index{gameplay.PreviousMaps@{gameplay.PreviousMaps}}
+Inheritance diagram for gameplay.\+Previous\+Maps\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classgameplay_1_1_previous_maps}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ add\+Prev\+Map} (\textbf{ Tile\+Manager} tile\+Mg, Array\+List$<$ \textbf{ Os\+Object} $>$ objects, Array\+List$<$ \textbf{ Entity} $>$ enemys, \textbf{ Asset\+Setter} assS, int playerX, int playerY, String move\+\_\+dir, int tile\+Size)
+\item 
+void \textbf{ setup\+Current\+Prev} ()
+\item 
+Map \textbf{ get\+Previous} ()
+\item 
+Map \textbf{ get\+Next\+Prev\+Map} ()
+\item 
+int \textbf{ get\+Current\+Prev} ()
+\item 
+\textbf{ Player} \textbf{ get\+Saved\+Player} ()
+\item 
+void \textbf{ set\+Saved\+Player} (\textbf{ Player} saved\+Player)
+\item 
+Array\+List$<$ \textbf{ Heart} $>$ \textbf{ get\+Player\+\_\+healt} ()
+\item 
+void \textbf{ set\+Player\+\_\+healt} (Array\+List$<$ \textbf{ Heart} $>$ player\+\_\+healt)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \textbf{ save\+All\+Previous\+Maps} (\textbf{ Previous\+Maps} prev\+Maps, String f\+Name)
+\item 
+static \textbf{ Previous\+Maps} \textbf{ load\+ALl\+Previous\+Maps} (String f\+Name)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Az osztály alakalmas eltárolni bármennyi pályát ami, már előzöleg volt a játéksorán képes el is menteni azokat egy kapott fájlba, és vissza is tölteni 
+
+Definition at line \textbf{ 106} of file \textbf{ Previous\+Maps.\+java}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classgameplay_1_1_previous_maps_a823fe0af861065e59082a5f9fd712737}} 
+\index{gameplay.PreviousMaps@{gameplay.PreviousMaps}!addPrevMap@{addPrevMap}}
+\index{addPrevMap@{addPrevMap}!gameplay.PreviousMaps@{gameplay.PreviousMaps}}
+\doxysubsubsection{addPrevMap()}
+{\footnotesize\ttfamily void gameplay.\+Previous\+Maps.\+add\+Prev\+Map (\begin{DoxyParamCaption}\item[{\textbf{ Tile\+Manager}}]{tile\+Mg,  }\item[{Array\+List$<$ \textbf{ Os\+Object} $>$}]{objects,  }\item[{Array\+List$<$ \textbf{ Entity} $>$}]{enemys,  }\item[{\textbf{ Asset\+Setter}}]{assS,  }\item[{int}]{playerX,  }\item[{int}]{playerY,  }\item[{String}]{move\+\_\+dir,  }\item[{int}]{tile\+Size }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 110} of file \textbf{ Previous\+Maps.\+java}.
+
+\mbox{\label{classgameplay_1_1_previous_maps_a5e16efcf9924829ef40334372cc53bac}} 
+\index{gameplay.PreviousMaps@{gameplay.PreviousMaps}!getCurrentPrev@{getCurrentPrev}}
+\index{getCurrentPrev@{getCurrentPrev}!gameplay.PreviousMaps@{gameplay.PreviousMaps}}
+\doxysubsubsection{getCurrentPrev()}
+{\footnotesize\ttfamily int gameplay.\+Previous\+Maps.\+get\+Current\+Prev (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Visszaadja az elöző pálya indexét, azaz ahol a legutobb volt a játékos \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 144} of file \textbf{ Previous\+Maps.\+java}.
+
+\mbox{\label{classgameplay_1_1_previous_maps_adf7558c0187a0cc06aac8b7e696b26ec}} 
+\index{gameplay.PreviousMaps@{gameplay.PreviousMaps}!getNextPrevMap@{getNextPrevMap}}
+\index{getNextPrevMap@{getNextPrevMap}!gameplay.PreviousMaps@{gameplay.PreviousMaps}}
+\doxysubsubsection{getNextPrevMap()}
+{\footnotesize\ttfamily Map gameplay.\+Previous\+Maps.\+get\+Next\+Prev\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Visszaadja a következő Map adatait, de ha nincs akkor null pointert ad vissza és beállítja az éppen soronlévő pálya indexét is \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 135} of file \textbf{ Previous\+Maps.\+java}.
+
+\mbox{\label{classgameplay_1_1_previous_maps_aba8af6c5a0508713cea99dc47de5a76e}} 
+\index{gameplay.PreviousMaps@{gameplay.PreviousMaps}!getPlayer\_healt@{getPlayer\_healt}}
+\index{getPlayer\_healt@{getPlayer\_healt}!gameplay.PreviousMaps@{gameplay.PreviousMaps}}
+\doxysubsubsection{getPlayer\_healt()}
+{\footnotesize\ttfamily Array\+List$<$ \textbf{ Heart} $>$ gameplay.\+Previous\+Maps.\+get\+Player\+\_\+healt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 181} of file \textbf{ Previous\+Maps.\+java}.
+
+\mbox{\label{classgameplay_1_1_previous_maps_ac1fc643762cbb2d364e06c8ca7a7aaf7}} 
+\index{gameplay.PreviousMaps@{gameplay.PreviousMaps}!getPrevious@{getPrevious}}
+\index{getPrevious@{getPrevious}!gameplay.PreviousMaps@{gameplay.PreviousMaps}}
+\doxysubsubsection{getPrevious()}
+{\footnotesize\ttfamily Map gameplay.\+Previous\+Maps.\+get\+Previous (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Visszaadja az előzö Map adatait, de ha nincs akkor null pointert ad vissza, és beállítja az éppen elöző pálya indexét az éppen soron lévő elözöt \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 125} of file \textbf{ Previous\+Maps.\+java}.
+
+\mbox{\label{classgameplay_1_1_previous_maps_a0c6c7fec90e86bab5e2a97149cc3f2fa}} 
+\index{gameplay.PreviousMaps@{gameplay.PreviousMaps}!getSavedPlayer@{getSavedPlayer}}
+\index{getSavedPlayer@{getSavedPlayer}!gameplay.PreviousMaps@{gameplay.PreviousMaps}}
+\doxysubsubsection{getSavedPlayer()}
+{\footnotesize\ttfamily \textbf{ Player} gameplay.\+Previous\+Maps.\+get\+Saved\+Player (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 175} of file \textbf{ Previous\+Maps.\+java}.
+
+\mbox{\label{classgameplay_1_1_previous_maps_ab3c9bdfe87a64998d641654df25cac2a}} 
+\index{gameplay.PreviousMaps@{gameplay.PreviousMaps}!loadALlPreviousMaps@{loadALlPreviousMaps}}
+\index{loadALlPreviousMaps@{loadALlPreviousMaps}!gameplay.PreviousMaps@{gameplay.PreviousMaps}}
+\doxysubsubsection{loadALlPreviousMaps()}
+{\footnotesize\ttfamily static \textbf{ Previous\+Maps} gameplay.\+Previous\+Maps.\+load\+ALl\+Previous\+Maps (\begin{DoxyParamCaption}\item[{String}]{f\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Visszatölti és aztán visszaadja a kapott fájlból kiolvasott pályákat, fontos hogyha nem sikerül null pointert ad vissza 
+\begin{DoxyParams}{Parameters}
+{\em f\+Name} & Fájl amiből betöltjük \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Previous\+Maps amit betöltött 
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 164} of file \textbf{ Previous\+Maps.\+java}.
+
+\mbox{\label{classgameplay_1_1_previous_maps_a71a50b6950ba63c7112846583dc53218}} 
+\index{gameplay.PreviousMaps@{gameplay.PreviousMaps}!saveAllPreviousMaps@{saveAllPreviousMaps}}
+\index{saveAllPreviousMaps@{saveAllPreviousMaps}!gameplay.PreviousMaps@{gameplay.PreviousMaps}}
+\doxysubsubsection{saveAllPreviousMaps()}
+{\footnotesize\ttfamily static void gameplay.\+Previous\+Maps.\+save\+All\+Previous\+Maps (\begin{DoxyParamCaption}\item[{\textbf{ Previous\+Maps}}]{prev\+Maps,  }\item[{String}]{f\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Elmenti a kapott fájlnév helyén lévő fájlba az összes pályát 
+\begin{DoxyParams}{Parameters}
+{\em prev\+Maps} & Previous\+Maps \\
+\hline
+{\em f\+Name} & Fájl ahova menteni akarjuk \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \textbf{ 152} of file \textbf{ Previous\+Maps.\+java}.
+
+\mbox{\label{classgameplay_1_1_previous_maps_aedd690088ecc44bfef29acfc9f5608f6}} 
+\index{gameplay.PreviousMaps@{gameplay.PreviousMaps}!setPlayer\_healt@{setPlayer\_healt}}
+\index{setPlayer\_healt@{setPlayer\_healt}!gameplay.PreviousMaps@{gameplay.PreviousMaps}}
+\doxysubsubsection{setPlayer\_healt()}
+{\footnotesize\ttfamily void gameplay.\+Previous\+Maps.\+set\+Player\+\_\+healt (\begin{DoxyParamCaption}\item[{Array\+List$<$ \textbf{ Heart} $>$}]{player\+\_\+healt }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 184} of file \textbf{ Previous\+Maps.\+java}.
+
+\mbox{\label{classgameplay_1_1_previous_maps_aea0adcf23c69d9ad68ff75600a9cf229}} 
+\index{gameplay.PreviousMaps@{gameplay.PreviousMaps}!setSavedPlayer@{setSavedPlayer}}
+\index{setSavedPlayer@{setSavedPlayer}!gameplay.PreviousMaps@{gameplay.PreviousMaps}}
+\doxysubsubsection{setSavedPlayer()}
+{\footnotesize\ttfamily void gameplay.\+Previous\+Maps.\+set\+Saved\+Player (\begin{DoxyParamCaption}\item[{\textbf{ Player}}]{saved\+Player }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 178} of file \textbf{ Previous\+Maps.\+java}.
+
+\mbox{\label{classgameplay_1_1_previous_maps_a016c183824b39d0386b6c169ac3b257e}} 
+\index{gameplay.PreviousMaps@{gameplay.PreviousMaps}!setupCurrentPrev@{setupCurrentPrev}}
+\index{setupCurrentPrev@{setupCurrentPrev}!gameplay.PreviousMaps@{gameplay.PreviousMaps}}
+\doxysubsubsection{setupCurrentPrev()}
+{\footnotesize\ttfamily void gameplay.\+Previous\+Maps.\+setup\+Current\+Prev (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Beállítja az elöző pályát, ami egy új pályá bekerülése után fontos meghívni, mert változik a tömb mérete és az utolsó pálya az utolsó indexen lesz 
+
+Definition at line \textbf{ 116} of file \textbf{ Previous\+Maps.\+java}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+gameplay/\textbf{ Previous\+Maps.\+java}\end{DoxyCompactItemize}

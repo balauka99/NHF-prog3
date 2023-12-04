@@ -1,0 +1,280 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classtile_1_1_tile_manager" kind="class" language="Java" prot="public">
+    <compoundname>tile::TileManager</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Serializable</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classtile_1_1_tile_manager_1a1b87827d18a605a2f6fe76a5641ae3fb" prot="private" static="no" mutable="no">
+        <type>transient <ref refid="classgameplay_1_1_game_panel" kindref="compound">GamePanel</ref></type>
+        <definition>transient GamePanel tile.TileManager.gameP</definition>
+        <argsstring></argsstring>
+        <name>gameP</name>
+        <qualifiedname>tile.TileManager.gameP</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Kell a GamePanel amire felhelyezzük a Tileokat </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tile/TileManager.java" line="23" column="29" bodyfile="tile/TileManager.java" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classtile_1_1_tile_manager_1a36cea6c79afe7cd4f0aa4ccbec39501b" prot="public" static="no" mutable="no">
+        <type><ref refid="classtile_1_1_tile" kindref="compound">Tile</ref>[]</type>
+        <definition>Tile [] tile.TileManager.tiles</definition>
+        <argsstring></argsstring>
+        <name>tiles</name>
+        <qualifiedname>tile.TileManager.tiles</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Az összes Tile egy tömbenn van eltárolva </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tile/TileManager.java" line="27" column="13" bodyfile="tile/TileManager.java" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtile_1_1_tile_manager_1aa1d136f3ab69e2a458b416c9b400670a" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int tile.TileManager.map[][]</definition>
+        <argsstring>[][]</argsstring>
+        <name>map</name>
+        <qualifiedname>tile.TileManager.map</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>2 Dimenziós tömbben tároljuk el a fájlból betöltött mapot, amiben index számokkal vannnak jeölve hol milyen tile legyen </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tile/TileManager.java" line="31" column="12" bodyfile="tile/TileManager.java" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classtile_1_1_tile_manager_1a27dec0fe8ea1a99b403c166d5c89d913" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>tile.TileManager.TileManager</definition>
+        <argsstring>(GamePanel gp, String filename)</argsstring>
+        <name>TileManager</name>
+        <qualifiedname>tile.TileManager.TileManager</qualifiedname>
+        <param>
+          <type><ref refid="classgameplay_1_1_game_panel" kindref="compound">GamePanel</ref></type>
+          <declname>gp</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tile/TileManager.java" line="33" column="8" bodyfile="tile/TileManager.java" bodystart="33" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classtile_1_1_tile_manager_1a8cffc72edeb2b362e99782634093290e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void tile.TileManager.loadMap</definition>
+        <argsstring>(String fileP)</argsstring>
+        <name>loadMap</name>
+        <qualifiedname>tile.TileManager.loadMap</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>fileP</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Betölti a mapott a kapott fájlból, a hívonak kell tudni, hogy mindig jó fájlt kell magadjon, amiben egy 20x15-ős felosztásban index számok jelennek meg, jelen esetben 0-2 <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fileP</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Fájl neve amiben a pálya van </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tile/TileManager.java" line="45" column="13" bodyfile="tile/TileManager.java" bodystart="45" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="classtile_1_1_tile_manager_1a5af2a6629224ed16a5fb111697b9c4a0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void tile.TileManager.draw</definition>
+        <argsstring>(Graphics2D grap2)</argsstring>
+        <name>draw</name>
+        <qualifiedname>tile.TileManager.draw</qualifiedname>
+        <param>
+          <type>Graphics2D</type>
+          <declname>grap2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Kirajzolja az összes tileot a helyére, az OsPanel definiálta, de a GamePanel használja fel a tileok méretét és felosztását <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>grap2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tile/TileManager.java" line="96" column="13" bodyfile="tile/TileManager.java" bodystart="96" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="classtile_1_1_tile_manager_1a3221ef74f0c304939274f84e7d61950b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void tile.TileManager.reLoadTileSkins</definition>
+        <argsstring>(GamePanel gameP)</argsstring>
+        <name>reLoadTileSkins</name>
+        <qualifiedname>tile.TileManager.reLoadTileSkins</qualifiedname>
+        <param>
+          <type><ref refid="classgameplay_1_1_game_panel" kindref="compound">GamePanel</ref></type>
+          <declname>gameP</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Serializálás után, mikor visszatöltjük a kinézeteket vissza kell állítani, erre szolgál ez a metódus <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gameP</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tile/TileManager.java" line="120" column="13" bodyfile="tile/TileManager.java" bodystart="120" bodyend="123"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classtile_1_1_tile_manager_1a18eec578d481beac34d953607bfd07ba" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void tile.TileManager.setTilesImage</definition>
+        <argsstring>()</argsstring>
+        <name>setTilesImage</name>
+        <qualifiedname>tile.TileManager.setTilesImage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tile/TileManager.java" line="70" column="14" bodyfile="tile/TileManager.java" bodystart="70" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="classtile_1_1_tile_manager_1a051aa262a4c40bde60b2b72bd3cf0be2" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void tile.TileManager.setupTile</definition>
+        <argsstring>(int ind, String imageName, boolean collision)</argsstring>
+        <name>setupTile</name>
+        <qualifiedname>tile.TileManager.setupTile</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>ind</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>imageName</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>collision</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A tile nevek szerint vannak a képes is a /source/tiles mappa allatt, ezért egyszerű öket betölteni de muszály scalelni, mert mind 16x16 <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ind</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Az index száma, azaz amelyik tile-ot betöltjük </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>imageName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A kép neve, ami esetünkben a tile neve is </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>collision</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tile/TileManager.java" line="82" column="14" bodyfile="tile/TileManager.java" bodystart="82" bodyend="91"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Ez az osztály feladata a Tile-ok rendes elhelyezése, az OsPanelben definiált 20x15-ős Panel-en kell elhelyezni mindet </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Serializable</label>
+      </node>
+      <node id="1">
+        <label>tile.TileManager</label>
+        <link refid="classtile_1_1_tile_manager"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Serializable</label>
+      </node>
+      <node id="1">
+        <label>tile.TileManager</label>
+        <link refid="classtile_1_1_tile_manager"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>tiles</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>tile.Tile</label>
+        <link refid="classtile_1_1_tile"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="tile/TileManager.java" line="19" column="7" bodyfile="tile/TileManager.java" bodystart="19" bodyend="124"/>
+    <listofallmembers>
+      <member refid="classtile_1_1_tile_manager_1a5af2a6629224ed16a5fb111697b9c4a0" prot="public" virt="non-virtual"><scope>tile::TileManager</scope><name>draw</name></member>
+      <member refid="classtile_1_1_tile_manager_1a1b87827d18a605a2f6fe76a5641ae3fb" prot="private" virt="non-virtual"><scope>tile::TileManager</scope><name>gameP</name></member>
+      <member refid="classtile_1_1_tile_manager_1a8cffc72edeb2b362e99782634093290e" prot="public" virt="non-virtual"><scope>tile::TileManager</scope><name>loadMap</name></member>
+      <member refid="classtile_1_1_tile_manager_1aa1d136f3ab69e2a458b416c9b400670a" prot="public" virt="non-virtual"><scope>tile::TileManager</scope><name>map</name></member>
+      <member refid="classtile_1_1_tile_manager_1a3221ef74f0c304939274f84e7d61950b" prot="public" virt="non-virtual"><scope>tile::TileManager</scope><name>reLoadTileSkins</name></member>
+      <member refid="classtile_1_1_tile_manager_1a18eec578d481beac34d953607bfd07ba" prot="private" virt="non-virtual"><scope>tile::TileManager</scope><name>setTilesImage</name></member>
+      <member refid="classtile_1_1_tile_manager_1a051aa262a4c40bde60b2b72bd3cf0be2" prot="private" virt="non-virtual"><scope>tile::TileManager</scope><name>setupTile</name></member>
+      <member refid="classtile_1_1_tile_manager_1a27dec0fe8ea1a99b403c166d5c89d913" prot="public" virt="non-virtual"><scope>tile::TileManager</scope><name>TileManager</name></member>
+      <member refid="classtile_1_1_tile_manager_1a36cea6c79afe7cd4f0aa4ccbec39501b" prot="public" virt="non-virtual"><scope>tile::TileManager</scope><name>tiles</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

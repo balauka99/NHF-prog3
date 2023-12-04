@@ -4,8 +4,19 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
+/**
+ * Fontos kis metodusokat lehet idetenni, amik kelhetnek mondjuk a játék optimalizálására
+ */
 public class UtilityTools implements Serializable{
-	// Arra kell nekünk, hogy ne akkor scaleljen a program képeket amikor kirajzolja azokat, hanem amikor lekreálja azokat
+	/**
+	 * Arra kell nekünk, hogy ne akkor scaleljen a program minden egyes alkalommal képeket amikor kirajzolja azokat
+	 * hanem amikor lekreálja, amikor betöltjük akkor már egyből legyenek scalelvbe
+	 * @param original Az eredeti kép, már egy BufferedImage-be betöltve
+	 * @param width A széllesség amire nagyíteni vagy kissebbíteni szeretnénk
+	 * @param height A magasság amire nagyíteni vagy kissebbíteni szeretnénk
+	 * @return
+	 */
 	public BufferedImage scaleImage(BufferedImage original, int width, int height) {
 		BufferedImage scaledImage = new BufferedImage(width, height, original.getType());
 		Graphics2D tmpGrap2 = scaledImage.createGraphics();

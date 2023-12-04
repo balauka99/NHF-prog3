@@ -5,39 +5,76 @@ import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.Serializable;
 
+import error.OwnError;
 import loaders.SheetLoader;
 
+/**
+ * Ez az osztály egy valamilyen entitás egységes alapadatait tárolja, és alap metódusokat képes meghatározni
+ * amikre a játék loop-ban majd szükségesek lehetnek
+ */
 @SuppressWarnings("serial")
 public class Entity implements Serializable{
+	/**
+	 * Default alapadatok, és szükséges értékek, x és y koordináta 
+	 * speed - milyen gyorsan mozog az entitás
+	 */
 	protected int x, y, speed;
 	protected int maxHealt = 101;
 	protected int healt = 101;
 	protected boolean dead = false;
-	
-	public String move_dir = "down";	// Move direction, amerre éppen néz a karakter, vagyis melyik kép van betöltve
-	
+	/*
+	 * Move direction, amerre éppen néz a karakter, vagyis melyik kép van betöltve
+	 */
+	public String move_dir = "down";
+	/*
+	 * Miközben mozog egy entitás, állalában ez egy kis animációval jár
+	 * erre szolgál ez a két adat
+	 * sheetCnt - Mivel másodpercenként 60szor frissítve a kép lelasítjuk mikor váltsa a sheet-eket
+	 * sheetNum - éppen melyik sheet-en van, pl: ball vagy jobb láb fent
+	 */
 	public int sheetCnt = 0;
 	public int sheetNum = 1;
-	
-	public Rectangle hitbox;	//Az a terület ami, ha belép egy tile-ra, akkor nem engedi tovább a játékost
+	/*
+	 * Az a terület ami, "szilárd" terület az entitásnak, ha ez a fegyverrel ütközik sebezze meg
+	 */
+	public Rectangle hitbox;
+	/**
+	 * A Rectangle külön x, y koordinátákkal rendelkezik, mindig be kell állítani honann kezdődik a hitbox
+	 * pl: ha kicsit kisebb mint egy tile, hogy könyebben tudjon mozogni a játékos
+	 */
 	public int hitboxDefaultX, hitboxDefaultY;
-	
-	public Rectangle view_distance;	// Látó távolság is egy rectangle, ha beleesik a játékos ebbe a "hitboxba" akkor megtámadja
+	/**
+	 * Ugyan az mint a hitbox, csak ez egy nagyobb terület, amit "lát" az entitás
+	 */
+	public Rectangle view_distance;
+	/**
+	 * Arra szolgálnak mint a hitboxDefault adatai, itt fontosabb, mert nagyobb a látó tovolsága
+	 * mint amekkora maga az entitás muszály minuszba mennyenek a koordináták, azt meg tárolni kell
+	 */
 	public int viewDDefaultX, viewDDefaultY;
-	
+	/**
+	 * Ha éppen összeütközik valamivel akkor ez igaz lesz
+	 */
 	public boolean collisionOn = false;
-	
-	protected transient SheetLoader sheet;	// Skinek vagyis sprite sheet-ek, ezekbe lesznek a sheet-ek
+	/**
+	 * Egy spirite sheet-ből vannak betölte ebbe a tömbe az kinézetek, tudni kell melyik kinézet hol van a sheet-en
+	 */
+	protected transient SheetLoader sheet;
+	/**
+	 * Az a kinézet ami éppen be van töltve a sheet-ről, vagy csak be van töltve ide
+	 */
 	protected transient BufferedImage skin;
-	
+	/**
+	 * Az entitás fegyvere
+	 */
 	protected Weapon weapon;
-	
-	//Geterek és seterek
 	public int getX() { return x; }
 	public void setX(int newx) { x = newx; }
 	public int getY() { return y; }
 	public void setY(int newy) { y = newy; }
 	public int getSpeed() { return speed; }
+	public int getHealt() { return healt; }
+	public int getMaxHealt() { return maxHealt; }
 	public void setSpeed(int newspeed) { speed = newspeed; }
 	public void resetHitboxToDefault() {
 		hitbox.x = hitboxDefaultX;
@@ -47,29 +84,57 @@ public class Entity implements Serializable{
 		view_distance.x = viewDDefaultX;
 		view_distance.y = viewDDefaultY;
 	}
+	/**
+	 * Ha ez entitás sebződik ezt kell meghívni, megkapott int-el sebbződik
+	 * @param damage
+	 */
 	public void damaged(int damage) {
 		if(healt > 0) {
 			healt -= damage;
 		}
 		if(healt < 0) this.die();
 	}
+	/**
+	 * Ha meghívjuk instant "meghall" az entitsá, azaz nem lesz életereje és igaz lesz a dead boolean
+	 */
 	protected void die() {
 		healt = 0;
 		dead = true;
 	}
+	/**
+	 * Visszaadja meghalt-e az entitás
+	 * @return
+	 */
 	public boolean isDead() {
 		return dead;
 	}
+	/**
+	 * Rajzoló metódus ami a megkapott Graphics2D-re felteszi a saját kinézetét a saját koordinátájára
+	 * @param grap2
+	 */
 	public void draw(Graphics2D grap2) {
 		System.out.println("Entity drawed");
 	}
+	/**
+	 * Ha meghívjuk támadni fog a fegyverével
+	 */
 	public void attackWithWeapon() {
 		weapon.attack(x, y, move_dir);
 	}
+	/**
+	 * Visszaadja a fegyverének mekkora a sebbzése
+	 * @return int, sebbzés
+	 */
 	public int getWeaponDamage() {
 		return weapon.getDamage();
 	}
+	/**
+	 * Paraméterként megkapott koordinátára mozog a sebességével
+	 * @param x
+	 * @param y
+	 */
 	public void moveToPoint(int x, int y) {
+		if(isDead()) return;
 		// Menjen az x koordinátájával közelebb
 		if(x < this.x) {
 			 this.x -= speed;
@@ -83,5 +148,10 @@ public class Entity implements Serializable{
 		if(y < this.y) this.y -= speed;
 		else if(y > this.y) this.y += speed;
 	}
-	public void reLoad() {}
+	/**
+	 * Arra szolgál miután Serializáltuk és visszaakarjuk tölteni, visszaállítja a kinézetét és a sheetjét,
+	 * ez minden entitésnak magának kell megvalósítani, ez entitásnak kell tudnia mi a kinézete
+	 * @throws OwnError Visszadobja a hibaüzenetet, ha adódik
+	 */
+	public void reLoad() throws OwnError {}
 }

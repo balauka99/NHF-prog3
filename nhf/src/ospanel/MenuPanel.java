@@ -9,6 +9,10 @@ import javax.imageio.ImageIO;
 
 import gameplay.UtilityTools;
 
+@SuppressWarnings("serial")
+/**
+ * Egy menü Panel, ami igazából csak beállítja a hátterét, a MainMenu állítja be az előre definiált állását, gombjait stb...
+ */
 public class MenuPanel extends OsPanel{
 	private BufferedImage backGround;
 	public MenuPanel() {

@@ -1,0 +1,179 @@
+\doxysection{Asset\+Setter.\+java}
+\label{_asset_setter_8java_source}\index{gameplay/AssetSetter.java@{gameplay/AssetSetter.java}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{package\ }gameplay;}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{import}\ \textcolor{keywordtype}{object}.OBJ\_Barrel;}
+\DoxyCodeLine{00004\ \textcolor{keyword}{import}\ \textcolor{keywordtype}{object}.OBJ\_Box;}
+\DoxyCodeLine{00005\ \textcolor{keyword}{import}\ \textcolor{keywordtype}{object}.OBJ\_Chest;}
+\DoxyCodeLine{00006\ \textcolor{keyword}{import}\ \textcolor{keywordtype}{object}.OBJ\_Door;}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{import}\ java.io.BufferedReader;}
+\DoxyCodeLine{00009\ \textcolor{keyword}{import}\ java.io.InputStream;}
+\DoxyCodeLine{00010\ \textcolor{keyword}{import}\ java.io.InputStreamReader;}
+\DoxyCodeLine{00011\ \textcolor{keyword}{import}\ java.io.Serializable;}
+\DoxyCodeLine{00012\ \textcolor{keyword}{import}\ java.util.Random;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{import}\ entity.EyeBall;}
+\DoxyCodeLine{00015\ \textcolor{keyword}{import}\ error.OwnError;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ @SuppressWarnings(\textcolor{stringliteral}{"{}serial"{}})}
+\DoxyCodeLine{00021\ public\ class\ AssetSetter\ implements\ Serializable\{}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{transient}\ GamePanel\ gameP;}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{private}\ Random\ rndNum;}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{private}\ String\ obj\_file;}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{boolean}\ obj\_map[][];}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{boolean}\ enemys\_canbePlaced[][];}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{int}\ canPlace\ =\ 0;}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{public}\ AssetSetter(GamePanel\ gp,\ String\ file)\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ obj\_file\ =\ file;}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ gameP\ =\ gp;}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ rndNum\ =\ \textcolor{keyword}{new}\ Random();}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ obj\_map\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{boolean}[gameP.maxOszlop][gameP.maxSor];}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ enemys\_canbePlaced\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{boolean}[gameP.maxOszlop][gameP.maxSor];}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ loadObjMap();}
+\DoxyCodeLine{00059\ \ \ \ \ \}}
+\DoxyCodeLine{00060\ \ \ \ \ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{int}\ setDoorsInMap(\textcolor{keywordtype}{int}\ ind)\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(obj\_map[9][0])\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ gameP.objects.add(\textcolor{keyword}{new}\ OBJ\_Door());}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ gameP.objects.get(ind).x\ =\ 9*gameP.tileSize;}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ gameP.objects.get(ind++).y\ =\ 0*gameP.tileSize;}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(obj\_map[9][14])\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ gameP.objects.add(\textcolor{keyword}{new}\ OBJ\_Door());}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ gameP.objects.get(ind).x\ =\ 9*gameP.tileSize;}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ gameP.objects.get(ind++).y\ =\ 14*gameP.tileSize;}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(obj\_map[0][7])\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ gameP.objects.add(\textcolor{keyword}{new}\ OBJ\_Door());}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ gameP.objects.get(ind).x\ =\ 0*gameP.tileSize;}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ gameP.objects.get(ind++).y\ =\ 7*gameP.tileSize;}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(obj\_map[19][7])\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ gameP.objects.add(\textcolor{keyword}{new}\ OBJ\_Door());}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ gameP.objects.get(ind).x\ =\ 19*gameP.tileSize;}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ gameP.objects.get(ind++).y\ =\ 7*gameP.tileSize;}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ind;}
+\DoxyCodeLine{00088\ \ \ \ \ \}}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ closeAllDoor()\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ ind\ =\ 0;}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(obj\_map[9][0])\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ gameP.objects.get(ind++).reUseObject();}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(obj\_map[9][14])\ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ gameP.objects.get(ind++).reUseObject();}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(obj\_map[0][7])\ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ gameP.objects.get(ind++).reUseObject();}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(obj\_map[19][7])\ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ gameP.objects.get(ind).reUseObject();}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00107\ \ \ \ \ \}}
+\DoxyCodeLine{00108\ \ \ \ \ }
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ setObject()\ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ ind\ =\ 0;}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ spawnFrom\ =\ 10;}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{boolean}\ chestSpawned\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ ind\ =\ setDoorsInMap(ind);}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ y\ =\ 0;\ y\ <\ gameP.maxSor;\ y++)\ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ x\ =\ 0;\ x\ <\ gameP.maxOszlop;\ x++)\ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((x\ ==\ 9\ \&\&\ y\ ==\ 0)\ ||\ (x\ ==\ 9\ \&\&\ y\ ==\ 14)\ ||\ (x\ ==\ 0\ \&\&\ y\ ==\ 7)\ ||\ (x\ ==\ 19\ \&\&\ y\ ==\ 7))\ \textcolor{keywordflow}{continue};\ \ \ \ \textcolor{comment}{//Ajtóknak\ a\ helyeire\ ne\ spawnolodjon\ semmi}}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(obj\_map[x][y])\ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ whatToSpawn\ =\ rndNum.nextInt(spawnFrom);}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(whatToSpawn)\ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gameP.objects.add(\textcolor{keyword}{new}\ OBJ\_Box());}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gameP.objects.get(ind).x\ =\ x*gameP.tileSize;}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gameP.objects.get(ind++).y\ =\ y*gameP.tileSize;}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 5:}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gameP.objects.add(\textcolor{keyword}{new}\ OBJ\_Barrel());}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gameP.objects.get(ind).x\ =\ x*gameP.tileSize;}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gameP.objects.get(ind++).y\ =\ y*gameP.tileSize;}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(chestSpawned)\ spawnFrom-\/-\/;}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 9:}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!chestSpawned)\ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gameP.objects.add(\textcolor{keyword}{new}\ OBJ\_Chest());}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gameP.objects.get(ind).x\ =\ x*gameP.tileSize;}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gameP.objects.get(ind++).y\ =\ y*gameP.tileSize;}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ chestSpawned\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spawnFrom-\/-\/;}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ enemys\_canbePlaced[x][y]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00150\ \ \ \ \ \}}
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ setEnemys()\ throws\ OwnError\ \{}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ ind\ =\ 0;}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ enemyCount\ =\ this.canPlace/10;}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ enemik\_kozotti\_tavolsag\ =\ 4;}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ y\ =\ 0;\ y\ <\ gameP.maxSor;\ y++)\ \{}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ x\ =\ 0;\ x\ <\ gameP.maxOszlop;\ x++)\ \{}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(enemys\_canbePlaced[x][y])\ \{}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(enemik\_kozotti\_tavolsag\ ==\ 0\ \&\&\ enemyCount\ >\ 0)\ \{}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gameP.enemys.add(\textcolor{keyword}{new}\ EyeBall());}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gameP.enemys.get(ind).setX(x*gameP.tileSize);}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gameP.enemys.get(ind++).setY(y*gameP.tileSize);}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ enemik\_kozotti\_tavolsag\ =\ 4;}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ enemyCount-\/-\/;}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ enemik\_kozotti\_tavolsag-\/-\/;}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00175\ \ \ \ \ \}}
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ resetMap()\ throws\ OwnError\ \{}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ canPlace\ =\ 0;}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ gameP.resetObjects();}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ setObject();}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ setEnemys();}
+\DoxyCodeLine{00185\ \ \ \ \ \}}
+\DoxyCodeLine{00186\ \ \ \ \ }
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ getCanPlaced()\ \{}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ canPlace;}
+\DoxyCodeLine{00189\ \ \ \ \ \}}
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ loadObjMap()\ \{}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ InputStream\ inS\ =\ getClass().getResourceAsStream(obj\_file);}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ BufferedReader\ bufR\ =\ \textcolor{keyword}{new}\ BufferedReader(\textcolor{keyword}{new}\ InputStreamReader(inS));}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ col\ =\ 0;}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ row\ =\ 0;}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(col\ <\ gameP.maxOszlop\ \&\&\ row\ <\ gameP.maxSor)\ \{}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ String\ line\ =\ bufR.readLine();}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(col\ <\ gameP.maxOszlop)\ \{}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ String\ inds[]\ =\ line.split(\textcolor{stringliteral}{"{}\ "{}});}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{boolean}\ ind\ =\ Boolean.parseBoolean(inds[col]);}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(ind)\ canPlace++;}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ obj\_map[col][row]\ =\ ind;}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ col++;}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(col\ ==\ gameP.maxOszlop)\ \{}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ col\ =\ 0;}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ row++;}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ bufR.close();}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{catch}(Exception\ e)\ \{}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ enemys\_canbePlaced\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{boolean}[gameP.maxOszlop][gameP.maxSor];}
+\DoxyCodeLine{00219\ \ \ \ \ \}}
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ reLoad(GamePanel\ gameP)\ \{}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ this.gameP\ =\ gameP;}
+\DoxyCodeLine{00226\ \ \ \ \ \}}
+\DoxyCodeLine{00227\ \}}
+
+\end{DoxyCode}

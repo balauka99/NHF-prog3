@@ -1,0 +1,23 @@
+package loaders;
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
+public class TestBestRounds {
+	BestRounds tested;
+	/*@Test
+	public void testLoad() {
+		tested = BestRounds.loadBests("/save_file/bestRounds.txt");
+		Assert.assertNotNull(tested);
+	}*/
+	@Test
+	public void testWrite() {
+		BestRounds tmp = new BestRounds();
+		tmp.add(new Score("player1", 10));
+		tmp.add(new Score("player2", 11));
+		tmp.add(new Score("player3", 12));
+		tmp.add(new Score("player4", 10));
+		BestRounds.saveBests(tmp, "/save_file/bestRounds2.txt");
+	}
+}

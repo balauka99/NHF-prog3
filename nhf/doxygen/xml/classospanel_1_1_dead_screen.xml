@@ -1,0 +1,174 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classospanel_1_1_dead_screen" kind="class" language="Java" prot="public">
+    <compoundname>ospanel::DeadScreen</compoundname>
+    <basecompoundref refid="classospanel_1_1_os_panel" prot="public" virt="non-virtual">ospanel.OsPanel</basecompoundref>
+    <innerclass refid="classospanel_1_1_dead_screen_1_1_back_to_main_menu" prot="private">ospanel::DeadScreen::BackToMainMenu</innerclass>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classospanel_1_1_dead_screen_1ab22b2bc498170da18b9ae2d612fc20e8" prot="private" static="no" mutable="no">
+        <type>BufferedImage</type>
+        <definition>BufferedImage ospanel.DeadScreen.backGround</definition>
+        <argsstring></argsstring>
+        <name>backGround</name>
+        <qualifiedname>ospanel.DeadScreen.backGround</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ospanel/DeadScreen.java" line="22" column="23" bodyfile="ospanel/DeadScreen.java" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classospanel_1_1_dead_screen_1a158b7ef4e761fbe2de8a91de0b6e38cb" prot="private" static="no" mutable="no">
+        <type>JLabel</type>
+        <definition>JLabel ospanel.DeadScreen.info</definition>
+        <argsstring></argsstring>
+        <name>info</name>
+        <qualifiedname>ospanel.DeadScreen.info</qualifiedname>
+        <initializer>= new JLabel()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ospanel/DeadScreen.java" line="23" column="16" bodyfile="ospanel/DeadScreen.java" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classospanel_1_1_dead_screen_1ad2090eea9276bd04d84f1eec76156279" prot="private" static="no" mutable="no">
+        <type>JButton</type>
+        <definition>JButton ospanel.DeadScreen.backMainMenu</definition>
+        <argsstring></argsstring>
+        <name>backMainMenu</name>
+        <qualifiedname>ospanel.DeadScreen.backMainMenu</qualifiedname>
+        <initializer>= new JButton(&quot;Back To Main Menu&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ospanel/DeadScreen.java" line="24" column="17" bodyfile="ospanel/DeadScreen.java" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classospanel_1_1_dead_screen_1a65270f7c22ede8abf8458c9250083e19" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ospanel.DeadScreen.DeadScreen</definition>
+        <argsstring>(String name, int point)</argsstring>
+        <name>DeadScreen</name>
+        <qualifiedname>ospanel.DeadScreen.DeadScreen</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ospanel/DeadScreen.java" line="25" column="8" bodyfile="ospanel/DeadScreen.java" bodystart="25" bodyend="49"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classospanel_1_1_dead_screen_1a5642965d5e07b452e3adc5cdf9153740" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ospanel.DeadScreen.paintComponent</definition>
+        <argsstring>(Graphics g)</argsstring>
+        <name>paintComponent</name>
+        <qualifiedname>ospanel.DeadScreen.paintComponent</qualifiedname>
+        <param>
+          <type>Graphics</type>
+          <declname>g</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ospanel/DeadScreen.java" line="57" column="16" bodyfile="ospanel/DeadScreen.java" bodystart="57" bodyend="61"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Ez a Panel megjelenít egy halál jelenetet, megkapja mi a felhasználó/játékos neve és pontja amiket kiír a képre </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>JPanel</label>
+      </node>
+      <node id="1">
+        <label>ospanel.DeadScreen</label>
+        <link refid="classospanel_1_1_dead_screen"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ospanel.OsPanel</label>
+        <link refid="classospanel_1_1_os_panel"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="6">
+        <label>Font</label>
+      </node>
+      <node id="5">
+        <label>JFrame</label>
+      </node>
+      <node id="3">
+        <label>JPanel</label>
+      </node>
+      <node id="4">
+        <label>menu.MainMenu</label>
+        <link refid="classmenu_1_1_main_menu"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>ospanel.DeadScreen</label>
+        <link refid="classospanel_1_1_dead_screen"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ospanel.OsPanel</label>
+        <link refid="classospanel_1_1_os_panel"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>menuWin</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>defFont</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="ospanel/DeadScreen.java" line="21" column="7" bodyfile="ospanel/DeadScreen.java" bodystart="21" bodyend="62"/>
+    <listofallmembers>
+      <member refid="classospanel_1_1_dead_screen_1ab22b2bc498170da18b9ae2d612fc20e8" prot="private" virt="non-virtual"><scope>ospanel::DeadScreen</scope><name>backGround</name></member>
+      <member refid="classospanel_1_1_dead_screen_1ad2090eea9276bd04d84f1eec76156279" prot="private" virt="non-virtual"><scope>ospanel::DeadScreen</scope><name>backMainMenu</name></member>
+      <member refid="classospanel_1_1_dead_screen_1a65270f7c22ede8abf8458c9250083e19" prot="public" virt="non-virtual"><scope>ospanel::DeadScreen</scope><name>DeadScreen</name></member>
+      <member refid="classospanel_1_1_os_panel_1af81a93cee7a90439996b00212f939333" prot="protected" virt="non-virtual"><scope>ospanel::DeadScreen</scope><name>defFont</name></member>
+      <member refid="classospanel_1_1_dead_screen_1a158b7ef4e761fbe2de8a91de0b6e38cb" prot="private" virt="non-virtual"><scope>ospanel::DeadScreen</scope><name>info</name></member>
+      <member refid="classospanel_1_1_os_panel_1a4e63e2d858941f57ee05d0fb36c9744b" prot="public" virt="non-virtual"><scope>ospanel::DeadScreen</scope><name>maxOszlop</name></member>
+      <member refid="classospanel_1_1_os_panel_1ac8dc3fa503af745ff5ef305b53eeeb21" prot="public" virt="non-virtual"><scope>ospanel::DeadScreen</scope><name>maxSor</name></member>
+      <member refid="classospanel_1_1_os_panel_1a2ae1b27ad7ac5593b5c3fbe07c05cbc2" prot="protected" virt="non-virtual"><scope>ospanel::DeadScreen</scope><name>menuWin</name></member>
+      <member refid="classospanel_1_1_os_panel_1a1542e83366ae2906abfadee883bed1d9" prot="package" virt="non-virtual"><scope>ospanel::DeadScreen</scope><name>orgTileSize</name></member>
+      <member refid="classospanel_1_1_os_panel_1aa066569b93a785885accee5b58dc4115" prot="public" virt="non-virtual"><scope>ospanel::DeadScreen</scope><name>OsPanel</name></member>
+      <member refid="classospanel_1_1_dead_screen_1a5642965d5e07b452e3adc5cdf9153740" prot="protected" virt="non-virtual"><scope>ospanel::DeadScreen</scope><name>paintComponent</name></member>
+      <member refid="classospanel_1_1_os_panel_1a5e4711ce4355fd92d3fa8115ea4e5f92" prot="package" virt="non-virtual"><scope>ospanel::DeadScreen</scope><name>scale</name></member>
+      <member refid="classospanel_1_1_os_panel_1aec7a226c7185834771d824e33f6b5dde" prot="public" virt="non-virtual"><scope>ospanel::DeadScreen</scope><name>screenHeight</name></member>
+      <member refid="classospanel_1_1_os_panel_1a13038a52d6befb5f4aed6d6e99fa9926" prot="public" virt="non-virtual"><scope>ospanel::DeadScreen</scope><name>screenWidth</name></member>
+      <member refid="classospanel_1_1_os_panel_1a4fcfcd7d6831a23ade72244455be91b3" prot="public" virt="non-virtual"><scope>ospanel::DeadScreen</scope><name>setMenuWin</name></member>
+      <member refid="classospanel_1_1_os_panel_1aab27138ecd638c8d2fd640eedbfc8801" prot="public" virt="non-virtual"><scope>ospanel::DeadScreen</scope><name>tileSize</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

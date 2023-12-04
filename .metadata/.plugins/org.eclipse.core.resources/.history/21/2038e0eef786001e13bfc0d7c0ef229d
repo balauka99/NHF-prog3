@@ -1,5 +1,0 @@
-package object;
-
-public class Weapon {
-	private Object attack;
-}

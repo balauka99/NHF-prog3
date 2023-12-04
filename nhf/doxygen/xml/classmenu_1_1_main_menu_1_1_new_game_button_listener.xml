@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classmenu_1_1_main_menu_1_1_new_game_button_listener" kind="class" language="Java" prot="private">
+    <compoundname>menu::MainMenu::NewGameButtonListener</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ActionListener</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmenu_1_1_main_menu_1_1_new_game_button_listener_1a5f4b36de3917f72678c5c6798fc7a089" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void menu.MainMenu.NewGameButtonListener.actionPerformed</definition>
+        <argsstring>(ActionEvent newgame)</argsstring>
+        <name>actionPerformed</name>
+        <qualifiedname>menu.MainMenu.NewGameButtonListener.actionPerformed</qualifiedname>
+        <param>
+          <type>ActionEvent</type>
+          <declname>newgame</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="menu/MainMenu.java" line="86" column="13" bodyfile="menu/MainMenu.java" bodystart="86" bodyend="88"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ActionListener</label>
+      </node>
+      <node id="1">
+        <label>menu.MainMenu.NewGameButtonListener</label>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ActionListener</label>
+      </node>
+      <node id="1">
+        <label>menu.MainMenu.NewGameButtonListener</label>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="menu/MainMenu.java" line="85" column="8" bodyfile="menu/MainMenu.java" bodystart="85" bodyend="89"/>
+    <listofallmembers>
+      <member refid="classmenu_1_1_main_menu_1_1_new_game_button_listener_1a5f4b36de3917f72678c5c6798fc7a089" prot="public" virt="non-virtual"><scope>menu::MainMenu::NewGameButtonListener</scope><name>actionPerformed</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,112 @@
+\doxysection{Eye\+Ball.\+java}
+\label{_eye_ball_8java_source}\index{entity/EyeBall.java@{entity/EyeBall.java}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{package\ }entity;}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{import}\ java.awt.Graphics2D;}
+\DoxyCodeLine{00004\ \textcolor{keyword}{import}\ java.awt.Rectangle;}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{import}\ error.OwnError;}
+\DoxyCodeLine{00007\ \textcolor{keyword}{import}\ loaders.SheetLoader;}
+\DoxyCodeLine{00015\ \textcolor{keyword}{enum}\ Animation\_States\ \{Still,\ Move,\ Attack\}}
+\DoxyCodeLine{00019\ @SuppressWarnings(\textcolor{stringliteral}{"{}serial"{}})}
+\DoxyCodeLine{00020\ public\ class\ EyeBall\ extends\ Entity\ implements\ Runnable\{}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{transient}\ Thread\ animation;}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{private}\ Animation\_States\ aniState\ =\ Animation\_States.Still;}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{int}\ lastX,\ lastY;}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{public}\ EyeBall()\ throws\ OwnError\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ sheet\ =\ \textcolor{keyword}{new}\ SheetLoader(\textcolor{stringliteral}{"{}/entity/eyeball\_sheet.png"{}},\ 6,\ 1,\ 16,\ 16);}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ weapon\ =\ \textcolor{keyword}{new}\ Weapon(\textcolor{stringliteral}{"{}eyeball\_attack"{}},\ move\_dir);}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Hitbox\ setup}}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ hitbox\ =\ \textcolor{keyword}{new}\ Rectangle(0,\ 0,\ 48,\ 48);}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ hitboxDefaultX\ =\ hitbox.x;}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ hitboxDefaultY\ =\ hitbox.y;}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ View\ distance\ setupja,\ meddig\ lássol\ el\ a\ szem}}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ view\_distance\ =\ \textcolor{keyword}{new}\ Rectangle(-\/96,\ -\/96,\ 240,\ 240);\ \ \textcolor{comment}{//\ 5\ tile-\/ig\ lát\ el\ a\ kis\ szem}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ viewDDefaultX\ =\ view\_distance.x;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ viewDDefaultY\ =\ view\_distance.y;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Default\ adatok\ setup}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ healt\ =\ 501;\ \ \ \ \textcolor{comment}{//\ Azért\ kell\ az\ 1,\ hogy\ ne\ pont\ kerek\ szám\ legyen,\ különben\ a\ damaged\ metódusban\ a\ die\ metódus\ sose\ lesz\ meghívva}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ speed\ =\ 1;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ move\_dir\ =\ \textcolor{stringliteral}{"{}left"{}};}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ animationStart();}
+\DoxyCodeLine{00053\ \ \ \ \ \}}
+\DoxyCodeLine{00057\ \ \ \ \ @Override}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ draw(Graphics2D\ grap2)\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(weapon.isAttacking())\ weapon.draw(grap2);}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ grap2.drawImage(skin,\ getX(),\ getY(),\ \textcolor{keyword}{null});\ \textcolor{comment}{//Az\ up2-\/be\ rakjuk\ bele\ a\ kivágott\ sheet-\/et}}
+\DoxyCodeLine{00061\ \ \ \ \ \}}
+\DoxyCodeLine{00066\ \ \ \ \ @Override}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{protected}\ \textcolor{keywordtype}{void}\ die()\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ super.die();}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ skin\ =\ sheet.get(5);}
+\DoxyCodeLine{00070\ \ \ \ \ \}}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ animationStart()\ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ animation\ =\ \textcolor{keyword}{new}\ Thread(\textcolor{keyword}{this});}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ aniState\ =\ Animation\_States.Still;}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ animation.start();}
+\DoxyCodeLine{00078\ \ \ \ \ \}}
+\DoxyCodeLine{00082\ \ \ \ \ @Override}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ attackWithWeapon()\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ super.attackWithWeapon();}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ skin\ =\ sheet.get(4);}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ aniState\ =\ Animation\_States.Attack;}
+\DoxyCodeLine{00087\ \ \ \ \ \}}
+\DoxyCodeLine{00091\ \ \ \ \ @Override}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ moveToPoint(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y)\ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(aniState\ !=\ Animation\_States.Attack)\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ super.moveToPoint(x,\ y);}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ aniState\ =\ Animation\_States.Move;}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00097\ \ \ \ \ \}}
+\DoxyCodeLine{00102\ \ \ \ \ @Override}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ run()\ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ ind\ =\ 0;}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(!this.isDead())\ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Támadás\ animáció}}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(aniState\ ==\ Animation\_States.Attack)\ \{}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ skin\ =\ sheet.get(4);}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!weapon.isAttacking())\ aniState\ =\ Animation\_States.Still;}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Egyhelyben\ álló\ animáció}}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(aniState\ ==\ Animation\_States.Still)\ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ skin\ =\ sheet.get(ind);}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(ind\ ==\ 0)\ ind\ =\ 1;}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ ind\ =\ 0;}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Mozgásban\ lévő\ animáció}}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(aniState\ ==\ Animation\_States.Move)\ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((lastX\ ==\ getX()\ \&\&\ lastY\ ==\ getY()))\ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ aniState\ =\ Animation\_States.Still;}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(move\_dir)\ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{stringliteral}{"{}left"{}}:}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ skin\ =\ sheet.get(3);}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{stringliteral}{"{}right"{}}:}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ skin\ =\ sheet.get(2);}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lastX\ =\ getX();}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lastY\ =\ getY();}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Thread.sleep(250);}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (InterruptedException\ e)\ \{}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ e.printStackTrace();}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ skin\ =\ sheet.get(5);}
+\DoxyCodeLine{00145\ \ \ \ \ \}}
+\DoxyCodeLine{00149\ \ \ \ \ @Override}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ reLoad()\ throws\ OwnError\ \{}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ sheet\ =\ \textcolor{keyword}{new}\ SheetLoader(\textcolor{stringliteral}{"{}/entity/eyeball\_sheet.png"{}},\ 6,\ 1,\ 16,\ 16);}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ this.weapon.getAttackHitbox().reLoad();}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ animationStart();}
+\DoxyCodeLine{00154\ \ \ \ \ \}}
+\DoxyCodeLine{00155\ \}}
+
+\end{DoxyCode}

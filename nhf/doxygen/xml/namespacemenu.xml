@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="namespacemenu" kind="namespace" language="Java">
+    <compoundname>menu</compoundname>
+    <innerclass refid="classmenu_1_1_best_rounds_panel" prot="public">menu::BestRoundsPanel</innerclass>
+    <innerclass refid="classmenu_1_1_character_choose" prot="public">menu::CharacterChoose</innerclass>
+    <innerclass refid="classmenu_1_1_main_menu" prot="public">menu::MainMenu</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="menu/BestRoundsPanel.java" line="1" column="15"/>
+  </compounddef>
+</doxygen>

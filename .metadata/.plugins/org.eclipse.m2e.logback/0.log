@@ -1,0 +1,19 @@
+2023-12-01 12:08:30,116 [Worker-6: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2023-12-01 12:40:02,158 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-12-01 12:43:03,077 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-12-01 12:45:18,367 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-12-01 13:18:47,009 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-12-01 13:21:45,431 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-12-01 13:25:11,387 [Start Help Server] INFO  org.eclipse.jetty.server.Server - jetty-10.0.15; built: 2023-04-11T17:25:14.480Z; git: 68017dbd00236bb7e187330d7585a059610f661d; jvm 20.0.2+9-78
+2023-12-01 13:25:11,425 [Start Help Server] INFO  o.e.j.s.s.DefaultSessionIdManager - Session workerName=node0
+2023-12-01 13:25:11,469 [Start Help Server] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@7fcc3c4{/help,null,AVAILABLE}
+2023-12-01 13:25:11,492 [Start Help Server] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@2e629931{HTTP/1.1, (http/1.1)}{127.0.0.1:60685}
+2023-12-01 13:25:11,498 [Start Help Server] INFO  org.eclipse.jetty.server.Server - Started Server@48f136fb{STARTING}[10.0.15,sto=0] @214517ms
+2023-12-01 13:26:15,788 [Worker-26: https://download.eclipse.org/usssdk/updates/release/latest/content.jar] INFO  o.a.h.c.h.i.c.HttpRequestRetryExec - Recoverable I/O exception (java.net.SocketException) caught when processing request to {s}->https://download.eclipse.org:443
+2023-12-01 13:26:15,809 [Stop Help Server] INFO  org.eclipse.jetty.server.Server - Stopped Server@48f136fb{STOPPING}[10.0.15,sto=0]
+2023-12-01 13:26:15,814 [Stop Help Server] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@2e629931{HTTP/1.1, (http/1.1)}{127.0.0.1:0}
+2023-12-01 13:26:15,873 [Stop Help Server] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@7fcc3c4{/help,null,STOPPED}
+2023-12-01 13:26:26,705 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-12-01 13:28:23,742 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-12-01 13:31:29,409 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-12-04 08:04:16,330 [Worker-7: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.

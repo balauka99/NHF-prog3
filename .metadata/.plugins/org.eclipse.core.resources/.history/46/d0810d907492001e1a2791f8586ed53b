@@ -1,0 +1,397 @@
+package gameplay;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Random;
+
+import javax.swing.JLabel;
+
+import entity.Entity;
+import entity.Player;
+import error.OwnError;
+import loaders.BestRounds;
+import loaders.Score;
+import object.Heart;
+import object.OsObject;
+import ospanel.DeadScreen;
+import ospanel.OsPanel;
+import tile.TileManager;
+
+@SuppressWarnings("serial")
+/**
+ * Ez az osztály tartalmazza magát a játék loop-ot (ezt a megoldást neten találtam, és megtetszett logikusnak tűnt)
+ * itt van eltárolva minden adat, ami a játék játszása közben szükséges lehet, mivel itt is van minden megjelenítve, ezért egyszerűbb ide tenni mindent is
+ */
+public class GamePanel extends OsPanel implements Runnable{
+	/**
+	 * A map-nak páylának a státusza, vagy IN_NEW(egy új pálya) vagy IN_PREVIOUS(egy már végzett pálya), ha újban vagyunk csak akkor mehetünk egy másik újba
+	 * régiből csak egy régebbi, de későbbibe, mint ahol vagyunk pályára
+	 */
+	public Map_Status map_state = Map_Status.IN_NEW;
+	/**
+	 * Gomb nyomásokat lekezeli
+	 */
+	private KeyHandler keyH = new KeyHandler();
+	/**
+	 * A main szálla a játéknak
+	 */
+	private transient Thread mainT;
+	/**
+	 * Maga a felhasználó vagyis a játékos
+	 */
+	private Player gamer;
+	/**
+	 * Játékos életerejét megjelenítő kis szivek
+	 */
+	public ArrayList<Heart> player_healt = new ArrayList<Heart>();	//TODO mentsd el
+	/**
+	 * Játékos neve
+	 */
+	private transient String playerName;
+	/**
+	 * Az összes játékos és pontjai
+	 */
+	private transient BestRounds playersScoures;
+	/**
+	 * Azok a pályák ahol már járt a játékos, így könnyen bejárható mind, és könnyen el tudjuk menteni
+	 */
+	public PreviousMaps prevMaps = new PreviousMaps();
+	/**
+	 * Azt jelzi, hogy az a pálya hol éppen vagyunk, benne van-e a prevMaps-ban, alapból false és csak akkor lesz true amikor beletesszük a prevMaps-ba
+	 */
+	public boolean isMapInPrevMaps = false;
+	/**
+	 * Lekorlátozzuk azt, hogy hányszor frissűljön a képrenyő, így nem lesz túl gyors, stabil marad
+	 */
+	private int fps = 60;
+	/**
+	 * A tileokat beállító és pályát kirajzoló adattag
+	 */
+	public TileManager tileMg;
+	public CollisionChecker cChecker = new CollisionChecker(this);
+	public ArrayList<OsObject> objects = new ArrayList<OsObject>();
+	public ArrayList<Entity> enemys = new ArrayList<Entity>();
+	public AssetSetter assSetter;
+	public UserInterface ui = new UserInterface(this);
+	private Random rndNum = new Random();
+	/**
+	 * Generál egy új pályát, betölti a /source/maps/mapSZÁM.txt alapján a mappokat
+	 */
+	private void genNewMap() {
+		int mapNum = rndNum.nextInt(4) + 1;
+		tileMg = new TileManager(this, "/maps/map" + mapNum + ".txt");
+		assSetter = new AssetSetter(this, "/obj_positions/obj_pos" + mapNum + ".txt");
+	}
+	/**
+	 * Konsturktor, megkapja milyen karaktert választott a játékos és mi a játékneve, ha load_game String-eket kapunk, akkor betölti a mentett állást
+	 * a legújabb adatokat vesszi alapul, tehát azt tölti vissza aki utoljára játszott
+	 * @param character Karatker neve
+	 * @param playerName Játékos név
+	 */
+	public GamePanel(String character, String playerName) {
+		super();
+		if(!playerName.equals("load_game")) {
+			this.playerName = playerName;
+			playersScoures = BestRounds.loadBests("source/save_file/bestRounds.txt");
+			playersScoures.add(new Score(this.playerName, 0));
+		}
+		if(!character.equals("load_game"))
+			try {
+				gamer = new Player(this, keyH, character);
+			} catch (OwnError e) {
+				this.errorIsHappened(e.getMessage());
+			}
+		this.addKeyListener(keyH);
+		/**
+		 * Fokuszál a key inputra
+		 */
+		this.setFocusable(true);
+		this.setupHealtPos();
+		this.genNewMap();
+	}
+	/**
+	 * Az éppeni adatokkal beállít egy játékállás, először az objecteket kell bállítani, mert az setEnemys oda teszi le az ellenfeleket
+	 * ahol nincs object
+	 */
+	public void setupGame() {
+		if(map_state != Map_Status.ERROR) {
+			assSetter.setObject();
+			try {
+				assSetter.setEnemys();
+			} catch (OwnError e) {
+				this.errorIsHappened(e.getMessage());
+			}
+			gamer.defaultPos();
+		}
+	}
+	/**
+	 * Beállítja a kis szívek pozicióját a képrenyőn, ami a bal alsó sarok
+	 */
+	public void setupHealtPos() {
+		// Ballról jobbra a szívek
+		for(int i = 0; i < 5; i++) {
+			try {
+				player_healt.add(new Heart());
+			} catch (OwnError e) {
+				this.errorIsHappened(e.getMessage());
+			}
+			player_healt.get(i).y = 14*tileSize;
+			player_healt.get(i).x = (15+i)*tileSize;
+		}
+	}
+	/**
+	 * Elindítja a Main szállat
+	 */
+	public void startMainT() {
+		mainT = new Thread(this);
+		mainT.start();
+	}
+	public void resetObjects() {
+		objects = new ArrayList<OsObject>();
+	}
+	public void resetEnemys() {
+		enemys = new ArrayList<Entity>();
+	}
+	/**
+	 * Elmenti, azaz beteszi a prevMaps-ba azt a pályát ahol éppen vagyunk
+	 */
+	public void saveMap() {
+		if(!isMapInPrevMaps) {
+			prevMaps.addPrevMap(tileMg, objects, enemys, assSetter, gamer.getX(), gamer.getY(), gamer.move_dir, tileSize);
+			prevMaps.setupCurrentPrev();
+		}
+	}
+	
+	/**
+	 * Elmenti, aztán beállítja a pályát egy új helyzetbe, vagyis egy új pályára lép a játékos
+	 */
+	public void enterNewMap() {
+		saveMap();
+		this.saveGameData();
+		this.genNewMap();
+		objects = new ArrayList<OsObject>();
+		enemys = new ArrayList<Entity>();
+		isMapInPrevMaps = false;
+		map_state = Map_Status.IN_NEW;
+		setupGame();
+		playersScoures.getCurrent().setPoint(gamer.getPoint());
+	}
+	/**
+	 * Megkap egy Map osztály tagját és kiveszi belőle az adatokat, amiket kicseréli a mostani állásal
+	 * @param tmp
+	 */
+	private void getInformationFromMAP(Map tmp) {
+		tileMg = tmp.getTileMg();
+		objects = tmp.getObjects();
+		enemys = tmp.getEnemys();
+		assSetter = tmp.getAssSetter();
+		isMapInPrevMaps = tmp.isMapInPrevMaps;
+		map_state = tmp.map_state;
+		this.reLoadALL();
+		assSetter.closeAllDoor();
+	}
+	/**
+	 * Elkéri a prevMaps-ból ez éppen előzö pályát, attól függöen hol vagyunk, és azt beállítja
+	 */
+	public void loadPreviousMap() {
+		saveMap();
+		Map tmp = prevMaps.getPrevious();
+		if(tmp == null) return;
+		this.getInformationFromMAP(tmp);
+		gamer.setX(tmp.getPlayerLastX());
+		gamer.setY(tmp.getPlayerLastY());
+	}
+	/**
+	 * Visszafele megyünk egy már volt pályáról egy olyan pályára ami már szintén volt, vagyis az is egy régi pálya, de később volt mint ahol voltunk
+	 */
+	public void enterPreviousMapFromPreviousMap() {
+		Map tmp = prevMaps.getNextPrevMap();
+		if(tmp == null) {
+			enterNewMap();
+			return;
+		}
+		this.getInformationFromMAP(tmp);
+		gamer.defaultPos();
+	}
+	/**
+	 * Ha valami gond történik, ezzel ki lehet iratni a képernyőre
+	 * @param error Error üzenet, mivel volt a gond
+	 */
+	private void errorIsHappened(String error) {
+		removeAll();
+		setLayout(null);
+		this.map_state = Map_Status.ERROR;
+		JLabel errorMessage = new JLabel();
+		this.setBackground(Color.BLACK);
+		errorMessage.setBounds(250, 360, 540, 50);
+		errorMessage.setFont(defFont);
+		errorMessage.setForeground(Color.RED);
+		errorMessage.setText(error);
+		add(errorMessage);
+	}
+	/**
+	 * A játék loopja, a netről néztem. Lényegében frissiti az állást aztán újrarajzolja azt, az fps adattagal van lekorlátozva másodpercenként max 60szor frissítsen
+	 */
+	@Override
+	public void run() {
+		double drawInterval = 1000000000/fps;	// Ez egy másodperc nano sec-ben nézve és elosztva az fps-el, ennyi időnként fissítsuk a képernyöt
+		double nextDrawTime = System.nanoTime() + drawInterval;	// nano sec-ben számolva mikor kell kövinenk frissíteni a képet
+		long timer = 0;
+		int drawCount = 0;
+		
+		// A game loop addig megy ameddig tart a main szállunk
+		while(map_state != Map_Status.ERROR && gamer.getHealt() > 0) {
+			
+			updatePanel();
+			
+			repaint();
+			drawCount++;
+			
+			try {
+				double remainingTime = nextDrawTime - System.nanoTime();	// maga a parancsok végrehajtása közben is eltelt idő, ha maradt azzal dolgozunk
+				remainingTime /= 1000000;	// nano sec-et át kell váltani milli sec-re, mert a sleep-nek az kell
+				if(remainingTime < 0) {
+					remainingTime = 0;	// Ha gond lenne, lagolnánk, akkor ne essen minuszba a sleep time
+				}
+				Thread.sleep((long)remainingTime);
+				nextDrawTime += drawInterval;
+				
+				// Minden másodpercben kiírjuk, hányszor volt meghívva a repaint
+	            if (System.nanoTime() - timer >= 1000000000) {
+	            	System.out.println("FPS: " + drawCount);
+	                drawCount = 0;
+	                timer = System.nanoTime();
+	            }
+	            
+			} catch (InterruptedException e) {
+				this.errorIsHappened("In GamePanel run: Thread.sleep throw InterruptedException");
+			}
+		}
+	}
+	/**
+	 * Frissíti a játék állását, amit addig csinál ameddig a játékos meg nem hal, ha meghalt átvált a dead screenre
+	 * @throws IOException
+	 */
+	public void updatePanel() {
+		if(!this.hasFocus()) this.requestFocusInWindow();
+		gamer.update();
+		if(gamer.getHealt() == 0) {
+			DeadScreen deadS = new DeadScreen(playerName, gamer.getPoint());
+			deadS.setMenuWin(menuWin);
+			menuWin.addNewCard(deadS, "DeadScreen");
+			menuWin.changeCard("DeadScreen");
+		}
+	}
+	/**
+	 * Visszaadja a pályán meghalt-e minden ellenfél
+	 * @return
+	 */
+	public boolean isLevelCleared() {
+		for(int i = 0; i < enemys.size(); i++) {
+			if(!enemys.get(i).isDead()) return false;
+		}
+		return true;
+	}
+	
+	// GETTERS
+	public KeyHandler getKeyListener() {
+		return keyH;
+	}
+	public int getPlayerPoint() {
+		return gamer.getPoint();
+	}
+	public Player getPlayer() {
+		return gamer;
+	}
+	public String getPlayerName() {
+		return playerName;
+	}
+	public BestRounds getPLayersScore() {
+		return playersScoures;
+	}
+	
+	/**
+	 * Maga a rajzolás, a repaint a run()-ban ezt hívja meg mindig
+	 */
+	public void paintComponent(Graphics grap) {
+		if(map_state != Map_Status.ERROR) {
+			//Itt kell rajzolni minden fel
+			super.paintComponent(grap);
+			Graphics2D grap2 = (Graphics2D) grap;
+			
+			//Tileok, legalsó elemek
+			tileMg.draw(grap2);	// Előbb ezt kell meghívni, hogy a tileok legyenek hátrébb a layerben
+			
+			//Objectek
+			for(int i = 0; i < objects.size(); i++) {
+				objects.get(i).draw(grap2, this);
+			}
+			
+			//Entity draw
+			for(int i = 0; i < enemys.size(); i++) {
+				enemys.get(i).draw(grap2);
+			}
+			
+			//Játékos, neki kell lennie legfent
+			for(int i = 0; i < player_healt.size(); i++) {
+				player_healt.get(i).draw(grap2, this);
+			}
+			gamer.draw(grap2);
+			
+			ui.draw(grap2);
+			
+			grap2.dispose();	// Megsporolunk egy kis memóriát
+		}
+	}
+	/**
+	 * Elmenti vagyis Serializálja a mappok állástát
+	 */
+	private void saveGameData() {
+		prevMaps.setSavedPlayer(gamer);
+		prevMaps.setPlayer_healt(player_healt);
+		PreviousMaps.saveAllPreviousMaps(prevMaps, "source/save_file/last_save.txt");
+		playersScoures.getCurrent().setPoint(gamer.getPoint());
+		BestRounds.saveBests(playersScoures, "source/save_file/bestRounds.txt");
+	}
+	/**
+	 * Seralizálás után vissza kell tölteni minden BufferImage-t, mert azok nem lehet Serializálni
+	 */
+	private void reLoadALL() {
+		try {
+			tileMg.reLoadTileSkins(this);
+			assSetter.reLoad(this);
+			for(int i = 0; i < objects.size(); i++) {
+				objects.get(i).reLoad();
+			}
+			for(int i = 0; i < enemys.size(); i++) {
+				enemys.get(i).reLoad();
+			}
+			this.gamer.reLoad(this, this.keyH);
+		} catch (OwnError e) {
+			this.errorIsHappened(e.getMessage());
+		}
+	}
+	/**
+	 * A Serializált adatokat visszatöltjük a prevMaps-be és azokból a legujjabban bekerültet töltjük vissza a jelenlegi állásba
+	 */
+	public void loadGameData() {
+		//Egyszerűen sehogy se tudom miért nem müködik úgy, hogy /save_file/last_save.txt
+		this.prevMaps = PreviousMaps.loadALlPreviousMaps("C:\\OwnThings\\BME_mernokinfo\\3félév\\Prog3\\NagyHázi\\nhf\\source\\save_file\\last_save.txt");
+		this.playersScoures = BestRounds.loadBests("C:\\OwnThings\\BME_mernokinfo\\3félév\\Prog3\\NagyHázi\\nhf\\source\\save_file\\bestRounds.txt");
+		this.playerName = playersScoures.getCurrent().getName();
+		Map tmp = prevMaps.get(prevMaps.size()-1);
+		this.gamer = prevMaps.getSavedPlayer();
+		this.player_healt = prevMaps.getPlayer_healt();
+		try {
+			for(int i = 0; i < player_healt.size(); i++) {
+				player_healt.get(i).reLoad();
+			}
+		} catch (OwnError e) {
+			this.errorIsHappened(e.getMessage());
+		}
+		this.getInformationFromMAP(tmp);
+	}
+}

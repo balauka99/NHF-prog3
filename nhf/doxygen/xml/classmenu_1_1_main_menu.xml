@@ -1,0 +1,216 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classmenu_1_1_main_menu" kind="class" language="Java" prot="public">
+    <compoundname>menu::MainMenu</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">JFrame</basecompoundref>
+    <innerclass refid="classmenu_1_1_main_menu_1_1_best_rounds_button_listener" prot="private">menu::MainMenu::BestRoundsButtonListener</innerclass>
+    <innerclass refid="classmenu_1_1_main_menu_1_1_exit_button_listener" prot="private">menu::MainMenu::ExitButtonListener</innerclass>
+    <innerclass refid="classmenu_1_1_main_menu_1_1_load_button_listener" prot="private">menu::MainMenu::LoadButtonListener</innerclass>
+    <innerclass refid="classmenu_1_1_main_menu_1_1_my_button_mouse_adapter" prot="private">menu::MainMenu::MyButtonMouseAdapter</innerclass>
+    <innerclass refid="classmenu_1_1_main_menu_1_1_new_game_button_listener" prot="private">menu::MainMenu::NewGameButtonListener</innerclass>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmenu_1_1_main_menu_1ae6f5b51ccca54305e827e18485daafa5" prot="private" static="no" mutable="no">
+        <type>CardLayout</type>
+        <definition>CardLayout menu.MainMenu.cards</definition>
+        <argsstring></argsstring>
+        <name>cards</name>
+        <qualifiedname>menu.MainMenu.cards</qualifiedname>
+        <initializer>= new CardLayout()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="menu/MainMenu.java" line="23" column="20" bodyfile="menu/MainMenu.java" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmenu_1_1_main_menu_1ad1ae0a67dc54a308f61177725884dbfd" prot="private" static="no" mutable="no">
+        <type>JPanel</type>
+        <definition>JPanel menu.MainMenu.cardsPanel</definition>
+        <argsstring></argsstring>
+        <name>cardsPanel</name>
+        <qualifiedname>menu.MainMenu.cardsPanel</qualifiedname>
+        <initializer>= new JPanel(cards)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="menu/MainMenu.java" line="24" column="16" bodyfile="menu/MainMenu.java" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmenu_1_1_main_menu_1ac4ccfb9300cd4295ca5c7e66ae14cdd4" prot="private" static="no" mutable="no">
+        <type><ref refid="classospanel_1_1_menu_panel" kindref="compound">MenuPanel</ref></type>
+        <definition>MenuPanel menu.MainMenu.actual_pan</definition>
+        <argsstring></argsstring>
+        <name>actual_pan</name>
+        <qualifiedname>menu.MainMenu.actual_pan</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="menu/MainMenu.java" line="25" column="19" bodyfile="menu/MainMenu.java" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmenu_1_1_main_menu_1a658efc08cce853111d35684530a9a01d" prot="private" static="no" mutable="no">
+        <type><ref refid="classmenu_1_1_character_choose" kindref="compound">CharacterChoose</ref></type>
+        <definition>CharacterChoose menu.MainMenu.character_pan</definition>
+        <argsstring></argsstring>
+        <name>character_pan</name>
+        <qualifiedname>menu.MainMenu.character_pan</qualifiedname>
+        <initializer>= new <ref refid="classmenu_1_1_character_choose" kindref="compound">CharacterChoose</ref>(this)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="menu/MainMenu.java" line="26" column="25" bodyfile="menu/MainMenu.java" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmenu_1_1_main_menu_1a39374015c25eab462b13ed40ba6ecd20" prot="private" static="no" mutable="no">
+        <type><ref refid="classmenu_1_1_best_rounds_panel" kindref="compound">BestRoundsPanel</ref></type>
+        <definition>BestRoundsPanel menu.MainMenu.best</definition>
+        <argsstring></argsstring>
+        <name>best</name>
+        <qualifiedname>menu.MainMenu.best</qualifiedname>
+        <initializer>= new <ref refid="classmenu_1_1_best_rounds_panel" kindref="compound">BestRoundsPanel</ref>(this)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="menu/MainMenu.java" line="27" column="25" bodyfile="menu/MainMenu.java" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmenu_1_1_main_menu_1a6341dc9afcf48c185c8a4141be189859" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void menu.MainMenu.setupMainMenu</definition>
+        <argsstring>()</argsstring>
+        <name>setupMainMenu</name>
+        <qualifiedname>menu.MainMenu.setupMainMenu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Egy előre beállított állást beállít, ami mag a menü </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="menu/MainMenu.java" line="31" column="14" bodyfile="menu/MainMenu.java" bodystart="31" bodyend="79"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmenu_1_1_main_menu_1abaf598c78d0c771fc68757c779cd623d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void menu.MainMenu.ResetMenuPanel</definition>
+        <argsstring>()</argsstring>
+        <name>ResetMenuPanel</name>
+        <qualifiedname>menu.MainMenu.ResetMenuPanel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="menu/MainMenu.java" line="80" column="13" bodyfile="menu/MainMenu.java" bodystart="80" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="classmenu_1_1_main_menu_1a4d94c3bdeb854dccd98404211e7dbde9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void menu.MainMenu.changeCard</definition>
+        <argsstring>(String cardName)</argsstring>
+        <name>changeCard</name>
+        <qualifiedname>menu.MainMenu.changeCard</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>cardName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="menu/MainMenu.java" line="131" column="13" bodyfile="menu/MainMenu.java" bodystart="131" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="classmenu_1_1_main_menu_1a0179daecf2e6a3d8706169c5d41dd19d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void menu.MainMenu.addNewCard</definition>
+        <argsstring>(JPanel pan, String name)</argsstring>
+        <name>addNewCard</name>
+        <qualifiedname>menu.MainMenu.addNewCard</qualifiedname>
+        <param>
+          <type>JPanel</type>
+          <declname>pan</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="menu/MainMenu.java" line="134" column="13" bodyfile="menu/MainMenu.java" bodystart="134" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="classmenu_1_1_main_menu_1a853aaacfeca76f31964b501c90792ef5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>menu.MainMenu.MainMenu</definition>
+        <argsstring>()</argsstring>
+        <name>MainMenu</name>
+        <qualifiedname>menu.MainMenu.MainMenu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Konstruktorban csak beadjuk a kártyákat </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="menu/MainMenu.java" line="140" column="8" bodyfile="menu/MainMenu.java" bodystart="140" bodyend="147"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Az soztály jeleníti meg a játék menüjét, ami egy CardLayout rendszeren alapúl, így gyorsan lehet váltogatni a menüpontok között </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>JFrame</label>
+      </node>
+      <node id="1">
+        <label>menu.MainMenu</label>
+        <link refid="classmenu_1_1_main_menu"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>JFrame</label>
+      </node>
+      <node id="1">
+        <label>menu.MainMenu</label>
+        <link refid="classmenu_1_1_main_menu"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="menu/MainMenu.java" line="22" column="7" bodyfile="menu/MainMenu.java" bodystart="22" bodyend="148"/>
+    <listofallmembers>
+      <member refid="classmenu_1_1_main_menu_1ac4ccfb9300cd4295ca5c7e66ae14cdd4" prot="private" virt="non-virtual"><scope>menu::MainMenu</scope><name>actual_pan</name></member>
+      <member refid="classmenu_1_1_main_menu_1a0179daecf2e6a3d8706169c5d41dd19d" prot="public" virt="non-virtual"><scope>menu::MainMenu</scope><name>addNewCard</name></member>
+      <member refid="classmenu_1_1_main_menu_1a39374015c25eab462b13ed40ba6ecd20" prot="private" virt="non-virtual"><scope>menu::MainMenu</scope><name>best</name></member>
+      <member refid="classmenu_1_1_main_menu_1ae6f5b51ccca54305e827e18485daafa5" prot="private" virt="non-virtual"><scope>menu::MainMenu</scope><name>cards</name></member>
+      <member refid="classmenu_1_1_main_menu_1ad1ae0a67dc54a308f61177725884dbfd" prot="private" virt="non-virtual"><scope>menu::MainMenu</scope><name>cardsPanel</name></member>
+      <member refid="classmenu_1_1_main_menu_1a4d94c3bdeb854dccd98404211e7dbde9" prot="public" virt="non-virtual"><scope>menu::MainMenu</scope><name>changeCard</name></member>
+      <member refid="classmenu_1_1_main_menu_1a658efc08cce853111d35684530a9a01d" prot="private" virt="non-virtual"><scope>menu::MainMenu</scope><name>character_pan</name></member>
+      <member refid="classmenu_1_1_main_menu_1a853aaacfeca76f31964b501c90792ef5" prot="public" virt="non-virtual"><scope>menu::MainMenu</scope><name>MainMenu</name></member>
+      <member refid="classmenu_1_1_main_menu_1abaf598c78d0c771fc68757c779cd623d" prot="public" virt="non-virtual"><scope>menu::MainMenu</scope><name>ResetMenuPanel</name></member>
+      <member refid="classmenu_1_1_main_menu_1a6341dc9afcf48c185c8a4141be189859" prot="private" virt="non-virtual"><scope>menu::MainMenu</scope><name>setupMainMenu</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

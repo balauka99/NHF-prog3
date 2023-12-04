@@ -1,0 +1,65 @@
+\doxysection{loaders.\+Sheet\+Loader Class Reference}
+\label{classloaders_1_1_sheet_loader}\index{loaders.SheetLoader@{loaders.SheetLoader}}
+Inheritance diagram for loaders.\+Sheet\+Loader\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classloaders_1_1_sheet_loader}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Sheet\+Loader} (String filename, int mcol, int mrow, int f\+Height, int f\+Width)  throws Own\+Error
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Az osztály egy spirite sheet-\/et képes feldarabolni és tárolni azok elemeit FONTOS a hívonak kell tudni a spirite sheet adatait, maga az osztály nem képes felismerni hány oszlopa és sora van, meg hogy mekkorák azok 
+
+Definition at line \textbf{ 18} of file \textbf{ Sheet\+Loader.\+java}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classloaders_1_1_sheet_loader_ad713b1af4fbe47c61f1b048242bb7c5e}} 
+\index{loaders.SheetLoader@{loaders.SheetLoader}!SheetLoader@{SheetLoader}}
+\index{SheetLoader@{SheetLoader}!loaders.SheetLoader@{loaders.SheetLoader}}
+\doxysubsubsection{SheetLoader()}
+{\footnotesize\ttfamily loaders.\+Sheet\+Loader.\+Sheet\+Loader (\begin{DoxyParamCaption}\item[{String}]{filename,  }\item[{int}]{mcol,  }\item[{int}]{mrow,  }\item[{int}]{f\+Height,  }\item[{int}]{f\+Width }\end{DoxyParamCaption}) throws \textbf{ Own\+Error}}
+
+Betölti a megadott filename fájlt egy Buffered\+Image-\/be és a megadott adatok szerint szétvágdossa és hozzáadja azokat a listához 
+\begin{DoxyParams}{Parameters}
+{\em filename} & \\
+\hline
+{\em mcol} & Amennyi oszlop van a sheet-\/en \\
+\hline
+{\em mrow} & Amennyi sor van a sheet-\/en \\
+\hline
+{\em f\+Height} & Egy a sheet-\/en lévő kép darabkája milyen magas \\
+\hline
+{\em f\+Width} & Egy a sheet-\/en lévő kép darabkája milyen széles \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Own\+Error,ami} & tartalmazza a hiba üzenetet \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em IOException} & \\
+\hline
+{\em Illegal\+Argument\+Exception} & Ha rossz filenevet kap, ezt fogja visszadobni, mivel a Image\+IO.\+read()-\/nek a paramétere null lesz \\
+\hline
+{\em Null\+Pointer\+Exception} & Ha nem egy kép van a fájlban, de a fájl létezik, ezt kapjuk\\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \textbf{ 33} of file \textbf{ Sheet\+Loader.\+java}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+loaders/\textbf{ Sheet\+Loader.\+java}\end{DoxyCompactItemize}

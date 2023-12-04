@@ -1,0 +1,211 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classmenu_1_1_character_choose" kind="class" language="Java" prot="public">
+    <compoundname>menu::CharacterChoose</compoundname>
+    <basecompoundref refid="classospanel_1_1_os_panel" prot="public" virt="non-virtual">ospanel.OsPanel</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmenu_1_1_character_choose_1a0583282bf71a1361ec7495992b04d9b3" prot="private" static="no" mutable="no">
+        <type>String</type>
+        <definition>String menu.CharacterChoose.character</definition>
+        <argsstring></argsstring>
+        <name>character</name>
+        <qualifiedname>menu.CharacterChoose.character</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="menu/CharacterChoose.java" line="20" column="16" bodyfile="menu/CharacterChoose.java" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmenu_1_1_character_choose_1acb08ddd2f07ea41ed8402d1495519832" prot="private" static="no" mutable="no">
+        <type>String</type>
+        <definition>String menu.CharacterChoose.player_name</definition>
+        <argsstring></argsstring>
+        <name>player_name</name>
+        <qualifiedname>menu.CharacterChoose.player_name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="menu/CharacterChoose.java" line="21" column="16" bodyfile="menu/CharacterChoose.java" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmenu_1_1_character_choose_1a367a0e1345784f8f123c9d951d1f1a21" prot="private" static="no" mutable="no">
+        <type>JButton</type>
+        <definition>JButton menu.CharacterChoose.vikingB</definition>
+        <argsstring></argsstring>
+        <name>vikingB</name>
+        <qualifiedname>menu.CharacterChoose.vikingB</qualifiedname>
+        <initializer>= new JButton(&quot;Choose VIKING - great arom, but low damage&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="menu/CharacterChoose.java" line="23" column="17" bodyfile="menu/CharacterChoose.java" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmenu_1_1_character_choose_1a9b3a56eebd9ef45d1b6711d141d19068" prot="private" static="no" mutable="no">
+        <type>JButton</type>
+        <definition>JButton menu.CharacterChoose.robotB</definition>
+        <argsstring></argsstring>
+        <name>robotB</name>
+        <qualifiedname>menu.CharacterChoose.robotB</qualifiedname>
+        <initializer>= new JButton(&quot;Choose ROBOT - low armor, but great damage&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="menu/CharacterChoose.java" line="24" column="17" bodyfile="menu/CharacterChoose.java" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmenu_1_1_character_choose_1a866c2773305e1757cc498d35196ca067" prot="private" static="no" mutable="no">
+        <type>JButton</type>
+        <definition>JButton menu.CharacterChoose.selectB</definition>
+        <argsstring></argsstring>
+        <name>selectB</name>
+        <qualifiedname>menu.CharacterChoose.selectB</qualifiedname>
+        <initializer>= new JButton(&quot;Select choosen character - START GAME&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="menu/CharacterChoose.java" line="26" column="17" bodyfile="menu/CharacterChoose.java" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmenu_1_1_character_choose_1ad81fddde52deeff72cfa8d678163367c" prot="private" static="no" mutable="no">
+        <type>JLabel</type>
+        <definition>JLabel menu.CharacterChoose.textL</definition>
+        <argsstring></argsstring>
+        <name>textL</name>
+        <qualifiedname>menu.CharacterChoose.textL</qualifiedname>
+        <initializer>= new JLabel(&quot;PLEAS CHOOSE A CHARACTER - click on the choosen one!&quot;, JLabel.CENTER)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="menu/CharacterChoose.java" line="27" column="16" bodyfile="menu/CharacterChoose.java" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmenu_1_1_character_choose_1a8264b04b7f11719a307a9e8faaf62bd5" prot="private" static="no" mutable="no">
+        <type>JTextField</type>
+        <definition>JTextField menu.CharacterChoose.playerName</definition>
+        <argsstring></argsstring>
+        <name>playerName</name>
+        <qualifiedname>menu.CharacterChoose.playerName</qualifiedname>
+        <initializer>= new JTextField(10)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="menu/CharacterChoose.java" line="28" column="20" bodyfile="menu/CharacterChoose.java" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmenu_1_1_character_choose_1a65591d4796b03d2d227786dd5711fe27" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>menu.CharacterChoose.CharacterChoose</definition>
+        <argsstring>(MainMenu win)</argsstring>
+        <name>CharacterChoose</name>
+        <qualifiedname>menu.CharacterChoose.CharacterChoose</qualifiedname>
+        <param>
+          <type><ref refid="classmenu_1_1_main_menu" kindref="compound">MainMenu</ref></type>
+          <declname>win</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="menu/CharacterChoose.java" line="30" column="8" bodyfile="menu/CharacterChoose.java" bodystart="30" bodyend="95"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Az osztály egy OsPanel leszármazott ami egy előre beállatott karakter választó felületet jelenít meg </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>JPanel</label>
+      </node>
+      <node id="1">
+        <label>menu.CharacterChoose</label>
+        <link refid="classmenu_1_1_character_choose"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ospanel.OsPanel</label>
+        <link refid="classospanel_1_1_os_panel"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="6">
+        <label>Font</label>
+      </node>
+      <node id="5">
+        <label>JFrame</label>
+      </node>
+      <node id="3">
+        <label>JPanel</label>
+      </node>
+      <node id="1">
+        <label>menu.CharacterChoose</label>
+        <link refid="classmenu_1_1_character_choose"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>menu.MainMenu</label>
+        <link refid="classmenu_1_1_main_menu"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ospanel.OsPanel</label>
+        <link refid="classospanel_1_1_os_panel"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>menuWin</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>defFont</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="menu/CharacterChoose.java" line="19" column="7" bodyfile="menu/CharacterChoose.java" bodystart="19" bodyend="96"/>
+    <listofallmembers>
+      <member refid="classmenu_1_1_character_choose_1a0583282bf71a1361ec7495992b04d9b3" prot="private" virt="non-virtual"><scope>menu::CharacterChoose</scope><name>character</name></member>
+      <member refid="classmenu_1_1_character_choose_1a65591d4796b03d2d227786dd5711fe27" prot="public" virt="non-virtual"><scope>menu::CharacterChoose</scope><name>CharacterChoose</name></member>
+      <member refid="classospanel_1_1_os_panel_1af81a93cee7a90439996b00212f939333" prot="protected" virt="non-virtual"><scope>menu::CharacterChoose</scope><name>defFont</name></member>
+      <member refid="classospanel_1_1_os_panel_1a4e63e2d858941f57ee05d0fb36c9744b" prot="public" virt="non-virtual"><scope>menu::CharacterChoose</scope><name>maxOszlop</name></member>
+      <member refid="classospanel_1_1_os_panel_1ac8dc3fa503af745ff5ef305b53eeeb21" prot="public" virt="non-virtual"><scope>menu::CharacterChoose</scope><name>maxSor</name></member>
+      <member refid="classospanel_1_1_os_panel_1a2ae1b27ad7ac5593b5c3fbe07c05cbc2" prot="protected" virt="non-virtual"><scope>menu::CharacterChoose</scope><name>menuWin</name></member>
+      <member refid="classospanel_1_1_os_panel_1a1542e83366ae2906abfadee883bed1d9" prot="package" virt="non-virtual"><scope>menu::CharacterChoose</scope><name>orgTileSize</name></member>
+      <member refid="classospanel_1_1_os_panel_1aa066569b93a785885accee5b58dc4115" prot="public" virt="non-virtual"><scope>menu::CharacterChoose</scope><name>OsPanel</name></member>
+      <member refid="classmenu_1_1_character_choose_1acb08ddd2f07ea41ed8402d1495519832" prot="private" virt="non-virtual"><scope>menu::CharacterChoose</scope><name>player_name</name></member>
+      <member refid="classmenu_1_1_character_choose_1a8264b04b7f11719a307a9e8faaf62bd5" prot="private" virt="non-virtual"><scope>menu::CharacterChoose</scope><name>playerName</name></member>
+      <member refid="classmenu_1_1_character_choose_1a9b3a56eebd9ef45d1b6711d141d19068" prot="private" virt="non-virtual"><scope>menu::CharacterChoose</scope><name>robotB</name></member>
+      <member refid="classospanel_1_1_os_panel_1a5e4711ce4355fd92d3fa8115ea4e5f92" prot="package" virt="non-virtual"><scope>menu::CharacterChoose</scope><name>scale</name></member>
+      <member refid="classospanel_1_1_os_panel_1aec7a226c7185834771d824e33f6b5dde" prot="public" virt="non-virtual"><scope>menu::CharacterChoose</scope><name>screenHeight</name></member>
+      <member refid="classospanel_1_1_os_panel_1a13038a52d6befb5f4aed6d6e99fa9926" prot="public" virt="non-virtual"><scope>menu::CharacterChoose</scope><name>screenWidth</name></member>
+      <member refid="classmenu_1_1_character_choose_1a866c2773305e1757cc498d35196ca067" prot="private" virt="non-virtual"><scope>menu::CharacterChoose</scope><name>selectB</name></member>
+      <member refid="classospanel_1_1_os_panel_1a4fcfcd7d6831a23ade72244455be91b3" prot="public" virt="non-virtual"><scope>menu::CharacterChoose</scope><name>setMenuWin</name></member>
+      <member refid="classmenu_1_1_character_choose_1ad81fddde52deeff72cfa8d678163367c" prot="private" virt="non-virtual"><scope>menu::CharacterChoose</scope><name>textL</name></member>
+      <member refid="classospanel_1_1_os_panel_1aab27138ecd638c8d2fd640eedbfc8801" prot="public" virt="non-virtual"><scope>menu::CharacterChoose</scope><name>tileSize</name></member>
+      <member refid="classmenu_1_1_character_choose_1a367a0e1345784f8f123c9d951d1f1a21" prot="private" virt="non-virtual"><scope>menu::CharacterChoose</scope><name>vikingB</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

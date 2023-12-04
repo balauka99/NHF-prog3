@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="_map___status_8java" kind="file" language="Java">
+    <compoundname>Map_Status.java</compoundname>
+    <innerclass refid="enumgameplay_1_1_map___status" prot="public">gameplay::Map_Status</innerclass>
+    <innernamespace refid="namespacegameplay">gameplay</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">gameplay;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="enumgameplay_1_1_map___status_1a3239656066be5ea630092b62dfea4570" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="enumgameplay_1_1_map___status" kindref="compound">Map_Status</ref><sp/>{IN_PREVIOUS,<sp/>IN_NEW,<sp/>ERROR};</highlight></codeline>
+    </programlisting>
+    <location file="gameplay/Map_Status.java"/>
+  </compounddef>
+</doxygen>

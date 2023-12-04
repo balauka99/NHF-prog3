@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="namespaceospanel" kind="namespace" language="Java">
+    <compoundname>ospanel</compoundname>
+    <innerclass refid="classospanel_1_1_dead_screen" prot="public">ospanel::DeadScreen</innerclass>
+    <innerclass refid="classospanel_1_1_menu_panel" prot="public">ospanel::MenuPanel</innerclass>
+    <innerclass refid="classospanel_1_1_os_panel" prot="public">ospanel::OsPanel</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="ospanel/DeadScreen.java" line="1" column="15"/>
+  </compounddef>
+</doxygen>

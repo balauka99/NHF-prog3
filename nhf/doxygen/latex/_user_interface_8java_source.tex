@@ -1,0 +1,43 @@
+\doxysection{User\+Interface.\+java}
+\label{_user_interface_8java_source}\index{gameplay/UserInterface.java@{gameplay/UserInterface.java}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{package\ }gameplay;}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{import}\ java.awt.Color;}
+\DoxyCodeLine{00004\ \textcolor{keyword}{import}\ java.awt.Font;}
+\DoxyCodeLine{00005\ \textcolor{keyword}{import}\ java.awt.Graphics2D;}
+\DoxyCodeLine{00006\ \textcolor{keyword}{import}\ java.awt.image.BufferedImage;}
+\DoxyCodeLine{00007\ \textcolor{keyword}{import}\ java.io.IOException;}
+\DoxyCodeLine{00008\ \textcolor{keyword}{import}\ java.io.Serializable;}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{import}\ javax.imageio.ImageIO;}
+\DoxyCodeLine{00014\ @SuppressWarnings(\textcolor{stringliteral}{"{}serial"{}})}
+\DoxyCodeLine{00015\ public\ class\ UserInterface\ implements\ Serializable\{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{private}\ GamePanel\ gameP;}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{private}\ Font\ font;}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{private}\ BufferedImage\ ui\_point;}
+\DoxyCodeLine{00019\ \ \ \ \ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{public}\ UserInterface(GamePanel\ gameP)\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ this.gameP\ =\ gameP;}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ font\ =\ \textcolor{keyword}{new}\ Font(\textcolor{stringliteral}{"{}Arial"{}},\ Font.PLAIN,\ 40);}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ UtilityTools\ uT\ =\ \textcolor{keyword}{new}\ UtilityTools();}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ ui\_point\ =\ uT.scaleImage(ImageIO.read(getClass().getResourceAsStream(\textcolor{stringliteral}{"{}/objects/ui\_point.png"{}})),\ 96,\ 48);}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (IOException\ e)\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO\ Auto-\/generated\ catch\ block}}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ e.printStackTrace();}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00031\ \ \ \ \ \}}
+\DoxyCodeLine{00032\ \ \ \ \ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ draw(Graphics2D\ grap2)\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ grap2.setFont(font);}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ grap2.setColor(Color.cyan);}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ grap2.drawImage(ui\_point,\ gameP.tileSize,\ 0,\ \textcolor{keyword}{null});}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ grap2.drawString(\textcolor{stringliteral}{"{}"{}}\ +\ gameP.getPlayerPoint(),\ 2*gameP.tileSize+13,\ gameP.tileSize-\/10);}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(gameP.isLevelCleared())\ grap2.drawString(\textcolor{stringliteral}{"{}Room\ is\ cleared!"{}},\ 13*gameP.tileSize+13,\ gameP.tileSize-\/10);}
+\DoxyCodeLine{00039\ \ \ \ \ \}}
+\DoxyCodeLine{00040\ \}}
+
+\end{DoxyCode}

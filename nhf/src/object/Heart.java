@@ -1,10 +1,12 @@
 package object;
 
+import error.OwnError;
 import loaders.SheetLoader;
 
+@SuppressWarnings("serial")
 public class Heart extends OsObject{
 	private int index = 0;
-	public Heart() {
+	public Heart() throws OwnError {
 		setName("heart");
 		sheet = new SheetLoader("/objects/healt_sheet.png", 3, 1, 16, 16);
 		skin = sheet.get(index);
@@ -25,7 +27,7 @@ public class Heart extends OsObject{
 		return 0;
 	}
 	@Override
-	public void reLoad() {
+	public void reLoad() throws OwnError {
 		sheet = new SheetLoader("/objects/healt_sheet.png", 3, 1, 16, 16);
 		skin = sheet.get(index);
 	}

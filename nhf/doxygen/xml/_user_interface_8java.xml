@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="_user_interface_8java" kind="file" language="Java">
+    <compoundname>UserInterface.java</compoundname>
+    <innerclass refid="classgameplay_1_1_user_interface" prot="public">gameplay::UserInterface</innerclass>
+    <innernamespace refid="namespacegameplay">gameplay</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">gameplay;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.awt.Color;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.awt.Font;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.awt.Graphics2D;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.awt.image.BufferedImage;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.IOException;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.Serializable;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>javax.imageio.ImageIO;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">@SuppressWarnings(</highlight><highlight class="stringliteral">&quot;serial&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="15" refid="classgameplay_1_1_user_interface" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="classgameplay_1_1_user_interface" kindref="compound">UserInterface</ref><sp/>implements<sp/>Serializable{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="classgameplay_1_1_game_panel" kindref="compound">GamePanel</ref><sp/>gameP;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>Font<sp/>font;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>BufferedImage<sp/>ui_point;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="20" refid="classgameplay_1_1_user_interface_1a6d6824d97cb4a6a66d5b7759a97f4935" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classgameplay_1_1_user_interface_1a6d6824d97cb4a6a66d5b7759a97f4935" kindref="member">UserInterface</ref>(<ref refid="classgameplay_1_1_game_panel" kindref="compound">GamePanel</ref><sp/>gameP)<sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.gameP<sp/>=<sp/>gameP;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>font<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Font(</highlight><highlight class="stringliteral">&quot;Arial&quot;</highlight><highlight class="normal">,<sp/>Font.PLAIN,<sp/>40);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classgameplay_1_1_utility_tools" kindref="compound">UtilityTools</ref><sp/>uT<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classgameplay_1_1_utility_tools" kindref="compound">UtilityTools</ref>();</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui_point<sp/>=<sp/>uT.<ref refid="classgameplay_1_1_utility_tools_1a71c48780886f140f3bd62ee480c13aca" kindref="member">scaleImage</ref>(ImageIO.read(getClass().getResourceAsStream(</highlight><highlight class="stringliteral">&quot;/objects/ui_point.png&quot;</highlight><highlight class="normal">)),<sp/>96,<sp/>48);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(IOException<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO<sp/>Auto-generated<sp/>catch<sp/>block</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>e.printStackTrace();</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="33" refid="classgameplay_1_1_user_interface_1acd6c1301525cd7b3f24d47ce83264c3c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classgameplay_1_1_user_interface_1acd6c1301525cd7b3f24d47ce83264c3c" kindref="member">draw</ref>(Graphics2D<sp/>grap2)<sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>grap2.setFont(font);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>grap2.setColor(Color.cyan);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>grap2.drawImage(ui_point,<sp/>gameP.<ref refid="classospanel_1_1_os_panel_1aab27138ecd638c8d2fd640eedbfc8801" kindref="member">tileSize</ref>,<sp/>0,<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>grap2.drawString(</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal"><sp/>+<sp/>gameP.<ref refid="classgameplay_1_1_game_panel_1ab83b252636d7de7fd3e7d09ea2c50d30" kindref="member">getPlayerPoint</ref>(),<sp/>2*gameP.<ref refid="classospanel_1_1_os_panel_1aab27138ecd638c8d2fd640eedbfc8801" kindref="member">tileSize</ref>+13,<sp/>gameP.<ref refid="classospanel_1_1_os_panel_1aab27138ecd638c8d2fd640eedbfc8801" kindref="member">tileSize</ref>-10);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(gameP.<ref refid="classgameplay_1_1_game_panel_1a0fb45f12ee95e5c824dd2db0b97300d2" kindref="member">isLevelCleared</ref>())<sp/>grap2.drawString(</highlight><highlight class="stringliteral">&quot;Room<sp/>is<sp/>cleared!&quot;</highlight><highlight class="normal">,<sp/>13*gameP.<ref refid="classospanel_1_1_os_panel_1aab27138ecd638c8d2fd640eedbfc8801" kindref="member">tileSize</ref>+13,<sp/>gameP.<ref refid="classospanel_1_1_os_panel_1aab27138ecd638c8d2fd640eedbfc8801" kindref="member">tileSize</ref>-10);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="gameplay/UserInterface.java"/>
+  </compounddef>
+</doxygen>

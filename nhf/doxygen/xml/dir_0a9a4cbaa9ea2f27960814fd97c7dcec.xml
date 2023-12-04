@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="dir_0a9a4cbaa9ea2f27960814fd97c7dcec" kind="dir">
+    <compoundname>entity</compoundname>
+    <innerfile refid="_attack_hitbox_8java">AttackHitbox.java</innerfile>
+    <innerfile refid="_entity_8java">Entity.java</innerfile>
+    <innerfile refid="_eye_ball_8java">EyeBall.java</innerfile>
+    <innerfile refid="_player_8java">Player.java</innerfile>
+    <innerfile refid="_weapon_8java">Weapon.java</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="entity/"/>
+  </compounddef>
+</doxygen>

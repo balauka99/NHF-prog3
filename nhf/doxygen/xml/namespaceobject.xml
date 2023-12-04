@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="namespaceobject" kind="namespace" language="Java">
+    <compoundname>object</compoundname>
+    <innerclass refid="classobject_1_1_heart" prot="public">object::Heart</innerclass>
+    <innerclass refid="classobject_1_1_o_b_j___barrel" prot="public">object::OBJ_Barrel</innerclass>
+    <innerclass refid="classobject_1_1_o_b_j___box" prot="public">object::OBJ_Box</innerclass>
+    <innerclass refid="classobject_1_1_o_b_j___chest" prot="public">object::OBJ_Chest</innerclass>
+    <innerclass refid="classobject_1_1_o_b_j___door" prot="public">object::OBJ_Door</innerclass>
+    <innerclass refid="classobject_1_1_os_object" prot="public">object::OsObject</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="object/Heart.java" line="1" column="15"/>
+  </compounddef>
+</doxygen>

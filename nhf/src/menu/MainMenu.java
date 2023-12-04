@@ -16,12 +16,18 @@ import gameplay.*;
 import ospanel.MenuPanel;
 
 @SuppressWarnings("serial")
+/**
+ * Az soztály jeleníti meg a játék menüjét, ami egy CardLayout rendszeren alapúl, így gyorsan lehet váltogatni a menüpontok között
+ */
 public class MainMenu extends JFrame{
 	private CardLayout cards = new CardLayout();
 	private JPanel cardsPanel = new JPanel(cards);
 	private MenuPanel actual_pan;
 	private CharacterChoose character_pan = new CharacterChoose(this);
 	private BestRoundsPanel best = new BestRoundsPanel(this);
+	/**
+	 * Egy előre beállított állást beállít, ami mag a menü
+	 */
 	private void setupMainMenu() {
 		setTitle("Main Menu");
 		setSize(new Dimension(960, 720));
@@ -81,6 +87,9 @@ public class MainMenu extends JFrame{
 			cards.show(cardsPanel, "Choose");
 		}
 	}
+	/**
+	 * Ez az ActionListener hívja meg a GamePanel konsturktorát, hogy hogy az betöltse az adatokat a fájlból ahová ment
+	 */
 	private class LoadButtonListener implements ActionListener{
 		public void actionPerformed(ActionEvent loadgame) {
 			GamePanel gameP = new GamePanel("load_game", "load_game");
@@ -125,6 +134,9 @@ public class MainMenu extends JFrame{
 	public void addNewCard(JPanel pan, String name) {
 		cardsPanel.add(pan, name);
 	}
+	/**
+	 * Konstruktorban csak beadjuk a kártyákat
+	 */
 	public MainMenu() {
 		ResetMenuPanel();
 		cardsPanel.add(actual_pan, "Menu");

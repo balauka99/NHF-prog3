@@ -1,9 +1,6 @@
 package object;
 
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
-
+@SuppressWarnings("serial")
 public class OBJ_Door extends OsObject{
 	public OBJ_Door() {
 		setName("Door");

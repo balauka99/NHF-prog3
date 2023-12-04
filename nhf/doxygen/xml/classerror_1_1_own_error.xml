@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classerror_1_1_own_error" kind="class" language="Java" prot="public">
+    <compoundname>error::OwnError</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Exception</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classerror_1_1_own_error_1a4e447060712ef5d7b3765b597d41854b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>error.OwnError.OwnError</definition>
+        <argsstring>(String message)</argsstring>
+        <name>OwnError</name>
+        <qualifiedname>error.OwnError.OwnError</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="error/OwnError.java" line="5" column="12" bodyfile="error/OwnError.java" bodystart="5" bodyend="7"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Exception</label>
+      </node>
+      <node id="1">
+        <label>error.OwnError</label>
+        <link refid="classerror_1_1_own_error"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Exception</label>
+      </node>
+      <node id="1">
+        <label>error.OwnError</label>
+        <link refid="classerror_1_1_own_error"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="error/OwnError.java" line="4" column="7" bodyfile="error/OwnError.java" bodystart="4" bodyend="8"/>
+    <listofallmembers>
+      <member refid="classerror_1_1_own_error_1a4e447060712ef5d7b3765b597d41854b" prot="public" virt="non-virtual"><scope>error::OwnError</scope><name>OwnError</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

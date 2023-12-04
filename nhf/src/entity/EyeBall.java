@@ -3,19 +3,38 @@ package entity;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
-import gameplay.UtilityTools;
+import error.OwnError;
 import loaders.SheetLoader;
-
+/**
+ * Szüksége van az EyeBall-nak egy animáció statre
+ * Still - éppen nem mozog, de él
+ * Move - éppen mozog valamerre
+ * Attack - éppen támad
+ * Ha halott akkor egyik állapotban sincsen, és nem is tud visszamenni egyikbe se
+ */
 enum Animation_States {Still, Move, Attack}
-
+/**
+ * Ez egy ellenfél entitás, egy kis szem a kinézete, az animációja miatt szükség van, hogy Runnable legyen
+ */
+@SuppressWarnings("serial")
 public class EyeBall extends Entity implements Runnable{
+	/**
+	 * Kell egy száll amin futhat az EyeBall animációja
+	 */
 	private transient Thread animation;
+	/**
+	 * Az animáció state amiben éppen van
+	 */
 	private Animation_States aniState = Animation_States.Still;
+	/**
+	 * Az elöző képfrissítésnél volt koordinátája, hogy tudjuk éppen egyhelyebn áll-e vagy sem
+	 */
 	private int lastX, lastY;
-	
-	public EyeBall() {
-		// Sheet betöltése
-		UtilityTools uT = new UtilityTools();
+	/**
+	 * Konstruktor, beállítja az alap adatait, kinézet hitbox ami előre megvan határozva mekkora
+	 * @throws OwnError Visszadobjuk a hiba üzenetet
+	 */
+	public EyeBall() throws OwnError {
 		sheet = new SheetLoader("/entity/eyeball_sheet.png", 6, 1, 16, 16);
 		weapon = new Weapon("eyeball_attack", move_dir);
 		// Hitbox setup
@@ -32,32 +51,43 @@ public class EyeBall extends Entity implements Runnable{
 		move_dir = "left";
 		animationStart();
 	}
-	
+	/**
+	 * Újra definiáéja az Entity osztály metodusát, hogy a fegyverét is kirajzolja, ha azzal éppen támad
+	 */
 	@Override
 	public void draw(Graphics2D grap2) {
 		if(weapon.isAttacking()) weapon.draw(grap2);
 		grap2.drawImage(skin, getX(), getY(), null); //Az up2-be rakjuk bele a kivágott sheet-et
 	}
-	
+	/**
+	 * Mivel alőre tudni kell egy sheet-ben hol milyen kinézet van, az EyeBell halott kinézete pedig
+	 * az 5 indexen érhető el, ezért mikor meghall meghívjuk az őse metodusát, aztán beállítjuk a kinézetet
+	 */
 	@Override
 	protected void die() {
 		super.die();
 		skin = sheet.get(5);
 	}
-	
+	/**
+	 * Elindítja az animation szállat
+	 */
 	public void animationStart() {
 		animation = new Thread(this);
 		aniState = Animation_States.Still;
 		animation.start();
 	}
-	
+	/**
+	 * Meghívja az ős metodust, aztán belép a megfelelő state-ba és betölti a támadási kinézetet
+	 */
 	@Override
 	public void attackWithWeapon() {
 		super.attackWithWeapon();
 		skin = sheet.get(4);
 		aniState = Animation_States.Attack;
 	}
-	
+	/**
+	 * Csak akkor mozgunk, he nem támadunk, az ős pedig csak akkor mozog, ha "él" az entitás
+	 */
 	@Override
 	public void moveToPoint(int x, int y) {
 		if(aniState != Animation_States.Attack) {
@@ -65,11 +95,13 @@ public class EyeBall extends Entity implements Runnable{
 			aniState = Animation_States.Move;
 		}
 	}
-	
+	/**
+	 * Addig megy a száll, emeddig meg nem "hal" az EyeBall
+	 * váltogat a statek között
+	 */
 	@Override
 	public void run() {
 		int ind = 0;
-		int stay_stillCount = 0;
 		while(!this.isDead()) {
 			// Támadás animáció
 			if(aniState == Animation_States.Attack) {
@@ -88,7 +120,6 @@ public class EyeBall extends Entity implements Runnable{
 			if(aniState == Animation_States.Move) {
 				if((lastX == getX() && lastY == getY())) {
 					aniState = Animation_States.Still;
-					stay_stillCount = 0;
 				}
 				switch(move_dir) {
 				case "left":
@@ -104,14 +135,19 @@ public class EyeBall extends Entity implements Runnable{
 			try {
 				Thread.sleep(250);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
+		/**
+		 * Halál kinézet
+		 */
 		skin = sheet.get(5);
 	}
+	/**
+	 * Megvalosítja az ős reLoad metodusát
+	 */
 	@Override
-	public void reLoad() {
+	public void reLoad() throws OwnError {
 		sheet = new SheetLoader("/entity/eyeball_sheet.png", 6, 1, 16, 16);
 		this.weapon.getAttackHitbox().reLoad();
 		animationStart();

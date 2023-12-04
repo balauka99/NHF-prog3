@@ -1,0 +1,23 @@
+\doxysection{Utility\+Tools.\+java}
+\label{_utility_tools_8java_source}\index{gameplay/UtilityTools.java@{gameplay/UtilityTools.java}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{package\ }gameplay;}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{import}\ java.awt.Graphics2D;}
+\DoxyCodeLine{00004\ \textcolor{keyword}{import}\ java.awt.image.BufferedImage;}
+\DoxyCodeLine{00005\ \textcolor{keyword}{import}\ java.io.Serializable;}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ @SuppressWarnings(\textcolor{stringliteral}{"{}serial"{}})}
+\DoxyCodeLine{00011\ public\ class\ UtilityTools\ implements\ Serializable\{}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{public}\ BufferedImage\ scaleImage(BufferedImage\ original,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height)\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ BufferedImage\ scaledImage\ =\ \textcolor{keyword}{new}\ BufferedImage(width,\ height,\ original.getType());}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ Graphics2D\ tmpGrap2\ =\ scaledImage.createGraphics();}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ tmpGrap2.drawImage(original,\ 0,\ 0,\ width,\ height,\ \textcolor{keyword}{null});}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ tmpGrap2.dispose();}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ scaledImage;}
+\DoxyCodeLine{00027\ \ \ \ \ \}}
+\DoxyCodeLine{00028\ \}}
+
+\end{DoxyCode}

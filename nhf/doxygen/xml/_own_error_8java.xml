@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="_own_error_8java" kind="file" language="Java">
+    <compoundname>OwnError.java</compoundname>
+    <innerclass refid="classerror_1_1_own_error" prot="public">error::OwnError</innerclass>
+    <innernamespace refid="namespaceerror">error</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="namespaceerror" refkind="compound"><highlight class="keyword">package<sp/></highlight><highlight class="normal">error;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal">@SuppressWarnings(</highlight><highlight class="stringliteral">&quot;serial&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="4" refid="classerror_1_1_own_error" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="classerror_1_1_own_error" kindref="compound">OwnError</ref><sp/>extends<sp/>Exception<sp/>{</highlight></codeline>
+<codeline lineno="5" refid="classerror_1_1_own_error_1a4e447060712ef5d7b3765b597d41854b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classerror_1_1_own_error_1a4e447060712ef5d7b3765b597d41854b" kindref="member">OwnError</ref>(String<sp/>message)<sp/>{</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(message);</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="error/OwnError.java"/>
+  </compounddef>
+</doxygen>

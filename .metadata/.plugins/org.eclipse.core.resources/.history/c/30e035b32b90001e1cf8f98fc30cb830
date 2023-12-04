@@ -1,0 +1,15 @@
+package tile;
+
+import javax.imageio.ImageIO;
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
+public class TestTile {
+	Tile test;
+	@Before
+	public void setup() {
+		test = new Tile(ImageIO.read(getClass().getResourceAsStream("/tiles/wall.png"), )
+	}
+}

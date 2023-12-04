@@ -1,0 +1,42 @@
+package entity;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import java.awt.Rectangle;
+
+import org.junit.Assert;
+
+public class TestAttackHitbox {
+	AttackHitbox groundAttack;
+	AttackHitbox eyeballAttack;
+	AttackHitbox waveAttack;
+	@Before
+	public void setup() {
+		groundAttack = new AttackHitbox("ground_attack", "down");
+		eyeballAttack = new AttackHitbox("eyeball_attack", "down");
+		waveAttack = new AttackHitbox("wave_attack", "down");
+	}
+	@Test
+	public void testKonstruktor() {
+		/**
+		 * Ground Attack TESTS
+		 */
+		Assert.assertTrue("Test groundAttack", groundAttack.getWeaponType().equals("ground_attack"));
+		Assert.assertTrue("Test move_dir", groundAttack.move_dir.equals("down"));
+		Assert.assertEquals("Test ground Attack range created", 144, groundAttack.getRange());
+		Assert.assertEquals("Test ground Attack hitbox created", new Rectangle(0, 0, groundAttack.getRange(), groundAttack.getRange()), groundAttack.hitbox);
+		/**
+		 * Eyeball Attack TESTS
+		 */
+		Assert.assertTrue("Test eyeballAttack", eyeballAttack.getWeaponType().equals("eyeball_attack"));
+		Assert.assertEquals("Test eyeball Attack range created", 48, eyeballAttack.getRange());
+		Assert.assertEquals("Test eyeball Attack hitbox created", new Rectangle(0, 0, eyeballAttack.getRange(), eyeballAttack.getRange()), eyeballAttack.hitbox);
+		/**
+		 * Wave Attack TESTS
+		 */
+		Assert.assertTrue("Test waveAttack", waveAttack.getWeaponType().equals("wave_attack"));
+		Assert.assertEquals("Test wave Attack range created", 144, waveAttack.getRange());
+		Assert.assertEquals("Test wave Attack hitbox created", new Rectangle(0, 48+24, groundAttack.getRange(), groundAttack.getRange()), groundAttack.hitbox);
+	}
+}

@@ -14,6 +14,11 @@ import object.Heart;
 import object.OsObject;
 import tile.TileManager;
 
+@SuppressWarnings("serial")
+/**
+ * Ebben az osztályban van eltárolva egy pályának az adatai, tehát a GamePanel-nek egy állása
+ * minden ami szükséges egy játék lebonyolitására el van itt tárolva, Serializálásra készen
+ */
 class Map implements Serializable{
 	private TileManager tileMg;
 	private ArrayList<OsObject> objects;
@@ -22,6 +27,17 @@ class Map implements Serializable{
 	private int playerX, playerY;
 	public boolean isMapInPrevMaps = true;
 	public Map_Status map_state = Map_Status.IN_PREVIOUS;
+	/**
+	 * Egy Mapnak a minden adata
+	 * @param tileMg TileManager
+	 * @param objects ArrayList<OsObject>
+	 * @param enemys ArrayList<Entity>
+	 * @param assS AssetSetter
+	 * @param playerX Player last x koordinate
+	 * @param playerY Player last y koordinate
+	 * @param move_dir Player last move direction
+	 * @param tileSize GamePanel tile size
+	 */
 	public Map(TileManager tileMg, ArrayList<OsObject> objects, ArrayList<Entity> enemys, AssetSetter assS, int playerX, int playerY, String move_dir, int tileSize) {
 		this.tileMg = tileMg;
 		this.objects = objects;
@@ -82,6 +98,11 @@ class Map implements Serializable{
 	}
 }
 
+@SuppressWarnings("serial")
+/**
+ * Az osztály alakalmas eltárolni bármennyi pályát ami, már előzöleg volt a játéksorán
+ * képes el is menteni azokat egy kapott fájlba, és vissza is tölteni
+ */
 public class PreviousMaps extends ArrayList<Map> implements Serializable{
 	private Player savedPlayer;
 	private ArrayList<Heart> player_healt;
@@ -89,37 +110,57 @@ public class PreviousMaps extends ArrayList<Map> implements Serializable{
 	public void addPrevMap(TileManager tileMg, ArrayList<OsObject> objects, ArrayList<Entity> enemys, AssetSetter assS, int playerX, int playerY, String move_dir, int tileSize) {
 		this.add(new Map(tileMg, objects, enemys, assS, playerX, playerY, move_dir, tileSize));
 	}
-	
+	/**
+	 * Beállítja az elöző pályát, ami egy új pályá bekerülése után fontos meghívni, mert változik a tömb mérete és az utolsó pálya az utolsó indexen lesz
+	 */
 	public void setupCurrentPrev() {
 		currentPrev = this.size() - 1;
 	}
 	
-	// Visszaadja az előzö Map adatait, de ha nincs akkor null pointert ad vissza
+	/**
+	 * Visszaadja az előzö Map adatait, de ha nincs akkor null pointert ad vissza, és beállítja az éppen elöző pálya indexét
+	 * az éppen soron lévő elözöt
+	 * @return
+	 */
 	public Map getPrevious() {
 		if(this.size() == 0) return null;
 		if(currentPrev != 0) currentPrev--;
 		return this.get(currentPrev);
 	}
 	
-	// Visszaadja a következő Map adatait, de ha nincs akkor null pointert ad vissza
+	/**
+	 *  Visszaadja a következő Map adatait, de ha nincs akkor null pointert ad vissza és beállítja az éppen soronlévő pálya indexét is
+	 * @return
+	 */
 	public Map getNextPrevMap() {
 		if(this.size() < 1 || currentPrev == this.size() -1) return null;
 		//if(++currentPrev == this.size()) this.get(currentPrev).map_state = Map_Status.IN_NEW;
 		return this.get(++currentPrev);
 	}
-	
+	/**
+	 * Visszaadja az elöző pálya indexét, azaz ahol a legutobb volt a játékos
+	 * @return
+	 */
 	public int getCurrentPrev() {
 		return currentPrev;
 	}
-	
-	public static void saveAllPreviousMaps(PreviousMaps prevMaps, String fName, Player gamer) {
+	/**
+	 * Elmenti a kapott fájlnév helyén lévő fájlba az összes pályát
+	 * @param prevMaps PreviousMaps
+	 * @param fName Fájl ahova menteni akarjuk
+	 */
+	public static void saveAllPreviousMaps(PreviousMaps prevMaps, String fName) {
         try (ObjectOutputStream saver = new ObjectOutputStream(new FileOutputStream(fName))) {
             saver.writeObject(prevMaps);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-	
+	/**
+	 * Visszatölti és aztán visszaadja a kapott fájlból kiolvasott pályákat, fontos hogyha nem sikerül null pointert ad vissza
+	 * @param fName Fájl amiből betöltjük
+	 * @return PreviousMaps amit betöltött
+	 */
 	public static PreviousMaps loadALlPreviousMaps(String fName) {
         try (ObjectInputStream loader = new ObjectInputStream(new FileInputStream(fName))) {
             Object maps = loader.readObject();
@@ -131,19 +172,15 @@ public class PreviousMaps extends ArrayList<Map> implements Serializable{
         }
         return null;
     }
-
 	public Player getSavedPlayer() {
 		return savedPlayer;
 	}
-
 	public void setSavedPlayer(Player savedPlayer) {
 		this.savedPlayer = savedPlayer;
 	}
-
 	public ArrayList<Heart> getPlayer_healt() {
 		return player_healt;
 	}
-
 	public void setPlayer_healt(ArrayList<Heart> player_healt) {
 		this.player_healt = player_healt;
 	}

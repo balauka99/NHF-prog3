@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="dir_67ef87205f05e26b0bfca456eadeaca5" kind="dir">
+    <compoundname>object</compoundname>
+    <innerfile refid="_heart_8java">Heart.java</innerfile>
+    <innerfile refid="_o_b_j___barrel_8java">OBJ_Barrel.java</innerfile>
+    <innerfile refid="_o_b_j___box_8java">OBJ_Box.java</innerfile>
+    <innerfile refid="_o_b_j___chest_8java">OBJ_Chest.java</innerfile>
+    <innerfile refid="_o_b_j___door_8java">OBJ_Door.java</innerfile>
+    <innerfile refid="_os_object_8java">OsObject.java</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="object/"/>
+  </compounddef>
+</doxygen>

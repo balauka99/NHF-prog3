@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="namespacegameplay" kind="namespace" language="Java">
+    <compoundname>gameplay</compoundname>
+    <innerclass refid="classgameplay_1_1_asset_setter" prot="public">gameplay::AssetSetter</innerclass>
+    <innerclass refid="classgameplay_1_1_collision_checker" prot="public">gameplay::CollisionChecker</innerclass>
+    <innerclass refid="classgameplay_1_1_game_panel" prot="public">gameplay::GamePanel</innerclass>
+    <innerclass refid="classgameplay_1_1_key_handler" prot="public">gameplay::KeyHandler</innerclass>
+    <innerclass refid="classgameplay_1_1_map" prot="package">gameplay::Map</innerclass>
+    <innerclass refid="enumgameplay_1_1_map___status" prot="public">gameplay::Map_Status</innerclass>
+    <innerclass refid="classgameplay_1_1_previous_maps" prot="public">gameplay::PreviousMaps</innerclass>
+    <innerclass refid="classgameplay_1_1_user_interface" prot="public">gameplay::UserInterface</innerclass>
+    <innerclass refid="classgameplay_1_1_utility_tools" prot="public">gameplay::UtilityTools</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="gameplay/AssetSetter.java" line="1" column="15"/>
+  </compounddef>
+</doxygen>

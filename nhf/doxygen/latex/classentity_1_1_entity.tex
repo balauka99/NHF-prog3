@@ -1,0 +1,538 @@
+\doxysection{entity.\+Entity Class Reference}
+\label{classentity_1_1_entity}\index{entity.Entity@{entity.Entity}}
+Inheritance diagram for entity.\+Entity\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classentity_1_1_entity}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \textbf{ getX} ()
+\item 
+void \textbf{ setX} (int newx)
+\item 
+int \textbf{ getY} ()
+\item 
+void \textbf{ setY} (int newy)
+\item 
+int \textbf{ get\+Speed} ()
+\item 
+int \textbf{ get\+Healt} ()
+\item 
+int \textbf{ get\+Max\+Healt} ()
+\item 
+void \textbf{ set\+Speed} (int newspeed)
+\item 
+void \textbf{ reset\+Hitbox\+To\+Default} ()
+\item 
+void \textbf{ reset\+View\+Distance\+Default} ()
+\item 
+void \textbf{ damaged} (int damage)
+\item 
+boolean \textbf{ is\+Dead} ()
+\item 
+void \textbf{ draw} (Graphics2D grap2)
+\item 
+void \textbf{ attack\+With\+Weapon} ()
+\item 
+int \textbf{ get\+Weapon\+Damage} ()
+\item 
+void \textbf{ move\+To\+Point} (int \textbf{ x}, int \textbf{ y})
+\item 
+void \textbf{ re\+Load} ()  throws Own\+Error 
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+String \textbf{ move\+\_\+dir} = \char`\"{}down\char`\"{}
+\item 
+int \textbf{ sheet\+Cnt} = 0
+\item 
+int \textbf{ sheet\+Num} = 1
+\item 
+Rectangle \textbf{ hitbox}
+\item 
+int \textbf{ hitbox\+DefaultX}
+\item 
+int \textbf{ hitbox\+DefaultY}
+\item 
+Rectangle \textbf{ view\+\_\+distance}
+\item 
+int \textbf{ view\+DDefaultX}
+\item 
+int \textbf{ view\+DDefaultY}
+\item 
+boolean \textbf{ collision\+On} = false
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ die} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \textbf{ x}
+\item 
+int \textbf{ y}
+\item 
+int \textbf{ speed}
+\item 
+int \textbf{ max\+Healt} = 101
+\item 
+int \textbf{ healt} = 101
+\item 
+boolean \textbf{ dead} = false
+\item 
+transient \textbf{ Sheet\+Loader} \textbf{ sheet}
+\item 
+transient Buffered\+Image \textbf{ skin}
+\item 
+\textbf{ Weapon} \textbf{ weapon}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Ez az osztály egy valamilyen entitás egységes alapadatait tárolja, és alap metódusokat képes meghatározni amikre a játék loop-\/ban majd szükségesek lehetnek 
+
+Definition at line \textbf{ 16} of file \textbf{ Entity.\+java}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classentity_1_1_entity_a2eab14e983f296d66138f2edbcbadca5}} 
+\index{entity.Entity@{entity.Entity}!attackWithWeapon@{attackWithWeapon}}
+\index{attackWithWeapon@{attackWithWeapon}!entity.Entity@{entity.Entity}}
+\doxysubsubsection{attackWithWeapon()}
+{\footnotesize\ttfamily void entity.\+Entity.\+attack\+With\+Weapon (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Ha meghívjuk támadni fog a fegyverével 
+
+Reimplemented in \textbf{ entity.\+Eye\+Ball} \doxyref{}{p.}{classentity_1_1_eye_ball_a00fed86491261fbc8913eb3db8fc78c1}.
+
+
+
+Definition at line \textbf{ 121} of file \textbf{ Entity.\+java}.
+
+\mbox{\label{classentity_1_1_entity_ab83a6124b4bcbd834acc4cb1b4104c52}} 
+\index{entity.Entity@{entity.Entity}!damaged@{damaged}}
+\index{damaged@{damaged}!entity.Entity@{entity.Entity}}
+\doxysubsubsection{damaged()}
+{\footnotesize\ttfamily void entity.\+Entity.\+damaged (\begin{DoxyParamCaption}\item[{int}]{damage }\end{DoxyParamCaption})}
+
+Ha ez entitás sebződik ezt kell meghívni, megkapott int-\/el sebbződik 
+\begin{DoxyParams}{Parameters}
+{\em damage} & \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \textbf{ entity.\+Player} \doxyref{}{p.}{classentity_1_1_player_afba2e1ec85e29a43889813391a27ba24}.
+
+
+
+Definition at line \textbf{ 91} of file \textbf{ Entity.\+java}.
+
+\mbox{\label{classentity_1_1_entity_ada9f35af61ec4cef68b655b21fea7346}} 
+\index{entity.Entity@{entity.Entity}!die@{die}}
+\index{die@{die}!entity.Entity@{entity.Entity}}
+\doxysubsubsection{die()}
+{\footnotesize\ttfamily void entity.\+Entity.\+die (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Ha meghívjuk instant \char`\"{}meghall\char`\"{} az entitsá, azaz nem lesz életereje és igaz lesz a dead boolean 
+
+Reimplemented in \textbf{ entity.\+Eye\+Ball} \doxyref{}{p.}{classentity_1_1_eye_ball_a89d397c84b69bf2f4ecd7e79c2c6fa95}.
+
+
+
+Definition at line \textbf{ 100} of file \textbf{ Entity.\+java}.
+
+\mbox{\label{classentity_1_1_entity_a499e01694b8f0e6533902c08e5c9eea8}} 
+\index{entity.Entity@{entity.Entity}!draw@{draw}}
+\index{draw@{draw}!entity.Entity@{entity.Entity}}
+\doxysubsubsection{draw()}
+{\footnotesize\ttfamily void entity.\+Entity.\+draw (\begin{DoxyParamCaption}\item[{Graphics2D}]{grap2 }\end{DoxyParamCaption})}
+
+Rajzoló metódus ami a megkapott Graphics2\+D-\/re felteszi a saját kinézetét a saját koordinátájára 
+\begin{DoxyParams}{Parameters}
+{\em grap2} & \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \textbf{ entity.\+Eye\+Ball} \doxyref{}{p.}{classentity_1_1_eye_ball_ae3a17990affdb87a3ebf5146a7c77b7d}, and \textbf{ entity.\+Player} \doxyref{}{p.}{classentity_1_1_player_a988462e92c62d8051ed3b10903779ec1}.
+
+
+
+Definition at line \textbf{ 115} of file \textbf{ Entity.\+java}.
+
+\mbox{\label{classentity_1_1_entity_ae1076f804d943271dcb922a185c20a44}} 
+\index{entity.Entity@{entity.Entity}!getHealt@{getHealt}}
+\index{getHealt@{getHealt}!entity.Entity@{entity.Entity}}
+\doxysubsubsection{getHealt()}
+{\footnotesize\ttfamily int entity.\+Entity.\+get\+Healt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reimplemented in \textbf{ entity.\+Player} \doxyref{}{p.}{classentity_1_1_player_a9df39bdc13549149ea201bd837f7062d}.
+
+
+
+Definition at line \textbf{ 76} of file \textbf{ Entity.\+java}.
+
+\mbox{\label{classentity_1_1_entity_a920ef8ae6ceae092fa8cf9f33a72f064}} 
+\index{entity.Entity@{entity.Entity}!getMaxHealt@{getMaxHealt}}
+\index{getMaxHealt@{getMaxHealt}!entity.Entity@{entity.Entity}}
+\doxysubsubsection{getMaxHealt()}
+{\footnotesize\ttfamily int entity.\+Entity.\+get\+Max\+Healt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 77} of file \textbf{ Entity.\+java}.
+
+\mbox{\label{classentity_1_1_entity_a37bf6872289a50ac5160577d6532691c}} 
+\index{entity.Entity@{entity.Entity}!getSpeed@{getSpeed}}
+\index{getSpeed@{getSpeed}!entity.Entity@{entity.Entity}}
+\doxysubsubsection{getSpeed()}
+{\footnotesize\ttfamily int entity.\+Entity.\+get\+Speed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 75} of file \textbf{ Entity.\+java}.
+
+\mbox{\label{classentity_1_1_entity_a59f731d2cfd4b83606e31aade584b877}} 
+\index{entity.Entity@{entity.Entity}!getWeaponDamage@{getWeaponDamage}}
+\index{getWeaponDamage@{getWeaponDamage}!entity.Entity@{entity.Entity}}
+\doxysubsubsection{getWeaponDamage()}
+{\footnotesize\ttfamily int entity.\+Entity.\+get\+Weapon\+Damage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Visszaadja a fegyverének mekkora a sebbzése \begin{DoxyReturn}{Returns}
+int, sebbzés 
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 128} of file \textbf{ Entity.\+java}.
+
+\mbox{\label{classentity_1_1_entity_ad155ea8fc8ca4f6bc6ac11d1d9647679}} 
+\index{entity.Entity@{entity.Entity}!getX@{getX}}
+\index{getX@{getX}!entity.Entity@{entity.Entity}}
+\doxysubsubsection{getX()}
+{\footnotesize\ttfamily int entity.\+Entity.\+getX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 71} of file \textbf{ Entity.\+java}.
+
+\mbox{\label{classentity_1_1_entity_a8b1969dd948ca89723ab3e5071f7297a}} 
+\index{entity.Entity@{entity.Entity}!getY@{getY}}
+\index{getY@{getY}!entity.Entity@{entity.Entity}}
+\doxysubsubsection{getY()}
+{\footnotesize\ttfamily int entity.\+Entity.\+getY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 73} of file \textbf{ Entity.\+java}.
+
+\mbox{\label{classentity_1_1_entity_aa1aafb9bfedd991b84800ab4e6d3f4bc}} 
+\index{entity.Entity@{entity.Entity}!isDead@{isDead}}
+\index{isDead@{isDead}!entity.Entity@{entity.Entity}}
+\doxysubsubsection{isDead()}
+{\footnotesize\ttfamily boolean entity.\+Entity.\+is\+Dead (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Visszaadja meghalt-\/e az entitás \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 108} of file \textbf{ Entity.\+java}.
+
+\mbox{\label{classentity_1_1_entity_ab75525e184a350f04d8d395c813ee041}} 
+\index{entity.Entity@{entity.Entity}!moveToPoint@{moveToPoint}}
+\index{moveToPoint@{moveToPoint}!entity.Entity@{entity.Entity}}
+\doxysubsubsection{moveToPoint()}
+{\footnotesize\ttfamily void entity.\+Entity.\+move\+To\+Point (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+Paraméterként megkapott koordinátára mozog a sebességével 
+\begin{DoxyParams}{Parameters}
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \textbf{ entity.\+Eye\+Ball} \doxyref{}{p.}{classentity_1_1_eye_ball_a157ce11a133e22aa2063f79849e3252f}.
+
+
+
+Definition at line \textbf{ 136} of file \textbf{ Entity.\+java}.
+
+\mbox{\label{classentity_1_1_entity_a7e492d42868aba82311a6a21016dd671}} 
+\index{entity.Entity@{entity.Entity}!reLoad@{reLoad}}
+\index{reLoad@{reLoad}!entity.Entity@{entity.Entity}}
+\doxysubsubsection{reLoad()}
+{\footnotesize\ttfamily void entity.\+Entity.\+re\+Load (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws \textbf{ Own\+Error}}
+
+Arra szolgál miután Serializáltuk és visszaakarjuk tölteni, visszaállítja a kinézetét és a sheetjét, ez minden entitésnak magának kell megvalósítani, ez entitásnak kell tudnia mi a kinézete 
+\begin{DoxyExceptions}{Exceptions}
+{\em Own\+Error} & Visszadobja a hibaüzenetet, ha adódik \\
+\hline
+\end{DoxyExceptions}
+
+
+Reimplemented in \textbf{ entity.\+Attack\+Hitbox} \doxyref{}{p.}{classentity_1_1_attack_hitbox_a04b4f93f5bf0496881ce7ca0061f22c8}, and \textbf{ entity.\+Eye\+Ball} \doxyref{}{p.}{classentity_1_1_eye_ball_ad065d41764891a5a220a3a7acc67c797}.
+
+
+
+Definition at line \textbf{ 156} of file \textbf{ Entity.\+java}.
+
+\mbox{\label{classentity_1_1_entity_ae2b4e2e0a290140a3180a8dbc17a1e62}} 
+\index{entity.Entity@{entity.Entity}!resetHitboxToDefault@{resetHitboxToDefault}}
+\index{resetHitboxToDefault@{resetHitboxToDefault}!entity.Entity@{entity.Entity}}
+\doxysubsubsection{resetHitboxToDefault()}
+{\footnotesize\ttfamily void entity.\+Entity.\+reset\+Hitbox\+To\+Default (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 79} of file \textbf{ Entity.\+java}.
+
+\mbox{\label{classentity_1_1_entity_a0a21cc1080caed66e21cc6e7f6ab83f3}} 
+\index{entity.Entity@{entity.Entity}!resetViewDistanceDefault@{resetViewDistanceDefault}}
+\index{resetViewDistanceDefault@{resetViewDistanceDefault}!entity.Entity@{entity.Entity}}
+\doxysubsubsection{resetViewDistanceDefault()}
+{\footnotesize\ttfamily void entity.\+Entity.\+reset\+View\+Distance\+Default (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 83} of file \textbf{ Entity.\+java}.
+
+\mbox{\label{classentity_1_1_entity_ab46f2776de81b178d38abd4a0fa82055}} 
+\index{entity.Entity@{entity.Entity}!setSpeed@{setSpeed}}
+\index{setSpeed@{setSpeed}!entity.Entity@{entity.Entity}}
+\doxysubsubsection{setSpeed()}
+{\footnotesize\ttfamily void entity.\+Entity.\+set\+Speed (\begin{DoxyParamCaption}\item[{int}]{newspeed }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 78} of file \textbf{ Entity.\+java}.
+
+\mbox{\label{classentity_1_1_entity_a9b029fad06135f8ca27627e78e4220a7}} 
+\index{entity.Entity@{entity.Entity}!setX@{setX}}
+\index{setX@{setX}!entity.Entity@{entity.Entity}}
+\doxysubsubsection{setX()}
+{\footnotesize\ttfamily void entity.\+Entity.\+setX (\begin{DoxyParamCaption}\item[{int}]{newx }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 72} of file \textbf{ Entity.\+java}.
+
+\mbox{\label{classentity_1_1_entity_aaec68b6742e4be19b87fff73f933f40f}} 
+\index{entity.Entity@{entity.Entity}!setY@{setY}}
+\index{setY@{setY}!entity.Entity@{entity.Entity}}
+\doxysubsubsection{setY()}
+{\footnotesize\ttfamily void entity.\+Entity.\+setY (\begin{DoxyParamCaption}\item[{int}]{newy }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 74} of file \textbf{ Entity.\+java}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\label{classentity_1_1_entity_a70223ae28e59753be46342f56174aa96}} 
+\index{entity.Entity@{entity.Entity}!collisionOn@{collisionOn}}
+\index{collisionOn@{collisionOn}!entity.Entity@{entity.Entity}}
+\doxysubsubsection{collisionOn}
+{\footnotesize\ttfamily boolean entity.\+Entity.\+collision\+On = false}
+
+Ha éppen összeütközik valamivel akkor ez igaz lesz 
+
+Definition at line \textbf{ 58} of file \textbf{ Entity.\+java}.
+
+\mbox{\label{classentity_1_1_entity_a24d978740a4020fc28d1789686cb7453}} 
+\index{entity.Entity@{entity.Entity}!dead@{dead}}
+\index{dead@{dead}!entity.Entity@{entity.Entity}}
+\doxysubsubsection{dead}
+{\footnotesize\ttfamily boolean entity.\+Entity.\+dead = false\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \textbf{ 24} of file \textbf{ Entity.\+java}.
+
+\mbox{\label{classentity_1_1_entity_a659e2f3ff696afa20135a59fc4b87ac6}} 
+\index{entity.Entity@{entity.Entity}!healt@{healt}}
+\index{healt@{healt}!entity.Entity@{entity.Entity}}
+\doxysubsubsection{healt}
+{\footnotesize\ttfamily int entity.\+Entity.\+healt = 101\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \textbf{ 23} of file \textbf{ Entity.\+java}.
+
+\mbox{\label{classentity_1_1_entity_a5b026458182ab12ddcacb2858eca0a41}} 
+\index{entity.Entity@{entity.Entity}!hitbox@{hitbox}}
+\index{hitbox@{hitbox}!entity.Entity@{entity.Entity}}
+\doxysubsubsection{hitbox}
+{\footnotesize\ttfamily Rectangle entity.\+Entity.\+hitbox}
+
+
+
+Definition at line \textbf{ 40} of file \textbf{ Entity.\+java}.
+
+\mbox{\label{classentity_1_1_entity_a9c16cdaf10b8ec7e783f184be1431a99}} 
+\index{entity.Entity@{entity.Entity}!hitboxDefaultX@{hitboxDefaultX}}
+\index{hitboxDefaultX@{hitboxDefaultX}!entity.Entity@{entity.Entity}}
+\doxysubsubsection{hitboxDefaultX}
+{\footnotesize\ttfamily int entity.\+Entity.\+hitbox\+DefaultX}
+
+A Rectangle külön x, y koordinátákkal rendelkezik, mindig be kell állítani honann kezdődik a hitbox pl\+: ha kicsit kisebb mint egy tile, hogy könyebben tudjon mozogni a játékos 
+
+Definition at line \textbf{ 45} of file \textbf{ Entity.\+java}.
+
+\mbox{\label{classentity_1_1_entity_abcf43b7fd4db801ef159fdaabea112f3}} 
+\index{entity.Entity@{entity.Entity}!hitboxDefaultY@{hitboxDefaultY}}
+\index{hitboxDefaultY@{hitboxDefaultY}!entity.Entity@{entity.Entity}}
+\doxysubsubsection{hitboxDefaultY}
+{\footnotesize\ttfamily int entity.\+Entity.\+hitbox\+DefaultY}
+
+
+
+Definition at line \textbf{ 45} of file \textbf{ Entity.\+java}.
+
+\mbox{\label{classentity_1_1_entity_a335228020c35226129694b5693460cf2}} 
+\index{entity.Entity@{entity.Entity}!maxHealt@{maxHealt}}
+\index{maxHealt@{maxHealt}!entity.Entity@{entity.Entity}}
+\doxysubsubsection{maxHealt}
+{\footnotesize\ttfamily int entity.\+Entity.\+max\+Healt = 101\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \textbf{ 22} of file \textbf{ Entity.\+java}.
+
+\mbox{\label{classentity_1_1_entity_ab9e5041999c4c41f032c973893259201}} 
+\index{entity.Entity@{entity.Entity}!move\_dir@{move\_dir}}
+\index{move\_dir@{move\_dir}!entity.Entity@{entity.Entity}}
+\doxysubsubsection{move\_dir}
+{\footnotesize\ttfamily String entity.\+Entity.\+move\+\_\+dir = \char`\"{}down\char`\"{}}
+
+
+
+Definition at line \textbf{ 28} of file \textbf{ Entity.\+java}.
+
+\mbox{\label{classentity_1_1_entity_a9bc701dff83e2cd5317707910aced397}} 
+\index{entity.Entity@{entity.Entity}!sheet@{sheet}}
+\index{sheet@{sheet}!entity.Entity@{entity.Entity}}
+\doxysubsubsection{sheet}
+{\footnotesize\ttfamily transient \textbf{ Sheet\+Loader} entity.\+Entity.\+sheet\hspace{0.3cm}{\ttfamily [protected]}}
+
+Egy spirite sheet-\/ből vannak betölte ebbe a tömbe az kinézetek, tudni kell melyik kinézet hol van a sheet-\/en 
+
+Definition at line \textbf{ 62} of file \textbf{ Entity.\+java}.
+
+\mbox{\label{classentity_1_1_entity_abaac51fede5861249818e335261657ca}} 
+\index{entity.Entity@{entity.Entity}!sheetCnt@{sheetCnt}}
+\index{sheetCnt@{sheetCnt}!entity.Entity@{entity.Entity}}
+\doxysubsubsection{sheetCnt}
+{\footnotesize\ttfamily int entity.\+Entity.\+sheet\+Cnt = 0}
+
+
+
+Definition at line \textbf{ 35} of file \textbf{ Entity.\+java}.
+
+\mbox{\label{classentity_1_1_entity_a42a6d1b56669ee70abdda02303aa3a8a}} 
+\index{entity.Entity@{entity.Entity}!sheetNum@{sheetNum}}
+\index{sheetNum@{sheetNum}!entity.Entity@{entity.Entity}}
+\doxysubsubsection{sheetNum}
+{\footnotesize\ttfamily int entity.\+Entity.\+sheet\+Num = 1}
+
+
+
+Definition at line \textbf{ 36} of file \textbf{ Entity.\+java}.
+
+\mbox{\label{classentity_1_1_entity_a8f771a1d2e1048173c76c5cb2f970b91}} 
+\index{entity.Entity@{entity.Entity}!skin@{skin}}
+\index{skin@{skin}!entity.Entity@{entity.Entity}}
+\doxysubsubsection{skin}
+{\footnotesize\ttfamily transient Buffered\+Image entity.\+Entity.\+skin\hspace{0.3cm}{\ttfamily [protected]}}
+
+Az a kinézet ami éppen be van töltve a sheet-\/ről, vagy csak be van töltve ide 
+
+Definition at line \textbf{ 66} of file \textbf{ Entity.\+java}.
+
+\mbox{\label{classentity_1_1_entity_af9b5fa055734ddb2512dec70a74e129c}} 
+\index{entity.Entity@{entity.Entity}!speed@{speed}}
+\index{speed@{speed}!entity.Entity@{entity.Entity}}
+\doxysubsubsection{speed}
+{\footnotesize\ttfamily int entity.\+Entity.\+speed\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \textbf{ 21} of file \textbf{ Entity.\+java}.
+
+\mbox{\label{classentity_1_1_entity_a05416e3360c0e4bb83f8bfa3c5f22fce}} 
+\index{entity.Entity@{entity.Entity}!view\_distance@{view\_distance}}
+\index{view\_distance@{view\_distance}!entity.Entity@{entity.Entity}}
+\doxysubsubsection{view\_distance}
+{\footnotesize\ttfamily Rectangle entity.\+Entity.\+view\+\_\+distance}
+
+Ugyan az mint a hitbox, csak ez egy nagyobb terület, amit \char`\"{}lát\char`\"{} az entitás 
+
+Definition at line \textbf{ 49} of file \textbf{ Entity.\+java}.
+
+\mbox{\label{classentity_1_1_entity_ab45f0aaf46ebb5af86abac3701abf92e}} 
+\index{entity.Entity@{entity.Entity}!viewDDefaultX@{viewDDefaultX}}
+\index{viewDDefaultX@{viewDDefaultX}!entity.Entity@{entity.Entity}}
+\doxysubsubsection{viewDDefaultX}
+{\footnotesize\ttfamily int entity.\+Entity.\+view\+DDefaultX}
+
+Arra szolgálnak mint a hitbox\+Default adatai, itt fontosabb, mert nagyobb a látó tovolsága mint amekkora maga az entitás muszály minuszba mennyenek a koordináták, azt meg tárolni kell 
+
+Definition at line \textbf{ 54} of file \textbf{ Entity.\+java}.
+
+\mbox{\label{classentity_1_1_entity_ad70a483039623f68921b28433d2ef537}} 
+\index{entity.Entity@{entity.Entity}!viewDDefaultY@{viewDDefaultY}}
+\index{viewDDefaultY@{viewDDefaultY}!entity.Entity@{entity.Entity}}
+\doxysubsubsection{viewDDefaultY}
+{\footnotesize\ttfamily int entity.\+Entity.\+view\+DDefaultY}
+
+
+
+Definition at line \textbf{ 54} of file \textbf{ Entity.\+java}.
+
+\mbox{\label{classentity_1_1_entity_abaa404d99ab8e7149ea9f4fbd43fe2ab}} 
+\index{entity.Entity@{entity.Entity}!weapon@{weapon}}
+\index{weapon@{weapon}!entity.Entity@{entity.Entity}}
+\doxysubsubsection{weapon}
+{\footnotesize\ttfamily \textbf{ Weapon} entity.\+Entity.\+weapon\hspace{0.3cm}{\ttfamily [protected]}}
+
+Az entitás fegyvere 
+
+Definition at line \textbf{ 70} of file \textbf{ Entity.\+java}.
+
+\mbox{\label{classentity_1_1_entity_aecf9bc460c95122a484978c816743a9c}} 
+\index{entity.Entity@{entity.Entity}!x@{x}}
+\index{x@{x}!entity.Entity@{entity.Entity}}
+\doxysubsubsection{x}
+{\footnotesize\ttfamily int entity.\+Entity.\+x\hspace{0.3cm}{\ttfamily [protected]}}
+
+Default alapadatok, és szükséges értékek, x és y koordináta speed -\/ milyen gyorsan mozog az entitás 
+
+Definition at line \textbf{ 21} of file \textbf{ Entity.\+java}.
+
+\mbox{\label{classentity_1_1_entity_ad256e5814a65756ce28018537753b1a3}} 
+\index{entity.Entity@{entity.Entity}!y@{y}}
+\index{y@{y}!entity.Entity@{entity.Entity}}
+\doxysubsubsection{y}
+{\footnotesize\ttfamily int entity.\+Entity.\+y\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \textbf{ 21} of file \textbf{ Entity.\+java}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+entity/\textbf{ Entity.\+java}\end{DoxyCompactItemize}

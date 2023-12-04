@@ -1,0 +1,317 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classentity_1_1_weapon" kind="class" language="Java" prot="public">
+    <compoundname>entity::Weapon</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Runnable</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">Serializable</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classentity_1_1_weapon_1ac19c478d784123d2217460e7a28d27e8" prot="private" static="no" mutable="no">
+        <type><ref refid="classentity_1_1_attack_hitbox" kindref="compound">AttackHitbox</ref></type>
+        <definition>AttackHitbox entity.Weapon.attack</definition>
+        <argsstring></argsstring>
+        <name>attack</name>
+        <qualifiedname>entity.Weapon.attack</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A fegyvernek a hitboxa és kinézete </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Weapon.java" line="14" column="22" bodyfile="entity/Weapon.java" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classentity_1_1_weapon_1a8c97509223d568eecabf5da74c9bede5" prot="private" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean entity.Weapon.attacking</definition>
+        <argsstring></argsstring>
+        <name>attacking</name>
+        <qualifiedname>entity.Weapon.attacking</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Weapon.java" line="15" column="17" bodyfile="entity/Weapon.java" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classentity_1_1_weapon_1a9a7742d437fb8b67934256f1ee174fc2" prot="private" static="no" mutable="no">
+        <type>transient Thread</type>
+        <definition>transient Thread entity.Weapon.attackTime</definition>
+        <argsstring></argsstring>
+        <name>attackTime</name>
+        <qualifiedname>entity.Weapon.attackTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Szükség van egy szállra a támadás animációjának </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Weapon.java" line="19" column="26" bodyfile="entity/Weapon.java" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classentity_1_1_weapon_1a0d9e62a8333417cdbe57655dd1041a29" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int entity.Weapon.damage</definition>
+        <argsstring></argsstring>
+        <name>damage</name>
+        <qualifiedname>entity.Weapon.damage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A fegyvernak a sebbzése </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Weapon.java" line="23" column="13" bodyfile="entity/Weapon.java" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classentity_1_1_weapon_1a886778fbb22abbd61207c3e7064103e7" prot="private" static="no" mutable="no">
+        <type>String</type>
+        <definition>String entity.Weapon.move_dir</definition>
+        <argsstring></argsstring>
+        <name>move_dir</name>
+        <qualifiedname>entity.Weapon.move_dir</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Weapon.java" line="24" column="16" bodyfile="entity/Weapon.java" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classentity_1_1_weapon_1a007092a2daab86505df47d39da746e7f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>entity.Weapon.Weapon</definition>
+        <argsstring>(String weapon_type, String move_dir)</argsstring>
+        <name>Weapon</name>
+        <qualifiedname>entity.Weapon.Weapon</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>weapon_type</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>move_dir</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Konstruktor, ami beállítja a fegyver fajtájához képest az adatait <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>weapon_type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>move_dir</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Weapon.java" line="30" column="8" bodyfile="entity/Weapon.java" bodystart="30" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classentity_1_1_weapon_1afa03f0c433a892ad3aaea957fdd0fe52" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void entity.Weapon.attack</definition>
+        <argsstring>(int x, int y, String move_dir)</argsstring>
+        <name>attack</name>
+        <qualifiedname>entity.Weapon.attack</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>move_dir</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A megkapott koordinátán támad a fegyver, azaz beállítja a hitboxát és elindítja a támadás animáció szállát <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>move_dir</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Weapon.java" line="52" column="13" bodyfile="entity/Weapon.java" bodystart="52" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="classentity_1_1_weapon_1a24927d092551f1516902e98f3a9b581f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void entity.Weapon.draw</definition>
+        <argsstring>(Graphics2D grap2)</argsstring>
+        <name>draw</name>
+        <qualifiedname>entity.Weapon.draw</qualifiedname>
+        <param>
+          <type>Graphics2D</type>
+          <declname>grap2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Kirajzolja a kapott Graphics2D-re a fegyver kinézetét, a hivónak kell tudni, csak akkor rajzolja, ha éppen támad <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>grap2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Weapon.java" line="63" column="13" bodyfile="entity/Weapon.java" bodystart="63" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="classentity_1_1_weapon_1a9329216676feee9daee6b0b87ecda1a3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean entity.Weapon.isAttacking</definition>
+        <argsstring>()</argsstring>
+        <name>isAttacking</name>
+        <qualifiedname>entity.Weapon.isAttacking</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Weapon.java" line="67" column="16" bodyfile="entity/Weapon.java" bodystart="67" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="classentity_1_1_weapon_1a09a2edc43911d0c7439a1821ae3c88e5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void entity.Weapon.run</definition>
+        <argsstring>()</argsstring>
+        <name>run</name>
+        <qualifiedname>entity.Weapon.run</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Támadás animáció, miközben tart az attacking adattag igaz, ha végez vel akkor hamisra vált </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Weapon.java" line="74" column="13" bodyfile="entity/Weapon.java" bodystart="74" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="classentity_1_1_weapon_1a9f73a19aef0589f757223f285fd57582" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classentity_1_1_attack_hitbox" kindref="compound">AttackHitbox</ref></type>
+        <definition>AttackHitbox entity.Weapon.getAttackHitbox</definition>
+        <argsstring>()</argsstring>
+        <name>getAttackHitbox</name>
+        <qualifiedname>entity.Weapon.getAttackHitbox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Weapon.java" line="97" column="21" bodyfile="entity/Weapon.java" bodystart="97" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="classentity_1_1_weapon_1a2443a5dd9647a21558c5217f1289f963" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int entity.Weapon.getDamage</definition>
+        <argsstring>()</argsstring>
+        <name>getDamage</name>
+        <qualifiedname>entity.Weapon.getDamage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="entity/Weapon.java" line="100" column="12" bodyfile="entity/Weapon.java" bodystart="100" bodyend="102"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Az osztály egy Entity-nek a fegyverének az adatait tárolja </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Runnable</label>
+      </node>
+      <node id="1">
+        <label>entity.Weapon</label>
+        <link refid="classentity_1_1_weapon"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Serializable</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Runnable</label>
+      </node>
+      <node id="1">
+        <label>entity.Weapon</label>
+        <link refid="classentity_1_1_weapon"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Serializable</label>
+      </node>
+    </collaborationgraph>
+    <location file="entity/Weapon.java" line="10" column="7" bodyfile="entity/Weapon.java" bodystart="10" bodyend="103"/>
+    <listofallmembers>
+      <member refid="classentity_1_1_weapon_1ac19c478d784123d2217460e7a28d27e8" prot="private" virt="non-virtual"><scope>entity::Weapon</scope><name>attack</name></member>
+      <member refid="classentity_1_1_weapon_1afa03f0c433a892ad3aaea957fdd0fe52" prot="public" virt="non-virtual"><scope>entity::Weapon</scope><name>attack</name></member>
+      <member refid="classentity_1_1_weapon_1a8c97509223d568eecabf5da74c9bede5" prot="private" virt="non-virtual"><scope>entity::Weapon</scope><name>attacking</name></member>
+      <member refid="classentity_1_1_weapon_1a9a7742d437fb8b67934256f1ee174fc2" prot="private" virt="non-virtual"><scope>entity::Weapon</scope><name>attackTime</name></member>
+      <member refid="classentity_1_1_weapon_1a0d9e62a8333417cdbe57655dd1041a29" prot="private" virt="non-virtual"><scope>entity::Weapon</scope><name>damage</name></member>
+      <member refid="classentity_1_1_weapon_1a24927d092551f1516902e98f3a9b581f" prot="public" virt="non-virtual"><scope>entity::Weapon</scope><name>draw</name></member>
+      <member refid="classentity_1_1_weapon_1a9f73a19aef0589f757223f285fd57582" prot="public" virt="non-virtual"><scope>entity::Weapon</scope><name>getAttackHitbox</name></member>
+      <member refid="classentity_1_1_weapon_1a2443a5dd9647a21558c5217f1289f963" prot="public" virt="non-virtual"><scope>entity::Weapon</scope><name>getDamage</name></member>
+      <member refid="classentity_1_1_weapon_1a9329216676feee9daee6b0b87ecda1a3" prot="public" virt="non-virtual"><scope>entity::Weapon</scope><name>isAttacking</name></member>
+      <member refid="classentity_1_1_weapon_1a886778fbb22abbd61207c3e7064103e7" prot="private" virt="non-virtual"><scope>entity::Weapon</scope><name>move_dir</name></member>
+      <member refid="classentity_1_1_weapon_1a09a2edc43911d0c7439a1821ae3c88e5" prot="public" virt="non-virtual"><scope>entity::Weapon</scope><name>run</name></member>
+      <member refid="classentity_1_1_weapon_1a007092a2daab86505df47d39da746e7f" prot="public" virt="non-virtual"><scope>entity::Weapon</scope><name>Weapon</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

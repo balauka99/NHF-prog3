@@ -1,8 +1,0 @@
-package ospanel;
-
-
-public class MenuPanel extends OsPanel{
-	public MenuPanel() {
-		
-	}
-}

@@ -1,0 +1,14 @@
+package error;
+
+public class OwnError extends Exception {
+    private String errorMessage;
+
+    public OwnError(String message, String errorCode) {
+        super(message);
+        this.errorCode = errorCode;
+    }
+
+    public String getErrorCode() {
+        return errorCode;
+    }
+}

@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classgameplay_1_1_user_interface" kind="class" language="Java" prot="public">
+    <compoundname>gameplay::UserInterface</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Serializable</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classgameplay_1_1_user_interface_1a96dae8697e3fe41a1fc6c34b0d4b1177" prot="private" static="no" mutable="no">
+        <type><ref refid="classgameplay_1_1_game_panel" kindref="compound">GamePanel</ref></type>
+        <definition>GamePanel gameplay.UserInterface.gameP</definition>
+        <argsstring></argsstring>
+        <name>gameP</name>
+        <qualifiedname>gameplay.UserInterface.gameP</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/UserInterface.java" line="16" column="19" bodyfile="gameplay/UserInterface.java" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgameplay_1_1_user_interface_1ac60dc4582a992b2571214c485b13d942" prot="private" static="no" mutable="no">
+        <type>Font</type>
+        <definition>Font gameplay.UserInterface.font</definition>
+        <argsstring></argsstring>
+        <name>font</name>
+        <qualifiedname>gameplay.UserInterface.font</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/UserInterface.java" line="17" column="14" bodyfile="gameplay/UserInterface.java" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgameplay_1_1_user_interface_1a87d51488a6ff27a00e66734253f97858" prot="private" static="no" mutable="no">
+        <type>BufferedImage</type>
+        <definition>BufferedImage gameplay.UserInterface.ui_point</definition>
+        <argsstring></argsstring>
+        <name>ui_point</name>
+        <qualifiedname>gameplay.UserInterface.ui_point</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/UserInterface.java" line="18" column="23" bodyfile="gameplay/UserInterface.java" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classgameplay_1_1_user_interface_1a6d6824d97cb4a6a66d5b7759a97f4935" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>gameplay.UserInterface.UserInterface</definition>
+        <argsstring>(GamePanel gameP)</argsstring>
+        <name>UserInterface</name>
+        <qualifiedname>gameplay.UserInterface.UserInterface</qualifiedname>
+        <param>
+          <type><ref refid="classgameplay_1_1_game_panel" kindref="compound">GamePanel</ref></type>
+          <declname>gameP</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/UserInterface.java" line="20" column="8" bodyfile="gameplay/UserInterface.java" bodystart="20" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_user_interface_1acd6c1301525cd7b3f24d47ce83264c3c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void gameplay.UserInterface.draw</definition>
+        <argsstring>(Graphics2D grap2)</argsstring>
+        <name>draw</name>
+        <qualifiedname>gameplay.UserInterface.draw</qualifiedname>
+        <param>
+          <type>Graphics2D</type>
+          <declname>grap2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/UserInterface.java" line="33" column="13" bodyfile="gameplay/UserInterface.java" bodystart="33" bodyend="39"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Az osztály eltárol egy felhasználói felületnek a szükséges információit, fontos, hogy a játékos mindig tudja mennyi az élet ereje és a pontja </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>gameplay.UserInterface</label>
+        <link refid="classgameplay_1_1_user_interface"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Serializable</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>gameplay.UserInterface</label>
+        <link refid="classgameplay_1_1_user_interface"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Serializable</label>
+      </node>
+    </collaborationgraph>
+    <location file="gameplay/UserInterface.java" line="15" column="7" bodyfile="gameplay/UserInterface.java" bodystart="15" bodyend="40"/>
+    <listofallmembers>
+      <member refid="classgameplay_1_1_user_interface_1acd6c1301525cd7b3f24d47ce83264c3c" prot="public" virt="non-virtual"><scope>gameplay::UserInterface</scope><name>draw</name></member>
+      <member refid="classgameplay_1_1_user_interface_1ac60dc4582a992b2571214c485b13d942" prot="private" virt="non-virtual"><scope>gameplay::UserInterface</scope><name>font</name></member>
+      <member refid="classgameplay_1_1_user_interface_1a96dae8697e3fe41a1fc6c34b0d4b1177" prot="private" virt="non-virtual"><scope>gameplay::UserInterface</scope><name>gameP</name></member>
+      <member refid="classgameplay_1_1_user_interface_1a87d51488a6ff27a00e66734253f97858" prot="private" virt="non-virtual"><scope>gameplay::UserInterface</scope><name>ui_point</name></member>
+      <member refid="classgameplay_1_1_user_interface_1a6d6824d97cb4a6a66d5b7759a97f4935" prot="public" virt="non-virtual"><scope>gameplay::UserInterface</scope><name>UserInterface</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

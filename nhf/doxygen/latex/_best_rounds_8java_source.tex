@@ -1,0 +1,43 @@
+\doxysection{Best\+Rounds.\+java}
+\label{_best_rounds_8java_source}\index{loaders/BestRounds.java@{loaders/BestRounds.java}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{package\ }loaders;}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{import}\ java.io.FileInputStream;}
+\DoxyCodeLine{00004\ \textcolor{keyword}{import}\ java.io.FileOutputStream;}
+\DoxyCodeLine{00005\ \textcolor{keyword}{import}\ java.io.IOException;}
+\DoxyCodeLine{00006\ \textcolor{keyword}{import}\ java.io.ObjectInputStream;}
+\DoxyCodeLine{00007\ \textcolor{keyword}{import}\ java.io.ObjectOutputStream;}
+\DoxyCodeLine{00008\ \textcolor{keyword}{import}\ java.io.Serializable;}
+\DoxyCodeLine{00009\ \textcolor{keyword}{import}\ java.util.ArrayList;}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ @SuppressWarnings(\textcolor{stringliteral}{"{}serial"{}})}
+\DoxyCodeLine{00015\ public\ class\ BestRounds\ extends\ ArrayList<Score>\ implements\ Serializable\{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ reset()\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ this.removeRange(0,\ this.size());}
+\DoxyCodeLine{00018\ \ \ \ \ \}}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{public}\ Score\ getCurrent()\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this.\textcolor{keyword}{get}(size()-\/1);}
+\DoxyCodeLine{00025\ \ \ \ \ \}}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ saveBests(BestRounds\ bests,\ String\ fName)\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ (ObjectOutputStream\ saver\ =\ \textcolor{keyword}{new}\ ObjectOutputStream(\textcolor{keyword}{new}\ FileOutputStream(fName)))\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ saver.writeObject(bests);}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (IOException\ e)\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ e.printStackTrace();}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00032\ \ \ \ \ \}}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ BestRounds\ loadBests(String\ fName)\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ (ObjectInputStream\ loader\ =\ \textcolor{keyword}{new}\ ObjectInputStream(\textcolor{keyword}{new}\ FileInputStream(fName)))\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ Object\ bests\ =\ loader.readObject();}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (bests\ instanceof\ BestRounds)\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (BestRounds)\ bests;}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (IOException\ |\ ClassNotFoundException\ e)\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ e.printStackTrace();}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ BestRounds();}
+\DoxyCodeLine{00043\ \ \ \ \ \}}
+\DoxyCodeLine{00044\ \}}
+
+\end{DoxyCode}

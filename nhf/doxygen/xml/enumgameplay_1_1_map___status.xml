@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="enumgameplay_1_1_map___status" kind="enum" language="Java" prot="public">
+    <compoundname>gameplay::Map_Status</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="enumgameplay_1_1_map___status_1a8dab22dc2adb1ab73687b918861a998f" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>gameplay.Map_Status.IN_PREVIOUS</definition>
+        <argsstring></argsstring>
+        <name>IN_PREVIOUS</name>
+        <qualifiedname>gameplay.Map_Status.IN_PREVIOUS</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/Map_Status.java" line="6" column="23" bodyfile="gameplay/Map_Status.java" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumgameplay_1_1_map___status_1a15aea440a82e455068728b8a88d87fc3" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>gameplay.Map_Status.IN_NEW</definition>
+        <argsstring></argsstring>
+        <name>IN_NEW</name>
+        <qualifiedname>gameplay.Map_Status.IN_NEW</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/Map_Status.java" line="6" column="23" bodyfile="gameplay/Map_Status.java" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumgameplay_1_1_map___status_1a3239656066be5ea630092b62dfea4570" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>gameplay.Map_Status.ERROR</definition>
+        <argsstring></argsstring>
+        <name>ERROR</name>
+        <qualifiedname>gameplay.Map_Status.ERROR</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/Map_Status.java" line="6" column="23" bodyfile="gameplay/Map_Status.java" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Map státuszok, ha egy olyan mapon vagyunk ahol már voltunk, vagy egy újban, és vagy valami gond volt a betöltés közben </para>
+    </detaileddescription>
+    <location file="gameplay/Map_Status.java" line="6" column="7" bodyfile="gameplay/Map_Status.java" bodystart="6" bodyend="6"/>
+    <listofallmembers>
+      <member refid="enumgameplay_1_1_map___status_1a3239656066be5ea630092b62dfea4570" prot="public" virt="non-virtual"><scope>gameplay::Map_Status</scope><name>ERROR</name></member>
+      <member refid="enumgameplay_1_1_map___status_1a15aea440a82e455068728b8a88d87fc3" prot="public" virt="non-virtual"><scope>gameplay::Map_Status</scope><name>IN_NEW</name></member>
+      <member refid="enumgameplay_1_1_map___status_1a8dab22dc2adb1ab73687b918861a998f" prot="public" virt="non-virtual"><scope>gameplay::Map_Status</scope><name>IN_PREVIOUS</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

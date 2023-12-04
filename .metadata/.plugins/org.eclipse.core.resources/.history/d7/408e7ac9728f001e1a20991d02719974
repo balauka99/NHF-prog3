@@ -1,0 +1,24 @@
+package entity;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
+public class TestAttackHitbox {
+	AttackHitbox groundAttack;
+	AttackHitbox eyeballAttack;
+	AttackHitbox waveAttack;
+	@Before
+	public void setup() {
+		groundAttack = new AttackHitbox("ground_attack", "down");
+		eyeballAttack = new AttackHitbox("eyeball_attack", "down");
+		waveAttack = new AttackHitbox("wave_attack", "down");
+	}
+	@Test
+	public void testSetup() {
+		Assert.assertTrue();
+	}
+}

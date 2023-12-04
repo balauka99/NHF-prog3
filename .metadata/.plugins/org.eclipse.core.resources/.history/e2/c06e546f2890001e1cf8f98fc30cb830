@@ -1,0 +1,15 @@
+package error;
+
+@SuppressWarnings("serial")
+public class OwnError extends Exception {
+    private String errorMessage;
+
+    public OwnError(String message, String errorCode) {
+        super(message);
+        this.errorMessage = errorCode;
+    }
+
+    public String getErrorCode() {
+        return errorMessage;
+    }
+}

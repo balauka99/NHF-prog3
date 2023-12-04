@@ -1,0 +1,260 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classloaders_1_1_sheet_loader" kind="class" language="Java" prot="public">
+    <compoundname>loaders::SheetLoader</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">java::util::ArrayList&lt; BufferedImage &gt;</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">Serializable</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classloaders_1_1_sheet_loader_1a4a0bc726e3878691e8cac35634ece2d9" prot="private" static="no" mutable="no">
+        <type>BufferedImage</type>
+        <definition>BufferedImage loaders.SheetLoader.sheet</definition>
+        <argsstring></argsstring>
+        <name>sheet</name>
+        <qualifiedname>loaders.SheetLoader.sheet</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Maga az eredeti fájl </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="loaders/SheetLoader.java" line="22" column="23" bodyfile="loaders/SheetLoader.java" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classloaders_1_1_sheet_loader_1a536eb7e7eaf6dfd539bc0bb37e69ba84" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int loaders.SheetLoader.maxcol</definition>
+        <argsstring></argsstring>
+        <name>maxcol</name>
+        <qualifiedname>loaders.SheetLoader.maxcol</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="loaders/SheetLoader.java" line="23" column="13" bodyfile="loaders/SheetLoader.java" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classloaders_1_1_sheet_loader_1aa7cb1a76f8f26e52d9b702c70a63e685" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int loaders.SheetLoader.maxrow</definition>
+        <argsstring></argsstring>
+        <name>maxrow</name>
+        <qualifiedname>loaders.SheetLoader.maxrow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="loaders/SheetLoader.java" line="23" column="20" bodyfile="loaders/SheetLoader.java" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classloaders_1_1_sheet_loader_1aaf0151aeff86d0dcc08d2c1e13a56ab6" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int loaders.SheetLoader.frameWidth</definition>
+        <argsstring></argsstring>
+        <name>frameWidth</name>
+        <qualifiedname>loaders.SheetLoader.frameWidth</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="loaders/SheetLoader.java" line="23" column="27" bodyfile="loaders/SheetLoader.java" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classloaders_1_1_sheet_loader_1a964d620caa96240b449378e54907b946" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int loaders.SheetLoader.frameHeight</definition>
+        <argsstring></argsstring>
+        <name>frameHeight</name>
+        <qualifiedname>loaders.SheetLoader.frameHeight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="loaders/SheetLoader.java" line="23" column="38" bodyfile="loaders/SheetLoader.java" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classloaders_1_1_sheet_loader_1ad713b1af4fbe47c61f1b048242bb7c5e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>loaders.SheetLoader.SheetLoader</definition>
+        <argsstring>(String filename, int mcol, int mrow, int fHeight, int fWidth)</argsstring>
+        <name>SheetLoader</name>
+        <qualifiedname>loaders.SheetLoader.SheetLoader</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>mcol</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>mrow</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>fHeight</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>fWidth</declname>
+        </param>
+        <exceptions> throws <ref refid="classerror_1_1_own_error" kindref="compound">OwnError</ref></exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Betölti a megadott filename fájlt egy BufferedImage-be és a megadott adatok szerint szétvágdossa és hozzáadja azokat a listához <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>filename</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mcol</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Amennyi oszlop van a sheet-en </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mrow</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Amennyi sor van a sheet-en </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fHeight</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Egy a sheet-en lévő kép darabkája milyen magas </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fWidth</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Egy a sheet-en lévő kép darabkája milyen széles </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>OwnError</parametername>
+<parametername>ami</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>tartalmazza a hiba üzenetet </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para><parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>IOException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>IllegalArgumentException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Ha rossz filenevet kap, ezt fogja visszadobni, mivel a ImageIO.read()-nek a paramétere null lesz </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NullPointerException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Ha nem egy kép van a fájlban, de a fájl létezik, ezt kapjuk</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </inbodydescription>
+        <location file="loaders/SheetLoader.java" line="33" column="8" bodyfile="loaders/SheetLoader.java" bodystart="33" bodyend="53"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classloaders_1_1_sheet_loader_1ab7a082ead2c772dda14fc1cb4d547753" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void loaders.SheetLoader.makeArray</definition>
+        <argsstring>()</argsstring>
+        <name>makeArray</name>
+        <qualifiedname>loaders.SheetLoader.makeArray</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A konstruktorban már betöltött adatokból megcsinálja a tömböt ami tartalmazza a kivágott képeket BufferedImage formában </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="loaders/SheetLoader.java" line="57" column="14" bodyfile="loaders/SheetLoader.java" bodystart="57" bodyend="73"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Az osztály egy spirite sheet-et képes feldarabolni és tárolni azok elemeit FONTOS a hívonak kell tudni a spirite sheet adatait, maga az osztály nem képes felismerni hány oszlopa és sora van, meg hogy mekkorák azok </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>Serializable</label>
+      </node>
+      <node id="2">
+        <label>ArrayList&lt; BufferedImage &gt;</label>
+      </node>
+      <node id="1">
+        <label>loaders.SheetLoader</label>
+        <link refid="classloaders_1_1_sheet_loader"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>Serializable</label>
+      </node>
+      <node id="2">
+        <label>ArrayList&lt; BufferedImage &gt;</label>
+      </node>
+      <node id="1">
+        <label>loaders.SheetLoader</label>
+        <link refid="classloaders_1_1_sheet_loader"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="loaders/SheetLoader.java" line="18" column="7" bodyfile="loaders/SheetLoader.java" bodystart="18" bodyend="74"/>
+    <listofallmembers>
+      <member refid="classloaders_1_1_sheet_loader_1a964d620caa96240b449378e54907b946" prot="private" virt="non-virtual"><scope>loaders::SheetLoader</scope><name>frameHeight</name></member>
+      <member refid="classloaders_1_1_sheet_loader_1aaf0151aeff86d0dcc08d2c1e13a56ab6" prot="private" virt="non-virtual"><scope>loaders::SheetLoader</scope><name>frameWidth</name></member>
+      <member refid="classloaders_1_1_sheet_loader_1ab7a082ead2c772dda14fc1cb4d547753" prot="private" virt="non-virtual"><scope>loaders::SheetLoader</scope><name>makeArray</name></member>
+      <member refid="classloaders_1_1_sheet_loader_1a536eb7e7eaf6dfd539bc0bb37e69ba84" prot="private" virt="non-virtual"><scope>loaders::SheetLoader</scope><name>maxcol</name></member>
+      <member refid="classloaders_1_1_sheet_loader_1aa7cb1a76f8f26e52d9b702c70a63e685" prot="private" virt="non-virtual"><scope>loaders::SheetLoader</scope><name>maxrow</name></member>
+      <member refid="classloaders_1_1_sheet_loader_1a4a0bc726e3878691e8cac35634ece2d9" prot="private" virt="non-virtual"><scope>loaders::SheetLoader</scope><name>sheet</name></member>
+      <member refid="classloaders_1_1_sheet_loader_1ad713b1af4fbe47c61f1b048242bb7c5e" prot="public" virt="non-virtual"><scope>loaders::SheetLoader</scope><name>SheetLoader</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

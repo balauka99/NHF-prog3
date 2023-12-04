@@ -1,0 +1,26 @@
+package tile;
+
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
+public class TestTile {
+	Tile test;
+	@Before
+	public void setup() {
+		test = new Tile();
+		try {
+			test.setSkin(ImageIO.read(getClass().getResourceAsStream("/tiles/wall.png")), "wall");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	@Test
+	public void testSetskin() {
+		
+	}
+}

@@ -1,0 +1,375 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classgameplay_1_1_collision_checker" kind="class" language="Java" prot="public">
+    <compoundname>gameplay::CollisionChecker</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Serializable</basecompoundref>
+      <sectiondef kind="package-attrib">
+      <memberdef kind="variable" id="classgameplay_1_1_collision_checker_1ad28bed70143dc045a58e0e132616dfa7" prot="package" static="no" mutable="no">
+        <type><ref refid="classgameplay_1_1_game_panel" kindref="compound">GamePanel</ref></type>
+        <definition>GamePanel gameplay.CollisionChecker.gameP</definition>
+        <argsstring></argsstring>
+        <name>gameP</name>
+        <qualifiedname>gameplay.CollisionChecker.gameP</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Kell a GamePanel, hogy hozzátudjon férni az összes object és entity-hez </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/CollisionChecker.java" line="16" column="11" bodyfile="gameplay/CollisionChecker.java" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classgameplay_1_1_collision_checker_1aaa64a708844763d2d325e836a6206240" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>gameplay.CollisionChecker.CollisionChecker</definition>
+        <argsstring>(GamePanel gp)</argsstring>
+        <name>CollisionChecker</name>
+        <qualifiedname>gameplay.CollisionChecker.CollisionChecker</qualifiedname>
+        <param>
+          <type><ref refid="classgameplay_1_1_game_panel" kindref="compound">GamePanel</ref></type>
+          <declname>gp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/CollisionChecker.java" line="17" column="8" bodyfile="gameplay/CollisionChecker.java" bodystart="17" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_collision_checker_1a5c2aabcd96d576b3ee1a3a4ddac80b2d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void gameplay.CollisionChecker.checkTile</definition>
+        <argsstring>(Entity ent)</argsstring>
+        <name>checkTile</name>
+        <qualifiedname>gameplay.CollisionChecker.checkTile</qualifiedname>
+        <param>
+          <type><ref refid="classentity_1_1_entity" kindref="compound">Entity</ref></type>
+          <declname>ent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A paraméterként kapott Entity osztály tagját, megnézi rajta van-e a hitboxa valamelyik tileon, ameik collision adattagja igaz, azaz egy szilárd tile az, mint például egy fall It is lehetne intersectel megvizsgálni, de az túl &quot;drága&quot; így csak 2 tilet vizsgálunk, nem 20x15-öt <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/CollisionChecker.java" line="25" column="13" bodyfile="gameplay/CollisionChecker.java" bodystart="25" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_collision_checker_1aded93136571342e191e51cd7a0107c7b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int gameplay.CollisionChecker.checkObject</definition>
+        <argsstring>(Entity ent, boolean player)</argsstring>
+        <name>checkObject</name>
+        <qualifiedname>gameplay.CollisionChecker.checkObject</qualifiedname>
+        <param>
+          <type><ref refid="classentity_1_1_entity" kindref="compound">Entity</ref></type>
+          <declname>ent</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>player</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Mint a checkTile megvizsgálja egy Entity hozzáér-e valamelyik object-hez, ha a player paraméter igaz, akkor visszaad egy index-et így tudja majd a player használni azt az objectet <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Entity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>player</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boolean </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>egy index, ami a GamePanel objects tömbben lévő elemre utal </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/CollisionChecker.java" line="84" column="12" bodyfile="gameplay/CollisionChecker.java" bodystart="84" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_collision_checker_1a4e9544d7ab98c884ea9da92ec49d85aa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void gameplay.CollisionChecker.checkWeaponDestroysOBJ</definition>
+        <argsstring>(Weapon wep)</argsstring>
+        <name>checkWeaponDestroysOBJ</name>
+        <qualifiedname>gameplay.CollisionChecker.checkWeaponDestroysOBJ</qualifiedname>
+        <param>
+          <type><ref refid="classentity_1_1_weapon" kindref="compound">Weapon</ref></type>
+          <declname>wep</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Hasonló a checkTile-hoz, de itt egy Weapon osztály tagját vizsgáljuk meg hozzáér-e egy objecthez, ha igen elpusztítjuk azt <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>wep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Weapon, egy fegyver valamelyik Entity-nek </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/CollisionChecker.java" line="152" column="13" bodyfile="gameplay/CollisionChecker.java" bodystart="152" bodyend="171"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_collision_checker_1aa33cf93745e144783e0106faf46eae2a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void gameplay.CollisionChecker.checkWeaponDamageEnemys</definition>
+        <argsstring>(Entity player, Weapon wep)</argsstring>
+        <name>checkWeaponDamageEnemys</name>
+        <qualifiedname>gameplay.CollisionChecker.checkWeaponDamageEnemys</qualifiedname>
+        <param>
+          <type><ref refid="classentity_1_1_entity" kindref="compound">Entity</ref></type>
+          <declname>player</declname>
+        </param>
+        <param>
+          <type><ref refid="classentity_1_1_weapon" kindref="compound">Weapon</ref></type>
+          <declname>wep</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Nagyon hasonló a checkWeaponDestroysOBJ, csak itt nem objectet hanem entity-t vizsgálunk és nem elpusztítjuk csak sebbezzük <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>player</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>wep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/CollisionChecker.java" line="177" column="13" bodyfile="gameplay/CollisionChecker.java" bodystart="177" bodyend="194"/>
+      </memberdef>
+      <memberdef kind="function" id="classgameplay_1_1_collision_checker_1ab256f20118c56d1ace621bc2cd46a77d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void gameplay.CollisionChecker.checkEnemysSeePlayer</definition>
+        <argsstring>(Entity player)</argsstring>
+        <name>checkEnemysSeePlayer</name>
+        <qualifiedname>gameplay.CollisionChecker.checkEnemysSeePlayer</qualifiedname>
+        <param>
+          <type><ref refid="classentity_1_1_entity" kindref="compound">Entity</ref></type>
+          <declname>player</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Ez a metódus azt vizsgálja a paraméterkénk megkapott Player osztály tagját &quot;látja-e&quot; valamelyik Entity (enemy) a GamePanel enemys adattagját használjuk fel és vizsgáljuk meg, hogy a view_distance (olyan mint egy hitbox) &quot;látóterével&quot; összeér-e a játékos ha igen, akkor az az enemy közeledik a Player-hez <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>player</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Player, a felhasználó </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gameplay/CollisionChecker.java" line="201" column="13" bodyfile="gameplay/CollisionChecker.java" bodystart="201" bodyend="221"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Ez az osztály felel azért, hogy detektálja ha valamelyik object-hez egy entitás ér, vagy bármilyen 2 hitboxal rendelkező osztály hitboxai összeérnek </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>gameplay.CollisionChecker</label>
+        <link refid="classgameplay_1_1_collision_checker"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Serializable</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="18">
+        <label>ArrayList&lt; entity.Entity &gt;</label>
+      </node>
+      <node id="11">
+        <label>ArrayList&lt; object.Heart &gt;</label>
+      </node>
+      <node id="17">
+        <label>ArrayList&lt; object.OsObject &gt;</label>
+      </node>
+      <node id="9">
+        <label>Runnable</label>
+      </node>
+      <node id="1">
+        <label>gameplay.CollisionChecker</label>
+        <link refid="classgameplay_1_1_collision_checker"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>gameP</edgelabel>
+        </childnode>
+      </node>
+      <node id="19">
+        <label>gameplay.AssetSetter</label>
+        <link refid="classgameplay_1_1_asset_setter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>gameplay.CollisionChecker</label>
+        <link refid="classgameplay_1_1_collision_checker"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>gameP</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>gameplay.GamePanel</label>
+        <link refid="classgameplay_1_1_game_panel"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>map_state</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>player_healt</edgelabel>
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>prevMaps</edgelabel>
+        </childnode>
+        <childnode refid="14" relation="usage">
+          <edgelabel>tileMg</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>cChecker</edgelabel>
+        </childnode>
+        <childnode refid="17" relation="usage">
+          <edgelabel>objects</edgelabel>
+        </childnode>
+        <childnode refid="18" relation="usage">
+          <edgelabel>enemys</edgelabel>
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>assSetter</edgelabel>
+        </childnode>
+        <childnode refid="20" relation="usage">
+          <edgelabel>ui</edgelabel>
+        </childnode>
+      </node>
+      <node id="10">
+        <label>gameplay.Map_Status</label>
+        <link refid="enumgameplay_1_1_map___status"/>
+      </node>
+      <node id="12">
+        <label>gameplay.PreviousMaps</label>
+        <link refid="classgameplay_1_1_previous_maps"/>
+        <childnode refid="13" relation="public-inheritance">
+        </childnode>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>gameplay.UserInterface</label>
+        <link refid="classgameplay_1_1_user_interface"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>Font</label>
+      </node>
+      <node id="2">
+        <label>Serializable</label>
+      </node>
+      <node id="13">
+        <label>ArrayList&lt; Map &gt;</label>
+      </node>
+      <node id="7">
+        <label>JFrame</label>
+      </node>
+      <node id="5">
+        <label>JPanel</label>
+      </node>
+      <node id="6">
+        <label>menu.MainMenu</label>
+        <link refid="classmenu_1_1_main_menu"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>ospanel.OsPanel</label>
+        <link refid="classospanel_1_1_os_panel"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>menuWin</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>defFont</edgelabel>
+        </childnode>
+      </node>
+      <node id="15">
+        <label>tile.Tile</label>
+        <link refid="classtile_1_1_tile"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>tile.TileManager</label>
+        <link refid="classtile_1_1_tile_manager"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>tiles</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="gameplay/CollisionChecker.java" line="12" column="7" bodyfile="gameplay/CollisionChecker.java" bodystart="12" bodyend="222"/>
+    <listofallmembers>
+      <member refid="classgameplay_1_1_collision_checker_1ab256f20118c56d1ace621bc2cd46a77d" prot="public" virt="non-virtual"><scope>gameplay::CollisionChecker</scope><name>checkEnemysSeePlayer</name></member>
+      <member refid="classgameplay_1_1_collision_checker_1aded93136571342e191e51cd7a0107c7b" prot="public" virt="non-virtual"><scope>gameplay::CollisionChecker</scope><name>checkObject</name></member>
+      <member refid="classgameplay_1_1_collision_checker_1a5c2aabcd96d576b3ee1a3a4ddac80b2d" prot="public" virt="non-virtual"><scope>gameplay::CollisionChecker</scope><name>checkTile</name></member>
+      <member refid="classgameplay_1_1_collision_checker_1aa33cf93745e144783e0106faf46eae2a" prot="public" virt="non-virtual"><scope>gameplay::CollisionChecker</scope><name>checkWeaponDamageEnemys</name></member>
+      <member refid="classgameplay_1_1_collision_checker_1a4e9544d7ab98c884ea9da92ec49d85aa" prot="public" virt="non-virtual"><scope>gameplay::CollisionChecker</scope><name>checkWeaponDestroysOBJ</name></member>
+      <member refid="classgameplay_1_1_collision_checker_1aaa64a708844763d2d325e836a6206240" prot="public" virt="non-virtual"><scope>gameplay::CollisionChecker</scope><name>CollisionChecker</name></member>
+      <member refid="classgameplay_1_1_collision_checker_1ad28bed70143dc045a58e0e132616dfa7" prot="package" virt="non-virtual"><scope>gameplay::CollisionChecker</scope><name>gameP</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

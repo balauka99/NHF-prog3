@@ -1,0 +1,61 @@
+package entity;
+
+import java.awt.Rectangle;
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
+import gameplay.KeyHandler;
+
+public class TestPlayer {
+	Player viking;
+	Player robot;
+	KeyHandler testKH = new KeyHandler();
+	/**
+	 * Beállítja a két elérhető karaktert
+	 */
+	@Before
+	public void setup() {
+		viking = new Player(null, testKH, "viking");
+		robot = new Player(null, testKH, "robot");
+	}
+	/**
+	 * Teszteljük létrejön a két karakter helyesen
+	 */
+	@Test
+	public void testKonstruktor() {
+		/**
+		 * Default értékek TEST
+		 */
+		Assert.assertEquals("Test Player hitbox is correct", new Rectangle(8, 16, 32, 32), viking.hitbox);
+		Assert.assertEquals("Test Default x position", 432, viking.getX());
+		Assert.assertEquals("Test Default y position", 576, viking.getY());
+		Assert.assertEquals("Test Player speed is correct", 4, viking.getSpeed());
+		Assert.assertNotNull("Test Player has skin", viking.sheet);
+		/**
+		 * Viking TEST
+		 */
+		Assert.assertTrue("Test viking Character Type", viking.getCharType().equals("viking"));
+		Assert.assertEquals("Test viking healt is correct", 1001, viking.getHealt());
+		Assert.assertEquals("Test viking healt is full", viking.getMaxHealt(), viking.getHealt());
+		Assert.assertTrue("Test viking weapon Type is correct", viking.getWeaponType().equals("ground_attack"));
+		/**
+		 * Robot TEST
+		 */
+		Assert.assertTrue("Test robot Character Type", robot.getCharType().equals("robot"));
+		Assert.assertEquals("Test robot healt is correct", 501, robot.getHealt());
+		Assert.assertEquals("Test robot healt is full", robot.getMaxHealt(), robot.getHealt());
+		Assert.assertTrue("Test robot weapon Type is correct", robot.getWeaponType().equals("wave_attack"));
+	}
+	/**
+	 * Teszteljük tényleg gyogyul-e a Player
+	 */
+	@Test
+	public void testHeal() {
+		viking.damaged(100);
+		int lastHp = viking.getHealt();
+		viking.heal(100);
+		Assert.assertNotEquals(lastHp, viking.getHealt());
+	}
+}

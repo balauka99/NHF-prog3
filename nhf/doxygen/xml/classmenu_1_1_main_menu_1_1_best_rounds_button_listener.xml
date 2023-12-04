@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classmenu_1_1_main_menu_1_1_best_rounds_button_listener" kind="class" language="Java" prot="private">
+    <compoundname>menu::MainMenu::BestRoundsButtonListener</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ActionListener</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmenu_1_1_main_menu_1_1_best_rounds_button_listener_1ab6cd2a0defd8c7c50e4ad6cab92a6e4e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void menu.MainMenu.BestRoundsButtonListener.actionPerformed</definition>
+        <argsstring>(ActionEvent bestrounds)</argsstring>
+        <name>actionPerformed</name>
+        <qualifiedname>menu.MainMenu.BestRoundsButtonListener.actionPerformed</qualifiedname>
+        <param>
+          <type>ActionEvent</type>
+          <declname>bestrounds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="menu/MainMenu.java" line="106" column="13" bodyfile="menu/MainMenu.java" bodystart="106" bodyend="108"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ActionListener</label>
+      </node>
+      <node id="1">
+        <label>menu.MainMenu.BestRoundsButtonListener</label>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ActionListener</label>
+      </node>
+      <node id="1">
+        <label>menu.MainMenu.BestRoundsButtonListener</label>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="menu/MainMenu.java" line="105" column="8" bodyfile="menu/MainMenu.java" bodystart="105" bodyend="110"/>
+    <listofallmembers>
+      <member refid="classmenu_1_1_main_menu_1_1_best_rounds_button_listener_1ab6cd2a0defd8c7c50e4ad6cab92a6e4e" prot="public" virt="non-virtual"><scope>menu::MainMenu::BestRoundsButtonListener</scope><name>actionPerformed</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

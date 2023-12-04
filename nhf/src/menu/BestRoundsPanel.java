@@ -12,15 +12,18 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JTextField;
 
 import gameplay.UtilityTools;
 import loaders.BestRounds;
-import loaders.Score;
 import ospanel.OsPanel;
 
+@SuppressWarnings("serial")
+/**
+ * Az osztály egy OsPanel leszármazott, és egy előre beállított legjobb köröket vagyis játékosneveket és pontokat jeleníti meg, de azokból is csak a legjobb hármat
+ * amit a BestRounds osztály elmentett
+ */
 public class BestRoundsPanel extends OsPanel{
-	private BestRounds bests = BestRounds.loadBests("C:\\OwnThings\\BME_mernokinfo\\3félév\\Prog3\\NagyHázi\\nhf\\source\\save_file\\bestRounds.txt");
+	private BestRounds bests = BestRounds.loadBests("source/save_file/bestRounds.txt");
 	private JLabel field1 = new JLabel();
 	private JLabel field2 = new JLabel();
 	private JLabel field3 = new JLabel();

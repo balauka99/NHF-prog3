@@ -1,0 +1,78 @@
+\doxysection{Weapon.\+java}
+\label{_weapon_8java_source}\index{entity/Weapon.java@{entity/Weapon.java}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{package\ }entity;}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{import}\ java.awt.Graphics2D;}
+\DoxyCodeLine{00004\ \textcolor{keyword}{import}\ java.io.Serializable;}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ @SuppressWarnings(\textcolor{stringliteral}{"{}serial"{}})}
+\DoxyCodeLine{00010\ public\ class\ Weapon\ implements\ Runnable,\ Serializable\{}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{private}\ AttackHitbox\ attack;}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{boolean}\ attacking\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{transient}\ Thread\ attackTime;}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{int}\ damage;}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{private}\ String\ move\_dir;}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{public}\ Weapon(String\ weapon\_type,\ String\ move\_dir)\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ this.move\_dir\ =\ move\_dir;}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ attack\ =\ \textcolor{keyword}{new}\ AttackHitbox(weapon\_type,\ this.move\_dir);}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(weapon\_type)\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{stringliteral}{"{}ground\_attack"{}}:}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ damage\ =\ 10;}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{stringliteral}{"{}eyeball\_attack"{}}:}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ damage\ =\ 2;}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{stringliteral}{"{}wave\_attack"{}}:}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ damage\ =\ 25;}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00044\ \ \ \ \ \}}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ attack(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ String\ move\_dir)\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ attack.setX(x);}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ attack.setY(y);}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ this.move\_dir\ =\ move\_dir;}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ attackTime\ =\ \textcolor{keyword}{new}\ Thread(\textcolor{keyword}{this});}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ attackTime.start();}
+\DoxyCodeLine{00058\ \ \ \ \ \}}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ draw(Graphics2D\ grap2)\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ grap2.drawImage(attack.getSkin(),\ attack.getX()+attack.hitboxDefaultX,\ attack.getY()+attack.hitboxDefaultY,\ \textcolor{keyword}{null});}
+\DoxyCodeLine{00065\ \ \ \ \ \}}
+\DoxyCodeLine{00066\ \ \ \ \ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{boolean}\ isAttacking()\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ attacking;}
+\DoxyCodeLine{00069\ \ \ \ \ \}}
+\DoxyCodeLine{00073\ \ \ \ \ @Override}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ run()\ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ attacking\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(attack.getWeaponType())\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{stringliteral}{"{}ground\_attack"{}}:}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Thread.sleep(500);\ \textcolor{comment}{//Eddig\ tart\ egy\ támadás}}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ attacking\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{stringliteral}{"{}wave\_attack"{}}:}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ attack.setupAttackType(move\_dir);}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Thread.sleep(500);}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ attacking\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{stringliteral}{"{}eyeball\_attack"{}}:}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Thread.sleep(2000);}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ attacking\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (InterruptedException\ e)\ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO\ Auto-\/generated\ catch\ block}}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ e.printStackTrace();}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00096\ \ \ \ \ \}}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keyword}{public}\ AttackHitbox\ getAttackHitbox()\ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ attack;}
+\DoxyCodeLine{00099\ \ \ \ \ \}}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ getDamage()\ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ damage;}
+\DoxyCodeLine{00102\ \ \ \ \ \}}
+\DoxyCodeLine{00103\ \}}
+
+\end{DoxyCode}

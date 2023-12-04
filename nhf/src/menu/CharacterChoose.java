@@ -2,8 +2,6 @@ package menu;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -15,6 +13,9 @@ import gameplay.GamePanel;
 import ospanel.OsPanel;
 
 @SuppressWarnings("serial")
+/**
+ * Az osztály egy OsPanel leszármazott ami egy előre beállatott karakter választó felületet jelenít meg
+ */
 public class CharacterChoose extends OsPanel{
 	private String character;
 	private String player_name;
@@ -92,10 +93,4 @@ public class CharacterChoose extends OsPanel{
 		win.pack();
 		win.setLocationRelativeTo(null);
 	}
-	
-	protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        Graphics2D grap2 = (Graphics2D) g;
-        //grap2.drawImage(backGround, 0, 0, null);
-    }
 }
