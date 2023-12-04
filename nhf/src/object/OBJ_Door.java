@@ -1,5 +1,8 @@
 package object;
 
+/**
+ * Az ajtó ami nyitható és csukható
+ */
 @SuppressWarnings("serial")
 public class OBJ_Door extends OsObject{
 	public OBJ_Door() {

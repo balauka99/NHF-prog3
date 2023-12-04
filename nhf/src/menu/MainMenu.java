@@ -13,12 +13,14 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import gameplay.*;
+import ospanel.BestRoundsPanel;
+import ospanel.CharacterChoose;
 import ospanel.MenuPanel;
 
-@SuppressWarnings("serial")
 /**
  * Az soztály jeleníti meg a játék menüjét, ami egy CardLayout rendszeren alapúl, így gyorsan lehet váltogatni a menüpontok között
  */
+@SuppressWarnings("serial")
 public class MainMenu extends JFrame{
 	private CardLayout cards = new CardLayout();
 	private JPanel cardsPanel = new JPanel(cards);
@@ -104,6 +106,7 @@ public class MainMenu extends JFrame{
 	}
 	private class BestRoundsButtonListener implements ActionListener{
 		public void actionPerformed(ActionEvent bestrounds) {
+			best.refressScores();
 			cards.show(cardsPanel, "BestRounds");
 		}
 		

@@ -1,5 +1,8 @@
 package object;
 
+/**
+ * A láda ami pontot ad, ha felvesszük
+ */
 @SuppressWarnings("serial")
 public class OBJ_Chest extends OsObject{
 	public OBJ_Chest() {

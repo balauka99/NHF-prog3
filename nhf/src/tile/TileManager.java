@@ -12,10 +12,10 @@ import javax.imageio.ImageIO;
 import gameplay.GamePanel;
 import gameplay.UtilityTools;
 
-@SuppressWarnings("serial")
 /**
  * Ez az osztály feladata a Tile-ok rendes elhelyezése, az OsPanelben definiált 20x15-ős Panel-en kell elhelyezni mindet
  */
+@SuppressWarnings("serial")
 public class TileManager implements Serializable{
 	/**
 	 * Kell a GamePanel amire felhelyezzük a Tileokat

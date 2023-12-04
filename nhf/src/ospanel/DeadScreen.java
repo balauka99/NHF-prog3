@@ -14,10 +14,10 @@ import javax.swing.JLabel;
 
 import gameplay.UtilityTools;
 
-@SuppressWarnings("serial")
 /**
  * Ez a Panel megjelenít egy halál jelenetet, megkapja mi a felhasználó/játékos neve és pontja amiket kiír a képre
  */
+@SuppressWarnings("serial")
 public class DeadScreen extends OsPanel{
 	private BufferedImage backGround;
 	private JLabel info = new JLabel();

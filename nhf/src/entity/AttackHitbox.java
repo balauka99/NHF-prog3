@@ -9,11 +9,11 @@ import javax.imageio.ImageIO;
 
 import gameplay.UtilityTools;
 
-@SuppressWarnings("serial")
 /**
  * Egy fegyvernek a hitbox-át tárolja és a kinézetét, mivel akkor a kinézete mint a hitboxa
  * Mivel a BufferImagek-et nem lehet Serializálni azt transient-nek kell állítani
  */
+@SuppressWarnings("serial")
 public class AttackHitbox extends Entity implements Serializable{
 	private String weapon_type;
 	private transient UtilityTools uT = new UtilityTools();

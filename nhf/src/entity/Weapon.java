@@ -3,10 +3,10 @@ package entity;
 import java.awt.Graphics2D;
 import java.io.Serializable;
 
-@SuppressWarnings("serial")
 /**
  * Az osztály egy Entity-nek a fegyverének az adatait tárolja
  */
+@SuppressWarnings("serial")
 public class Weapon implements Runnable, Serializable{
 	/**
 	 * A fegyvernek a hitboxa és kinézete

@@ -3,7 +3,6 @@ package gameplay;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -20,11 +19,11 @@ import ospanel.DeadScreen;
 import ospanel.OsPanel;
 import tile.TileManager;
 
-@SuppressWarnings("serial")
 /**
  * Ez az osztály tartalmazza magát a játék loop-ot (ezt a megoldást neten találtam, és megtetszett logikusnak tűnt)
  * itt van eltárolva minden adat, ami a játék játszása közben szükséges lehet, mivel itt is van minden megjelenítve, ezért egyszerűbb ide tenni mindent is
  */
+@SuppressWarnings("serial")
 public class GamePanel extends OsPanel implements Runnable{
 	/**
 	 * A map-nak páylának a státusza, vagy IN_NEW(egy új pálya) vagy IN_PREVIOUS(egy már végzett pálya), ha újban vagyunk csak akkor mehetünk egy másik újba
@@ -54,7 +53,7 @@ public class GamePanel extends OsPanel implements Runnable{
 	/**
 	 * Az összes játékos és pontjai
 	 */
-	private transient BestRounds playersScoures;
+	private transient BestRounds playersScoures = new BestRounds();
 	/**
 	 * Azok a pályák ahol már járt a játékos, így könnyen bejárható mind, és könnyen el tudjuk menteni
 	 */
@@ -95,7 +94,9 @@ public class GamePanel extends OsPanel implements Runnable{
 		super();
 		if(!playerName.equals("load_game")) {
 			this.playerName = playerName;
-			playersScoures = BestRounds.loadBests("source/save_file/bestRounds.txt");
+			if(BestRounds.loadBests("source/save_file/bestRounds.txt") != null) {
+				playersScoures = BestRounds.loadBests("source/save_file/bestRounds.txt");
+			}
 			playersScoures.add(new Score(this.playerName, 0));
 		}
 		if(!character.equals("load_game"))
@@ -239,8 +240,12 @@ public class GamePanel extends OsPanel implements Runnable{
 	public void run() {
 		double drawInterval = 1000000000/fps;	// Ez egy másodperc nano sec-ben nézve és elosztva az fps-el, ennyi időnként fissítsuk a képernyöt
 		double nextDrawTime = System.nanoTime() + drawInterval;	// nano sec-ben számolva mikor kell kövinenk frissíteni a képet
-		long timer = 0;
-		int drawCount = 0;
+		
+		/**
+		 * Az FPS számlálóhoz kell
+		 * long timer = 0;
+		 * int drawCount = 0;
+		 */
 		
 		// A game loop addig megy ameddig tart a main szállunk
 		while(map_state != Map_Status.ERROR && gamer.getHealt() > 0) {
@@ -248,7 +253,10 @@ public class GamePanel extends OsPanel implements Runnable{
 			updatePanel();
 			
 			repaint();
-			drawCount++;
+			/**
+			 * Az FPS számlálóhoz kell
+			 * drawCount++;
+			 */
 			
 			try {
 				double remainingTime = nextDrawTime - System.nanoTime();	// maga a parancsok végrehajtása közben is eltelt idő, ha maradt azzal dolgozunk
@@ -259,12 +267,14 @@ public class GamePanel extends OsPanel implements Runnable{
 				Thread.sleep((long)remainingTime);
 				nextDrawTime += drawInterval;
 				
-				// Minden másodpercben kiírjuk, hányszor volt meghívva a repaint
-	            if (System.nanoTime() - timer >= 1000000000) {
+				/**
+				 *  Minden másodpercben kiírjuk, hányszor volt meghívva a repaint
+				 */
+	            /*if (System.nanoTime() - timer >= 1000000000) {
 	            	System.out.println("FPS: " + drawCount);
 	                drawCount = 0;
 	                timer = System.nanoTime();
-	            }
+	            }*/
 	            
 			} catch (InterruptedException e) {
 				this.errorIsHappened("In GamePanel run: Thread.sleep throw InterruptedException");
@@ -273,7 +283,6 @@ public class GamePanel extends OsPanel implements Runnable{
 	}
 	/**
 	 * Frissíti a játék állását, amit addig csinál ameddig a játékos meg nem hal, ha meghalt átvált a dead screenre
-	 * @throws IOException
 	 */
 	public void updatePanel() {
 		if(!this.hasFocus()) this.requestFocusInWindow();
@@ -283,6 +292,10 @@ public class GamePanel extends OsPanel implements Runnable{
 			deadS.setMenuWin(menuWin);
 			menuWin.addNewCard(deadS, "DeadScreen");
 			menuWin.changeCard("DeadScreen");
+		}
+		if(keyH.escapeButtonPressed()) {
+			this.map_state = Map_Status.ERROR;	// Ezzel leáll a száll
+			menuWin.changeCard("Menu");	// Aztán csak visszaállítjuk a kártyát a menüre
 		}
 	}
 	/**

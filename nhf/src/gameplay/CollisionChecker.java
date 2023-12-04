@@ -5,10 +5,10 @@ import java.io.Serializable;
 import entity.Entity;
 import entity.Weapon;
 
-@SuppressWarnings("serial")
 /**
  * Ez az osztály felel azért, hogy detektálja ha valamelyik object-hez egy entitás ér, vagy bármilyen 2 hitboxal rendelkező osztály hitboxai összeérnek
  */
+@SuppressWarnings("serial")
 public class CollisionChecker implements Serializable{
 	/**
 	 * Kell a GamePanel, hogy hozzátudjon férni az összes object és entity-hez

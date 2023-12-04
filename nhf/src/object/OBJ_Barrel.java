@@ -1,5 +1,8 @@
 package object;
 
+/**
+ * Egy hordó, ami fel tud robbani, ennek egy külön szálla van
+ */
 @SuppressWarnings("serial")
 public class OBJ_Barrel extends OsObject implements Runnable{
 	private transient Thread boom;
@@ -35,7 +38,6 @@ public class OBJ_Barrel extends OsObject implements Runnable{
 				this.setupSkin("barrelBoom/barrel_boomed");
 			
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

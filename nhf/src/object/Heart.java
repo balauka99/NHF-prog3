@@ -3,6 +3,9 @@ package object;
 import error.OwnError;
 import loaders.SheetLoader;
 
+/**
+ * Egy kis szivecske, ami tud sebbződni, azaz képes egyres kevésbé telített lenni
+ */
 @SuppressWarnings("serial")
 public class Heart extends OsObject{
 	private int index = 0;

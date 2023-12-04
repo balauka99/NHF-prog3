@@ -14,10 +14,10 @@ import java.util.Random;
 import entity.EyeBall;
 import error.OwnError;
 
-@SuppressWarnings("serial")
 /**
  * Ez az osztály felelős az objectek és entity-k elhelyezdekésének beállításáért
  */
+@SuppressWarnings("serial")
 public class AssetSetter implements Serializable{
 	/**
 	 * Kell a GamePanel, amin elhelyezi az object-eket és entity-ket

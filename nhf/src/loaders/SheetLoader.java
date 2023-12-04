@@ -10,11 +10,11 @@ import javax.imageio.ImageIO;
 import error.OwnError;
 import gameplay.UtilityTools;
 
-@SuppressWarnings("serial")
 /**
  * Az osztály egy spirite sheet-et képes feldarabolni és tárolni azok elemeit
  * FONTOS a hívonak kell tudni a spirite sheet adatait, maga az osztály nem képes felismerni hány oszlopa és sora van, meg hogy mekkorák azok
  */
+@SuppressWarnings("serial")
 public class SheetLoader extends ArrayList<BufferedImage> implements Serializable{
 	/**
 	 * Maga az eredeti fájl
