@@ -8,10 +8,10 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-@SuppressWarnings("serial")
 /**
  * Az osztály képes tárolni egy felhasználónak/játékosnak a nevét és pontját ami összegyűjtött
  */
+@SuppressWarnings("serial")
 public class BestRounds extends ArrayList<Score> implements Serializable{
 	public void reset() {
 		this.removeRange(0, this.size());
@@ -39,6 +39,6 @@ public class BestRounds extends ArrayList<Score> implements Serializable{
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-        return new BestRounds();
+        return null;
 	}
 }

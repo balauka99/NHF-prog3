@@ -8,6 +8,9 @@ import javax.swing.JPanel;
 
 import menu.MainMenu;
 
+/**
+ * Az ős panel ami tartalmazza az alap információkat, mint például a tileok nagysága, és eltárolja azt az ablakot ahol meg van jelenítve
+ */
 @SuppressWarnings("serial")
 public class OsPanel extends JPanel{
 	/**

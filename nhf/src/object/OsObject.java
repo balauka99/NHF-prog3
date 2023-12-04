@@ -13,10 +13,10 @@ import gameplay.GamePanel;
 import gameplay.UtilityTools;
 import loaders.SheetLoader;
 
-@SuppressWarnings("serial")
 /**
  * Az osztály az Ős Object, itt megvan minden amire szüksége lehet egy dolognak ami a pályán elhelyezkedik
  */
+@SuppressWarnings("serial")
 public class OsObject implements Serializable{
 	protected int defaultTileSize = 48;
 	protected transient BufferedImage skin;

@@ -3,11 +3,11 @@ package tile;
 import java.awt.image.BufferedImage;
 import java.io.Serializable;
 
-@SuppressWarnings("serial")
 /**
  * Ebben az osztályban van elrátolva egyx tile-nak mimden adata, az OsPanel-ben van definiálva mekkora egy tile
  * 48x48 a rendes mére a scale után, de minden kép 16x16-os méretben lett megrajzolva
  */
+@SuppressWarnings("serial")
 public class Tile implements Serializable{
 	/**
 	 * Tile neve, fontos hogy tudjuk amikor betöltjük

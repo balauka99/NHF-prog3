@@ -15,6 +15,7 @@
 	</section>
 	<section name="OptionalMessageDialog.hide.">
 		<item key="org.eclipse.jdt.ui.typecomment.deprecated" value="true"/>
+		<item key="RunnableJar.export.ipwarning" value="false"/>
 	</section>
 	<section name="NewClassWizardPage">
 		<item key="create_constructor" value="false"/>
@@ -58,16 +59,16 @@
 	<section name="JavadocWizardDialog">
 		<item key="DIALOG_X_ORIGIN" value="460"/>
 		<item key="DIALOG_Y_ORIGIN" value="11"/>
-		<item key="DIALOG_WIDTH" value="1022"/>
-		<item key="DIALOG_HEIGHT" value="833"/>
-		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|5|0|Segoe UI"/>
+		<item key="DIALOG_WIDTH" value="616"/>
+		<item key="DIALOG_HEIGHT" value="567"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|5|0|Segoe UI"/>
 	</section>
 	<section name="javadoc">
 		<item key="javadoc_command_history" value="C:\Program Files\Java\jdk-20\bin\javadoc.exe"/>
 		<item key="fromStandard" value="true"/>
 		<item key="docletname" value=""/>
 		<item key="docletpath" value=""/>
-		<item key="access" value="public"/>
+		<item key="access" value="private"/>
 		<item key="use" value="true"/>
 		<item key="author" value="true"/>
 		<item key="version" value="true"/>
@@ -80,11 +81,11 @@
 		<item key="openinbrowser" value="false"/>
 		<item key="source" value="20"/>
 		<item key="antpath" value="C:\OwnThings\BME_mernokinfo\3félév\Prog3\NagyHázi\nhf\javadoc.xml"/>
-		<item key="destdir" value="C:\OwnThings\BME_mernokinfo\3félév\Prog3\NagyHázi\nhf\javadoc"/>
+		<item key="destdir" value="C:\OwnThings\BME_mernokinfo\3félév\Prog3\NHF\nhf\javadoc"/>
 		<section name="projects">
 			<section name="nhf">
 				<item key="href" value=""/>
-				<item key="destdir" value="C:\OwnThings\BME_mernokinfo\3félév\Prog3\NagyHázi\nhf\javadoc"/>
+				<item key="destdir" value="C:\OwnThings\BME_mernokinfo\3félév\Prog3\NHF\nhf\javadoc"/>
 				<item key="antpath" value="C:\OwnThings\BME_mernokinfo\3félév\Prog3\NagyHázi\nhf\javadoc.xml"/>
 			</section>
 		</section>
@@ -110,5 +111,20 @@
 	</section>
 	<section name="ClasspathContainerSelectionPage">
 		<item key="index" value="1"/>
+	</section>
+	<section name="FatJarPackageWizard">
+		<item key="FatJarPackageWizardPage.ANTSCRIPT_SAVE" value="false"/>
+		<item key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION" value="C:\OwnThings\BME_mernokinfo\3félév\Prog3\NHF"/>
+		<item key="FatJarPackageWizardPage.LIBRARY_HANDLING" value="1"/>
+		<item key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME" value="Main - nhf"/>
+		<item key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION" value="nhf\jar_file\DungeonRun.jar"/>
+		<list key="FatJarPackageWizardPage.DESTINATION_NAMES_ID">
+			<item value="nhf\jar_file\DungeonRun.jar"/>
+			<item value="nhf/jar_file/DungeonRun.jar"/>
+		</list>
+		<list key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION_HISTORY">
+			<item value="C:\OwnThings\BME_mernokinfo\3félév\Prog3\NHF.xml"/>
+			<item value=".xml"/>
+		</list>
 	</section>
 </section>

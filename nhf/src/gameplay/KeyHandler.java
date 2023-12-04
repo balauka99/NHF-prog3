@@ -4,13 +4,13 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.Serializable;
 
-@SuppressWarnings("serial")
 /**
  * Ez az osztály felelős a gombok nyomásának a detektálásáért
  */
+@SuppressWarnings("serial")
 public class KeyHandler implements KeyListener, Serializable{
 
-	public boolean wP, sP, aP, dP, spaceP;	// wasd valamelyik gombja meg lett nyomva
+	public boolean wP, sP, aP, dP, spaceP, escP;	// wasd valamelyik gombja meg lett nyomva
 	
 	@Override
 	public void keyTyped(KeyEvent e) {
@@ -35,6 +35,9 @@ public class KeyHandler implements KeyListener, Serializable{
 		if(kcode == KeyEvent.VK_SPACE) {
 			spaceP = true;
 		}
+		if(kcode == KeyEvent.VK_ESCAPE) {
+			escP = true;
+		}
 	}
 
 	@Override
@@ -56,12 +59,18 @@ public class KeyHandler implements KeyListener, Serializable{
 		if(kcode == KeyEvent.VK_SPACE) {
 			spaceP = false;
 		}
+		if(kcode == KeyEvent.VK_ESCAPE) {
+			escP = false;
+		}
 	}
 	public boolean moveButtonPressed() {
 		return wP || aP || sP || dP;
 	}
 	public boolean attackButtonPressed() {
 		return spaceP;
+	}
+	public boolean escapeButtonPressed() {
+		return escP;
 	}
 	public int pressedButtonNum() {
 		int count = 0;

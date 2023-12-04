@@ -4,10 +4,10 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.Serializable;
 
-@SuppressWarnings("serial")
 /**
  * Fontos kis metodusokat lehet idetenni, amik kelhetnek mondjuk a játék optimalizálására
  */
+@SuppressWarnings("serial")
 public class UtilityTools implements Serializable{
 	/**
 	 * Arra kell nekünk, hogy ne akkor scaleljen a program minden egyes alkalommal képeket amikor kirajzolja azokat

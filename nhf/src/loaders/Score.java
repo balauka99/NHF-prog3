@@ -2,10 +2,10 @@ package loaders;
 
 import java.io.Serializable;
 
-@SuppressWarnings("serial")
 /**
- * Egy felhasználó/játékos nevét és összegyüjtött pontját tárolja
- */
+* Egy felhasználó/játékos nevét és összegyüjtött pontját tárolja
+*/
+@SuppressWarnings("serial")
 public class Score implements Serializable{
 	private String name;
 	private int point;

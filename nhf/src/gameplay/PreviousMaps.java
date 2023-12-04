@@ -14,11 +14,11 @@ import object.Heart;
 import object.OsObject;
 import tile.TileManager;
 
-@SuppressWarnings("serial")
 /**
  * Ebben az osztályban van eltárolva egy pályának az adatai, tehát a GamePanel-nek egy állása
  * minden ami szükséges egy játék lebonyolitására el van itt tárolva, Serializálásra készen
  */
+@SuppressWarnings("serial")
 class Map implements Serializable{
 	private TileManager tileMg;
 	private ArrayList<OsObject> objects;
@@ -98,11 +98,11 @@ class Map implements Serializable{
 	}
 }
 
-@SuppressWarnings("serial")
 /**
  * Az osztály alakalmas eltárolni bármennyi pályát ami, már előzöleg volt a játéksorán
  * képes el is menteni azokat egy kapott fájlba, és vissza is tölteni
  */
+@SuppressWarnings("serial")
 public class PreviousMaps extends ArrayList<Map> implements Serializable{
 	private Player savedPlayer;
 	private ArrayList<Heart> player_healt;

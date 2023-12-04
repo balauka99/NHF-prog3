@@ -2,6 +2,9 @@ package object;
 
 import java.util.Random;
 
+/**
+ * Egy doboz, amit szét lehet ütni, és lehet benne Heart osztályú kis szivecske
+ */
 @SuppressWarnings("serial")
 public class OBJ_Box extends OsObject{
 	private Random rndNum = new Random();
